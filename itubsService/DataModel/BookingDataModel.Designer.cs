@@ -8,32 +8,33 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryTypeInventory", "InventoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.InventoryType), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.Inventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryRoomInventory", "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.Inventory), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.RoomInventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomRoomInventory", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.Room), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.RoomInventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.Equipment), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.EquipmentChoice))]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringCateringChoice", "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.Catering), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.CateringChoice))]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingCateringChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.Booking), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.CateringChoice), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentTypeEquipment", "EquipmentType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.EquipmentType), "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.Equipment), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringTypeCatering", "CateringType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.CateringType), "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.Catering), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentChoiceBooking", "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.EquipmentChoice), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.Booking), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomBooking", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.Room), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.Booking), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonRole", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.Person), "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.Role))]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonBooking", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.Person), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.Booking), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryTypeInventory", "InventoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.InventoryType), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Inventory), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryRoomInventory", "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Inventory), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.RoomInventory), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomRoomInventory", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Room), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.RoomInventory), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Equipment), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.EquipmentChoice))]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringCateringChoice", "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Catering), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.CateringChoice))]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingCateringChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Booking), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.CateringChoice), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentTypeEquipment", "EquipmentType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.EquipmentType), "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Equipment), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringTypeCatering", "CateringType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.CateringType), "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Catering), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomBooking", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Room), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Booking), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonRole", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Person), "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Role))]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonBooking", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Person), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Booking), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingEquipmentChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Booking), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.EquipmentChoice), true)]
 
 #endregion
 
-namespace itubsService
+namespace itubsService.DataModel
 {
     #region Contexts
     
@@ -290,6 +291,7 @@ namespace itubsService
         private ObjectSet<CateringType> _CateringTypes;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -397,11 +399,11 @@ namespace itubsService
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -438,6 +440,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -612,6 +615,7 @@ namespace itubsService
         partial void OnPersonIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -633,44 +637,6 @@ namespace itubsService
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CateringChoice>("BookingDataModel.BookingCateringChoice", "CateringChoice", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "EquipmentChoiceBooking", "EquipmentChoice")]
-        public EquipmentChoice EquipmentChoice
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentChoice>("BookingDataModel.EquipmentChoiceBooking", "EquipmentChoice").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentChoice>("BookingDataModel.EquipmentChoiceBooking", "EquipmentChoice").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<EquipmentChoice> EquipmentChoiceReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentChoice>("BookingDataModel.EquipmentChoiceBooking", "EquipmentChoice");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EquipmentChoice>("BookingDataModel.EquipmentChoiceBooking", "EquipmentChoice", value);
                 }
             }
         }
@@ -750,8 +716,31 @@ namespace itubsService
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "BookingEquipmentChoice", "EquipmentChoice")]
+        public EntityCollection<EquipmentChoice> EquipmentChoices
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EquipmentChoice>("BookingDataModel.BookingEquipmentChoice", "EquipmentChoice");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EquipmentChoice>("BookingDataModel.BookingEquipmentChoice", "EquipmentChoice", value);
+                }
+            }
+        }
 
         #endregion
+
     }
     
     /// <summary>
@@ -782,6 +771,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -884,6 +874,7 @@ namespace itubsService
         partial void OnCateringTypeIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -948,6 +939,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -978,6 +970,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1080,6 +1073,7 @@ namespace itubsService
         partial void OnBookingIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1160,6 +1154,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1186,6 +1181,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1240,6 +1236,7 @@ namespace itubsService
         partial void OncTypeChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1266,6 +1263,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1294,6 +1292,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1372,6 +1371,7 @@ namespace itubsService
         partial void OnEquipmentTypeIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1436,6 +1436,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1454,16 +1455,19 @@ namespace itubsService
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="startTime">Initial value of the StartTime property.</param>
         /// <param name="endTime">Initial value of the EndTime property.</param>
-        public static EquipmentChoice CreateEquipmentChoice(global::System.Int32 id, global::System.String startTime, global::System.String endTime)
+        /// <param name="bookingId">Initial value of the BookingId property.</param>
+        public static EquipmentChoice CreateEquipmentChoice(global::System.Int32 id, global::System.String startTime, global::System.String endTime, global::System.Int32 bookingId)
         {
             EquipmentChoice equipmentChoice = new EquipmentChoice();
             equipmentChoice.Id = id;
             equipmentChoice.StartTime = startTime;
             equipmentChoice.EndTime = endTime;
+            equipmentChoice.BookingId = bookingId;
             return equipmentChoice;
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1540,8 +1544,33 @@ namespace itubsService
         private global::System.String _EndTime;
         partial void OnEndTimeChanging(global::System.String value);
         partial void OnEndTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 BookingId
+        {
+            get
+            {
+                return _BookingId;
+            }
+            set
+            {
+                OnBookingIdChanging(value);
+                ReportPropertyChanging("BookingId");
+                _BookingId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BookingId");
+                OnBookingIdChanged();
+            }
+        }
+        private global::System.Int32 _BookingId;
+        partial void OnBookingIdChanging(global::System.Int32 value);
+        partial void OnBookingIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1589,23 +1618,40 @@ namespace itubsService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "EquipmentChoiceBooking", "Booking")]
-        public EntityCollection<Booking> Bookings
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "BookingEquipmentChoice", "Booking")]
+        public Booking Booking
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Booking>("BookingDataModel.EquipmentChoiceBooking", "Booking");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Booking>("BookingDataModel.BookingEquipmentChoice", "Booking").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Booking>("BookingDataModel.BookingEquipmentChoice", "Booking").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Booking> BookingReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Booking>("BookingDataModel.BookingEquipmentChoice", "Booking");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Booking>("BookingDataModel.EquipmentChoiceBooking", "Booking", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Booking>("BookingDataModel.BookingEquipmentChoice", "Booking", value);
                 }
             }
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1632,6 +1678,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1686,6 +1733,7 @@ namespace itubsService
         partial void OneTypeChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1712,6 +1760,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1742,6 +1791,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1844,6 +1894,7 @@ namespace itubsService
         partial void OnInventoryTypeIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1908,6 +1959,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1934,6 +1986,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1988,6 +2041,7 @@ namespace itubsService
         partial void OniTypeChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2014,6 +2068,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2042,6 +2097,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2120,6 +2176,7 @@ namespace itubsService
         partial void OnEmailChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2184,6 +2241,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2210,6 +2268,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2264,6 +2323,7 @@ namespace itubsService
         partial void OnRoleNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2290,6 +2350,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2320,6 +2381,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2422,6 +2484,7 @@ namespace itubsService
         partial void OnPriceChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2470,6 +2533,7 @@ namespace itubsService
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2500,6 +2564,7 @@ namespace itubsService
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2602,6 +2667,7 @@ namespace itubsService
         partial void OnRoomIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2682,8 +2748,10 @@ namespace itubsService
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }
