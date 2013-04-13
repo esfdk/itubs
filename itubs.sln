@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "itubsService", "itubsService\itubsService.csproj", "{2DD321B3-2673-4B13-AA4B-AB3BAD4A0B2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{10FA3FD3-4024-496B-BCC5-1775C553D7DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{2DD321B3-2673-4B13-AA4B-AB3BAD4A0B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DD321B3-2673-4B13-AA4B-AB3BAD4A0B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DD321B3-2673-4B13-AA4B-AB3BAD4A0B2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10FA3FD3-4024-496B-BCC5-1775C553D7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10FA3FD3-4024-496B-BCC5-1775C553D7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10FA3FD3-4024-496B-BCC5-1775C553D7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10FA3FD3-4024-496B-BCC5-1775C553D7DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

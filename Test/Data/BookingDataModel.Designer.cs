@@ -19,54 +19,54 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryTypeInventory", "InventoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.InventoryType), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Inventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryRoomInventory", "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Inventory), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.RoomInventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomRoomInventory", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Room), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.RoomInventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Equipment), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.EquipmentChoice))]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringCateringChoice", "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Catering), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.CateringChoice))]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingCateringChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Booking), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.CateringChoice), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentTypeEquipment", "EquipmentType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.EquipmentType), "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Equipment), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringTypeCatering", "CateringType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.CateringType), "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Catering), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomBooking", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Room), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Booking), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonRole", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Person), "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Role))]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonBooking", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Person), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.Booking), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingEquipmentChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(itubsService.DataModel.Booking), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(itubsService.DataModel.EquipmentChoice), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryTypeInventory", "InventoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.InventoryType), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Inventory), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryRoomInventory", "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Inventory), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.RoomInventory), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomRoomInventory", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Room), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.RoomInventory), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Equipment), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.EquipmentChoice))]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringCateringChoice", "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Catering), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.CateringChoice))]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingCateringChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Booking), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.CateringChoice), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentTypeEquipment", "EquipmentType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.EquipmentType), "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Equipment), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringTypeCatering", "CateringType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.CateringType), "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Catering), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomBooking", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Room), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Booking), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonRole", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Person), "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Role))]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonBooking", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Person), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Booking), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingEquipmentChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Booking), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.EquipmentChoice), true)]
 
 #endregion
 
-namespace itubsService.DataModel
+namespace Test.Data
 {
     #region Contexts
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class BookingDataContext : ObjectContext
+    public partial class itubsContext : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new BookingDataContext object using the connection string found in the 'BookingDataContext' section of the application configuration file.
+        /// Initializes a new itubsContext object using the connection string found in the 'itubsContext' section of the application configuration file.
         /// </summary>
-        public BookingDataContext() : base("name=BookingDataContext", "BookingDataContext")
+        public itubsContext() : base("name=itubsContext", "itubsContext")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new BookingDataContext object.
+        /// Initialize a new itubsContext object.
         /// </summary>
-        public BookingDataContext(string connectionString) : base(connectionString, "BookingDataContext")
+        public itubsContext(string connectionString) : base(connectionString, "itubsContext")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new BookingDataContext object.
+        /// Initialize a new itubsContext object.
         /// </summary>
-        public BookingDataContext(EntityConnection connection) : base(connection, "BookingDataContext")
+        public itubsContext(EntityConnection connection) : base(connection, "itubsContext")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -2550,14 +2550,12 @@ namespace itubsService.DataModel
         /// Create a new RoomInventory object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="number">Initial value of the Number property.</param>
         /// <param name="inventoryId">Initial value of the InventoryId property.</param>
         /// <param name="roomId">Initial value of the RoomId property.</param>
-        public static RoomInventory CreateRoomInventory(global::System.Int32 id, global::System.String number, global::System.Int32 inventoryId, global::System.Int32 roomId)
+        public static RoomInventory CreateRoomInventory(global::System.Int32 id, global::System.Int32 inventoryId, global::System.Int32 roomId)
         {
             RoomInventory roomInventory = new RoomInventory();
             roomInventory.Id = id;
-            roomInventory.Number = number;
             roomInventory.InventoryId = inventoryId;
             roomInventory.RoomId = roomId;
             return roomInventory;
@@ -2593,30 +2591,6 @@ namespace itubsService.DataModel
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Number
-        {
-            get
-            {
-                return _Number;
-            }
-            set
-            {
-                OnNumberChanging(value);
-                ReportPropertyChanging("Number");
-                _Number = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Number");
-                OnNumberChanged();
-            }
-        }
-        private global::System.String _Number;
-        partial void OnNumberChanging(global::System.String value);
-        partial void OnNumberChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
