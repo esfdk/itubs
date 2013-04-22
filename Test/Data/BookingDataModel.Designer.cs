@@ -19,18 +19,17 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryTypeInventory", "InventoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.InventoryType), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Inventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryRoomInventory", "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Inventory), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.RoomInventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomRoomInventory", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Room), "RoomInventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.RoomInventory), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Equipment), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.EquipmentChoice))]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringCateringChoice", "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Catering), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.CateringChoice))]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingPerson", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Booking), "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Person), true)]
 [assembly: EdmRelationshipAttribute("BookingDataModel", "BookingCateringChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Booking), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.CateringChoice), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentTypeEquipment", "EquipmentType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.EquipmentType), "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Equipment), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringTypeCatering", "CateringType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.CateringType), "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Catering), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomBooking", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Room), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Booking), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonRole", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Person), "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Role))]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonBooking", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Person), "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Booking), true)]
 [assembly: EdmRelationshipAttribute("BookingDataModel", "BookingEquipmentChoice", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Booking), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.EquipmentChoice), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentType", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Equipment), "EquipmentType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.EquipmentType), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Equipment), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.EquipmentChoice), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "BookingRoom", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Booking), "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Room), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomInventory", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Room), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Inventory), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryTypeInventory", "InventoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.InventoryType), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Inventory), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "PersonPersonRole", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Person), "PersonRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.PersonRole), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "RolePersonRole", "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Role), "PersonRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.PersonRole), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "CateringCateringChoice", "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Catering), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.CateringChoice), true)]
 
 #endregion
 
@@ -213,22 +212,6 @@ namespace Test.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<RoomInventory> RoomInventories
-        {
-            get
-            {
-                if ((_RoomInventories == null))
-                {
-                    _RoomInventories = base.CreateObjectSet<RoomInventory>("RoomInventories");
-                }
-                return _RoomInventories;
-            }
-        }
-        private ObjectSet<RoomInventory> _RoomInventories;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<EquipmentChoice> EquipmentChoices
         {
             get
@@ -277,18 +260,18 @@ namespace Test.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CateringType> CateringTypes
+        public ObjectSet<PersonRole> PersonRoles
         {
             get
             {
-                if ((_CateringTypes == null))
+                if ((_PersonRoles == null))
                 {
-                    _CateringTypes = base.CreateObjectSet<CateringType>("CateringTypes");
+                    _PersonRoles = base.CreateObjectSet<PersonRole>("PersonRoles");
                 }
-                return _CateringTypes;
+                return _PersonRoles;
             }
         }
-        private ObjectSet<CateringType> _CateringTypes;
+        private ObjectSet<PersonRole> _PersonRoles;
 
         #endregion
 
@@ -359,14 +342,6 @@ namespace Test.Data
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the RoomInventories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToRoomInventories(RoomInventory roomInventory)
-        {
-            base.AddObject("RoomInventories", roomInventory);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the EquipmentChoices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToEquipmentChoices(EquipmentChoice equipmentChoice)
@@ -391,11 +366,11 @@ namespace Test.Data
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CateringTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PersonRoles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCateringTypes(CateringType cateringType)
+        public void AddToPersonRoles(PersonRole personRole)
         {
-            base.AddObject("CateringTypes", cateringType);
+            base.AddObject("PersonRoles", personRole);
         }
 
         #endregion
@@ -419,23 +394,25 @@ namespace Test.Data
         /// <summary>
         /// Create a new Booking object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
         /// <param name="status">Initial value of the Status property.</param>
         /// <param name="numberOfParticipants">Initial value of the NumberOfParticipants property.</param>
         /// <param name="comments">Initial value of the Comments property.</param>
-        /// <param name="equipmentChoiceId">Initial value of the EquipmentChoiceId property.</param>
-        /// <param name="roomId">Initial value of the RoomId property.</param>
-        /// <param name="personId">Initial value of the PersonId property.</param>
-        public static Booking CreateBooking(global::System.Int32 id, global::System.String status, global::System.String numberOfParticipants, global::System.String comments, global::System.Int32 equipmentChoiceId, global::System.Int32 roomId, global::System.Int32 personId)
+        /// <param name="startTime">Initial value of the StartTime property.</param>
+        /// <param name="endTime">Initial value of the EndTime property.</param>
+        /// <param name="personID">Initial value of the PersonID property.</param>
+        /// <param name="roomID">Initial value of the RoomID property.</param>
+        public static Booking CreateBooking(global::System.Int32 id, global::System.String status, global::System.Int32 numberOfParticipants, global::System.String comments, global::System.DateTime startTime, global::System.DateTime endTime, global::System.Int32 personID, global::System.Int32 roomID)
         {
             Booking booking = new Booking();
-            booking.Id = id;
+            booking.ID = id;
             booking.Status = status;
             booking.NumberOfParticipants = numberOfParticipants;
             booking.Comments = comments;
-            booking.EquipmentChoiceId = equipmentChoiceId;
-            booking.RoomId = roomId;
-            booking.PersonId = personId;
+            booking.StartTime = startTime;
+            booking.EndTime = endTime;
+            booking.PersonID = personID;
+            booking.RoomID = roomID;
             return booking;
         }
 
@@ -448,27 +425,27 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -499,7 +476,7 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String NumberOfParticipants
+        public global::System.Int32 NumberOfParticipants
         {
             get
             {
@@ -509,13 +486,13 @@ namespace Test.Data
             {
                 OnNumberOfParticipantsChanging(value);
                 ReportPropertyChanging("NumberOfParticipants");
-                _NumberOfParticipants = StructuralObject.SetValidValue(value, false);
+                _NumberOfParticipants = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("NumberOfParticipants");
                 OnNumberOfParticipantsChanged();
             }
         }
-        private global::System.String _NumberOfParticipants;
-        partial void OnNumberOfParticipantsChanging(global::System.String value);
+        private global::System.Int32 _NumberOfParticipants;
+        partial void OnNumberOfParticipantsChanging(global::System.Int32 value);
         partial void OnNumberOfParticipantsChanged();
     
         /// <summary>
@@ -547,77 +524,139 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 EquipmentChoiceId
+        public global::System.DateTime StartTime
         {
             get
             {
-                return _EquipmentChoiceId;
+                return _StartTime;
             }
             set
             {
-                OnEquipmentChoiceIdChanging(value);
-                ReportPropertyChanging("EquipmentChoiceId");
-                _EquipmentChoiceId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EquipmentChoiceId");
-                OnEquipmentChoiceIdChanged();
+                OnStartTimeChanging(value);
+                ReportPropertyChanging("StartTime");
+                _StartTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartTime");
+                OnStartTimeChanged();
             }
         }
-        private global::System.Int32 _EquipmentChoiceId;
-        partial void OnEquipmentChoiceIdChanging(global::System.Int32 value);
-        partial void OnEquipmentChoiceIdChanged();
+        private global::System.DateTime _StartTime;
+        partial void OnStartTimeChanging(global::System.DateTime value);
+        partial void OnStartTimeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 RoomId
+        public global::System.DateTime EndTime
         {
             get
             {
-                return _RoomId;
+                return _EndTime;
             }
             set
             {
-                OnRoomIdChanging(value);
-                ReportPropertyChanging("RoomId");
-                _RoomId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("RoomId");
-                OnRoomIdChanged();
+                OnEndTimeChanging(value);
+                ReportPropertyChanging("EndTime");
+                _EndTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndTime");
+                OnEndTimeChanged();
             }
         }
-        private global::System.Int32 _RoomId;
-        partial void OnRoomIdChanging(global::System.Int32 value);
-        partial void OnRoomIdChanged();
+        private global::System.DateTime _EndTime;
+        partial void OnEndTimeChanging(global::System.DateTime value);
+        partial void OnEndTimeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 PersonId
+        public global::System.Int32 PersonID
         {
             get
             {
-                return _PersonId;
+                return _PersonID;
             }
             set
             {
-                OnPersonIdChanging(value);
-                ReportPropertyChanging("PersonId");
-                _PersonId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PersonId");
-                OnPersonIdChanged();
+                OnPersonIDChanging(value);
+                ReportPropertyChanging("PersonID");
+                _PersonID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PersonID");
+                OnPersonIDChanged();
             }
         }
-        private global::System.Int32 _PersonId;
-        partial void OnPersonIdChanging(global::System.Int32 value);
-        partial void OnPersonIdChanged();
+        private global::System.Int32 _PersonID;
+        partial void OnPersonIDChanging(global::System.Int32 value);
+        partial void OnPersonIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RoomID
+        {
+            get
+            {
+                return _RoomID;
+            }
+            set
+            {
+                OnRoomIDChanging(value);
+                ReportPropertyChanging("RoomID");
+                _RoomID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RoomID");
+                OnRoomIDChanged();
+            }
+        }
+        private global::System.Int32 _RoomID;
+        partial void OnRoomIDChanging(global::System.Int32 value);
+        partial void OnRoomIDChanged();
 
         #endregion
 
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "BookingPerson", "Person")]
+        public Person Person
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.BookingPerson", "Person").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.BookingPerson", "Person").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Person> PersonReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.BookingPerson", "Person");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("BookingDataModel.BookingPerson", "Person", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -647,82 +686,6 @@ namespace Test.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RoomBooking", "Room")]
-        public Room Room
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomBooking", "Room").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomBooking", "Room").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Room> RoomReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomBooking", "Room");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Room>("BookingDataModel.RoomBooking", "Room", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "PersonBooking", "Person")]
-        public Person Person
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.PersonBooking", "Person").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.PersonBooking", "Person").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Person> PersonReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.PersonBooking", "Person");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("BookingDataModel.PersonBooking", "Person", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "BookingEquipmentChoice", "EquipmentChoice")]
         public EntityCollection<EquipmentChoice> EquipmentChoices
         {
@@ -735,6 +698,44 @@ namespace Test.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EquipmentChoice>("BookingDataModel.BookingEquipmentChoice", "EquipmentChoice", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "BookingRoom", "Room")]
+        public Room Room
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.BookingRoom", "Room").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.BookingRoom", "Room").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Room> RoomReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.BookingRoom", "Room");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Room>("BookingDataModel.BookingRoom", "Room", value);
                 }
             }
         }
@@ -756,17 +757,19 @@ namespace Test.Data
         /// <summary>
         /// Create a new Catering object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
         /// <param name="price">Initial value of the Price property.</param>
-        /// <param name="cProductName">Initial value of the cProductName property.</param>
-        /// <param name="cateringTypeId">Initial value of the CateringTypeId property.</param>
-        public static Catering CreateCatering(global::System.Int32 id, global::System.String price, global::System.String cProductName, global::System.Int32 cateringTypeId)
+        /// <param name="productName">Initial value of the ProductName property.</param>
+        /// <param name="availableFrom">Initial value of the AvailableFrom property.</param>
+        /// <param name="availableTo">Initial value of the AvailableTo property.</param>
+        public static Catering CreateCatering(global::System.Int32 id, global::System.Int32 price, global::System.String productName, global::System.TimeSpan availableFrom, global::System.TimeSpan availableTo)
         {
             Catering catering = new Catering();
-            catering.Id = id;
+            catering.ID = id;
             catering.Price = price;
-            catering.cProductName = cProductName;
-            catering.CateringTypeId = cateringTypeId;
+            catering.ProductName = productName;
+            catering.AvailableFrom = availableFrom;
+            catering.AvailableTo = availableTo;
             return catering;
         }
 
@@ -779,34 +782,34 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Price
+        public global::System.Int32 Price
         {
             get
             {
@@ -816,13 +819,13 @@ namespace Test.Data
             {
                 OnPriceChanging(value);
                 ReportPropertyChanging("Price");
-                _Price = StructuralObject.SetValidValue(value, false);
+                _Price = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Price");
                 OnPriceChanged();
             }
         }
-        private global::System.String _Price;
-        partial void OnPriceChanging(global::System.String value);
+        private global::System.Int32 _Price;
+        partial void OnPriceChanging(global::System.Int32 value);
         partial void OnPriceChanged();
     
         /// <summary>
@@ -830,48 +833,72 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String cProductName
+        public global::System.String ProductName
         {
             get
             {
-                return _cProductName;
+                return _ProductName;
             }
             set
             {
-                OncProductNameChanging(value);
-                ReportPropertyChanging("cProductName");
-                _cProductName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("cProductName");
-                OncProductNameChanged();
+                OnProductNameChanging(value);
+                ReportPropertyChanging("ProductName");
+                _ProductName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ProductName");
+                OnProductNameChanged();
             }
         }
-        private global::System.String _cProductName;
-        partial void OncProductNameChanging(global::System.String value);
-        partial void OncProductNameChanged();
+        private global::System.String _ProductName;
+        partial void OnProductNameChanging(global::System.String value);
+        partial void OnProductNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 CateringTypeId
+        public global::System.TimeSpan AvailableFrom
         {
             get
             {
-                return _CateringTypeId;
+                return _AvailableFrom;
             }
             set
             {
-                OnCateringTypeIdChanging(value);
-                ReportPropertyChanging("CateringTypeId");
-                _CateringTypeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CateringTypeId");
-                OnCateringTypeIdChanged();
+                OnAvailableFromChanging(value);
+                ReportPropertyChanging("AvailableFrom");
+                _AvailableFrom = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AvailableFrom");
+                OnAvailableFromChanged();
             }
         }
-        private global::System.Int32 _CateringTypeId;
-        partial void OnCateringTypeIdChanging(global::System.Int32 value);
-        partial void OnCateringTypeIdChanged();
+        private global::System.TimeSpan _AvailableFrom;
+        partial void OnAvailableFromChanging(global::System.TimeSpan value);
+        partial void OnAvailableFromChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.TimeSpan AvailableTo
+        {
+            get
+            {
+                return _AvailableTo;
+            }
+            set
+            {
+                OnAvailableToChanging(value);
+                ReportPropertyChanging("AvailableTo");
+                _AvailableTo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AvailableTo");
+                OnAvailableToChanged();
+            }
+        }
+        private global::System.TimeSpan _AvailableTo;
+        partial void OnAvailableToChanging(global::System.TimeSpan value);
+        partial void OnAvailableToChanged();
 
         #endregion
 
@@ -899,44 +926,6 @@ namespace Test.Data
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "CateringTypeCatering", "CateringType")]
-        public CateringType CateringType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CateringType>("BookingDataModel.CateringTypeCatering", "CateringType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CateringType>("BookingDataModel.CateringTypeCatering", "CateringType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<CateringType> CateringTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CateringType>("BookingDataModel.CateringTypeCatering", "CateringType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CateringType>("BookingDataModel.CateringTypeCatering", "CateringType", value);
-                }
-            }
-        }
 
         #endregion
 
@@ -955,17 +944,21 @@ namespace Test.Data
         /// <summary>
         /// Create a new CateringChoice object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="number">Initial value of the Number property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="amount">Initial value of the Amount property.</param>
         /// <param name="time">Initial value of the Time property.</param>
-        /// <param name="bookingId">Initial value of the BookingId property.</param>
-        public static CateringChoice CreateCateringChoice(global::System.Int32 id, global::System.String number, global::System.String time, global::System.Int32 bookingId)
+        /// <param name="status">Initial value of the Status property.</param>
+        /// <param name="bookingID">Initial value of the BookingID property.</param>
+        /// <param name="cateringID">Initial value of the CateringID property.</param>
+        public static CateringChoice CreateCateringChoice(global::System.Int32 id, global::System.Int32 amount, global::System.DateTime time, global::System.String status, global::System.Int32 bookingID, global::System.Int32 cateringID)
         {
             CateringChoice cateringChoice = new CateringChoice();
-            cateringChoice.Id = id;
-            cateringChoice.Number = number;
+            cateringChoice.ID = id;
+            cateringChoice.Amount = amount;
             cateringChoice.Time = time;
-            cateringChoice.BookingId = bookingId;
+            cateringChoice.Status = status;
+            cateringChoice.BookingID = bookingID;
+            cateringChoice.CateringID = cateringID;
             return cateringChoice;
         }
 
@@ -978,58 +971,58 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Number
+        public global::System.Int32 Amount
         {
             get
             {
-                return _Number;
+                return _Amount;
             }
             set
             {
-                OnNumberChanging(value);
-                ReportPropertyChanging("Number");
-                _Number = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Number");
-                OnNumberChanged();
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
             }
         }
-        private global::System.String _Number;
-        partial void OnNumberChanging(global::System.String value);
-        partial void OnNumberChanged();
+        private global::System.Int32 _Amount;
+        partial void OnAmountChanging(global::System.Int32 value);
+        partial void OnAmountChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Time
+        public global::System.DateTime Time
         {
             get
             {
@@ -1039,13 +1032,13 @@ namespace Test.Data
             {
                 OnTimeChanging(value);
                 ReportPropertyChanging("Time");
-                _Time = StructuralObject.SetValidValue(value, false);
+                _Time = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Time");
                 OnTimeChanged();
             }
         }
-        private global::System.String _Time;
-        partial void OnTimeChanging(global::System.String value);
+        private global::System.DateTime _Time;
+        partial void OnTimeChanging(global::System.DateTime value);
         partial void OnTimeChanged();
     
         /// <summary>
@@ -1053,67 +1046,77 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 BookingId
+        public global::System.String Status
         {
             get
             {
-                return _BookingId;
+                return _Status;
             }
             set
             {
-                OnBookingIdChanging(value);
-                ReportPropertyChanging("BookingId");
-                _BookingId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("BookingId");
-                OnBookingIdChanged();
+                OnStatusChanging(value);
+                ReportPropertyChanging("Status");
+                _Status = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Status");
+                OnStatusChanged();
             }
         }
-        private global::System.Int32 _BookingId;
-        partial void OnBookingIdChanging(global::System.Int32 value);
-        partial void OnBookingIdChanged();
+        private global::System.String _Status;
+        partial void OnStatusChanging(global::System.String value);
+        partial void OnStatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 BookingID
+        {
+            get
+            {
+                return _BookingID;
+            }
+            set
+            {
+                OnBookingIDChanging(value);
+                ReportPropertyChanging("BookingID");
+                _BookingID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BookingID");
+                OnBookingIDChanged();
+            }
+        }
+        private global::System.Int32 _BookingID;
+        partial void OnBookingIDChanging(global::System.Int32 value);
+        partial void OnBookingIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CateringID
+        {
+            get
+            {
+                return _CateringID;
+            }
+            set
+            {
+                OnCateringIDChanging(value);
+                ReportPropertyChanging("CateringID");
+                _CateringID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CateringID");
+                OnCateringIDChanged();
+            }
+        }
+        private global::System.Int32 _CateringID;
+        partial void OnCateringIDChanging(global::System.Int32 value);
+        partial void OnCateringIDChanged();
 
         #endregion
 
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "CateringCateringChoice", "Catering")]
-        public Catering Catering
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Catering>("BookingDataModel.CateringCateringChoice", "Catering").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Catering>("BookingDataModel.CateringCateringChoice", "Catering").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Catering> CateringReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Catering>("BookingDataModel.CateringCateringChoice", "Catering");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Catering>("BookingDataModel.CateringCateringChoice", "Catering", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1152,93 +1155,6 @@ namespace Test.Data
                 }
             }
         }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="CateringType")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class CateringType : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new CateringType object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="cType">Initial value of the cType property.</param>
-        public static CateringType CreateCateringType(global::System.Int32 id, global::System.String cType)
-        {
-            CateringType cateringType = new CateringType();
-            cateringType.Id = id;
-            cateringType.cType = cType;
-            return cateringType;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String cType
-        {
-            get
-            {
-                return _cType;
-            }
-            set
-            {
-                OncTypeChanging(value);
-                ReportPropertyChanging("cType");
-                _cType = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("cType");
-                OncTypeChanged();
-            }
-        }
-        private global::System.String _cType;
-        partial void OncTypeChanging(global::System.String value);
-        partial void OncTypeChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1246,18 +1162,34 @@ namespace Test.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "CateringTypeCatering", "Catering")]
-        public EntityCollection<Catering> Caterings
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "CateringCateringChoice", "Catering")]
+        public Catering Catering
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Catering>("BookingDataModel.CateringTypeCatering", "Catering");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Catering>("BookingDataModel.CateringCateringChoice", "Catering").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Catering>("BookingDataModel.CateringCateringChoice", "Catering").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Catering> CateringReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Catering>("BookingDataModel.CateringCateringChoice", "Catering");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Catering>("BookingDataModel.CateringTypeCatering", "Catering", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Catering>("BookingDataModel.CateringCateringChoice", "Catering", value);
                 }
             }
         }
@@ -1279,15 +1211,17 @@ namespace Test.Data
         /// <summary>
         /// Create a new Equipment object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="eProductName">Initial value of the eProductName property.</param>
-        /// <param name="equipmentTypeId">Initial value of the EquipmentTypeId property.</param>
-        public static Equipment CreateEquipment(global::System.Int32 id, global::System.String eProductName, global::System.Int32 equipmentTypeId)
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="productName">Initial value of the ProductName property.</param>
+        /// <param name="status">Initial value of the Status property.</param>
+        /// <param name="equipmentTypeID">Initial value of the EquipmentTypeID property.</param>
+        public static Equipment CreateEquipment(global::System.Int32 id, global::System.String productName, global::System.String status, global::System.Int32 equipmentTypeID)
         {
             Equipment equipment = new Equipment();
-            equipment.Id = id;
-            equipment.eProductName = eProductName;
-            equipment.EquipmentTypeId = equipmentTypeId;
+            equipment.ID = id;
+            equipment.ProductName = productName;
+            equipment.Status = status;
+            equipment.EquipmentTypeID = equipmentTypeID;
             return equipment;
         }
 
@@ -1300,80 +1234,142 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String eProductName
+        public global::System.String ProductName
         {
             get
             {
-                return _eProductName;
+                return _ProductName;
             }
             set
             {
-                OneProductNameChanging(value);
-                ReportPropertyChanging("eProductName");
-                _eProductName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("eProductName");
-                OneProductNameChanged();
+                OnProductNameChanging(value);
+                ReportPropertyChanging("ProductName");
+                _ProductName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ProductName");
+                OnProductNameChanged();
             }
         }
-        private global::System.String _eProductName;
-        partial void OneProductNameChanging(global::System.String value);
-        partial void OneProductNameChanged();
+        private global::System.String _ProductName;
+        partial void OnProductNameChanging(global::System.String value);
+        partial void OnProductNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 EquipmentTypeId
+        public global::System.String Status
         {
             get
             {
-                return _EquipmentTypeId;
+                return _Status;
             }
             set
             {
-                OnEquipmentTypeIdChanging(value);
-                ReportPropertyChanging("EquipmentTypeId");
-                _EquipmentTypeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EquipmentTypeId");
-                OnEquipmentTypeIdChanged();
+                OnStatusChanging(value);
+                ReportPropertyChanging("Status");
+                _Status = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Status");
+                OnStatusChanged();
             }
         }
-        private global::System.Int32 _EquipmentTypeId;
-        partial void OnEquipmentTypeIdChanging(global::System.Int32 value);
-        partial void OnEquipmentTypeIdChanged();
+        private global::System.String _Status;
+        partial void OnStatusChanging(global::System.String value);
+        partial void OnStatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EquipmentTypeID
+        {
+            get
+            {
+                return _EquipmentTypeID;
+            }
+            set
+            {
+                OnEquipmentTypeIDChanging(value);
+                ReportPropertyChanging("EquipmentTypeID");
+                _EquipmentTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EquipmentTypeID");
+                OnEquipmentTypeIDChanged();
+            }
+        }
+        private global::System.Int32 _EquipmentTypeID;
+        partial void OnEquipmentTypeIDChanging(global::System.Int32 value);
+        partial void OnEquipmentTypeIDChanged();
 
         #endregion
 
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "EquipmentEquipmentType", "EquipmentType")]
+        public EquipmentType EquipmentType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentType>("BookingDataModel.EquipmentEquipmentType", "EquipmentType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentType>("BookingDataModel.EquipmentEquipmentType", "EquipmentType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<EquipmentType> EquipmentTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentType>("BookingDataModel.EquipmentEquipmentType", "EquipmentType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EquipmentType>("BookingDataModel.EquipmentEquipmentType", "EquipmentType", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1396,44 +1392,6 @@ namespace Test.Data
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "EquipmentTypeEquipment", "EquipmentType")]
-        public EquipmentType EquipmentType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentType>("BookingDataModel.EquipmentTypeEquipment", "EquipmentType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentType>("BookingDataModel.EquipmentTypeEquipment", "EquipmentType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<EquipmentType> EquipmentTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EquipmentType>("BookingDataModel.EquipmentTypeEquipment", "EquipmentType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EquipmentType>("BookingDataModel.EquipmentTypeEquipment", "EquipmentType", value);
-                }
-            }
-        }
 
         #endregion
 
@@ -1452,17 +1410,19 @@ namespace Test.Data
         /// <summary>
         /// Create a new EquipmentChoice object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
         /// <param name="startTime">Initial value of the StartTime property.</param>
         /// <param name="endTime">Initial value of the EndTime property.</param>
-        /// <param name="bookingId">Initial value of the BookingId property.</param>
-        public static EquipmentChoice CreateEquipmentChoice(global::System.Int32 id, global::System.String startTime, global::System.String endTime, global::System.Int32 bookingId)
+        /// <param name="bookingID">Initial value of the BookingID property.</param>
+        /// <param name="equipmentID">Initial value of the EquipmentID property.</param>
+        public static EquipmentChoice CreateEquipmentChoice(global::System.Int32 id, global::System.DateTime startTime, global::System.DateTime endTime, global::System.Int32 bookingID, global::System.Int32 equipmentID)
         {
             EquipmentChoice equipmentChoice = new EquipmentChoice();
-            equipmentChoice.Id = id;
+            equipmentChoice.ID = id;
             equipmentChoice.StartTime = startTime;
             equipmentChoice.EndTime = endTime;
-            equipmentChoice.BookingId = bookingId;
+            equipmentChoice.BookingID = bookingID;
+            equipmentChoice.EquipmentID = equipmentID;
             return equipmentChoice;
         }
 
@@ -1475,34 +1435,34 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String StartTime
+        public global::System.DateTime StartTime
         {
             get
             {
@@ -1512,13 +1472,13 @@ namespace Test.Data
             {
                 OnStartTimeChanging(value);
                 ReportPropertyChanging("StartTime");
-                _StartTime = StructuralObject.SetValidValue(value, false);
+                _StartTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("StartTime");
                 OnStartTimeChanged();
             }
         }
-        private global::System.String _StartTime;
-        partial void OnStartTimeChanging(global::System.String value);
+        private global::System.DateTime _StartTime;
+        partial void OnStartTimeChanging(global::System.DateTime value);
         partial void OnStartTimeChanged();
     
         /// <summary>
@@ -1526,7 +1486,7 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String EndTime
+        public global::System.DateTime EndTime
         {
             get
             {
@@ -1536,13 +1496,13 @@ namespace Test.Data
             {
                 OnEndTimeChanging(value);
                 ReportPropertyChanging("EndTime");
-                _EndTime = StructuralObject.SetValidValue(value, false);
+                _EndTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("EndTime");
                 OnEndTimeChanged();
             }
         }
-        private global::System.String _EndTime;
-        partial void OnEndTimeChanging(global::System.String value);
+        private global::System.DateTime _EndTime;
+        partial void OnEndTimeChanging(global::System.DateTime value);
         partial void OnEndTimeChanged();
     
         /// <summary>
@@ -1550,67 +1510,53 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 BookingId
+        public global::System.Int32 BookingID
         {
             get
             {
-                return _BookingId;
+                return _BookingID;
             }
             set
             {
-                OnBookingIdChanging(value);
-                ReportPropertyChanging("BookingId");
-                _BookingId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("BookingId");
-                OnBookingIdChanged();
+                OnBookingIDChanging(value);
+                ReportPropertyChanging("BookingID");
+                _BookingID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BookingID");
+                OnBookingIDChanged();
             }
         }
-        private global::System.Int32 _BookingId;
-        partial void OnBookingIdChanging(global::System.Int32 value);
-        partial void OnBookingIdChanged();
+        private global::System.Int32 _BookingID;
+        partial void OnBookingIDChanging(global::System.Int32 value);
+        partial void OnBookingIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EquipmentID
+        {
+            get
+            {
+                return _EquipmentID;
+            }
+            set
+            {
+                OnEquipmentIDChanging(value);
+                ReportPropertyChanging("EquipmentID");
+                _EquipmentID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EquipmentID");
+                OnEquipmentIDChanged();
+            }
+        }
+        private global::System.Int32 _EquipmentID;
+        partial void OnEquipmentIDChanging(global::System.Int32 value);
+        partial void OnEquipmentIDChanged();
 
         #endregion
 
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment")]
-        public Equipment Equipment
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("BookingDataModel.EquipmentEquipmentChoice", "Equipment").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("BookingDataModel.EquipmentEquipmentChoice", "Equipment").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Equipment> EquipmentReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("BookingDataModel.EquipmentEquipmentChoice", "Equipment");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("BookingDataModel.EquipmentEquipmentChoice", "Equipment", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1649,6 +1595,44 @@ namespace Test.Data
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment")]
+        public Equipment Equipment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("BookingDataModel.EquipmentEquipmentChoice", "Equipment").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("BookingDataModel.EquipmentEquipmentChoice", "Equipment").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Equipment> EquipmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("BookingDataModel.EquipmentEquipmentChoice", "Equipment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("BookingDataModel.EquipmentEquipmentChoice", "Equipment", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1667,13 +1651,13 @@ namespace Test.Data
         /// <summary>
         /// Create a new EquipmentType object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="eType">Initial value of the eType property.</param>
-        public static EquipmentType CreateEquipmentType(global::System.Int32 id, global::System.String eType)
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="type">Initial value of the Type property.</param>
+        public static EquipmentType CreateEquipmentType(global::System.Int32 id, global::System.String type)
         {
             EquipmentType equipmentType = new EquipmentType();
-            equipmentType.Id = id;
-            equipmentType.eType = eType;
+            equipmentType.ID = id;
+            equipmentType.Type = type;
             return equipmentType;
         }
 
@@ -1686,51 +1670,51 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String eType
+        public global::System.String Type
         {
             get
             {
-                return _eType;
+                return _Type;
             }
             set
             {
-                OneTypeChanging(value);
-                ReportPropertyChanging("eType");
-                _eType = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("eType");
-                OneTypeChanged();
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
             }
         }
-        private global::System.String _eType;
-        partial void OneTypeChanging(global::System.String value);
-        partial void OneTypeChanged();
+        private global::System.String _Type;
+        partial void OnTypeChanging(global::System.String value);
+        partial void OnTypeChanged();
 
         #endregion
 
@@ -1743,18 +1727,18 @@ namespace Test.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "EquipmentTypeEquipment", "Equipment")]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "EquipmentEquipmentType", "Equipment")]
         public EntityCollection<Equipment> Equipments
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Equipment>("BookingDataModel.EquipmentTypeEquipment", "Equipment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Equipment>("BookingDataModel.EquipmentEquipmentType", "Equipment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Equipment>("BookingDataModel.EquipmentTypeEquipment", "Equipment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Equipment>("BookingDataModel.EquipmentEquipmentType", "Equipment", value);
                 }
             }
         }
@@ -1776,17 +1760,19 @@ namespace Test.Data
         /// <summary>
         /// Create a new Inventory object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="iProductName">Initial value of the iProductName property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="productName">Initial value of the ProductName property.</param>
         /// <param name="status">Initial value of the Status property.</param>
-        /// <param name="inventoryTypeId">Initial value of the InventoryTypeId property.</param>
-        public static Inventory CreateInventory(global::System.Int32 id, global::System.String iProductName, global::System.String status, global::System.Int32 inventoryTypeId)
+        /// <param name="roomID">Initial value of the RoomID property.</param>
+        /// <param name="inventoryTypeID">Initial value of the InventoryTypeID property.</param>
+        public static Inventory CreateInventory(global::System.Int32 id, global::System.String productName, global::System.String status, global::System.Int32 roomID, global::System.Int32 inventoryTypeID)
         {
             Inventory inventory = new Inventory();
-            inventory.Id = id;
-            inventory.iProductName = iProductName;
+            inventory.ID = id;
+            inventory.ProductName = productName;
             inventory.Status = status;
-            inventory.InventoryTypeId = inventoryTypeId;
+            inventory.RoomID = roomID;
+            inventory.InventoryTypeID = inventoryTypeID;
             return inventory;
         }
 
@@ -1799,51 +1785,51 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String iProductName
+        public global::System.String ProductName
         {
             get
             {
-                return _iProductName;
+                return _ProductName;
             }
             set
             {
-                OniProductNameChanging(value);
-                ReportPropertyChanging("iProductName");
-                _iProductName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("iProductName");
-                OniProductNameChanged();
+                OnProductNameChanging(value);
+                ReportPropertyChanging("ProductName");
+                _ProductName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ProductName");
+                OnProductNameChanged();
             }
         }
-        private global::System.String _iProductName;
-        partial void OniProductNameChanging(global::System.String value);
-        partial void OniProductNameChanged();
+        private global::System.String _ProductName;
+        partial void OnProductNameChanging(global::System.String value);
+        partial void OnProductNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1874,29 +1860,91 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 InventoryTypeId
+        public global::System.Int32 RoomID
         {
             get
             {
-                return _InventoryTypeId;
+                return _RoomID;
             }
             set
             {
-                OnInventoryTypeIdChanging(value);
-                ReportPropertyChanging("InventoryTypeId");
-                _InventoryTypeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("InventoryTypeId");
-                OnInventoryTypeIdChanged();
+                OnRoomIDChanging(value);
+                ReportPropertyChanging("RoomID");
+                _RoomID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RoomID");
+                OnRoomIDChanged();
             }
         }
-        private global::System.Int32 _InventoryTypeId;
-        partial void OnInventoryTypeIdChanging(global::System.Int32 value);
-        partial void OnInventoryTypeIdChanged();
+        private global::System.Int32 _RoomID;
+        partial void OnRoomIDChanging(global::System.Int32 value);
+        partial void OnRoomIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 InventoryTypeID
+        {
+            get
+            {
+                return _InventoryTypeID;
+            }
+            set
+            {
+                OnInventoryTypeIDChanging(value);
+                ReportPropertyChanging("InventoryTypeID");
+                _InventoryTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InventoryTypeID");
+                OnInventoryTypeIDChanged();
+            }
+        }
+        private global::System.Int32 _InventoryTypeID;
+        partial void OnInventoryTypeIDChanging(global::System.Int32 value);
+        partial void OnInventoryTypeIDChanged();
 
         #endregion
 
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RoomInventory", "Room")]
+        public Room Room
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Room> RoomReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Room>("BookingDataModel.RoomInventory", "Room", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1935,28 +1983,6 @@ namespace Test.Data
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "InventoryRoomInventory", "RoomInventory")]
-        public EntityCollection<RoomInventory> RoomInventories
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RoomInventory>("BookingDataModel.InventoryRoomInventory", "RoomInventory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RoomInventory>("BookingDataModel.InventoryRoomInventory", "RoomInventory", value);
-                }
-            }
-        }
 
         #endregion
 
@@ -1975,13 +2001,13 @@ namespace Test.Data
         /// <summary>
         /// Create a new InventoryType object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="iType">Initial value of the iType property.</param>
-        public static InventoryType CreateInventoryType(global::System.Int32 id, global::System.String iType)
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="type">Initial value of the Type property.</param>
+        public static InventoryType CreateInventoryType(global::System.Int32 id, global::System.String type)
         {
             InventoryType inventoryType = new InventoryType();
-            inventoryType.Id = id;
-            inventoryType.iType = iType;
+            inventoryType.ID = id;
+            inventoryType.Type = type;
             return inventoryType;
         }
 
@@ -1994,51 +2020,51 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String iType
+        public global::System.String Type
         {
             get
             {
-                return _iType;
+                return _Type;
             }
             set
             {
-                OniTypeChanging(value);
-                ReportPropertyChanging("iType");
-                _iType = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("iType");
-                OniTypeChanged();
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
             }
         }
-        private global::System.String _iType;
-        partial void OniTypeChanging(global::System.String value);
-        partial void OniTypeChanged();
+        private global::System.String _Type;
+        partial void OnTypeChanging(global::System.String value);
+        partial void OnTypeChanged();
 
         #endregion
 
@@ -2084,15 +2110,17 @@ namespace Test.Data
         /// <summary>
         /// Create a new Person object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="email">Initial value of the Email property.</param>
-        public static Person CreatePerson(global::System.Int32 id, global::System.String name, global::System.String email)
+        /// <param name="token">Initial value of the Token property.</param>
+        public static Person CreatePerson(global::System.Int32 id, global::System.String name, global::System.String email, global::System.String token)
         {
             Person person = new Person();
-            person.Id = id;
+            person.ID = id;
             person.Name = name;
             person.Email = email;
+            person.Token = token;
             return person;
         }
 
@@ -2105,27 +2133,27 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2174,6 +2202,30 @@ namespace Test.Data
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Token
+        {
+            get
+            {
+                return _Token;
+            }
+            set
+            {
+                OnTokenChanging(value);
+                ReportPropertyChanging("Token");
+                _Token = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Token");
+                OnTokenChanged();
+            }
+        }
+        private global::System.String _Token;
+        partial void OnTokenChanging(global::System.String value);
+        partial void OnTokenChanged();
 
         #endregion
 
@@ -2186,16 +2238,188 @@ namespace Test.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "PersonRole", "Role")]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "BookingPerson", "Booking")]
+        public EntityCollection<Booking> Bookings
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Booking>("BookingDataModel.BookingPerson", "Booking");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Booking>("BookingDataModel.BookingPerson", "Booking", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "PersonPersonRole", "PersonRole")]
+        public EntityCollection<PersonRole> PersonRoles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PersonRole>("BookingDataModel.PersonPersonRole", "PersonRole");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PersonRole>("BookingDataModel.PersonPersonRole", "PersonRole", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="PersonRole")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PersonRole : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PersonRole object.
+        /// </summary>
+        /// <param name="personID">Initial value of the PersonID property.</param>
+        /// <param name="roleID">Initial value of the RoleID property.</param>
+        public static PersonRole CreatePersonRole(global::System.Int32 personID, global::System.Int32 roleID)
+        {
+            PersonRole personRole = new PersonRole();
+            personRole.PersonID = personID;
+            personRole.RoleID = roleID;
+            return personRole;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PersonID
+        {
+            get
+            {
+                return _PersonID;
+            }
+            set
+            {
+                if (_PersonID != value)
+                {
+                    OnPersonIDChanging(value);
+                    ReportPropertyChanging("PersonID");
+                    _PersonID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("PersonID");
+                    OnPersonIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _PersonID;
+        partial void OnPersonIDChanging(global::System.Int32 value);
+        partial void OnPersonIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RoleID
+        {
+            get
+            {
+                return _RoleID;
+            }
+            set
+            {
+                if (_RoleID != value)
+                {
+                    OnRoleIDChanging(value);
+                    ReportPropertyChanging("RoleID");
+                    _RoleID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("RoleID");
+                    OnRoleIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _RoleID;
+        partial void OnRoleIDChanging(global::System.Int32 value);
+        partial void OnRoleIDChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "PersonPersonRole", "Person")]
+        public Person Person
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.PersonPersonRole", "Person").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.PersonPersonRole", "Person").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Person> PersonReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("BookingDataModel.PersonPersonRole", "Person");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("BookingDataModel.PersonPersonRole", "Person", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RolePersonRole", "Role")]
         public Role Role
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("BookingDataModel.PersonRole", "Role").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("BookingDataModel.RolePersonRole", "Role").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("BookingDataModel.PersonRole", "Role").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("BookingDataModel.RolePersonRole", "Role").Value = value;
             }
         }
         /// <summary>
@@ -2207,35 +2431,13 @@ namespace Test.Data
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("BookingDataModel.PersonRole", "Role");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("BookingDataModel.RolePersonRole", "Role");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Role>("BookingDataModel.PersonRole", "Role", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "PersonBooking", "Booking")]
-        public EntityCollection<Booking> Bookings
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Booking>("BookingDataModel.PersonBooking", "Booking");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Booking>("BookingDataModel.PersonBooking", "Booking", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Role>("BookingDataModel.RolePersonRole", "Role", value);
                 }
             }
         }
@@ -2257,12 +2459,12 @@ namespace Test.Data
         /// <summary>
         /// Create a new Role object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
         /// <param name="roleName">Initial value of the RoleName property.</param>
         public static Role CreateRole(global::System.Int32 id, global::System.String roleName)
         {
             Role role = new Role();
-            role.Id = id;
+            role.ID = id;
             role.RoleName = roleName;
             return role;
         }
@@ -2276,27 +2478,27 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2333,18 +2535,18 @@ namespace Test.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "PersonRole", "Person")]
-        public EntityCollection<Person> People
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RolePersonRole", "PersonRole")]
+        public EntityCollection<PersonRole> PersonRoles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Person>("BookingDataModel.PersonRole", "Person");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PersonRole>("BookingDataModel.RolePersonRole", "PersonRole");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Person>("BookingDataModel.PersonRole", "Person", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PersonRole>("BookingDataModel.RolePersonRole", "PersonRole", value);
                 }
             }
         }
@@ -2366,17 +2568,15 @@ namespace Test.Data
         /// <summary>
         /// Create a new Room object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="size">Initial value of the Size property.</param>
-        /// <param name="price">Initial value of the Price property.</param>
-        public static Room CreateRoom(global::System.Int32 id, global::System.String name, global::System.String size, global::System.String price)
+        /// <param name="maxParticipants">Initial value of the MaxParticipants property.</param>
+        public static Room CreateRoom(global::System.Int32 id, global::System.String name, global::System.Int32 maxParticipants)
         {
             Room room = new Room();
-            room.Id = id;
+            room.ID = id;
             room.Name = name;
-            room.Size = size;
-            room.Price = price;
+            room.MaxParticipants = maxParticipants;
             return room;
         }
 
@@ -2389,27 +2589,27 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2440,48 +2640,24 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Size
+        public global::System.Int32 MaxParticipants
         {
             get
             {
-                return _Size;
+                return _MaxParticipants;
             }
             set
             {
-                OnSizeChanging(value);
-                ReportPropertyChanging("Size");
-                _Size = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Size");
-                OnSizeChanged();
+                OnMaxParticipantsChanging(value);
+                ReportPropertyChanging("MaxParticipants");
+                _MaxParticipants = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MaxParticipants");
+                OnMaxParticipantsChanged();
             }
         }
-        private global::System.String _Size;
-        partial void OnSizeChanging(global::System.String value);
-        partial void OnSizeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Price
-        {
-            get
-            {
-                return _Price;
-            }
-            set
-            {
-                OnPriceChanging(value);
-                ReportPropertyChanging("Price");
-                _Price = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Price");
-                OnPriceChanged();
-            }
-        }
-        private global::System.String _Price;
-        partial void OnPriceChanging(global::System.String value);
-        partial void OnPriceChanged();
+        private global::System.Int32 _MaxParticipants;
+        partial void OnMaxParticipantsChanging(global::System.Int32 value);
+        partial void OnMaxParticipantsChanged();
 
         #endregion
 
@@ -2494,191 +2670,18 @@ namespace Test.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RoomRoomInventory", "RoomInventory")]
-        public EntityCollection<RoomInventory> RoomInventories
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RoomInventory>("BookingDataModel.RoomRoomInventory", "RoomInventory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RoomInventory>("BookingDataModel.RoomRoomInventory", "RoomInventory", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RoomBooking", "Booking")]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "BookingRoom", "Booking")]
         public EntityCollection<Booking> Bookings
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Booking>("BookingDataModel.RoomBooking", "Booking");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Booking>("BookingDataModel.BookingRoom", "Booking");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Booking>("BookingDataModel.RoomBooking", "Booking", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="RoomInventory")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class RoomInventory : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new RoomInventory object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="inventoryId">Initial value of the InventoryId property.</param>
-        /// <param name="roomId">Initial value of the RoomId property.</param>
-        public static RoomInventory CreateRoomInventory(global::System.Int32 id, global::System.Int32 inventoryId, global::System.Int32 roomId)
-        {
-            RoomInventory roomInventory = new RoomInventory();
-            roomInventory.Id = id;
-            roomInventory.InventoryId = inventoryId;
-            roomInventory.RoomId = roomId;
-            return roomInventory;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 InventoryId
-        {
-            get
-            {
-                return _InventoryId;
-            }
-            set
-            {
-                OnInventoryIdChanging(value);
-                ReportPropertyChanging("InventoryId");
-                _InventoryId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("InventoryId");
-                OnInventoryIdChanged();
-            }
-        }
-        private global::System.Int32 _InventoryId;
-        partial void OnInventoryIdChanging(global::System.Int32 value);
-        partial void OnInventoryIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 RoomId
-        {
-            get
-            {
-                return _RoomId;
-            }
-            set
-            {
-                OnRoomIdChanging(value);
-                ReportPropertyChanging("RoomId");
-                _RoomId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("RoomId");
-                OnRoomIdChanged();
-            }
-        }
-        private global::System.Int32 _RoomId;
-        partial void OnRoomIdChanging(global::System.Int32 value);
-        partial void OnRoomIdChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "InventoryRoomInventory", "Inventory")]
-        public Inventory Inventory
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Inventory>("BookingDataModel.InventoryRoomInventory", "Inventory").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Inventory>("BookingDataModel.InventoryRoomInventory", "Inventory").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Inventory> InventoryReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Inventory>("BookingDataModel.InventoryRoomInventory", "Inventory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Inventory>("BookingDataModel.InventoryRoomInventory", "Inventory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Booking>("BookingDataModel.BookingRoom", "Booking", value);
                 }
             }
         }
@@ -2689,34 +2692,18 @@ namespace Test.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RoomRoomInventory", "Room")]
-        public Room Room
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RoomInventory", "Inventory")]
+        public EntityCollection<Inventory> Inventories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomRoomInventory", "Room").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomRoomInventory", "Room").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Room> RoomReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomRoomInventory", "Room");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Inventory>("BookingDataModel.RoomInventory", "Inventory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Room>("BookingDataModel.RoomRoomInventory", "Room", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Inventory>("BookingDataModel.RoomInventory", "Inventory", value);
                 }
             }
         }

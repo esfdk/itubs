@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="https://rentit.itu.dk:8172/MsDeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="Default Web Site/RentIt12" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Production" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="RentIt12" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAN5+AbQWobE6AMAi2sbTeEwAAAAACAAAAAAAQZgAAAAEAACAAAADI7j6WFG/BxdqiEOxMttdP5TFTC5q++U6XB2ehBuLz/gAAAAAOgAAAAAIAACAAAACBUXe4g3HRJG7jM9o+adAyWx4LK8SjbESOM1JLMKa3BiAAAAD3cI1VOydh3H8OCJdUc1Sq5ZoEViCQo2ZAsSBtZ6R6IEAAAAB6Ev5G44Fiw1jf1agalx4KZMK5Jt5LNolDMPCDVfHzDlssl/z+UemqE9xnw1BtRDO8g2WXrcJocDeBFPMUJoLP" SelectedForPublish="True" />
+</publishData>
