@@ -23,7 +23,7 @@ namespace ITubsService.Services
             throw new System.NotImplementedException();
         }
 
-        public RequestStatus GetEquipmentChoice(string token, ref EquipmentChoice equipmentChoice)
+        public RequestStatus GetEquipmentChoice(ref EquipmentChoice equipmentChoice)
         {
             throw new System.NotImplementedException();
         }

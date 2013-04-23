@@ -10,19 +10,26 @@
     {
         public LoginStatus Login(string username, string password, out Person person)
         {
-            person = Person.Login(username, password);
+            var p = Person.Login(username, password);
+            person = null;
 
-            if (!string.IsNullOrEmpty(person.Token) && !string.IsNullOrEmpty(person.Email) && !string.IsNullOrEmpty(person.Name))
-            {
-                return LoginStatus.Success;
-            }
-            if (person.Token == null)
+            if (p == null)
             {
                 return LoginStatus.WrongUserNameOrPassword;
             }
 
-            return LoginStatus.InvalidInput;
+            if (p.ID == -1)
+            {
+                return LoginStatus.CommunicationFailure;
+            }
 
+            if (p.IsAPerson())
+            {
+                person = p;
+                return LoginStatus.Success;
+            }
+
+            return LoginStatus.InvalidInput;
         }
 
         public RequestStatus Logout(string token)
@@ -32,12 +39,43 @@
 
         public RequestStatus GetAllOfUsers(string token, out IEnumerable<Person> people)
         {
-            throw new System.NotImplementedException();
+            people = Person.All;
+
+            return RequestStatus.Success;
         }
 
-        public RequestStatus GetUserByEmail(string token, ref Person person)
+        public RequestStatus GetByEmail(string token, ref Person person)
         {
-            throw new System.NotImplementedException();
+            person = Person.GetByEMail(person.Email);
+
+            if (person == null)
+            {
+                return RequestStatus.InvalidToken;
+            }
+
+            if (person.IsAPerson())
+            {
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
+        }
+
+        public RequestStatus GetByToken(string token, out Person person)
+        {
+            person = Person.GetByToken(token);
+
+            if (person == null)
+            {
+                return RequestStatus.InvalidToken;
+            }
+
+            if (person.IsAPerson())
+            {
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
         }
     }
 }

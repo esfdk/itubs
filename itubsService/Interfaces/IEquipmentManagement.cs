@@ -5,7 +5,6 @@ namespace ITubsService.Interfaces
     using System.Collections.Generic;
     using System.ServiceModel;
     using Enums;
-    using Models;
 
     [ServiceContract]
     interface IEquipmentManagement
@@ -20,7 +19,7 @@ namespace ITubsService.Interfaces
         RequestStatus DeleteEquipmentItem(string token, int equipmentId);
 
         [OperationContract]
-        RequestStatus GetEquipmentChoice(string token, ref EquipmentChoice equipmentChoice);
+        RequestStatus GetEquipmentChoice(ref EquipmentChoice equipmentChoice);
 
         [OperationContract]
         RequestStatus GetEquipmentItem(ref Equipment equipmentItem);

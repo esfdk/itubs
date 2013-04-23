@@ -5,7 +5,6 @@ namespace ITubsService.Interfaces
     using System.Collections.Generic;
     using System.ServiceModel;
     using Enums;
-    using Models;
 
     [ServiceContract]
     interface ICateringManagement
@@ -17,6 +16,6 @@ namespace ITubsService.Interfaces
         RequestStatus GetCatering(ref Catering catering);
 
         [OperationContract]
-        RequestStatus GetCateringChoice(string token, ref CateringChoice cateringChoice);
+        RequestStatus GetCateringChoice(ref CateringChoice cateringChoice);
     }
 }

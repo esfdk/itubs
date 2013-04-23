@@ -26,9 +26,9 @@
         RequestStatus GetAllRooms(out IEnumerable<Room> rooms);
 
         [OperationContract]
-        RequestStatus AddInventoryItemToRoom(string token, int inventoryId, int roomId);
+        RequestStatus AddInventoryItemToRoom(string token, int inventoryId, ref Room updatedRoom);
 
         [OperationContract]
-        RequestStatus RemoveInventoryItemFromRoom(string token, int inventoryId);
+        RequestStatus RemoveInventoryItemFromRoom(string token, int inventoryId, ref Room updatedRoom);
     }
 }

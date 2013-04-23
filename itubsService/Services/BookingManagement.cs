@@ -9,13 +9,14 @@ namespace ITubsService.Services
 
     public partial class Service : IBookingManagement
     {
-        public RequestStatus GetBooking(string token, ref Booking booking)
+        public RequestStatus GetBooking(ref Booking booking)
         {
             throw new NotImplementedException();
         }
 
-        public RequestStatus GetAllBookings(string token, DateTime date, out IEnumerable<Booking> bookings)
+        public RequestStatus GetAllBookings(DateTime date, out IEnumerable<Booking> bookings)
         {
+            //TODO: Security concern about booking? Should it be possible to retrieve a user by looking at all the bookings
             throw new NotImplementedException();
         }
 

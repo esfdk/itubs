@@ -10,12 +10,21 @@
 namespace ITubsService.Entities
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     public class Catering
     {
         public Catering()
         {
-            this.CateringChoices = new List<CateringChoice>();
+            CateringChoices = new List<CateringChoice>();
+        }
+
+        public static IEnumerable<Catering> All
+        {
+            get
+            {
+                return ItubsContext.Db.Caterings.Include("CateringChoice").ToList();
+            }
         }
 
         public int ID { get; set; }
@@ -24,5 +33,10 @@ namespace ITubsService.Entities
         public System.TimeSpan AvailableFrom { get; set; }
         public System.TimeSpan AvailableTo { get; set; }
         public virtual ICollection<CateringChoice> CateringChoices { get; set; }
+
+        public static Catering GetCatering(int id)
+        {
+            return All.First(c => c.ID == id);
+        }
     }
 }

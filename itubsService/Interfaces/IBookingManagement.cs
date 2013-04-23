@@ -10,10 +10,10 @@
     public interface IBookingManagement
     {
         [OperationContract]
-        RequestStatus GetBooking(string token, ref Booking booking);
+        RequestStatus GetBooking(ref Booking booking);
 
         [OperationContract]
-        RequestStatus GetAllBookings(string token, DateTime date, out IEnumerable<Booking> bookings);
+        RequestStatus GetAllBookings(DateTime date, out IEnumerable<Booking> bookings);
 
         [OperationContract]
         RequestStatus CreateBooking(string token, ref Booking newBooking);

@@ -6,9 +6,10 @@ namespace ITubsService.Entities
     using System.DirectoryServices.Protocols;
     using System.Linq;
     using System.Net;
+    using System.Runtime.InteropServices;
     using System.Runtime.Serialization;
 
-    using ITubsService.Enums;
+    using Enums;
 
     public class Person
     {
@@ -27,6 +28,10 @@ namespace ITubsService.Entities
         }
 
         #region Properties
+
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
         [DataMember]
         public int ID { get; set; }
         [DataMember]
@@ -47,11 +52,9 @@ namespace ITubsService.Entities
         public static Person Login(string username, string password)
         {
             // TODO: Improve this
+            var ldap = new LdapConnection(Configuration.LDAPServer) { Credential = new NetworkCredential(Configuration.NetworkUsername, Configuration.NetworkPassword) };
 
-            var ldap = new LdapConnection(Configuration.LDAPServer);
-            ldap.Credential = new NetworkCredential(Configuration.NetworkUsername, Configuration.NetworkPassword);
-
-            var dsFilter = "(samaccountname=jmel)";
+            var dsFilter = "(samaccountname=" + username.Substring(0, username.IndexOf("@")) + ")";
 
             var de = new DirectoryEntry("LDAP://" + Configuration.LDAPServer, username, password);
             var ds = new DirectorySearcher(de)
@@ -59,7 +62,22 @@ namespace ITubsService.Entities
                             Filter = dsFilter
                         };
 
-            var result = ds.FindOne();
+            SearchResult result = null;
+
+            try
+            {
+                result = ds.FindOne();
+            }
+            catch (COMException)
+            {
+                return new Person() { ID = -1 };
+            }
+
+            if (result == null)
+            {
+                return null;
+            }
+
 
             if (!result.Properties.Contains("ituAffiliation"))
             {
@@ -106,6 +124,26 @@ namespace ITubsService.Entities
             person.Token = string.Empty;
             ItubsContext.Db.SaveChanges();
             return RequestStatus.Success;
+        }
+
+        public static Person GetByEMail(string email)
+        {
+            var person = All.First(p => p.Email == email);
+
+            return person;
+        }
+
+        public static Person GetByToken(string token)
+        {
+            var person = All.First(p => p.Token == token);
+
+            return person;
+        }
+
+        public bool IsAPerson()
+        {
+            return !string.IsNullOrEmpty(this.Token) && !string.IsNullOrEmpty(this.Email)
+                   && !string.IsNullOrEmpty(this.Name);
         }
 
         /// <summary>

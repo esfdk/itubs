@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
     using System.ServiceModel;
+    using Entities;
     using Enums;
-    using ITubsService.Entities;
 
 
     [ServiceContract]
@@ -19,6 +19,9 @@
         RequestStatus GetAllOfUsers(string token, out IEnumerable<Person> people);
 
         [OperationContract]
-        RequestStatus GetUserByEmail(string token, ref Person person);
+        RequestStatus GetByEmail(string token, ref Person person);
+
+        [OperationContract]
+        RequestStatus GetByToken(string token, out Person person);
     }
 }

@@ -22,22 +22,35 @@
             throw new System.NotImplementedException();
         }
 
-        public RequestStatus GetRoom(string token, ref Room room)
+        public RequestStatus GetRoom(ref Room room)
         {
-            throw new System.NotImplementedException();
+            room = Room.GetRoomByID(room.ID);
+
+            if (room != null)
+            {
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
         }
 
         public RequestStatus GetAllRooms(out IEnumerable<Room> rooms)
         {
-            throw new System.NotImplementedException();
+            rooms = Room.All;
+            return RequestStatus.Success;
         }
 
-        public RequestStatus AddInventoryItemToRoom(string token, int inventoryId, int roomId)
+        public RequestStatus AddInventoryItemToRoom(string token, int inventoryId, ref Room updatedRoom)
         {
-            throw new System.NotImplementedException();
+            updatedRoom = Room.AddInventory(updatedRoom, inventoryId);
+
+            if (updatedRoom != null)
+            {
+
+            }
         }
 
-        public RequestStatus RemoveInventoryItemFromRoom(string token, int inventoryId)
+        public RequestStatus RemoveInventoryItemFromRoom(string token, int inventoryId, ref Room updatedRoom)
         {
             throw new System.NotImplementedException();
         }

@@ -10,17 +10,33 @@ namespace ITubsService.Services
     {
         public RequestStatus GetAllCatering(out IEnumerable<Catering> cateringItems)
         {
-            throw new System.NotImplementedException();
+            cateringItems = Catering.All;
+
+            return RequestStatus.Success;
         }
 
         public RequestStatus GetCatering(ref Catering catering)
         {
-            throw new System.NotImplementedException();
+            catering = Catering.GetCatering(catering.ID);
+
+            if (catering != null)
+            {
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
         }
 
-        public RequestStatus GetCateringChoice(string token, ref CateringChoice cateringChoice)
+        public RequestStatus GetCateringChoice(ref CateringChoice cateringChoice)
         {
-            throw new System.NotImplementedException();
+            cateringChoice = CateringChoice.GetCateringChoice(cateringChoice.ID);
+
+            if (cateringChoice != null)
+            {
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
         }
     }
 

@@ -10,6 +10,7 @@
 namespace ITubsService.Entities
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -26,6 +27,14 @@ namespace ITubsService.Entities
         {
             CateringChoices = new List<CateringChoice>();
             EquipmentChoices = new List<EquipmentChoice>();
+        }
+
+        public static IEnumerable<Booking> All
+        {
+            get
+            {
+                return ItubsContext.Db.Bookings.Include("CateringChoices").Include("EquipmentChoices").ToList();
+            }
         }
 
         public int ID { get; set; }

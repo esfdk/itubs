@@ -2,7 +2,6 @@
 {
     public enum LoginStatus
     {
-        Success = 0, WrongUserNameOrPassword = 1, InvalidInput = 3,
-
+        Success = 0, WrongUserNameOrPassword = 1, InvalidInput = 3, CommunicationFailure = 4,
     }
 }
