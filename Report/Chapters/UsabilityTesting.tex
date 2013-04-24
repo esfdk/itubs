@@ -1,13 +1,14 @@
 \chapter{Usability testing}
 I dette kapitel vil vi kigge på usability test af vores prototype og vores strategi for disse tests
 \section{Test strategi}
-I følge kravspecifikation\footnote{kravspecifikationen side 6} skulle vi tidligt i processen lave usabilitytests med papirmockups for at bevis proof of concept over for ITU. Som det første i processen lavede vi da papermockups af skærmbillederne således at vi var istand til at 
-fortage en runde af usabilitytest tidligt i forløbet så vi kunne bevise proof of concept og så vi kunne have nogle resultater og feedback fra brugerne at tage med ind i vores udviklingsfase.
+I følge kravspecifikationen\footnote{kravspecifikationen side 6} skulle vi tidligt i processen lave usability tests med papirmockups for at bevis proof of concept over for ITU. Det vi gjorde var derfor at lave papermockups af skærmbillederne således at vi var istand til at 
+fortage en runde af usabilitytest tidligt i forløbet så vi kunne have nogle resultater og feedback fra brugerne at tage med ind i vores udviklingsfase.
 
-Vi valgte kun at lave to runder af usabilitytests, optimalt ville vi gerne have lavet 3 runder, en i starten af projektet, en midtvejs for at følge op på den første og tjekke om nye features var i orden, og så en sluttest på det endelige produkt. Desværre følte vi ikke at vi havde hverken resourcer eller tid til at lave midtvejs testen da projektet var så kort karakter.
+Vi valgte kun at lave to runder af usabilitytests, optimalt ville vi gerne have lavet 3 runder, en i starten af projektet, en midtvejs for at følge op på den første og tjekke om nye features var i orden, og en sluttest på det endelige produkt. Vi vudere at vi hverken havde resourcer eller tid til at lave midtvejs testen da projektet var af så kort en karakter.
 
- Til den første runde af tests valgt vi kun at teste på en bruger da vi i bogen "User Interface Design"\footnote{User Interface Design, side 416} kan læse os til at flere testere i udviklingsfasen kan føre til en overvældende liste af problemer, derudover plejer en tester at være mere end nok til at afsløre de seriøse problem i interfacet.
+Til den første runde af tests valgt vi kun at teste på en bruger da vi i bogen "User Interface Design"\footnote{User Interface Design, side 416} kan læse os til at flere testere i udviklingsfasen kan føre til en overvældende liste af problemer, derudover plejer en tester at være mere end nok til at afsløre de seriøse problem i interfacet.
 Til at teste havde vi en personer fra hver af vores brugergrupper, studenter/lærer og recepsionister. Grunden til vi har to brugergrupper er at systemet er to-delt da der både skal understøttes brug og vedligholdes. Til hver af grupperne lavede vi 7 test cases.
+
 Test cases til studerende:
 \begin{description}
 \item [Test Case 1:] Du har booket et lokale fra 9-10 til et møde med din vejleder og du vil gerne have en diktafon med så du kan optage mødet.
@@ -28,29 +29,47 @@ Test cases til receptionisten:
 \item [Test Case 6:] Lokalet 5a12 er ikke længere et privat lokale men er nu blevet lavet om til et mødelokale.
 \item [Test Case 7:] Lokalet 2a12 er ikke længere til rådighed for bookning længere.
 \end{description}
-Test casene er designet sådan at de ikke leder test personen til at gøre noget specifikt, det er gjort fordi vi ikke ville have at test personen skulle få at vide hvad de skulle gøre for at løse problemet men mere selv skulle finde løsningen, da det ville give også et bedre indblik i om vores system nu var så intuitivt som vi følte det burde være.\\ Derudover dækker de 14 test cases til sammen også størreste delen af workflowsne i systemet, hvilket gøre at vi for teste det hele når vi laver test på både en studerende og receptionist. Måden hvorpå vi udførte vores tests var at vi læste test casen op for test personen og  bad dem om at tænke højt og forklare hvad de gjorde mens de prøvede at løse problemet. 
+
+Test casene er designet sådan at de ikke leder test personen til at gøre noget specifikt, det er gjort fordi vi ikke ville have, at test personen skulle få at vide hvad de skulle gøres for at løse problemet, men selv skulle finde løsningen da det ville give os et bedre indblik i om vores system nu var så intuitivt som det burde være.\\ Derudover dækker de 14 test cases til sammen også størreste delen af workflowsne i systemet hvilket gøre, at vi for testet det hele når vi laver test på både en studerende og receptionist. Måden hvorpå vi udførte vores tests var at vi læste test casen op for test personen og  bad dem om at tænke højt og forklare hvad de gjorde mens de prøvede at løse problemet, også kaldet think aloud test \footnote{User Interface Design, side 421}. 
 
 
-Når brugen så var færdig med test casene spurgte vi indtil hvad de synes der var godt og hvad de synes der kunne forbedres, hvilket gjorde at vi hele tiden havde en god ide om hvad der var værd at beholde og hvad der måske skulle kigges en ekstra gang på før det blev implementeret.\\ I den første runde af test, var der fokus på at finde de større design fejl og mangler i systemet,  i den anden runde af test havde vi meget fokus på at sikre os at de ændringer vi havde lavet efter første runde var korrekt implementeret og at de forskellige workflows virkede intuitive.
+Når brugen var færdig med test casene spurgte vi indtil hvad de synes der var godt og hvad de synes der kunne forbedres, hvilket gjorde at vi hele tiden havde en god ide om hvad der var værd at beholde, og hvad der måske skulle kigges en ekstra gang på før det blev implementeret.\\ I den første runde af test, var der fokus på at finde de større design fejl og mangler i systemet,  i den anden runde af test havde vi meget fokus på at sikre os, at de ændringer vi havde lavet efter første runde var korrekt implementeret og, at de forskellige workflows virkede intuitive.
 
-\section{Resultater af usabilitytest runde 1 }
+\section{Resultat og konsekvens af usability test runde et }
+\label{Res_kon_usability_1}
 Efter den første runde af usabilitytests var der 5 hoved punkter som vi synes var værd at tage med videre i udviklingsprocessen.
 \begin{description}
-\item [Forvirring om hvordan man valgt tidspunkt at booke lokale.]
-Test personen havde problemer med at finde ud af hvordan vores gitter med booking tider fungerede, personen troede ikke man kunne klikke i selve felterne så der skulle lidt hjælp til før det de forstod princippet i det.
-\item [Forvirring angående navigering imellem de forskellige skærmbilleder.]
-Test personen følte at der manglede navigierings muligheder mellem de forskellige skærmbilleder, opdagede ikke at der var tabs i toppen hvor man kunne skifte.
-\item [Synes ikke tilføj udstyr/forplejning var rigtig.]
-Da vi spurgte receptionisten efter testen hvad hun synes der var dårligt nævnte hun, at hun ikke synes det skulle være muligt at tilføje udstyr og forplejning til sin bookning før receptionisten havde godkendt den. 
-\item [Forvirring om hvordan man sletter forplejning/Udstyr og booking.]
-Da test personen fik til opgave at slette udstyr fra en booking, var der ingen der naturligt tænkte at de skulle gå ind i booking billedet og så klikke på de bookede tider som de gerne ville slette.
-\item [Kunne godt lide den generelle struktur af systemet.]
-Begge test personen synes begge at vores gitter funktion var god efter de havde fået at vide at de kunne klikke på felterne, desuden synes de også det var godt at de forskellige skærmbilleder mindede om hinanden.
+\item [Punkt 1:] Forvirring omkring valgte tidspunkter.
+\item [Punkt 2:] Forvirring angående navigering imellem skærmbilleder.
+\item [Punkt 3:] Forvirring omkring sletning af forplejning/udstyr og booking.
+\item [Punkt 4:] Problem med tilføj udstyr/forplejning.
+\item [Punkt 5:] Positive feedback på generelle struktur af systemet.
 \end{description}
 
-\section{Konsekvenser af usabilitytest runde 1}
-Som nævnt ovenfor var der visse ting som test personerne følte enten manglede eller ikke var intuitive nok, hvilket selvfølgelig fik os til at overveje om der skulle ændres i systemet og om nogle af skærmbillederne skulle ændres eller redesignes. \\Vi blev enige om at det første problem med forvirringen om at man kunne klikke i felterne kunne løses ved at indsætte en checkbox i felterne så det blev mere intuitivt.\\ Det andet problem med at navigeringen mellem vinduerne var forvirrende følte vi kunne løses ved at fjerne tabs og i stedet lave en menubar som var placeret længere nede på siden så den var mere synlig. 
-% Problemet som receptionisten følte der var med muligheden for er tilføje udstyr og forplening før booking var godkendt, løste vi ved at lave et tjek der gjorde at man først kunne klikke på tilføje knapperne efter at booking var blevet godkendt.%
-Forvirringen om hvordan man sletter ens bookinger følte vi ikke at vi ville gøre noget ved, i og med at vi havde fået at vide at den generelle struktur var god. Derudover følte at problemet var tilknyttet ease of learning hvilket er en del af Ease of use som vi ikke har fokuseret så meget på.
+\paragraph{Punkt 1}
+Test personen havde problemer med at finde ud af hvordan vores gitter med booking tider fungerede, personen troede ikke man kunne klikke i selve felterne så der skulle lidt hjælp til før det de forstod princippet i det.
+\subparagraph{Konsekvenser og løsning}
+Vi blev enige om dette problem kunne ved at indsætte en checkbox i felterne således at det blev mere intuitivt at man skulle klikke der.
+
+\paragraph{Punkt 2}
+Test personen følte at der manglede navigierings muligheder mellem de forskellige skærmbilleder, opdagede ikke at der var tabs i toppen hvor man kunne skifte.
+\subparagraph{Konsekvenser og løsning}
+Vi mente selv at problemet kunne løses ved at lave en menubar som var placeret længere nede på siden så den var mere synlig
+
+\paragraph{Punkt 3}
+Personen fandt det ikke naturligt at man skulle gå ind i booking billedet og klikke på de bookede tider som man gerne ville slette.
+\subparagraph{Konsekvenser og løsning}
+Vi vuderede at det ikke var nødvendigt at gøre noget dette problem da vi havde fået feedback tilbage om at strukturen i systemt var god. Derudover mente vi, at problemet var tilknyttet ease of learning hvilket er en del af Ease of use som vi ikke har fokuseret så meget på.
+
+\paragraph{Punkt 4}
+Receptionisten nævnte efter testen, at hun ikke synes det skulle være muligt at tilføje udstyr og forplejning til sin bookning før receptionisten havde godkendt den. 
+\subparagraph{Konsekvenser og løsning}
+Vi mente, at det var en vigtigt pointe og vi valgte derfor at implementere et sikkerheds tjek for at sikre at en booking var godkendt før der kunne tilføjes udstyr eller forplejning.
+
+\paragraph{Punkt 5}
+Test personerne kunne godt lide den overordnet struktur af systemet og synes også booking funktionen var smart de skulle bare lige lære at bruge den først.
+\subparagraph{Konsekvenser og løsning}
+faktumet at test personer synes at den generelle struktur var god gjorde at vi ikke valgt at lave ændringer i forhold til punkt 3.
+
 \section{Resultater af usabilitytest runde 2}
 \section{Mulige konsekvenser af usabilitytest runde 2}
