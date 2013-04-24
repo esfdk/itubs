@@ -20,6 +20,9 @@
 \usepackage{inconsolata}
 \usepackage[bottom]{footmisc}
 \usepackage{titletoc}
+\usepackage{lastpage}
+\usepackage{appendix}
+\usepackage{savefnmark}
 
 % Chapter and section spacings
 \titleformat{\chapter}{\normalfont\huge\bfseries}{{\thechapter} }{0pt}{\Huge}
@@ -55,25 +58,25 @@ numbers = left}
 \setlength{\headheight}{15.2pt}
 \setlength{\topskip}{20pt}
 \pagestyle{fancy}
-\cfoot{\thepage\ of 32}
-\fancypagestyle{plain}{\fancyhf{}\cfoot{\thepage\ of 32}
+\cfoot{\thepage\ af \pageref{LastPage}}
+\fancypagestyle{plain}{\fancyhf{}\cfoot{\thepage\ af \pageref{LastPage}}
 }
-\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter.\ #1}}{}}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{}}{}}
 \fancypagestyle{plain}{
 \fancyhf{}
-\cfoot{\thepage\ of 32}
+\cfoot{\thepage\ af \pageref{LastPage}}
 }
 
 % Table of contents depth
-\settocdepth{section}
+\settocdepth{chapter}
 
 % New commands and environments
 \newcommand{\skippage}
 {
-\chapter*{}
-\thispagestyle{empty}
-\addtocounter{page}{-1}
-\pagebreak
+	\chapter*{}
+	\thispagestyle{empty}
+	\addtocounter{page}{-1}
+	\pagebreak
 }
 \newcommand{\class}[1]{\texttt{#1}}
 \newcommand{\method}[1]{\texttt{#1}}
@@ -96,7 +99,8 @@ Frederik Lysgaard, frly@itu.dk
 \date{May 22st, 2012}
 \begin{document}
 \maketitle
+\skippage
 \tableofcontents
-\input{Chapters/Design/Design-UI.tex}
+\input{Chapters/Design/GraphicalDesign.tex}
 \input{Chapters/UsabilityTesting.tex}
 \end{document}
