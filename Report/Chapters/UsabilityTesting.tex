@@ -8,36 +8,32 @@ Vi valgte at lave to runder af usability tests.
 \\Runde 1 består tests med en papermockup på en enkelt bruger.
 \\Runde 2 består af tests af det endelige produkt på flere brugere.
 
-Vi mener, at det havde været optimalt, hvis vi kunne have udført en usability test midtvejs i 
+Vi valgte kun at teste en bruger i runde 1, da flere testpersoner tidligt i udviklingsfasen kan føre til en overvældende liste af problemer\cite[s. 416]{SL_UID}. Derudover er en enkelt testperson ofte nok til at afsløre de seriøse problemer i brugergrænsefladen.
 
-Ifølge kravspecifikationen (side 6)
-I følge kravspecifikationen\footnote{kravspecifikationen side 6} skulle vi tidligt i processen lave usability tests med papirmockups for at bevis proof of concept over for ITU. Det vi gjorde var derfor at lave papermockups af skærmbillederne således at vi var istand til at 
-fortage en runde af usabilitytest tidligt i forløbet så vi kunne have nogle resultater og feedback fra brugerne at tage med ind i vores udviklingsfase.
+Vi mener, at det havde været optimalt, hvis vi kunne have udført en usability test midtvejs i processen (mellem runde 1 og runde 2), men vi vurderede, at vi ikke ville få nok ud af testen, da det ville være svært at finde tid til at teste nok personer.
 
-Vi valgte kun at lave to runder af usabilitytests, optimalt ville vi gerne have lavet 3 runder, en i starten af projektet, en midtvejs for at følge op på den første og tjekke om nye features var i orden, og en sluttest på det endelige produkt. Vi vudere at vi hverken havde resourcer eller tid til at lave midtvejs testen da projektet var af så kort en karakter.
+\subsection{Test cases}
+Vi har to brugergrupper i vores usability tests. De er almindelige brugere (studerende/undervisere) og administration (Facility Management/Receptionister). Til hver af disse brugergrupper har vi defineret syv test cases.
 
-Til den første runde af tests valgt vi kun at teste på en bruger da vi i bogen "User Interface Design"\footnote{User Interface Design, side 416} kan læse os til at flere testere i udviklingsfasen kan føre til en overvældende liste af problemer, derudover plejer en tester at være mere end nok til at afsløre de seriøse problem i interfacet.
-Til at teste havde vi en personer fra hver af vores brugergrupper, studenter/lærer og recepsionister. Grunden til vi har to brugergrupper er at systemet er to-delt da der både skal understøttes brug og vedligholdes. Til hver af grupperne lavede vi 7 test cases.
-
-Test cases til studerende:
+Test cases til almindelige brugere:
 \begin{description}
-\item [Test Case 1:] Du har booket et lokale fra 9-10 til et møde med din vejleder og du vil gerne have en diktafon med så du kan optage mødet.
-\item [Test Case 2:] Du skal holde et møde den 22 september klokken 9 og tre timer frem. Du skal i den sammenhæng booke et lokale til formålet.
-\item [Test Case 3:] En af dine gruppemedlemer har meldt tilbage at han skal aflever sin datter i børnhavnen og mødet kan derfor først holdes fra klokken 10.
-\item [Test Case 4:] Da mødet ligger om morgen tænker du at det vil være fornuftigt hvis der var noget kaffe og morgenbrød klar.
-\item [Test Case 5:] Du skal til dit projekt optage en kort reklame film og har derfor brug for et kamera.
-\item [Test Case 6:] Dit gruppe medlemer har kamera med så du behøver ikke længere booke et hos ITU.
-\item [Test Case 7:] Deltagerne til dit møde i 2a12 har desværre aflyst.
+\item[Test Case 1:] Du har booket et lokale fra 9-10 til et møde med din vejleder og du vil gerne have en diktafon med, så du kan optage mødet.
+\item[Test Case 2:] Du skal holde et møde den 22 september klokken 9 og tre timer frem. Du skal i den sammenhæng booke et lokale til formålet.
+\item[Test Case 3:] En af dine gruppemedlemmer har meldt tilbage at han skal aflevere sin datter i børnhavnen og mødet kan derfor først holdes fra klokken 10.
+\item[Test Case 4:] Da mødet ligger om morgen tænker du at det vil være fornuftigt hvis der var noget kaffe og morgenbrød klar.
+\item[Test Case 5:] Du skal til dit projekt optage en kort reklame film og har derfor brug for et kamera.
+\item[Test Case 6:] Dit gruppe medlemer har kamera med så du behøver ikke længere booke et hos ITU.
+\item[Test Case 7:] Deltagerne til dit møde i 2a12 har desværre aflyst.
 \end{description}
-Test cases til receptionisten:
+Test cases til administrationsbrugere:
 \begin{description}
-\item [Test Case 1:] En elev har kontaktet dig og gjort dig opmærksom på at der ikke længere er en projektor i 2A12
-\item [Test Case 2:] ITU har til sin udstyrsamling erhvert sig to nye kameraer.
-\item [Test Case 3:] En student henvender sig til dig ved skranken og spørger om hans booking er blevet godkendt.
-\item [Test Case 4:] Du har et møde den 22 april og vil helst gerne holde det på 4. sal.
-\item [Test Case 5:] Du skal afholde et fordrag for 30 mennesker den 24, tidspunktet er i relevant men der skal være plads til min. 30 mennesker.
-\item [Test Case 6:] Lokalet 5a12 er ikke længere et privat lokale men er nu blevet lavet om til et mødelokale.
-\item [Test Case 7:] Lokalet 2a12 er ikke længere til rådighed for bookning længere.
+\item[Test Case 1:] En elev har kontaktet dig og gjort dig opmærksom på at der ikke længere er en projektor i 2A12
+\item[Test Case 2:] ITU har til sin udstyrsamling erhvert sig to nye kameraer.
+\item[Test Case 3:] En student henvender sig til dig ved skranken og spørger om hans booking er blevet godkendt.
+\item[Test Case 4:] Du har et møde den 22 april og vil helst gerne holde det på 4. sal.
+\item[Test Case 5:] Du skal afholde et fordrag for 30 mennesker den 24, tidspunktet er i relevant men der skal være plads til min. 30 mennesker.
+\item[Test Case 6:] Lokalet 5a12 er ikke længere et privat lokale men er nu blevet lavet om til et mødelokale.
+\item[Test Case 7:] Lokalet 2a12 er ikke længere til rådighed for bookning længere.
 \end{description}
 
 Test casene er designet sådan at de ikke leder test personen til at gøre noget specifikt, det er gjort fordi vi ikke ville have, at test personen skulle få at vide hvad de skulle gøres for at løse problemet, men selv skulle finde løsningen da det ville give os et bedre indblik i om vores system nu var så intuitivt som det burde være.\\ Derudover dækker de 14 test cases til sammen også størreste delen af workflowsne i systemet hvilket gøre, at vi for testet det hele når vi laver test på både en studerende og receptionist. Måden hvorpå vi udførte vores tests var at vi læste test casen op for test personen og  bad dem om at tænke højt og forklare hvad de gjorde mens de prøvede at løse problemet, også kaldet think aloud test \footnote{User Interface Design, side 421}. 
