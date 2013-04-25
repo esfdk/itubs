@@ -4,7 +4,7 @@ Dette kapitel beskriver det generelle design af brugergrænsefladen samt de besl
 
 \section{Generelle mål}
 \label{Design_G_Goals}
-Vi har valgt at designe vores brugergrænseflade ud fra reglerne om design af virtuelle vinduer\cite[s. 169]{SL_UID} samt Ease Of Use principperne\cite[s. 9]{SL_UID}. I forbindelse med dette valg har vi sat følgende mål for design:
+Vi har valgt at designe vores brugergrænseflade ud fra reglerne om design af virtuelle vinduer\cite[s. 169]{SL_UID} samt Ease Of Use principperne\cite[s. 9]{SL_UID}. I forbindelse med dette valg har vi sat følgende mål for designet:
 \begin{itemize}
 \item Strømlinet brugergrænseflade
 \item Få forskellige skærmbilleder
@@ -15,7 +15,7 @@ Vi har valgt at designe vores brugergrænseflade ud fra reglerne om design af vi
 \subsection{Strømlinet brugergrænseflade}
 Vi har valgt at designe skærmbillederne med samme grundstruktur. Denne lighed bør gøre det intuitivt at gå fra et skærmbillede til et andet i forbindelse med udførsel af opgaver. Desuden følger det designregel 1\footnote{Few window templates} om få vindueskabeloner.
 
-\subsection{Kort vej fra et opgave til en anden}
+\subsection{Kort vej fra en opgave til en anden}
 Brugergrænsefladen skal gøre det hurtigt og nemt for brugeren at komme fra en opgave til en anden. Dette skal gøres ved at have få skærmbilleder involvereret i en enkelt task (designregel 2\footnote{Few window instances per task.}).
 
 \subsection{Overblik}
@@ -36,9 +36,9 @@ Vores brugergrænseflade er delvist inspireret af booking systemer til biografer
 \end{figure}
 
 Vores første mockup havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Brugerne skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. 
-\\Resultatet af vores første usability test viste dog, at denne løsning ikke var intuitiv nok for brugeren. Vi valgte derfor at lave checkboxes inde i hvert felt, således at brugeren skal sætte et hak i de checkboxes, som brugeren vil booke tider ud fra. 
+\\Resultatet af vores første usability test (se \ref{Usability_R1}, side \pageref{Usability_R1}) viste dog, at denne løsning ikke var intuitiv nok for brugeren. Vi valgte derfor at lave checkboxes inde i hvert felt, således at brugeren skal sætte et hak i de checkboxes, som brugeren vil booke tider ud fra. 
 
-Vi anvendte gitterløsningen som grundstrukturen for de fleste skærmbilleder for at følge vores mål om at lave en strømlinet brugergrænseflade. 
+Vi anvendte gitterløsningen (se figur \ref{Design_G_Development_FinalGrid}, side \pageref{Design_G_Development_FinalGrid}) som grundstrukturen for de fleste skærmbilleder for at følge vores mål om at lave en strømlinet brugergrænseflade. 
 \\Til resten af skærmbillederne har vi holdt os til simple strukturer, som kun præsenterer den nødvendige data til at udføre arbejdsopgaven.
 
 \section{Brugergrænsefladens udvikling og udseende}
@@ -46,7 +46,7 @@ Vi anvendte gitterløsningen som grundstrukturen for de fleste skærmbilleder fo
 Vores skærmbilleder er opdelt i tre typer: Gitter, Almindelig og Pop-ups. 
 \\Gitterskærmbillederne bruger vi til booking af lokale, forplejning og udstyr samt administration af udstyr og lokaleinventar.
 \\Almindelige vinduer anvender vi, hvis man skal ændre noget på et stykke udstyr/inventar eller et lokale.
-\\Pop-up skærmbilleder er generelt set advarsler eller fejlbeskeder.
+\\Pop-up skærmbilleder er generelt advarsler eller fejlbeskeder.
 
 \subsection{Gitterskærmbilledet}
 \label{Design_G_Development_Grid}
@@ -78,7 +78,7 @@ Disse typer af skærmbilleder er primært til administration af udstyr/inventar/
   \centering
     \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/DigitalMockup/AendreUdstyr}
   \caption{Skærmbilledet til ændring af udstyr}
-\label{Design_G_Development_EquipmentChangeV1}
+\label{Design_G_Development_EquipmentChange}
 \end{figure} 
 
 \begin{figure}[h!]
@@ -88,5 +88,6 @@ Disse typer af skærmbilleder er primært til administration af udstyr/inventar/
 \label{Design_G_Development_YourBookings}
 \end{figure} 
 
-Derudover har vi i udviklingen af vores design gået efter at overholede Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}. Knapper, som hører til vores gitter, skal ses som hørende til gitteret, og knapperne i menuen skal ses som hørende sammen. Figur \ref{Design_G_Development_YourBookings}, side \pageref{Design_G_Development_YourBookings} viser et eksempel på, hvordan vi holder knapperne tæt på gitteret, så de lader til at høre til gitteret.
+Derudover har vi i udviklingen af vores design gået efter at overholde Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}. 
+\\Knapper, som hører til vores gitter, skal ses som hørende til gitteret, og knapperne i menuen skal ses som hørende sammen. Figur \ref{Design_G_Development_YourBookings}, side \pageref{Design_G_Development_YourBookings} viser et eksempel på, hvordan vi holder knapperne tæt på gitteret, så de lader til at høre til gitteret.
 \\Vi anvender en menubar som et fast element i den øverste del af brugergrænsefladen, så vi gør det nemt for brugeren at navigere rundt i systemet. Man er aldrig mere end to eller tre klik væk fra listen over lokaler eller ens bookninger. Figur \ref{Design_G_Development_YourBookings} viser desuden, hvordan vi har placeret vores menubar.
