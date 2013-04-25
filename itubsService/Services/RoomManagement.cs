@@ -46,8 +46,9 @@
 
             if (updatedRoom != null)
             {
-
+                return RequestStatus.Success;
             }
+            return RequestStatus.AccessDenied;
         }
 
         public RequestStatus RemoveInventoryItemFromRoom(string token, int inventoryId, ref Room updatedRoom)

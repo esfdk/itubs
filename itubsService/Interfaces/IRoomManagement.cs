@@ -20,7 +20,7 @@
         RequestStatus RemoveRoom(string token, int roomId);
 
         [OperationContract]
-        RequestStatus GetRoom(string token, ref Room room);
+        RequestStatus GetRoom(ref Room room);
 
         [OperationContract]
         RequestStatus GetAllRooms(out IEnumerable<Room> rooms);
