@@ -1,39 +1,38 @@
-using ITubsService.Entities;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.ModelConfiguration;
 
-namespace ITubsService.Mapping
+namespace ITubsService.Models.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
     public class BookingMap : EntityTypeConfiguration<Booking>
     {
         public BookingMap()
         {
             // Primary Key
-            HasKey(t => t.ID);
+            this.HasKey(t => t.ID);
 
             // Properties
-            Property(t => t.Status)
+            this.Property(t => t.Status)
                 .IsRequired();
 
-            Property(t => t.Comments)
+            this.Property(t => t.Comments)
                 .IsRequired();
 
             // Table & Column Mappings
-            ToTable("Bookings");
-            Property(t => t.ID).HasColumnName("ID");
-            Property(t => t.Status).HasColumnName("Status");
-            Property(t => t.NumberOfParticipants).HasColumnName("NumberOfParticipants");
-            Property(t => t.Comments).HasColumnName("Comments");
-            Property(t => t.StartTime).HasColumnName("StartTime");
-            Property(t => t.EndTime).HasColumnName("EndTime");
-            Property(t => t.PersonID).HasColumnName("PersonID");
-            Property(t => t.RoomID).HasColumnName("RoomID");
+            this.ToTable("Bookings");
+            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.Status).HasColumnName("Status");
+            this.Property(t => t.NumberOfParticipants).HasColumnName("NumberOfParticipants");
+            this.Property(t => t.Comments).HasColumnName("Comments");
+            this.Property(t => t.StartTime).HasColumnName("StartTime");
+            this.Property(t => t.EndTime).HasColumnName("EndTime");
+            this.Property(t => t.PersonID).HasColumnName("PersonID");
+            this.Property(t => t.RoomID).HasColumnName("RoomID");
 
             // Relationships
-            HasRequired(t => t.Person)
+            this.HasRequired(t => t.Person)
                 .WithMany(t => t.Bookings)
                 .HasForeignKey(d => d.PersonID);
-            HasRequired(t => t.Room)
+            this.HasRequired(t => t.Room)
                 .WithMany(t => t.Bookings)
                 .HasForeignKey(d => d.RoomID);
 

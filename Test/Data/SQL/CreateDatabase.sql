@@ -1,8 +1,9 @@
+
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 04/21/2013 11:29:02
--- Generated from EDMX file: C:\Users\Jakob Melnyk\Documents\GitHub\itubs\Test\Data\BookingDataModel.edmx
+-- Generated from EDMX file: ~\itubs\Test\Data\BookingDataModel.edmx
+-- --------------------------------------------------
 -- --------------------------------------------------
 
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
@@ -17,9 +18,6 @@ IF OBJECT_ID(N'[dbo].[FK_BookingPerson]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_BookingCateringChoice]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CateringChoices] DROP CONSTRAINT [FK_BookingCateringChoice];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CateringChoiceCatering]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Caterings] DROP CONSTRAINT [FK_CateringChoiceCatering];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BookingEquipmentChoice]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EquipmentChoices] DROP CONSTRAINT [FK_BookingEquipmentChoice];
@@ -44,6 +42,9 @@ IF OBJECT_ID(N'[dbo].[FK_PersonPersonRole]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_RolePersonRole]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PersonRoles] DROP CONSTRAINT [FK_RolePersonRole];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CateringCateringChoice]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CateringChoices] DROP CONSTRAINT [FK_CateringCateringChoice];
 GO
 
 -- --------------------------------------------------
@@ -125,8 +126,8 @@ CREATE TABLE [dbo].[Inventories] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [ProductName] nvarchar(max)  NOT NULL,
     [Status] nvarchar(max)  NOT NULL,
-    [RoomID] int  NOT NULL,
-    [InventoryTypeID] int  NOT NULL
+    [InventoryTypeID] int  NOT NULL,
+    [RoomID] int  NULL
 );
 GO
 
@@ -363,20 +364,6 @@ ON [dbo].[Bookings]
     ([RoomID]);
 GO
 
--- Creating foreign key on [RoomID] in table 'Inventories'
-ALTER TABLE [dbo].[Inventories]
-ADD CONSTRAINT [FK_RoomInventory]
-    FOREIGN KEY ([RoomID])
-    REFERENCES [dbo].[Rooms]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_RoomInventory'
-CREATE INDEX [IX_FK_RoomInventory]
-ON [dbo].[Inventories]
-    ([RoomID]);
-GO
-
 -- Creating foreign key on [InventoryTypeID] in table 'Inventories'
 ALTER TABLE [dbo].[Inventories]
 ADD CONSTRAINT [FK_InventoryTypeInventory]
@@ -426,6 +413,20 @@ ADD CONSTRAINT [FK_CateringCateringChoice]
 CREATE INDEX [IX_FK_CateringCateringChoice]
 ON [dbo].[CateringChoices]
     ([CateringID]);
+GO
+
+-- Creating foreign key on [RoomID] in table 'Inventories'
+ALTER TABLE [dbo].[Inventories]
+ADD CONSTRAINT [FK_RoomInventory]
+    FOREIGN KEY ([RoomID])
+    REFERENCES [dbo].[Rooms]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_RoomInventory'
+CREATE INDEX [IX_FK_RoomInventory]
+ON [dbo].[Inventories]
+    ([RoomID]);
 GO
 
 -- --------------------------------------------------

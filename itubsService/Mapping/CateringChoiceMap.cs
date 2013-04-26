@@ -1,37 +1,36 @@
-using ITubsService.Entities;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.ModelConfiguration;
 
-namespace ITubsService.Mapping
+namespace ITubsService.Models.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-    using Models;
-
     public class CateringChoiceMap : EntityTypeConfiguration<CateringChoice>
     {
         public CateringChoiceMap()
         {
             // Primary Key
-            HasKey(t => t.ID);
+            this.HasKey(t => t.ID);
 
             // Properties
-            Property(t => t.Status)
+            this.Property(t => t.Status)
                 .IsRequired();
 
             // Table & Column Mappings
-            ToTable("CateringChoices");
-            Property(t => t.ID).HasColumnName("ID");
-            Property(t => t.Amount).HasColumnName("Amount");
-            Property(t => t.Time).HasColumnName("Time");
-            Property(t => t.Status).HasColumnName("Status");
-            Property(t => t.BookingID).HasColumnName("BookingID");
-            Property(t => t.CateringID).HasColumnName("CateringID");
+            this.ToTable("CateringChoices");
+            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.Amount).HasColumnName("Amount");
+            this.Property(t => t.Time).HasColumnName("Time");
+            this.Property(t => t.Status).HasColumnName("Status");
+            this.Property(t => t.BookingID).HasColumnName("BookingID");
+            this.Property(t => t.CateringID).HasColumnName("CateringID");
 
             // Relationships
-            HasRequired(t => t.Booking)
+            this.HasRequired(t => t.Booking)
                 .WithMany(t => t.CateringChoices)
                 .HasForeignKey(d => d.BookingID);
-            HasRequired(t => t.Catering)
+            this.HasRequired(t => t.Catering)
                 .WithMany(t => t.CateringChoices)
                 .HasForeignKey(d => d.CateringID);
+
         }
     }
 }

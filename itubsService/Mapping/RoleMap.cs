@@ -1,40 +1,23 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="RoleMap.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   Defines the PersonMap type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.ModelConfiguration;
 
-namespace ITubsService.Mapping
+namespace ITubsService.Models.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using ITubsService.Entities;
-
-
-    /// <summary>
-    /// The role map.
-    /// </summary>
     public class RoleMap : EntityTypeConfiguration<Role>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RoleMap"/> class.
-        /// </summary>
         public RoleMap()
         {
             // Primary Key
-            HasKey(t => t.ID);
+            this.HasKey(t => t.ID);
 
             // Properties
-            Property(t => t.RoleName)
+            this.Property(t => t.RoleName)
                 .IsRequired();
 
             // Table & Column Mappings
-            ToTable("Roles");
-            Property(t => t.ID).HasColumnName("ID");
-            Property(t => t.RoleName).HasColumnName("RoleName");
+            this.ToTable("Roles");
+            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.RoleName).HasColumnName("RoleName");
         }
     }
 }

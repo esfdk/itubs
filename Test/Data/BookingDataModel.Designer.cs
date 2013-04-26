@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -25,11 +24,11 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentType", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Equipment), "EquipmentType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.EquipmentType), true)]
 [assembly: EdmRelationshipAttribute("BookingDataModel", "EquipmentEquipmentChoice", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Equipment), "EquipmentChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.EquipmentChoice), true)]
 [assembly: EdmRelationshipAttribute("BookingDataModel", "BookingRoom", "Booking", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Booking), "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Room), true)]
-[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomInventory", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Room), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Inventory), true)]
 [assembly: EdmRelationshipAttribute("BookingDataModel", "InventoryTypeInventory", "InventoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.InventoryType), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Inventory), true)]
 [assembly: EdmRelationshipAttribute("BookingDataModel", "PersonPersonRole", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Person), "PersonRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.PersonRole), true)]
 [assembly: EdmRelationshipAttribute("BookingDataModel", "RolePersonRole", "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Role), "PersonRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.PersonRole), true)]
 [assembly: EdmRelationshipAttribute("BookingDataModel", "CateringCateringChoice", "Catering", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Test.Data.Catering), "CateringChoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.CateringChoice), true)]
+[assembly: EdmRelationshipAttribute("BookingDataModel", "RoomInventory", "Room", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Test.Data.Room), "Inventory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Test.Data.Inventory), true)]
 
 #endregion
 
@@ -274,7 +273,6 @@ namespace Test.Data
         private ObjectSet<PersonRole> _PersonRoles;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -374,11 +372,11 @@ namespace Test.Data
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -417,7 +415,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -616,7 +613,6 @@ namespace Test.Data
         partial void OnRoomIDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -741,7 +737,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -774,7 +769,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -901,7 +895,6 @@ namespace Test.Data
         partial void OnAvailableToChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -928,7 +921,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -963,7 +955,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1114,7 +1105,6 @@ namespace Test.Data
         partial void OnCateringIDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1195,7 +1185,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1226,7 +1215,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1329,7 +1317,6 @@ namespace Test.Data
         partial void OnEquipmentTypeIDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1394,7 +1381,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1427,7 +1413,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1554,7 +1539,6 @@ namespace Test.Data
         partial void OnEquipmentIDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1635,7 +1619,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1662,7 +1645,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1717,7 +1699,6 @@ namespace Test.Data
         partial void OnTypeChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1744,7 +1725,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1763,21 +1743,18 @@ namespace Test.Data
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="productName">Initial value of the ProductName property.</param>
         /// <param name="status">Initial value of the Status property.</param>
-        /// <param name="roomID">Initial value of the RoomID property.</param>
         /// <param name="inventoryTypeID">Initial value of the InventoryTypeID property.</param>
-        public static Inventory CreateInventory(global::System.Int32 id, global::System.String productName, global::System.String status, global::System.Int32 roomID, global::System.Int32 inventoryTypeID)
+        public static Inventory CreateInventory(global::System.Int32 id, global::System.String productName, global::System.String status, global::System.Int32 inventoryTypeID)
         {
             Inventory inventory = new Inventory();
             inventory.ID = id;
             inventory.ProductName = productName;
             inventory.Status = status;
-            inventory.RoomID = roomID;
             inventory.InventoryTypeID = inventoryTypeID;
             return inventory;
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1860,30 +1837,6 @@ namespace Test.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 RoomID
-        {
-            get
-            {
-                return _RoomID;
-            }
-            set
-            {
-                OnRoomIDChanging(value);
-                ReportPropertyChanging("RoomID");
-                _RoomID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("RoomID");
-                OnRoomIDChanged();
-            }
-        }
-        private global::System.Int32 _RoomID;
-        partial void OnRoomIDChanging(global::System.Int32 value);
-        partial void OnRoomIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int32 InventoryTypeID
         {
             get
@@ -1902,49 +1855,34 @@ namespace Test.Data
         private global::System.Int32 _InventoryTypeID;
         partial void OnInventoryTypeIDChanging(global::System.Int32 value);
         partial void OnInventoryTypeIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> RoomID
+        {
+            get
+            {
+                return _RoomID;
+            }
+            set
+            {
+                OnRoomIDChanging(value);
+                ReportPropertyChanging("RoomID");
+                _RoomID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RoomID");
+                OnRoomIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _RoomID;
+        partial void OnRoomIDChanging(Nullable<global::System.Int32> value);
+        partial void OnRoomIDChanged();
 
         #endregion
-
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RoomInventory", "Room")]
-        public Room Room
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Room> RoomReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Room>("BookingDataModel.RoomInventory", "Room", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1983,9 +1921,46 @@ namespace Test.Data
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BookingDataModel", "RoomInventory", "Room")]
+        public Room Room
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Room> RoomReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Room>("BookingDataModel.RoomInventory", "Room");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Room>("BookingDataModel.RoomInventory", "Room", value);
+                }
+            }
+        }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2012,7 +1987,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2067,7 +2041,6 @@ namespace Test.Data
         partial void OnTypeChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2094,7 +2067,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2125,7 +2097,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2228,7 +2199,6 @@ namespace Test.Data
         partial void OnTokenChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2277,7 +2247,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2304,7 +2273,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2362,7 +2330,6 @@ namespace Test.Data
         partial void OnRoleIDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2443,7 +2410,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2470,7 +2436,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2525,7 +2490,6 @@ namespace Test.Data
         partial void OnRoleNameChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2552,7 +2516,6 @@ namespace Test.Data
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2581,7 +2544,6 @@ namespace Test.Data
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2660,7 +2622,6 @@ namespace Test.Data
         partial void OnMaxParticipantsChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2709,10 +2670,8 @@ namespace Test.Data
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }

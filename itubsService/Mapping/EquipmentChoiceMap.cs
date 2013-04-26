@@ -1,30 +1,29 @@
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.ModelConfiguration;
-using ITubsService.Entities;
-using ITubsService.Models;
 
-namespace ITubsService.Mapping
+namespace ITubsService.Models.Mapping
 {
     public class EquipmentChoiceMap : EntityTypeConfiguration<EquipmentChoice>
     {
         public EquipmentChoiceMap()
         {
             // Primary Key
-            HasKey(t => t.ID);
+            this.HasKey(t => t.ID);
 
             // Properties
             // Table & Column Mappings
-            ToTable("EquipmentChoices");
-            Property(t => t.ID).HasColumnName("ID");
-            Property(t => t.StartTime).HasColumnName("StartTime");
-            Property(t => t.EndTime).HasColumnName("EndTime");
-            Property(t => t.BookingID).HasColumnName("BookingID");
-            Property(t => t.EquipmentID).HasColumnName("EquipmentID");
+            this.ToTable("EquipmentChoices");
+            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.StartTime).HasColumnName("StartTime");
+            this.Property(t => t.EndTime).HasColumnName("EndTime");
+            this.Property(t => t.BookingID).HasColumnName("BookingID");
+            this.Property(t => t.EquipmentID).HasColumnName("EquipmentID");
 
             // Relationships
-            HasRequired(t => t.Booking)
+            this.HasRequired(t => t.Booking)
                 .WithMany(t => t.EquipmentChoices)
                 .HasForeignKey(d => d.BookingID);
-            HasRequired(t => t.Equipment)
+            this.HasRequired(t => t.Equipment)
                 .WithMany(t => t.EquipmentChoices)
                 .HasForeignKey(d => d.EquipmentID);
 

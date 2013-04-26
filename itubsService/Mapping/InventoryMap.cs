@@ -1,51 +1,38 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="InventoryMap.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   The inventory map.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.ModelConfiguration;
 
-namespace ITubsService.Mapping
+namespace ITubsService.Models.Mapping
 {
-    using System.Data.Entity.ModelConfiguration;
-
-    using ITubsService.Entities;
-
-    /// <summary>
-    /// The inventory map.
-    /// </summary>
     public class InventoryMap : EntityTypeConfiguration<Inventory>
     {
-        #region Constructors and Destructors
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InventoryMap"/> class.
-        /// </summary>
         public InventoryMap()
         {
             // Primary Key
-            HasKey(t => t.ID);
+            this.HasKey(t => t.ID);
 
             // Properties
-            Property(t => t.ProductName).IsRequired();
+            this.Property(t => t.ProductName)
+                .IsRequired();
 
-            Property(t => t.Status).IsRequired();
+            this.Property(t => t.Status)
+                .IsRequired();
 
             // Table & Column Mappings
-            ToTable("Inventories");
-            Property(t => t.ID).HasColumnName("ID");
-            Property(t => t.ProductName).HasColumnName("ProductName");
-            Property(t => t.Status).HasColumnName("Status");
-            Property(t => t.RoomID).HasColumnName("RoomID");
-            Property(t => t.InventoryTypeID).HasColumnName("InventoryTypeID");
+            this.ToTable("Inventories");
+            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.ProductName).HasColumnName("ProductName");
+            this.Property(t => t.Status).HasColumnName("Status");
+            this.Property(t => t.InventoryTypeID).HasColumnName("InventoryTypeID");
+            this.Property(t => t.RoomID).HasColumnName("RoomID");
 
             // Relationships
-            HasRequired(t => t.InventoryType).WithMany(t => t.Inventories).HasForeignKey(d => d.InventoryTypeID);
-            HasRequired(t => t.Room).WithMany(t => t.Inventories).HasForeignKey(d => d.RoomID);
-        }
+            this.HasRequired(t => t.InventoryType)
+                .WithMany(t => t.Inventories)
+                .HasForeignKey(d => d.InventoryTypeID);
+            this.HasOptional(t => t.Room)
+                .WithMany(t => t.Inventories)
+                .HasForeignKey(d => d.RoomID);
 
-        #endregion
+        }
     }
 }

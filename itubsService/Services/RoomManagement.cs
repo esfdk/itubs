@@ -3,13 +3,13 @@
     using System.Collections.Generic;
     using Enums;
     using Interfaces;
-    using ITubsService.Entities;
+    using Entities;
 
     public partial class Service : IRoomManagement
     {
         public RequestStatus AddRoom(string token, ref Room newRoom)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public RequestStatus EditRoom(string token, ref Room editedRoom)
@@ -37,23 +37,35 @@
         public RequestStatus GetAllRooms(out IEnumerable<Room> rooms)
         {
             rooms = Room.All;
-            return RequestStatus.Success;
+            if (rooms != null)
+            {
+                return RequestStatus.Success;
+            }
+            return RequestStatus.Error;
         }
 
         public RequestStatus AddInventoryItemToRoom(string token, int inventoryId, ref Room updatedRoom)
         {
             updatedRoom = Room.AddInventory(updatedRoom, inventoryId);
 
-            if (updatedRoom != null)
+            if (updatedRoom != null && updatedRoom.ID != -1)
             {
                 return RequestStatus.Success;
             }
-            return RequestStatus.AccessDenied;
+
+            return RequestStatus.InvalidInput;
         }
 
         public RequestStatus RemoveInventoryItemFromRoom(string token, int inventoryId, ref Room updatedRoom)
         {
-            throw new System.NotImplementedException();
+            updatedRoom = Room.RemoveInventory(updatedRoom, inventoryId);
+
+            if (updatedRoom != null && updatedRoom.ID != -1)
+            {
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
         }
     }
 
