@@ -138,13 +138,12 @@
     <Compile Include="Mapping\PersonMap.cs" />
     <Compile Include="Mapping\RoleMap.cs" />
     <Compile Include="Mapping\RoomMap.cs" />
-    <Compile Include="Mapping\sysdiagramMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookingManagement.cs" />
     <Compile Include="Services\CateringManagement.cs" />
     <Compile Include="Services\RoomManagement.cs" />
     <Compile Include="Services\InventoryManagement.cs" />
-    <Compile Include="Services\EquipmentMagement.cs" />
+    <Compile Include="Services\EquipmentManagement.cs" />
     <Compile Include="Services\PersonManagement.cs" />
     <Compile Include="Services\Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>

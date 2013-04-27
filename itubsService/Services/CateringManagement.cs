@@ -19,24 +19,14 @@ namespace ITubsService.Services
         {
             catering = Catering.GetCatering(catering.ID);
 
-            if (catering != null)
-            {
-                return RequestStatus.Success;
-            }
-
-            return RequestStatus.InvalidInput;
+            return catering != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
         public RequestStatus GetCateringChoice(ref CateringChoice cateringChoice)
         {
             cateringChoice = CateringChoice.GetCateringChoice(cateringChoice.ID);
 
-            if (cateringChoice != null)
-            {
-                return RequestStatus.Success;
-            }
-
-            return RequestStatus.InvalidInput;
+            return cateringChoice != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
     }
 

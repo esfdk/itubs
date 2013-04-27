@@ -128,16 +128,12 @@ namespace ITubsService.Entities
 
         public static Person GetByEMail(string email)
         {
-            var person = All.First(p => p.Email == email);
-
-            return person;
+            return All.FirstOrDefault(p => p.Email == email);
         }
 
         public static Person GetByToken(string token)
         {
-            var person = All.First(p => p.Token == token);
-
-            return person;
+            return All.FirstOrDefault(p => p.Token == token);
         }
 
         public bool IsAPerson()

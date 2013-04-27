@@ -1,12 +1,21 @@
 namespace ITubsService.Entities
 {
     using System.Collections.Generic;
+    using System.Linq;
 
-    public partial class Role
+    public class Role
     {
         public Role()
         {
-            this.People = new List<Person>();
+            People = new List<Person>();
+        }
+
+        public static IEnumerable<Role> All
+        {
+            get
+            {
+                return ItubsContext.Db.Roles.Include("People").ToList();
+            }
         }
 
         public int ID { get; set; }

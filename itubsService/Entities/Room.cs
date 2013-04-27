@@ -3,6 +3,8 @@ namespace ITubsService.Entities
     using System.Collections.Generic;
     using System.Linq;
 
+    using ITubsService.Enums;
+
     public class Room
     {
         public Room()
@@ -24,54 +26,70 @@ namespace ITubsService.Entities
             return All.FirstOrDefault(r => r.ID == id);
         }
 
-        public static Room AddInventory(Room r, int inventoryID)
+        public RequestStatus AddInventory(int inventoryID)
         {
-            var room = All.FirstOrDefault(a => a.ID == r.ID);
-            if (room != null && room.Inventories.All(i => i.ID != inventoryID))
+            var inventory = Inventory.All.FirstOrDefault(i => i.ID == inventoryID);
+            if (inventory != null && !this.Inventories.Contains(inventory))
             {
-                var inventory = Inventory.All.FirstOrDefault(i => i.ID == inventoryID);
-                if (inventory != null)
-                {
-                    room.Inventories.Add(inventory);
-                    ItubsContext.Db.SaveChanges();
-                }
-                else
-                {
-                    return new Room{ID = -1};
-                }
+                this.Inventories.Add(inventory);
+                ItubsContext.Db.SaveChanges();
             }
 
-            return r;
+            return RequestStatus.InvalidInput;
+
         }
 
-        public static Room RemoveInventory(Room r, int inventoryId)
+        public RequestStatus RemoveInventory(int inventoryID)
         {
-            var room = All.FirstOrDefault(a => a.ID == r.ID);
-            if (room != null)
+            var inventory = Inventory.All.FirstOrDefault(i => i.ID == inventoryID);
+            if (inventory != null && inventory.RoomID == this.ID)
             {
-                var inventory = room.Inventories.FirstOrDefault(i => i.ID == inventoryId);
-
-                if (inventory != null)
-                {
-                    inventory.RoomID = -1;
-                    room.Inventories.Remove(inventory);
-                    ItubsContext.Db.SaveChanges();
-                }
-                else
-                {
-                    return new Room { ID = -1 };
-                }
+                this.Inventories.Remove(inventory);
+                ItubsContext.Db.SaveChanges();
+                return RequestStatus.Success;
             }
 
-            return r;
+            return RequestStatus.InvalidInput;
         }
 
         public static Room AddRoom(Room newRoom)
         {
             if (newRoom.MaxParticipants > 0 && newRoom.Name.Length > 1)
             {
-                ItubsContext.Db.Rooms.Add(new Room{})
+                ItubsContext.Db.Rooms.Add(new Room { MaxParticipants = newRoom.MaxParticipants, Name = newRoom.Name });
+                ItubsContext.Db.SaveChanges();
             }
+            else
+            {
+                return null;
+            }
+
+            return
+                All.FirstOrDefault(
+                    r =>
+                    r.MaxParticipants == newRoom.MaxParticipants && r.Name.Equals(newRoom.Name) && r.Bookings.Count == 0
+                    && r.Inventories.Count == 0);
+        }
+
+        public void Remove()
+        {
+            ItubsContext.Db.Rooms.Remove(this);
+            ItubsContext.Db.SaveChanges();
+        }
+
+        public RequestStatus Edit(Room updatedRoom)
+        {
+            if (updatedRoom == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            this.MaxParticipants = updatedRoom.MaxParticipants >= 0 ? updatedRoom.MaxParticipants : this.MaxParticipants;
+            this.Name = !string.IsNullOrWhiteSpace(updatedRoom.Name) ? updatedRoom.Name : this.Name;
+
+            ItubsContext.Db.SaveChanges();
+
+            return RequestStatus.Success;
         }
 
         public int ID { get; set; }

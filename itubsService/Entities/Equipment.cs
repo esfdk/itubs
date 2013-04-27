@@ -1,13 +1,82 @@
 namespace ITubsService.Entities
 {
     using System.Collections.Generic;
-    using Models;
+    using System.Linq;
 
-    public partial class Equipment
+    using ITubsService.Enums;
+
+    public class Equipment
     {
         public Equipment()
         {
-            this.EquipmentChoices = new List<EquipmentChoice>();
+            EquipmentChoices = new List<EquipmentChoice>();
+        }
+
+        public static IEnumerable<Equipment> All
+        {
+            get
+            {
+                return ItubsContext.Db.Equipments.Include("EquipmentChoices").ToList();
+            }
+        }
+
+        public static Equipment GetEquipmentByID(int id)
+        {
+            return All.FirstOrDefault(r => r.ID == id);
+        }
+
+        public static Equipment NewEquipment(Equipment newEquipment)
+        {
+            if (Configuration.IsAStatus(newEquipment.Status) && newEquipment.ProductName.Length > 1 && newEquipment.EquipmentTypeID >= 0)
+            {
+                ItubsContext.Db.Equipments.Add(
+                    new Equipment
+                        {
+                            ProductName = newEquipment.ProductName,
+                            Status = newEquipment.Status,
+                            EquipmentType = EquipmentType.All.FirstOrDefault(et => et.ID == newEquipment.EquipmentTypeID),
+                            EquipmentTypeID = newEquipment.EquipmentTypeID
+                        });
+                ItubsContext.Db.SaveChanges();
+            }
+            else
+            {
+                return null;
+            }
+
+            return
+                All.FirstOrDefault(
+                    e =>
+                    e.EquipmentTypeID == newEquipment.EquipmentTypeID && e.ProductName.Equals(newEquipment.ProductName)
+                    && e.Status.Equals(newEquipment.Status));
+        }
+
+        public RequestStatus Edit(Equipment updatedEquipment)
+        {
+            if (updatedEquipment == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            this.EquipmentTypeID = updatedEquipment.EquipmentTypeID >= 0
+                                       ? updatedEquipment.EquipmentTypeID
+                                       : this.EquipmentTypeID;
+            this.ProductName = !string.IsNullOrWhiteSpace(updatedEquipment.ProductName)
+                                   ? updatedEquipment.ProductName
+                                   : this.ProductName;
+            this.Status = Configuration.IsAStatus(updatedEquipment.Status)
+                              ? updatedEquipment.Status
+                              : this.Status;
+
+            ItubsContext.Db.SaveChanges();
+
+            return RequestStatus.Success;
+        }
+
+        public void Remove()
+        {
+            ItubsContext.Db.Equipments.Remove(this);
+            ItubsContext.Db.SaveChanges();
         }
 
         public int ID { get; set; }

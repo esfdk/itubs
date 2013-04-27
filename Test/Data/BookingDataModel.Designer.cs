@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -273,6 +274,7 @@ namespace Test.Data
         private ObjectSet<PersonRole> _PersonRoles;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -372,11 +374,11 @@ namespace Test.Data
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -415,6 +417,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -613,6 +616,7 @@ namespace Test.Data
         partial void OnRoomIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -737,6 +741,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -769,6 +774,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -895,6 +901,7 @@ namespace Test.Data
         partial void OnAvailableToChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -921,6 +928,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -955,6 +963,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1105,6 +1114,7 @@ namespace Test.Data
         partial void OnCateringIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1185,6 +1195,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1215,6 +1226,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1317,6 +1329,7 @@ namespace Test.Data
         partial void OnEquipmentTypeIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1381,6 +1394,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1413,6 +1427,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1539,6 +1554,7 @@ namespace Test.Data
         partial void OnEquipmentIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1619,6 +1635,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1645,6 +1662,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1699,6 +1717,7 @@ namespace Test.Data
         partial void OnTypeChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1725,6 +1744,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1755,6 +1775,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1881,6 +1902,7 @@ namespace Test.Data
         partial void OnRoomIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1961,6 +1983,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1987,6 +2010,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2041,6 +2065,7 @@ namespace Test.Data
         partial void OnTypeChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2067,6 +2092,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2097,6 +2123,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2199,6 +2226,7 @@ namespace Test.Data
         partial void OnTokenChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2247,6 +2275,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2273,6 +2302,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2330,6 +2360,7 @@ namespace Test.Data
         partial void OnRoleIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2410,6 +2441,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2436,6 +2468,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2490,6 +2523,7 @@ namespace Test.Data
         partial void OnRoleNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2516,6 +2550,7 @@ namespace Test.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2544,6 +2579,7 @@ namespace Test.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2622,6 +2658,7 @@ namespace Test.Data
         partial void OnMaxParticipantsChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2670,8 +2707,10 @@ namespace Test.Data
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

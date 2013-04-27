@@ -11,21 +11,21 @@
     interface IInventoryManagement
     {
         [OperationContract]
-        RequestStatus CreateNewInventoryItem(string token, ref Inventory newInventory);
+        RequestStatus CreateNewInventory(string token, ref Inventory newInventory);
 
         [OperationContract]
-        RequestStatus ChangeInventoryItem(string token, ref Inventory inventory);
+        RequestStatus ChangeInventory(string token, ref Inventory inventory);
 
         [OperationContract]
-        RequestStatus DeleteInventoryItem(string token, int inventoryId);
+        RequestStatus DeleteInventory(string token, Inventory inventory);
 
         [OperationContract]
-        RequestStatus GetInventoryItem(ref Inventory item);
+        RequestStatus GetInventoryByID(ref Inventory item);
 
         [OperationContract]
-        RequestStatus GetInventoryTypes(out IEnumerable<string> types);
+        RequestStatus GetInventoryTypes(out IEnumerable<InventoryType> types);
 
         [OperationContract]
-        RequestStatus GetAllInventoryItems(string type, bool includeAssigned, out IEnumerable<Inventory> items);
+        RequestStatus GetInventoryItems(string type, bool includeAssigned, out IEnumerable<Inventory> items);
     }
 }

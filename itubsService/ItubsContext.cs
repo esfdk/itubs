@@ -1,11 +1,9 @@
-using ITubsService.Entities;
-
 namespace ITubsService
 {
     using System;
     using System.Data.Entity;
+    using Entities;
     using Mapping;
-    using Models;
 
     public class ItubsContext : DbContext
     {

@@ -1,40 +1,59 @@
 ﻿namespace ITubsService.Services
 {
     using System.Collections.Generic;
+    using System.Linq;
+
     using Enums;
     using Interfaces;
     using ITubsService.Entities;
 
     public partial class Service : IInventoryManagement
     {
-        public RequestStatus CreateNewInventoryItem(string token, ref Inventory newInventory)
+        public RequestStatus CreateNewInventory(string token, ref Inventory newInventory)
         {
-            throw new System.NotImplementedException();
+            newInventory = Inventory.NewInventory(newInventory);
+
+            return newInventory != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
-        public RequestStatus ChangeInventoryItem(string token, ref Inventory inventory)
+        public RequestStatus ChangeInventory(string token, ref Inventory inventory)
         {
-            throw new System.NotImplementedException();
+            return inventory.Edit(inventory);
         }
 
-        public RequestStatus DeleteInventoryItem(string token, int inventoryId)
+        public RequestStatus DeleteInventory(string token, Inventory inventory)
         {
-            throw new System.NotImplementedException();
+            inventory.Remove();
+            return RequestStatus.Success;
         }
 
-        public RequestStatus GetInventoryItem(ref Inventory item)
+        public RequestStatus GetInventoryByID(ref Inventory item)
         {
-            throw new System.NotImplementedException();
+            item = Inventory.GetInventoryByID(item.ID);
+            return item != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
-        public RequestStatus GetInventoryTypes(out IEnumerable<string> types)
+        public RequestStatus GetInventoryTypes(out IEnumerable<InventoryType> types)
         {
-            throw new System.NotImplementedException();
+            types = InventoryType.All;
+
+            return types != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
-        public RequestStatus GetAllInventoryItems(string type, bool includeAssigned, out IEnumerable<Inventory> items)
+        public RequestStatus GetInventoryItems(string type, bool includeAssigned, out IEnumerable<Inventory> items)
         {
-            throw new System.NotImplementedException();
+            if (!string.IsNullOrWhiteSpace(type))
+            {
+                items = includeAssigned ?
+                    Inventory.All.Where(i => i.InventoryType.Type.Equals(type)) :
+                    Inventory.All.Where(i => i.InventoryType.Type.Equals(type) && i.RoomID == null);
+            }
+            else
+            {
+                items = includeAssigned ? Inventory.All : Inventory.All.Where(i => i.RoomID == null);
+            }
+
+            return items != null ? RequestStatus.Success : RequestStatus.Error;
         }
     }
 }

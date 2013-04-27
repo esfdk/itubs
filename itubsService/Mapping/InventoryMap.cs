@@ -1,8 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.ModelConfiguration;
-
-namespace ITubsService.Models.Mapping
+namespace ITubsService.Mapping
 {
+    using System.Data.Entity.ModelConfiguration;
+
+    using ITubsService.Entities;
+
     public class InventoryMap : EntityTypeConfiguration<Inventory>
     {
         public InventoryMap()

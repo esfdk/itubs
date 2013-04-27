@@ -1,12 +1,21 @@
 namespace ITubsService.Entities
 {
     using System.Collections.Generic;
+    using System.Linq;
 
-    public partial class InventoryType
+    public class InventoryType
     {
         public InventoryType()
         {
-            this.Inventories = new List<Inventory>();
+            Inventories = new List<Inventory>();
+        }
+
+        public static IEnumerable<InventoryType> All
+        {
+            get
+            {
+                return ItubsContext.Db.InventoryTypes.Include("Inventories").ToList();
+            }
         }
 
         public int ID { get; set; }

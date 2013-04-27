@@ -16,7 +16,6 @@ namespace ITubsService.Services
 
         public RequestStatus GetAllBookings(DateTime date, out IEnumerable<Booking> bookings)
         {
-            //TODO: Security concern about booking? Should it be possible to retrieve a user by looking at all the bookings
             throw new NotImplementedException();
         }
 

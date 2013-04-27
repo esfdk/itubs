@@ -13,5 +13,10 @@ namespace ITubsService
         public static string NetworkUsername = "jmel@itu.dk ";
 
         public static string NetworkPassword = "Esfdk18021991";
+
+        public static bool IsAStatus(string status)
+        {
+            return !string.IsNullOrWhiteSpace(status) && (status.Equals("Available") || status.Equals("Repair") || status.Equals("Booked"));
+        }
     }
 }

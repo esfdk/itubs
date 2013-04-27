@@ -1,15 +1,21 @@
-using System;
-using System.Collections.Generic;
-
-namespace ITubsService.Models
+namespace ITubsService.Entities
 {
-    using Entities;
+    using System.Collections.Generic;
+    using System.Linq;
 
-    public partial class EquipmentType
+    public class EquipmentType
     {
         public EquipmentType()
         {
-            this.Equipments = new List<Equipment>();
+            Equipments = new List<Equipment>();
+        }
+
+        public static IEnumerable<EquipmentType> All
+        {
+            get
+            {
+                return ItubsContext.Db.EquipmentTypes.Include("Equipments").ToList();
+            }
         }
 
         public int ID { get; set; }

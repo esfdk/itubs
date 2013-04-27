@@ -1,47 +1,41 @@
 ﻿namespace ITubsService.Services
 {
     using System.Collections.Generic;
+    using Entities;
     using Enums;
     using Interfaces;
-    using Entities;
 
     public partial class Service : IRoomManagement
     {
         public RequestStatus AddRoom(string token, ref Room newRoom)
         {
-            
+            newRoom = Room.AddRoom(newRoom);
+            return newRoom != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
         public RequestStatus EditRoom(string token, ref Room editedRoom)
         {
-            throw new System.NotImplementedException();
+            editedRoom = Room.Edit(editedRoom);
+
+            return editedRoom != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
         public RequestStatus RemoveRoom(string token, int roomId)
         {
-            throw new System.NotImplementedException();
+            return Room.RemoveRoom(roomId);
         }
 
         public RequestStatus GetRoom(ref Room room)
         {
             room = Room.GetRoomByID(room.ID);
 
-            if (room != null)
-            {
-                return RequestStatus.Success;
-            }
-
-            return RequestStatus.InvalidInput;
+            return room != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
         public RequestStatus GetAllRooms(out IEnumerable<Room> rooms)
         {
             rooms = Room.All;
-            if (rooms != null)
-            {
-                return RequestStatus.Success;
-            }
-            return RequestStatus.Error;
+            return rooms != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
         public RequestStatus AddInventoryItemToRoom(string token, int inventoryId, ref Room updatedRoom)

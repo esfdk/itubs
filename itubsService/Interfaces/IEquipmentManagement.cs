@@ -16,7 +16,7 @@ namespace ITubsService.Interfaces
         RequestStatus ChangeEquipmentItem(string token, ref Equipment equipment);
 
         [OperationContract]
-        RequestStatus DeleteEquipmentItem(string token, int equipmentId);
+        RequestStatus DeleteEquipmentItem(string token, Equipment equipment);
 
         [OperationContract]
         RequestStatus GetEquipmentChoice(ref EquipmentChoice equipmentChoice);
@@ -25,7 +25,7 @@ namespace ITubsService.Interfaces
         RequestStatus GetEquipmentItem(ref Equipment equipmentItem);
 
         [OperationContract]
-        RequestStatus GetEquipmentTypes(out IEnumerable<string> types);
+        RequestStatus GetEquipmentTypes(out IEnumerable<EquipmentType> types);
 
         [OperationContract]
         RequestStatus GetAllEquipmentItems(string type, IEnumerable<Equipment> items);
