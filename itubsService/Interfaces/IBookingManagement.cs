@@ -13,7 +13,10 @@
         RequestStatus GetBooking(ref Booking booking);
 
         [OperationContract]
-        RequestStatus GetAllBookings(DateTime date, out IEnumerable<Booking> bookings);
+        RequestStatus GetBookingsByDate(DateTime date, out IEnumerable<Booking> bookings);
+
+        [OperationContract]
+        RequestStatus GetAllBookings(Person person, out IEnumerable<Booking> bookings);
 
         [OperationContract]
         RequestStatus CreateBooking(string token, ref Booking newBooking);

@@ -1,22 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using ITubsService.Entities;
-using ITubsService.Enums;
-
-namespace ITubsService.Services
+﻿namespace ITubsService.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using Entities;
+    using Enums;
     using Interfaces;
 
     public partial class Service : IBookingManagement
     {
         public RequestStatus GetBooking(ref Booking booking)
         {
-            throw new NotImplementedException();
+            booking = Booking.GetBookingByID(booking.ID);
+            return booking != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
-        public RequestStatus GetAllBookings(DateTime date, out IEnumerable<Booking> bookings)
+        public RequestStatus GetBookingsByDate(DateTime date, out IEnumerable<Booking> bookings)
         {
-            throw new NotImplementedException();
+            bookings = Booking.GetBookingsByDate(date);
+            return bookings != null ? RequestStatus.Success : RequestStatus.Error;
+        }
+
+        public RequestStatus GetAllBookings(Person person, out IEnumerable<Booking> bookings)
+        {
+            bookings = Booking.GetAllBookings(person);
+            return bookings != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
         public RequestStatus CreateBooking(string token, ref Booking newBooking)

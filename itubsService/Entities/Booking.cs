@@ -1,14 +1,6 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Booking.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   The booking.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
 namespace ITubsService.Entities
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Serialization;
@@ -29,12 +21,32 @@ namespace ITubsService.Entities
             EquipmentChoices = new List<EquipmentChoice>();
         }
 
-        public static IEnumerable<Booking> All
+        private static IEnumerable<Booking> All
         {
             get
             {
                 return ItubsContext.Db.Bookings.Include("CateringChoices").Include("EquipmentChoices").ToList();
             }
+        }
+
+        public static Booking GetBookingByID(int id)
+        {
+            return All.FirstOrDefault(b => b.ID == id);
+        }
+
+        public static IEnumerable<Booking> GetAllBookings(Person person)
+        {
+            if (person != null)
+            {
+                return All.Where(b => b.PersonID == person.ID);
+            }
+
+            return All;
+        }
+
+        public static IEnumerable<Booking> GetBookingsByDate(DateTime date)
+        {
+            return All.Where(b => b.StartTime.Date.Equals(date.Date));
         }
 
         public int ID { get; set; }

@@ -4,307 +4,307 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Alias="Self" Namespace="BookingDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
-  <EntityContainer Name="BookingDataModelStoreContainer">
-    <EntitySet Name="People" EntityType="BookingDataModel.Store.People" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Roles" EntityType="BookingDataModel.Store.Roles" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Bookings" EntityType="BookingDataModel.Store.Bookings" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Inventories" EntityType="BookingDataModel.Store.Inventories" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Caterings" EntityType="BookingDataModel.Store.Caterings" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Equipments" EntityType="BookingDataModel.Store.Equipments" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CateringChoices" EntityType="BookingDataModel.Store.CateringChoices" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Rooms" EntityType="BookingDataModel.Store.Rooms" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="EquipmentChoices" EntityType="BookingDataModel.Store.EquipmentChoices" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="EquipmentTypes" EntityType="BookingDataModel.Store.EquipmentTypes" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="InventoryTypes" EntityType="BookingDataModel.Store.InventoryTypes" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PersonRoles" EntityType="BookingDataModel.Store.PersonRoles" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="BookingPerson" Association="BookingDataModel.Store.BookingPerson">
-      <End EntitySet="Bookings" Role="Booking" />
-      <End EntitySet="People" Role="Person" />
-    </AssociationSet>
-    <AssociationSet Name="BookingCateringChoice" Association="BookingDataModel.Store.BookingCateringChoice">
-      <End EntitySet="Bookings" Role="Booking" />
-      <End EntitySet="CateringChoices" Role="CateringChoice" />
-    </AssociationSet>
-    <AssociationSet Name="BookingEquipmentChoice" Association="BookingDataModel.Store.BookingEquipmentChoice">
-      <End EntitySet="Bookings" Role="Booking" />
-      <End EntitySet="EquipmentChoices" Role="EquipmentChoice" />
-    </AssociationSet>
-    <AssociationSet Name="EquipmentEquipmentType" Association="BookingDataModel.Store.EquipmentEquipmentType">
-      <End EntitySet="Equipments" Role="Equipment" />
-      <End EntitySet="EquipmentTypes" Role="EquipmentType" />
-    </AssociationSet>
-    <AssociationSet Name="EquipmentEquipmentChoice" Association="BookingDataModel.Store.EquipmentEquipmentChoice">
-      <End EntitySet="Equipments" Role="Equipment" />
-      <End EntitySet="EquipmentChoices" Role="EquipmentChoice" />
-    </AssociationSet>
-    <AssociationSet Name="BookingRoom" Association="BookingDataModel.Store.BookingRoom">
-      <End EntitySet="Bookings" Role="Booking" />
-      <End EntitySet="Rooms" Role="Room" />
-    </AssociationSet>
-    <AssociationSet Name="RoomInventory" Association="BookingDataModel.Store.RoomInventory">
-      <End EntitySet="Rooms" Role="Room" />
-      <End EntitySet="Inventories" Role="Inventory" />
-    </AssociationSet>
-    <AssociationSet Name="InventoryTypeInventory" Association="BookingDataModel.Store.InventoryTypeInventory">
-      <End EntitySet="InventoryTypes" Role="InventoryType" />
-      <End EntitySet="Inventories" Role="Inventory" />
-    </AssociationSet>
-    <AssociationSet Name="PersonPersonRole" Association="BookingDataModel.Store.PersonPersonRole">
-      <End EntitySet="People" Role="Person" />
-      <End EntitySet="PersonRoles" Role="PersonRole" />
-    </AssociationSet>
-    <AssociationSet Name="RolePersonRole" Association="BookingDataModel.Store.RolePersonRole">
-      <End EntitySet="Roles" Role="Role" />
-      <End EntitySet="PersonRoles" Role="PersonRole" />
-    </AssociationSet>
-    <AssociationSet Name="CateringCateringChoice" Association="BookingDataModel.Store.CateringCateringChoice">
-      <End EntitySet="Caterings" Role="Catering" />
-      <End EntitySet="CateringChoices" Role="CateringChoice" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="People">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Name" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="Email" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="Token" Nullable="false" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="Roles">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="RoleName" Nullable="false" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="Bookings">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Status" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="NumberOfParticipants" Nullable="false" Type="int" />
-    <Property Name="Comments" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="StartTime" Nullable="false" Type="datetime" />
-    <Property Name="EndTime" Nullable="false" Type="datetime" />
-    <Property Name="PersonID" Nullable="false" Type="int" />
-    <Property Name="RoomID" Nullable="false" Type="int" />
-  </EntityType>
-  <EntityType Name="Inventories">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="ProductName" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="Status" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="RoomID" Nullable="false" Type="int" />
-    <Property Name="InventoryTypeID" Nullable="false" Type="int" />
-  </EntityType>
-  <EntityType Name="Caterings">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Price" Nullable="false" Type="int" />
-    <Property Name="ProductName" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="AvailableFrom" Nullable="false" Type="time" />
-    <Property Name="AvailableTo" Nullable="false" Type="time" />
-  </EntityType>
-  <EntityType Name="Equipments">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="ProductName" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="Status" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="EquipmentTypeID" Nullable="false" Type="int" />
-  </EntityType>
-  <EntityType Name="CateringChoices">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Amount" Nullable="false" Type="int" />
-    <Property Name="Time" Nullable="false" Type="datetime" />
-    <Property Name="Status" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="BookingID" Nullable="false" Type="int" />
-    <Property Name="CateringID" Nullable="false" Type="int" />
-  </EntityType>
-  <EntityType Name="Rooms">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Name" Nullable="false" Type="nvarchar(max)" />
-    <Property Name="MaxParticipants" Nullable="false" Type="int" />
-  </EntityType>
-  <EntityType Name="EquipmentChoices">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="StartTime" Nullable="false" Type="datetime" />
-    <Property Name="EndTime" Nullable="false" Type="datetime" />
-    <Property Name="BookingID" Nullable="false" Type="int" />
-    <Property Name="EquipmentID" Nullable="false" Type="int" />
-  </EntityType>
-  <EntityType Name="EquipmentTypes">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Type" Nullable="false" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="InventoryTypes">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Type" Nullable="false" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="PersonRoles">
-    <Key>
-      <PropertyRef Name="PersonID" />
-      <PropertyRef Name="RoleID" />
-    </Key>
-    <Property Name="PersonID" Nullable="false" Type="int" />
-    <Property Name="RoleID" Nullable="false" Type="int" />
-  </EntityType>
-  <Association Name="BookingPerson">
-    <End Type="BookingDataModel.Store.Bookings" Multiplicity="*" Role="Booking" />
-    <End Type="BookingDataModel.Store.People" Multiplicity="1" Role="Person" />
-    <ReferentialConstraint>
-      <Principal Role="Person">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="PersonID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BookingCateringChoice">
-    <End Type="BookingDataModel.Store.Bookings" Multiplicity="1" Role="Booking" />
-    <End Type="BookingDataModel.Store.CateringChoices" Multiplicity="*" Role="CateringChoice" />
-    <ReferentialConstraint>
-      <Principal Role="Booking">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CateringChoice">
-        <PropertyRef Name="BookingID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BookingEquipmentChoice">
-    <End Type="BookingDataModel.Store.Bookings" Multiplicity="1" Role="Booking" />
-    <End Type="BookingDataModel.Store.EquipmentChoices" Multiplicity="*" Role="EquipmentChoice" />
-    <ReferentialConstraint>
-      <Principal Role="Booking">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="EquipmentChoice">
-        <PropertyRef Name="BookingID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EquipmentEquipmentType">
-    <End Type="BookingDataModel.Store.Equipments" Multiplicity="*" Role="Equipment" />
-    <End Type="BookingDataModel.Store.EquipmentTypes" Multiplicity="1" Role="EquipmentType" />
-    <ReferentialConstraint>
-      <Principal Role="EquipmentType">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Equipment">
-        <PropertyRef Name="EquipmentTypeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EquipmentEquipmentChoice">
-    <End Type="BookingDataModel.Store.Equipments" Multiplicity="1" Role="Equipment" />
-    <End Type="BookingDataModel.Store.EquipmentChoices" Multiplicity="*" Role="EquipmentChoice" />
-    <ReferentialConstraint>
-      <Principal Role="Equipment">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="EquipmentChoice">
-        <PropertyRef Name="EquipmentID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BookingRoom">
-    <End Type="BookingDataModel.Store.Bookings" Multiplicity="*" Role="Booking" />
-    <End Type="BookingDataModel.Store.Rooms" Multiplicity="1" Role="Room" />
-    <ReferentialConstraint>
-      <Principal Role="Room">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="RoomID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="RoomInventory">
-    <End Type="BookingDataModel.Store.Rooms" Multiplicity="1" Role="Room" />
-    <End Type="BookingDataModel.Store.Inventories" Multiplicity="*" Role="Inventory" />
-    <ReferentialConstraint>
-      <Principal Role="Room">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Inventory">
-        <PropertyRef Name="RoomID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="InventoryTypeInventory">
-    <End Type="BookingDataModel.Store.InventoryTypes" Multiplicity="1" Role="InventoryType" />
-    <End Type="BookingDataModel.Store.Inventories" Multiplicity="*" Role="Inventory" />
-    <ReferentialConstraint>
-      <Principal Role="InventoryType">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Inventory">
-        <PropertyRef Name="InventoryTypeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PersonPersonRole">
-    <End Type="BookingDataModel.Store.People" Multiplicity="1" Role="Person" />
-    <End Type="BookingDataModel.Store.PersonRoles" Multiplicity="*" Role="PersonRole" />
-    <ReferentialConstraint>
-      <Principal Role="Person">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="PersonRole">
-        <PropertyRef Name="PersonID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="RolePersonRole">
-    <End Type="BookingDataModel.Store.Roles" Multiplicity="1" Role="Role" />
-    <End Type="BookingDataModel.Store.PersonRoles" Multiplicity="*" Role="PersonRole" />
-    <ReferentialConstraint>
-      <Principal Role="Role">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="PersonRole">
-        <PropertyRef Name="RoleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CateringCateringChoice">
-    <End Type="BookingDataModel.Store.Caterings" Multiplicity="1" Role="Catering" />
-    <End Type="BookingDataModel.Store.CateringChoices" Multiplicity="*" Role="CateringChoice" />
-    <ReferentialConstraint>
-      <Principal Role="Catering">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CateringChoice">
-        <PropertyRef Name="CateringID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="BookingDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BookingDataModelStoreContainer">
+          <EntitySet Name="Bookings" EntityType="BookingDataModel.Store.Bookings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CateringChoices" EntityType="BookingDataModel.Store.CateringChoices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Caterings" EntityType="BookingDataModel.Store.Caterings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EquipmentChoices" EntityType="BookingDataModel.Store.EquipmentChoices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Equipments" EntityType="BookingDataModel.Store.Equipments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EquipmentTypes" EntityType="BookingDataModel.Store.EquipmentTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Inventories" EntityType="BookingDataModel.Store.Inventories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InventoryTypes" EntityType="BookingDataModel.Store.InventoryTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="People" EntityType="BookingDataModel.Store.People" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PersonRoles" EntityType="BookingDataModel.Store.PersonRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="BookingDataModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rooms" EntityType="BookingDataModel.Store.Rooms" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BookingCateringChoice" Association="BookingDataModel.Store.FK_BookingCateringChoice">
+            <End Role="Bookings" EntitySet="Bookings" />
+            <End Role="CateringChoices" EntitySet="CateringChoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingEquipmentChoice" Association="BookingDataModel.Store.FK_BookingEquipmentChoice">
+            <End Role="Bookings" EntitySet="Bookings" />
+            <End Role="EquipmentChoices" EntitySet="EquipmentChoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingPerson" Association="BookingDataModel.Store.FK_BookingPerson">
+            <End Role="People" EntitySet="People" />
+            <End Role="Bookings" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingRoom" Association="BookingDataModel.Store.FK_BookingRoom">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Bookings" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CateringCateringChoice" Association="BookingDataModel.Store.FK_CateringCateringChoice">
+            <End Role="Caterings" EntitySet="Caterings" />
+            <End Role="CateringChoices" EntitySet="CateringChoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EquipmentEquipmentChoice" Association="BookingDataModel.Store.FK_EquipmentEquipmentChoice">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="EquipmentChoices" EntitySet="EquipmentChoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EquipmentEquipmentType" Association="BookingDataModel.Store.FK_EquipmentEquipmentType">
+            <End Role="EquipmentTypes" EntitySet="EquipmentTypes" />
+            <End Role="Equipments" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryTypeInventory" Association="BookingDataModel.Store.FK_InventoryTypeInventory">
+            <End Role="InventoryTypes" EntitySet="InventoryTypes" />
+            <End Role="Inventories" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonPersonRole" Association="BookingDataModel.Store.FK_PersonPersonRole">
+            <End Role="People" EntitySet="People" />
+            <End Role="PersonRoles" EntitySet="PersonRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePersonRole" Association="BookingDataModel.Store.FK_RolePersonRole">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="PersonRoles" EntitySet="PersonRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomInventory" Association="BookingDataModel.Store.FK_RoomInventory">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Inventories" EntitySet="Inventories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bookings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NumberOfParticipants" Type="int" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="RoomID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CateringChoices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BookingID" Type="int" Nullable="false" />
+          <Property Name="CateringID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caterings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AvailableFrom" Type="time" Nullable="false" />
+          <Property Name="AvailableTo" Type="time" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EquipmentChoices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="BookingID" Type="int" Nullable="false" />
+          <Property Name="EquipmentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EquipmentTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EquipmentTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="InventoryTypeID" Type="int" Nullable="false" />
+          <Property Name="RoomID" Type="int" />
+        </EntityType>
+        <EntityType Name="InventoryTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Token" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonRoles">
+          <Key>
+            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MaxParticipants" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BookingCateringChoice">
+          <End Role="Bookings" Type="BookingDataModel.Store.Bookings" Multiplicity="1" />
+          <End Role="CateringChoices" Type="BookingDataModel.Store.CateringChoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bookings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CateringChoices">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingEquipmentChoice">
+          <End Role="Bookings" Type="BookingDataModel.Store.Bookings" Multiplicity="1" />
+          <End Role="EquipmentChoices" Type="BookingDataModel.Store.EquipmentChoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bookings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EquipmentChoices">
+              <PropertyRef Name="BookingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingPerson">
+          <End Role="People" Type="BookingDataModel.Store.People" Multiplicity="1" />
+          <End Role="Bookings" Type="BookingDataModel.Store.Bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bookings">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingRoom">
+          <End Role="Rooms" Type="BookingDataModel.Store.Rooms" Multiplicity="1" />
+          <End Role="Bookings" Type="BookingDataModel.Store.Bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bookings">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CateringCateringChoice">
+          <End Role="Caterings" Type="BookingDataModel.Store.Caterings" Multiplicity="1" />
+          <End Role="CateringChoices" Type="BookingDataModel.Store.CateringChoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caterings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CateringChoices">
+              <PropertyRef Name="CateringID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EquipmentEquipmentChoice">
+          <End Role="Equipments" Type="BookingDataModel.Store.Equipments" Multiplicity="1" />
+          <End Role="EquipmentChoices" Type="BookingDataModel.Store.EquipmentChoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EquipmentChoices">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EquipmentEquipmentType">
+          <End Role="EquipmentTypes" Type="BookingDataModel.Store.EquipmentTypes" Multiplicity="1" />
+          <End Role="Equipments" Type="BookingDataModel.Store.Equipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipments">
+              <PropertyRef Name="EquipmentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventoryTypeInventory">
+          <End Role="InventoryTypes" Type="BookingDataModel.Store.InventoryTypes" Multiplicity="1" />
+          <End Role="Inventories" Type="BookingDataModel.Store.Inventories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventoryTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventories">
+              <PropertyRef Name="InventoryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonPersonRole">
+          <End Role="People" Type="BookingDataModel.Store.People" Multiplicity="1" />
+          <End Role="PersonRoles" Type="BookingDataModel.Store.PersonRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonRoles">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePersonRole">
+          <End Role="Roles" Type="BookingDataModel.Store.Roles" Multiplicity="1" />
+          <End Role="PersonRoles" Type="BookingDataModel.Store.PersonRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonRoles">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomInventory">
+          <End Role="Rooms" Type="BookingDataModel.Store.Rooms" Multiplicity="0..1" />
+          <End Role="Inventories" Type="BookingDataModel.Store.Inventories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventories">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BookingDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -670,7 +670,7 @@
     <EntitySetMapping Name="Inventories">
       <EntityTypeMapping TypeName="IsTypeOf(BookingDataModel.Inventory)">
         <MappingFragment StoreEntitySet="Inventories">
-          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -770,6 +770,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToSQL10.tt" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
