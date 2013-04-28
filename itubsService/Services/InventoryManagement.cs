@@ -18,13 +18,29 @@
 
         public RequestStatus ChangeInventory(string token, ref Inventory inventory)
         {
-            return inventory.Edit(inventory);
+            var id = inventory.ID;
+            var inv = Inventory.All.FirstOrDefault(i => i.ID == id);
+            if (inv != null)
+            {
+                var rs = inventory.Edit(inventory);
+                inventory = inv;
+                return rs;
+            }
+
+            return RequestStatus.InvalidInput;
         }
 
         public RequestStatus DeleteInventory(string token, Inventory inventory)
         {
-            inventory.Remove();
-            return RequestStatus.Success;
+            inventory = Inventory.All.FirstOrDefault(r => r.ID == inventory.ID);
+            if (inventory != null)
+            {
+                inventory.Remove();
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
+
         }
 
         public RequestStatus GetInventoryByID(ref Inventory item)

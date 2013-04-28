@@ -36,7 +36,6 @@ namespace ITubsService.Entities
             }
 
             return RequestStatus.InvalidInput;
-
         }
 
         public RequestStatus RemoveInventory(int inventoryID)

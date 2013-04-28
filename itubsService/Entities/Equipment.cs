@@ -27,7 +27,7 @@ namespace ITubsService.Entities
 
         public static Equipment NewEquipment(Equipment newEquipment)
         {
-            if (Configuration.IsAStatus(newEquipment.Status) && newEquipment.ProductName.Length > 1 && newEquipment.EquipmentTypeID >= 0)
+            if (Configuration.IsAStatus(newEquipment.Status) && !string.IsNullOrWhiteSpace(newEquipment.ProductName) && newEquipment.EquipmentTypeID > 0)
             {
                 ItubsContext.Db.Equipments.Add(
                     new Equipment
@@ -58,7 +58,7 @@ namespace ITubsService.Entities
                 return RequestStatus.InvalidInput;
             }
 
-            this.EquipmentTypeID = updatedEquipment.EquipmentTypeID >= 0
+            this.EquipmentTypeID = updatedEquipment.EquipmentTypeID > 0
                                        ? updatedEquipment.EquipmentTypeID
                                        : this.EquipmentTypeID;
             this.ProductName = !string.IsNullOrWhiteSpace(updatedEquipment.ProductName)

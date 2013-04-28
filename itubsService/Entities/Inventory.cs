@@ -52,7 +52,7 @@ namespace ITubsService.Entities
             this.Status = Configuration.IsAStatus(updatedInventory.Status)
                               ? updatedInventory.Status
                               : this.Status;
-            this.InventoryTypeID = updatedInventory.InventoryTypeID >= 0
+            this.InventoryTypeID = updatedInventory.InventoryTypeID > 0
                                        ? updatedInventory.InventoryTypeID
                                        : this.InventoryTypeID;
             this.RoomID = updatedInventory.RoomID >= 0

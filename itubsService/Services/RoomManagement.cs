@@ -1,6 +1,8 @@
 ﻿namespace ITubsService.Services
 {
     using System.Collections.Generic;
+    using System.Linq;
+
     using Entities;
     using Enums;
     using Interfaces;
@@ -15,14 +17,28 @@
 
         public RequestStatus EditRoom(string token, ref Room editedRoom)
         {
-            editedRoom = Room.Edit(editedRoom);
+            var id = editedRoom.ID;
+            var room = Room.All.FirstOrDefault(r => r.ID == id);
+            if (room != null)
+            {
+                var rs = room.Edit(editedRoom);
+                editedRoom = room;
+                return rs;
+            }
 
-            return editedRoom != null ? RequestStatus.Success : RequestStatus.InvalidInput;
+            return RequestStatus.InvalidInput;
         }
 
-        public RequestStatus RemoveRoom(string token, int roomId)
+        public RequestStatus RemoveRoom(string token, Room room)
         {
-            return Room.RemoveRoom(roomId);
+            room = Room.All.FirstOrDefault(r => r.ID == room.ID);
+            if (room != null)
+            {
+                room.Remove();
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
         }
 
         public RequestStatus GetRoom(ref Room room)
@@ -40,26 +56,16 @@
 
         public RequestStatus AddInventoryItemToRoom(string token, int inventoryId, ref Room updatedRoom)
         {
-            updatedRoom = Room.AddInventory(updatedRoom, inventoryId);
-
-            if (updatedRoom != null && updatedRoom.ID != -1)
-            {
-                return RequestStatus.Success;
-            }
-
-            return RequestStatus.InvalidInput;
+            var id = updatedRoom.ID;
+            updatedRoom = Room.All.FirstOrDefault(r => r.ID == id);
+            return updatedRoom != null ? updatedRoom.AddInventory(inventoryId) : RequestStatus.InvalidInput;
         }
 
         public RequestStatus RemoveInventoryItemFromRoom(string token, int inventoryId, ref Room updatedRoom)
         {
-            updatedRoom = Room.RemoveInventory(updatedRoom, inventoryId);
-
-            if (updatedRoom != null && updatedRoom.ID != -1)
-            {
-                return RequestStatus.Success;
-            }
-
-            return RequestStatus.InvalidInput;
+            var id = updatedRoom.ID;
+            updatedRoom = Room.All.FirstOrDefault(r => r.ID == id);
+            return updatedRoom != null ? updatedRoom.RemoveInventory(inventoryId) : RequestStatus.InvalidInput;
         }
     }
 

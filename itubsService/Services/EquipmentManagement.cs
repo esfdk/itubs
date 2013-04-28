@@ -17,14 +17,28 @@
 
         public RequestStatus ChangeEquipmentItem(string token, ref Equipment equipment)
         {
-            return equipment.Edit(equipment);
+            var id = equipment.ID;
+            var eq = Equipment.All.FirstOrDefault(e => e.ID == id);
+            if (eq != null)
+            {
+                var rs = eq.Edit(equipment);
+                equipment = eq;
+                return rs;
+            }
+            return RequestStatus.InvalidInput;
         }
 
         public RequestStatus DeleteEquipmentItem(string token, Equipment equipment)
         {
-            equipment.Remove();
+            equipment = Equipment.All.FirstOrDefault(r => r.ID == equipment.ID);
+            if (equipment != null)
+            {
+                equipment.Remove();
+                return RequestStatus.Success;
+            }
 
-            return RequestStatus.Success;
+            return RequestStatus.InvalidInput;
+
         }
 
         public RequestStatus GetEquipmentChoice(ref EquipmentChoice equipmentChoice)

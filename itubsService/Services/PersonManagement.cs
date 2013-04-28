@@ -50,15 +50,11 @@
 
             if (person == null)
             {
-                return RequestStatus.InvalidToken;
+                return RequestStatus.InvalidInput;
             }
 
-            if (person.IsAPerson())
-            {
-                return RequestStatus.Success;
-            }
-
-            return RequestStatus.InvalidInput;
+            person.Token = null;
+            return RequestStatus.Success;
         }
 
         public RequestStatus GetByToken(string token, out Person person)

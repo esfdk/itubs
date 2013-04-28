@@ -17,7 +17,7 @@
         RequestStatus EditRoom(string token, ref Room editedRoom);
 
         [OperationContract]
-        RequestStatus RemoveRoom(string token, int roomId);
+        RequestStatus RemoveRoom(string token, Room room);
 
         [OperationContract]
         RequestStatus GetRoom(ref Room room);
