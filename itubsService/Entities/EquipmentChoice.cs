@@ -43,12 +43,27 @@ namespace ITubsService.Entities
                 && this.Booking.StartTime <= updatedChoice.StartTime
                 && this.Booking.EndTime >= updatedChoice.EndTime)
             {
-                if (overlapping.Count == 0)
+                if (overlapping.Count == 0
+                    || (overlapping.Count == 1 && overlapping.First().ID == this.ID))
                 {
                     this.StartTime = updatedChoice.StartTime;
                     this.EndTime = updatedChoice.EndTime;
+                    ItubsContext.Db.SaveChanges();
+                    return RequestStatus.Success;
                 }
-                if()
+
+                if (overlapping.All(choice => choice.Booking.PersonID == this.Booking.PersonID))
+                {
+                    var first = overlapping.First();
+                    first.EndTime = updatedChoice.EndTime;
+                    first.StartTime = updatedChoice.StartTime;
+                    foreach (var a in overlapping.Where(o => o.ID != first.ID))
+                    {
+                        ItubsContext.Db.EquipmentChoices.Remove(a);
+                    }
+
+                    ItubsContext.Db.SaveChanges();
+                }
             }
 
             return RequestStatus.InvalidInput;

@@ -7,12 +7,9 @@
 namespace ITubsService
 {
     using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
 
     public class Configuration
     {
-        private static List<string> adminRolesList = new List<string>() { "Administrator" };
 
         public const string LDAPServer = "192.168.30.244";
 
@@ -30,13 +27,7 @@ namespace ITubsService
 
         public readonly static int DaysToPrepareSmallCatering = 2;
 
-        public ReadOnlyCollection<string> AdminRoles
-        {
-            get
-            {
-                return adminRolesList.AsReadOnly();
-            }
-        }
+        public const string AdminRole = "Administrator";
 
         public static bool IsAStatus(string status)
         {
