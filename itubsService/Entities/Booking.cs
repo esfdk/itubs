@@ -106,7 +106,7 @@ namespace ITubsService.Entities
                         {
                             if (TimeInsideBooking(updatedBooking, ec.StartTime, ec.EndTime))
                             {
-                                ec.BookingID = changedBooking.ID;
+                                ec.BookingID = updatedBooking.ID;
                             }
                             else
                             {
@@ -118,13 +118,18 @@ namespace ITubsService.Entities
                         {
                             if (updatedBooking.StartTime <= cc.Time && updatedBooking.EndTime >= cc.Time)
                             {
-                                cc.BookingID = changedBooking.ID;
+                                cc.BookingID = updatedBooking.ID;
                             }
                             else
                             {
                                 ItubsContext.Db.CateringChoices.Remove(cc);
                             }
                         }
+                    }
+
+                    foreach (var b in overlapping.Where(b => b.ID != updatedBooking.ID))
+                    {
+                        ItubsContext.Db.Bookings.Remove(b);
                     }
 
                     ItubsContext.Db.SaveChanges();
@@ -151,6 +156,87 @@ namespace ITubsService.Entities
                 }
 
                 return RequestStatus.InvalidInput;
+            }
+
+            return RequestStatus.InvalidInput;
+        }
+
+        public RequestStatus ChangeStatus(Booking changedBooking)
+        {
+            if (!string.IsNullOrWhiteSpace(changedBooking.Status))
+            {
+                if (changedBooking.Status.Equals("Approved"))
+                {
+                    this.Status = "Approved";
+                    return RequestStatus.Success;
+                }
+
+                return changedBooking.Status.Equals("Rejected") ? this.Remove() : RequestStatus.InvalidInput;
+            }
+
+            return RequestStatus.InvalidInput;
+        }
+
+        public RequestStatus Remove()
+        {
+            foreach (var ec in this.EquipmentChoices)
+            {
+                ItubsContext.Db.EquipmentChoices.Remove(ec);
+            }
+
+            foreach (var cc in this.CateringChoices)
+            {
+                ItubsContext.Db.CateringChoices.Remove(cc);
+            }
+
+            ItubsContext.Db.Bookings.Remove(this);
+            ItubsContext.Db.SaveChanges();
+
+            return RequestStatus.Success;
+        }
+
+        public RequestStatus AddCatering(CateringChoice choice)
+        {
+            if (choice.Time > this.StartTime && choice.Time < this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time))
+            {
+                if ((choice.Amount >= Configuration.CateringLimit && choice.Time.AddDays(-Configuration.DaysToPrepareBigCatering) < DateTime.Now)
+                    || (choice.Time.AddDays(-Configuration.DaysToPrepareSmallCatering) < DateTime.Now))
+                {
+                    ItubsContext.Db.CateringChoices.Add(
+                        new CateringChoice
+                            {
+                                Amount = choice.Amount,
+                                BookingID = this.ID,
+                                Time = choice.Time,
+                                Status = choice.Status,
+                                CateringID = choice.CateringID,
+                            });
+                    ItubsContext.Db.SaveChanges();
+                    return RequestStatus.Success;
+                }
+
+                return RequestStatus.InvalidInput;
+            }
+
+            return RequestStatus.InvalidInput;
+        }
+
+        public RequestStatus AddEquipment(EquipmentChoice choice)
+        {
+            var overlapping = EquipmentChoice.OverlappingBookings(choice);
+            if (EquipmentChoice.IsBookingTimeValid(choice) && overlapping.Count == 0
+                && choice.StartTime >= this.StartTime && choice.EndTime <= this.EndTime)
+            {
+                ItubsContext.Db.EquipmentChoices.Add(
+                    new EquipmentChoice
+                        {
+                            BookingID = choice.BookingID,
+                            EndTime = choice.EndTime,
+                            StartTime = choice.StartTime,
+                            EquipmentID = choice.EquipmentID
+                        });
+                ItubsContext.Db.SaveChanges();
+                return RequestStatus.Success;
             }
 
             return RequestStatus.InvalidInput;
@@ -205,7 +291,3 @@ namespace ITubsService.Entities
         }
     }
 }
-
-
-
-

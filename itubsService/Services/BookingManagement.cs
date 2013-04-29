@@ -28,32 +28,52 @@
 
         public RequestStatus CreateBooking(string token, ref Booking newBooking)
         {
-            throw new NotImplementedException();
+            newBooking = Booking.CreateNewBooking(newBooking);
+            return newBooking != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
-        public RequestStatus ChangeBooking(string token, ref Booking changedBooking)
+        public RequestStatus ChangeTimeOfBooking(string token, ref Booking changedBooking)
         {
-            throw new NotImplementedException();
+            var booking = Booking.GetBookingByID(changedBooking.ID);
+            return booking != null ? booking.ChangeTime(changedBooking) : RequestStatus.InvalidInput;
+        }
+
+        public RequestStatus ChangeBookingStatus(string token, ref Booking changedBooking)
+        {
+            var booking = Booking.GetBookingByID(changedBooking.ID);
+            return booking != null ? booking.ChangeStatus(changedBooking) : RequestStatus.InvalidInput;
         }
 
         public RequestStatus DeleteBooking(string token, int bookingId)
         {
-            throw new NotImplementedException();
+            var booking = Booking.GetBookingByID(bookingId);
+            return booking != null ? booking.Remove() : RequestStatus.InvalidInput;
         }
 
         public RequestStatus AddCateringToBooking(string token, CateringChoice cateringChoice, out Booking editedBooking)
         {
-            throw new NotImplementedException();
+            editedBooking = Booking.GetBookingByID(cateringChoice.BookingID);
+            return editedBooking != null ? editedBooking.AddCatering(cateringChoice) : RequestStatus.InvalidInput;
         }
 
-        public RequestStatus RemoveCateringFromBooking(string token, CateringChoice cateringChoice, out Booking editedBooking)
+        public RequestStatus RemoveCateringChoice(string token, CateringChoice cateringChoice, out Booking editedBooking)
         {
-            throw new NotImplementedException();
+            var cc = CateringChoice.GetCateringChoice(cateringChoice.ID);
+            if (cc == null)
+            {
+                editedBooking = null;
+                return RequestStatus.InvalidInput;
+            }
+
+            var rs = cc.Remove();
+            editedBooking = Booking.GetBookingByID(cateringChoice.ID);
+            return rs;
         }
 
         public RequestStatus AddEquipmentToBooking(string token, EquipmentChoice equipmentChoice, out Booking editedBooking)
         {
-            throw new NotImplementedException();
+            editedBooking = Booking.GetBookingByID(equipmentChoice.BookingID);
+            return editedBooking != null ? editedBooking.AddEquipment(equipmentChoice) : RequestStatus.InvalidInput;
         }
 
         public RequestStatus ChangeTimeOfEquipmentBooking(string token, EquipmentChoice equipmentChoice, out Booking editedBooking)
@@ -61,10 +81,18 @@
             throw new NotImplementedException();
         }
 
-        public RequestStatus RemoveEquipmentFromBooking(string token, EquipmentChoice equipmentChoice, out Booking editedBooking)
+        public RequestStatus RemoveEquipmentChoice(string token, EquipmentChoice equipmentChoice, out Booking editedBooking)
         {
-            throw new NotImplementedException();
+            var ec = EquipmentChoice.GetEquipmentChoiceByID(equipmentChoice.ID);
+            if (ec == null)
+            {
+                editedBooking = null;
+                return RequestStatus.InvalidInput;
+            }
+
+            var rs = ec.Remove();
+            editedBooking = Booking.GetBookingByID(equipmentChoice.BookingID);
+            return rs;
         }
     }
-
 }

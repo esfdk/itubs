@@ -22,7 +22,10 @@
         RequestStatus CreateBooking(string token, ref Booking newBooking);
 
         [OperationContract]
-        RequestStatus ChangeBooking(string token, ref Booking changedBooking);
+        RequestStatus ChangeTimeOfBooking(string token, ref Booking changedBooking);
+
+        [OperationContract]
+        RequestStatus ChangeBookingStatus(string token, ref Booking changedBooking);
 
         [OperationContract]
         RequestStatus DeleteBooking(string token, int bookingId);
@@ -31,7 +34,7 @@
         RequestStatus AddCateringToBooking(string token, CateringChoice cateringChoice, out Booking editedBooking);
 
         [OperationContract]
-        RequestStatus RemoveCateringFromBooking(string token, CateringChoice cateringChoice, out Booking editedBooking);
+        RequestStatus RemoveCateringChoice(string token, CateringChoice cateringChoice, out Booking editedBooking);
 
         [OperationContract]
         RequestStatus AddEquipmentToBooking(string token, EquipmentChoice equipmentChoice, out Booking editedBooking);
@@ -40,6 +43,6 @@
         RequestStatus ChangeTimeOfEquipmentBooking(string token, EquipmentChoice equipmentChoice, out Booking editedBooking);
 
         [OperationContract]
-        RequestStatus RemoveEquipmentFromBooking(string token, EquipmentChoice equipmentChoice, out Booking editedBooking);
+        RequestStatus RemoveEquipmentChoice(string token, EquipmentChoice equipmentChoice, out Booking editedBooking);
     }
 }

@@ -3,6 +3,8 @@ namespace ITubsService.Entities
     using System.Collections.Generic;
     using System.Linq;
 
+    using ITubsService.Enums;
+
     public class CateringChoice
     {
         public static IEnumerable<CateringChoice> All
@@ -25,6 +27,13 @@ namespace ITubsService.Entities
         public static CateringChoice GetCateringChoice(int id)
         {
             return All.FirstOrDefault(cc => cc.ID == id);
+        }
+
+        public RequestStatus Remove()
+        {
+            ItubsContext.Db.CateringChoices.Remove(this);
+            ItubsContext.Db.SaveChanges();
+            return RequestStatus.Success;
         }
     }
 }

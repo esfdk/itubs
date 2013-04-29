@@ -9,6 +9,7 @@
 
 namespace ITubsService.Entities
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -30,13 +31,19 @@ namespace ITubsService.Entities
         public int ID { get; set; }
         public int Price { get; set; }
         public string ProductName { get; set; }
-        public System.TimeSpan AvailableFrom { get; set; }
-        public System.TimeSpan AvailableTo { get; set; }
+        public TimeSpan AvailableFrom { get; set; }
+        public TimeSpan AvailableTo { get; set; }
         public virtual ICollection<CateringChoice> CateringChoices { get; set; }
 
         public static Catering GetCatering(int id)
         {
             return All.First(c => c.ID == id);
+        }
+
+        public static bool IsAvailable(int cateringID, DateTime time)
+        {
+            var c = All.FirstOrDefault(ca => ca.ID == cateringID);
+            return c != null && time.Hour >= c.AvailableFrom.Hours && time.Hour <= c.AvailableTo.Hours;
         }
     }
 }

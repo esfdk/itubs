@@ -7,9 +7,13 @@
 namespace ITubsService
 {
     using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     public class Configuration
     {
+        private static List<string> adminRolesList = new List<string>() { "Administrator" };
+
         public const string LDAPServer = "192.168.30.244";
 
         public const string NetworkUsername = "jmel@itu.dk";
@@ -19,6 +23,20 @@ namespace ITubsService
         public readonly static DateTime EarliestBooking = new DateTime(0, 0, 0, 9, 0, 0);
 
         public readonly static DateTime LatestBooking = new DateTime(0, 0, 0, 21, 0, 0);
+
+        public readonly static int CateringLimit = 10;
+
+        public readonly static int DaysToPrepareBigCatering = 10;
+
+        public readonly static int DaysToPrepareSmallCatering = 2;
+
+        public ReadOnlyCollection<string> AdminRoles
+        {
+            get
+            {
+                return adminRolesList.AsReadOnly();
+            }
+        }
 
         public static bool IsAStatus(string status)
         {
