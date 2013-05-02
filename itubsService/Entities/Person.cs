@@ -118,7 +118,7 @@ namespace ITubsService.Entities
             var person = All.First(p => p.Token == token);
             if (person == null)
             {
-                return RequestStatus.InvalidToken;
+                return RequestStatus.InvalidInput;
             }
 
             person.Token = string.Empty;
@@ -128,12 +128,12 @@ namespace ITubsService.Entities
 
         public static Person GetByEMail(string email)
         {
-            return All.FirstOrDefault(p => p.Email == email);
+            return All.FirstOrDefault(p => p.Email.Equals(email));
         }
 
         public static Person GetByToken(string token)
         {
-            return All.FirstOrDefault(p => p.Token == token);
+            return All.FirstOrDefault(p => p.Token.Equals(token));
         }
 
         public bool IsAPerson()

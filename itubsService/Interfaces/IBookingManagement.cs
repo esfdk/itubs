@@ -34,6 +34,9 @@
         RequestStatus AddCateringToBooking(string token, CateringChoice cateringChoice, out Booking editedBooking);
 
         [OperationContract]
+        RequestStatus ChangeTimeOfCateringChoice(string token, CateringChoice cateringChoice, out Booking editedBooking);
+
+        [OperationContract]
         RequestStatus RemoveCateringChoice(string token, CateringChoice cateringChoice, out Booking editedBooking);
 
         [OperationContract]

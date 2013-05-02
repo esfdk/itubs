@@ -1,10 +1,10 @@
-﻿using ITubsService.Entities;
-
-namespace ITubsService.Services
+﻿namespace ITubsService.Services
 {
     using System.Collections.Generic;
-    using Enums;
-    using Interfaces;
+
+    using ITubsService.Entities;
+    using ITubsService.Enums;
+    using ITubsService.Interfaces;
 
     public partial class Service : ICateringManagement
     {

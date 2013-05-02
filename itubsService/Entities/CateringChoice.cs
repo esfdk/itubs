@@ -35,5 +35,36 @@ namespace ITubsService.Entities
             ItubsContext.Db.SaveChanges();
             return RequestStatus.Success;
         }
+
+        public RequestStatus ChangeTime(CateringChoice updatedCateringChoice)
+        {
+            if (updatedCateringChoice.Time >= this.Booking.StartTime
+                && updatedCateringChoice.Time <= this.Booking.EndTime
+                && Catering.IsAvailable(updatedCateringChoice.CateringID, updatedCateringChoice.Time))
+            {
+                this.Time = updatedCateringChoice.Time;
+                ItubsContext.Db.SaveChanges();
+                return RequestStatus.Success;
+            }
+
+            return RequestStatus.InvalidInput;
+        }
+
+        public RequestStatus ChangeStatus(CateringChoice updatedCateringChoice)
+        {
+            if (!string.IsNullOrWhiteSpace(updatedCateringChoice.Status))
+            {
+                if (updatedCateringChoice.Status.Equals("Approved"))
+                {
+                    this.Status = "Approved";
+                    ItubsContext.Db.SaveChanges();
+                    return RequestStatus.Success;
+                }
+
+                return updatedCateringChoice.Status.Equals("Rejected") ? this.Remove() : RequestStatus.InvalidInput;
+            }
+
+            return RequestStatus.InvalidInput;
+        }
     }
 }

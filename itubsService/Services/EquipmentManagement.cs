@@ -11,34 +11,65 @@
     {
         public RequestStatus CreateNewEquipmentItem(string token, ref Equipment newEquipment)
         {
+            if (string.IsNullOrWhiteSpace(token) || newEquipment == null || string.IsNullOrWhiteSpace(newEquipment.ProductName) || newEquipment.EquipmentTypeID <= 0)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            var p = Person.GetByToken(token);
+            if (p == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)))
+            {
+                return RequestStatus.AccessDenied;
+            }
+
             newEquipment = Equipment.NewEquipment(newEquipment);
             return newEquipment != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
         public RequestStatus ChangeEquipmentItem(string token, ref Equipment equipment)
         {
-            var id = equipment.ID;
-            var eq = Equipment.All.FirstOrDefault(e => e.ID == id);
-            if (eq != null)
+            if (string.IsNullOrWhiteSpace(token) || equipment == null || equipment.ID <= 0)
             {
-                var rs = eq.Edit(equipment);
-                equipment = eq;
-                return rs;
+                return RequestStatus.InvalidInput;
             }
-            return RequestStatus.InvalidInput;
+
+            var p = Person.GetByToken(token);
+            var eq = Equipment.GetEquipmentByID(equipment.ID);
+            if (p == null || eq == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)))
+            {
+                return RequestStatus.AccessDenied;
+            }
+
+            var rs = eq.Edit(equipment);
+            equipment = eq;
+            return rs;
         }
 
         public RequestStatus DeleteEquipmentItem(string token, Equipment equipment)
         {
-            equipment = Equipment.All.FirstOrDefault(r => r.ID == equipment.ID);
-            if (equipment != null)
+            if (string.IsNullOrWhiteSpace(token) || equipment == null || equipment.ID <= 0)
             {
-                equipment.Remove();
-                return RequestStatus.Success;
+                return RequestStatus.InvalidInput;
             }
 
-            return RequestStatus.InvalidInput;
+            var p = Person.GetByToken(token);
+            var eq = Equipment.GetEquipmentByID(equipment.ID);
+            if (p == null || eq == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
 
+            return p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) ? equipment.Remove() : RequestStatus.AccessDenied;
         }
 
         public RequestStatus GetEquipmentChoice(ref EquipmentChoice equipmentChoice)

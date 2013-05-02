@@ -2,6 +2,6 @@
 {
     public enum RequestStatus
     {
-        Success = 0, AccessDenied = 1, InvalidInput = 2, InvalidToken = 3, Error = 4
+        Success = 0, AccessDenied = 1, InvalidInput = 2, Error = 3
     }
 }

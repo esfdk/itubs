@@ -104,26 +104,12 @@ namespace ITubsService.Entities
                     {
                         foreach (var ec in b.EquipmentChoices)
                         {
-                            if (TimeInsideBooking(updatedBooking, ec.StartTime, ec.EndTime))
-                            {
-                                ec.BookingID = updatedBooking.ID;
-                            }
-                            else
-                            {
-                                ItubsContext.Db.EquipmentChoices.Remove(ec);
-                            }
+                            ec.BookingID = updatedBooking.ID;
                         }
 
                         foreach (var cc in b.CateringChoices)
                         {
-                            if (updatedBooking.StartTime <= cc.Time && updatedBooking.EndTime >= cc.Time)
-                            {
-                                cc.BookingID = updatedBooking.ID;
-                            }
-                            else
-                            {
-                                ItubsContext.Db.CateringChoices.Remove(cc);
-                            }
+                            cc.BookingID = updatedBooking.ID;
                         }
                     }
 
@@ -197,7 +183,7 @@ namespace ITubsService.Entities
 
         public RequestStatus AddCatering(CateringChoice choice)
         {
-            if (choice.Time > this.StartTime && choice.Time < this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time))
+            if (choice.Time > this.StartTime && choice.Time < this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1)
             {
                 if ((choice.Amount >= Configuration.CateringLimit && choice.Time.AddDays(-Configuration.DaysToPrepareBigCatering) < DateTime.Now)
                     || (choice.Time.AddDays(-Configuration.DaysToPrepareSmallCatering) < DateTime.Now))
@@ -283,11 +269,6 @@ namespace ITubsService.Entities
                          || (b.StartTime >= booking.StartTime && b.StartTime < booking.EndTime)))   /* Any starting after or same time as booking &
                                                                                                     * starting before end time of booking. */
                 .ToList();
-        }
-
-        private static bool TimeInsideBooking(Booking booking, DateTime start, DateTime end)
-        {
-            return booking.StartTime <= start && booking.EndTime >= end && start < end;
         }
     }
 }

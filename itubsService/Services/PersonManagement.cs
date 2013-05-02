@@ -63,15 +63,10 @@
 
             if (person == null)
             {
-                return RequestStatus.InvalidToken;
+                return RequestStatus.InvalidInput;
             }
 
-            if (person.IsAPerson())
-            {
-                return RequestStatus.Success;
-            }
-
-            return RequestStatus.InvalidInput;
+            return person.IsAPerson() ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
     }
 }

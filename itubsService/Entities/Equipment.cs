@@ -27,7 +27,7 @@ namespace ITubsService.Entities
 
         public static Equipment NewEquipment(Equipment newEquipment)
         {
-            if (Configuration.IsAStatus(newEquipment.Status) && !string.IsNullOrWhiteSpace(newEquipment.ProductName) && newEquipment.EquipmentTypeID > 0)
+            if (Configuration.IsAStatus(newEquipment.Status) && EquipmentType.All.Any(et => et.ID == newEquipment.EquipmentTypeID))
             {
                 ItubsContext.Db.Equipments.Add(
                     new Equipment
@@ -73,10 +73,11 @@ namespace ITubsService.Entities
             return RequestStatus.Success;
         }
 
-        public void Remove()
+        public RequestStatus Remove()
         {
             ItubsContext.Db.Equipments.Remove(this);
             ItubsContext.Db.SaveChanges();
+            return RequestStatus.Success;
         }
 
         public int ID { get; set; }
