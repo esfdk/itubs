@@ -53,6 +53,13 @@ namespace Client.User
 
         protected void BookLokaleButton_Click(object sender, EventArgs e)
         {
+            //If two 
+            if ("")
+            {
+                string popUpText = "";
+                //The line below will launch a Javascript alert that says "The Value is Testing Value"
+                Response.Write(String.Format("<script>alert('{0}');</script>", popUpText));
+            }
             Response.Redirect("~/User/DineBookinger.aspx");
         }
         protected void gvSummary_PreRender(object sender, EventArgs e)
