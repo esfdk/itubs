@@ -53,10 +53,10 @@ namespace Client.User
 
         protected void BookLokaleButton_Click(object sender, EventArgs e)
         {
-            //If two 
-            if ("")
+            //If checkboxses is checked in two different rows throw popup alert 
+            if (0 < 1)
             {
-                string popUpText = "";
+                string popUpText = "Du kan ikke booke flere lokaler afgangen.";
                 //The line below will launch a Javascript alert that says "The Value is Testing Value"
                 Response.Write(String.Format("<script>alert('{0}');</script>", popUpText));
             }

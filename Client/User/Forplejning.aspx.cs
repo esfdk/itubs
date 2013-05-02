@@ -24,12 +24,12 @@ namespace Client.User
 
         protected void ForplejningButton_Click(object sender, EventArgs e)
         {
-            if(Page.IsValid){
-                CheckBox cb = GridView1.Rows[0].FindControl("checkBox9") as CheckBox;
-                if (cb.Checked)
-                {
-                 GridView1.Rows[0].Cells[2].BackColor = Color.Black;
-                }
+            // If number of items are over 10 check if Date is atleast a week from now, else throw alert popup
+          if (0 < 1)
+            {
+                string popUpText = "Dine ønsker kunne ikke imøde kommes da der skal bestilles mindst en uge i forvejen til forplejning til mere end 10 personer.";
+                //The line below will launch a Javascript alert that says "The Value is Testing Value"
+                Response.Write(String.Format("<script>alert('{0}');</script>", popUpText));
             }
             Response.Redirect("DineBookinger.aspx");
         }
@@ -55,16 +55,7 @@ namespace Client.User
 
         protected void FjernForplejning_Click(object sender, EventArgs e)
         {
-            if(Page.IsValid)
-            {
-                CheckBox cb = GridView1.Rows[0].FindControl("checkBox9") as CheckBox;
-                if (cb.Checked)
-                {
-                    string popUpText = "";
-                    //The line below will launch a Javascript alert that says "The Value is Testing Value"
-                    Response.Write(String.Format("<script>alert('{0}');</script>", popUpText));
-                }
-            }
+           
         }
     }
 }
