@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using System.Web.UI.HtmlControls;
 using System.Drawing;
 
-namespace BookIT
+namespace Client.User
 {
     public partial class Forplejning : System.Web.UI.Page
     {
@@ -19,11 +14,10 @@ namespace BookIT
             if (!Page.IsPostBack)
             {
                 DataTable originalDataTable = new DataTable();
-                DataTable newDataTable = originalDataTable.Clone();
-                DataRow newDataRow = newDataTable.NewRow();
-                newDataTable.Rows.Add(newDataRow);
+                DataRow newDataRow = originalDataTable.NewRow();
+                originalDataTable.Rows.Add(newDataRow);
 
-                GridView1.DataSource = newDataTable;
+                GridView1.DataSource = originalDataTable;
                 GridView1.DataBind();
             }
         }
@@ -66,9 +60,9 @@ namespace BookIT
                 CheckBox cb = GridView1.Rows[0].FindControl("checkBox9") as CheckBox;
                 if (cb.Checked)
                 {
-                    string yourValue = "Klokken 9 er nu booket";
+                    string popUpText = "";
                     //The line below will launch a Javascript alert that says "The Value is Testing Value"
-                    Response.Write(String.Format("<script>alert('{0}');</script>", yourValue));
+                    Response.Write(String.Format("<script>alert('{0}');</script>", popUpText));
                 }
             }
         }

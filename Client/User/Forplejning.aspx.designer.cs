@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BookIT {
+namespace Client.User {
     
     
     public partial class Forplejning {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BookIT
+namespace Client.Administrator
 {
     public partial class BookingListe : System.Web.UI.Page
     {

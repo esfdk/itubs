@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BookIT.Account
+namespace Client.Account
 {
 
 

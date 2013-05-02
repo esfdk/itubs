@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="LokaleListe.aspx.cs" Inherits="BookIT._Default" %>
+    CodeBehind="LokaleListe.aspx.cs" Inherits="Client.User.LokaleListe" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>

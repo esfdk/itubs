@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Ab" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="UdstyrsListe.aspx.cs" Inherits="BookIT.About" %>
+    CodeBehind="UdstyrsListe.aspx.cs" Inherits="Client.Administrator.About" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">

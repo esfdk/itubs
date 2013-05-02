@@ -11,7 +11,17 @@ namespace BookIT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["me"] = "lol";
+        }
 
+        protected void Page_Prerender(object sender, EventArgs e)
+        {
+            LoginName loginName = HeadLoginView.FindControl("HeadLoginName") as LoginName;
+
+            if (loginName != null)
+            {
+                loginName.FormatString = "Jakob Melnyk";
+            }
         }
     }
 }

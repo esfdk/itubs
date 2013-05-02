@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace BookIT
+namespace Client.User
 {
     public partial class BookUdstyr : System.Web.UI.Page
     {

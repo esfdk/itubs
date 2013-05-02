@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BookIT {
+namespace Client.Administrator {
     
     
     public partial class About {
