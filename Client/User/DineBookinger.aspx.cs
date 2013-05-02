@@ -71,9 +71,15 @@ namespace Client.User
             Response.Redirect("DineBookinger.aspx");
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridView1_OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
-                GridViewRow row = GridView1.SelectedRow;
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes.Add("style", "cursor:pointer;");
+                e.Row.Attributes.Add("onclick", "location='Forplejning.aspx?id=" + e.Row.Cells[0].Text + "'");
+                    /*Page.ClientScript.GetPostBackEventReference(this,
+                              "Select$" + e.Row.RowIndex.ToString()));*/
+            }
         }
     }
 }

@@ -11,8 +11,8 @@
         <table class="style1">
             <tr>
                 <td class="style2">
-                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" 
-                        Width="674px" OnDataBound="GridView_OnDataBound" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                    <asp:GridView ID="GridView1" OnRowDataBound="GridView1_OnRowDataBound" runat="server" CellPadding="4" ForeColor="#333333" 
+                        Width="674px" OnDataBound="GridView_OnDataBound">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Lokale" />
@@ -26,7 +26,7 @@
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#f47a07" Font-Bold="True" ForeColor="White" />
                         <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="blue" Font-Bold="True" ForeColor="blue" />
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
