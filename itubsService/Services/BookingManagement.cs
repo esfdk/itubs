@@ -22,7 +22,7 @@
             return bookings != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
-        public RequestStatus GetAllBookings(Person person, out IEnumerable<Booking> bookings)
+        public RequestStatus GetBookingsByPerson(Person person, out IEnumerable<Booking> bookings)
         {
             bookings = Booking.GetAllBookings(person);
             return bookings != null ? RequestStatus.Success : RequestStatus.Error;
@@ -31,7 +31,7 @@
         public RequestStatus CreateBooking(string token, ref Booking newBooking)
         {
             var p = Person.GetByToken(token);
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) || p.ID != newBooking.PersonID)
+            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != newBooking.PersonID)
             {
                 return RequestStatus.AccessDenied;
             }
@@ -43,12 +43,18 @@
         public RequestStatus ChangeTimeOfBooking(string token, ref Booking changedBooking)
         {
             var p = Person.GetByToken(token);
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) || p.ID != changedBooking.PersonID)
+            var booking = Booking.GetBookingByID(changedBooking.ID);
+
+            if (p == null || booking == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != booking.PersonID)
             {
                 return RequestStatus.AccessDenied;
             }
 
-            var booking = Booking.GetBookingByID(changedBooking.ID);
             var rs = booking.ChangeTime(changedBooking);
             changedBooking = booking;
             return rs;
@@ -57,12 +63,18 @@
         public RequestStatus ChangeBookingStatus(string token, ref Booking changedBooking)
         {
             var p = Person.GetByToken(token);
+            var booking = Booking.GetBookingByID(changedBooking.ID);
+
+            if (p == null || booking == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
             if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)))
             {
                 return RequestStatus.AccessDenied;
             }
 
-            var booking = Booking.GetBookingByID(changedBooking.ID);
             var rs = booking.ChangeStatus(changedBooking);
             changedBooking = booking;
             return rs;
@@ -72,12 +84,12 @@
         {
             var p = Person.GetByToken(token);
             var booking = Booking.GetBookingByID(bookingId);
-            if (booking == null)
+            if (booking == null || p == null)
             {
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) || p.ID != booking.PersonID)
+            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != booking.PersonID)
             {
                 return RequestStatus.AccessDenied;
             }
@@ -87,26 +99,38 @@
 
         public RequestStatus AddCateringToBooking(string token, CateringChoice cateringChoice, out Booking editedBooking)
         {
+            editedBooking = null;
             var p = Person.GetByToken(token);
             var b = Booking.GetBookingByID(cateringChoice.BookingID);
-            editedBooking = null;
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) || p.ID != b.PersonID)
+            if (p == null || b == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != b.PersonID)
             {
                 return RequestStatus.AccessDenied;
             }
 
             editedBooking = Booking.GetBookingByID(cateringChoice.BookingID);
-            return editedBooking != null ? editedBooking.AddCatering(cateringChoice) : RequestStatus.InvalidInput;
+            return editedBooking.AddCatering(cateringChoice);
         }
 
         public RequestStatus RemoveCateringChoice(string token, CateringChoice cateringChoice, out Booking editedBooking)
         {
+            var p = Person.GetByToken(token);
             var cc = CateringChoice.GetCateringChoice(cateringChoice.ID);
             if (cc == null)
             {
                 editedBooking = null;
                 return RequestStatus.InvalidInput;
+            }
+
+            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) || p.ID != cc.Booking.PersonID)
+            {
+                editedBooking = null;
+                return RequestStatus.AccessDenied;
             }
 
             var rs = cc.Remove();
