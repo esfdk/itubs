@@ -303,9 +303,16 @@ div.accountInfo
     padding-right: 10px;
 }
 
-.buttonStyle1
+.availabeButton
 {
     background: #f8a252;
     border: 2px solid #f47a07;
     margin-top: 10px;
+}
+
+.UnavailableButton 
+{
+    background: grey;
+    border: 2px solid #f47a07;
+    margin-top: 10px 
 }

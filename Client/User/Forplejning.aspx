@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-   <h2>Forplejning<asp:ScriptManager ID="ScriptManager1" runat="server">
+    <h2>Forplejning<asp:ScriptManager ID="ScriptManager1" runat="server">
        </asp:ScriptManager>
     </h2>
     <p>
@@ -114,11 +114,12 @@
         &nbsp;<asp:panel ID="Panel1" runat="server">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="ForplejningButton" runat="server" Text="Tilføj forplejning" 
-            onclick="ForplejningButton_Click" CssClass="buttonStyle1" />
-        &nbsp;<asp:Button ID="Button1" runat="server" Text="Fjern forplejning" 
-            CssClass="buttonStyle1" onclick="FjernForplejning_Click" />
-            <asp:ModalPopupExtender ID="Button1_ModalPopupExtender" runat="server" 
-            DynamicServicePath="" Enabled="True" TargetControlID="Button1" PopupControlID="Panel2">
+            onclick="ForplejningButton_Click" CssClass="availabeButton" />
+        &nbsp;<asp:Button ID="FortrydButton" runat="server" Text="Fortryd" 
+            CssClass="availabeButton" onclick="Fortryd_Click" />
+            <asp:ModalPopupExtender ID="FortrydButton_ModalPopupExtender" runat="server" 
+            DynamicServicePath="" Enabled="True" TargetControlID="FortrydButton" 
+            PopupControlID="Panel2">
         </asp:ModalPopupExtender>
             </asp:panel>
     </p>

@@ -14,7 +14,7 @@ Tilføj Lokale
         <asp:TextBox ID="KapacitetTextBox" runat="server"></asp:TextBox>
 </p>
     <p>
-        <asp:Button ID="TilføjLokaleButton" runat="server" CssClass="buttonStyle1" 
+        <asp:Button ID="TilføjLokaleButton" runat="server" CssClass="availabeButton" 
             onclick="TilføjLokale_Click" Text="Tilføj Lokale" />
 </p>
     <p>

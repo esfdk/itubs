@@ -53,9 +53,9 @@ namespace Client.User
             Response.Redirect("DineBookinger.aspx");
         }
 
-        protected void FjernForplejning_Click(object sender, EventArgs e)
+        protected void Fortryd_Click(object sender, EventArgs e)
         {
-           
+            Response.Redirect("DineBookinger.aspx");
         }
     }
 }

@@ -94,21 +94,21 @@ namespace Client.User {
         protected global::System.Web.UI.WebControls.Button ForplejningButton;
         
         /// <summary>
-        /// Button1 control.
+        /// FortrydButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button FortrydButton;
         
         /// <summary>
-        /// Button1_ModalPopupExtender control.
+        /// FortrydButton_ModalPopupExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender Button1_ModalPopupExtender;
+        protected global::AjaxControlToolkit.ModalPopupExtender FortrydButton_ModalPopupExtender;
     }
 }

@@ -60,6 +60,14 @@ namespace Client.User
                 //The line below will launch a Javascript alert that says "The Value is Testing Value"
                 Response.Write(String.Format("<script>alert('{0}');</script>", popUpText));
             }
+
+            //If booking is changed and have a equipment and/or catering choices then throw a popup alert 
+            if (0 < 1)
+            {
+                string popUpText1 = "Husk også at ændre dine bookinger af forplejning og udstyr.";
+                //The line below will launch a Javascript alert that says "The Value is Testing Value"
+                Response.Write(String.Format("<script>alert('{0}');</script>", popUpText1));
+            }
             Response.Redirect("~/User/DineBookinger.aspx");
         }
         protected void gvSummary_PreRender(object sender, EventArgs e)

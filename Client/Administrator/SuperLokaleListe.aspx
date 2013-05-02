@@ -12,7 +12,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>&nbsp;</h2>
+    <h2>Konfigurering af lokaler</h2>
     <table class="style1">
         <tr>
             <td class="style2">
@@ -36,15 +36,15 @@
                 </asp:GridView>
             </td>
             <td>
-                <asp:Button ID="ÆndreLokaleButton" runat="server" Text="Ændre" CssClass="buttonStyle1" 
+                <asp:Button ID="ÆndreLokaleButton" runat="server" Text="Ændre" CssClass="availabeButton" 
                     Width="89px" onclick="ÆndreLokale_Click" />
                 <br />
                 <br />
-                <asp:Button ID="TilføjLokaleButton" runat="server" Text="Tilføj" CssClass="buttonStyle1" 
+                <asp:Button ID="TilføjLokaleButton" runat="server" Text="Tilføj" CssClass="availabeButton" 
                     Width="89px" onclick="TilføjLokale_Click" />
                 <br />
                 <br />
-                <asp:Button ID="SletLokaleButton" runat="server" Text="Slet" CssClass="buttonStyle1" 
+                <asp:Button ID="SletLokaleButton" runat="server" Text="Slet" CssClass="availabeButton" 
                     Width="89px" onclick="SletLokale_Click" />
             </td>
         </tr>

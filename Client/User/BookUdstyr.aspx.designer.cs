@@ -67,15 +67,6 @@ namespace Client.User {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// FortrydButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FortrydButton;
-        
-        /// <summary>
         /// ÆndringerButton control.
         /// </summary>
         /// <remarks>
@@ -83,5 +74,14 @@ namespace Client.User {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ÆndringerButton;
+        
+        /// <summary>
+        /// FortrydButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button FortrydButton;
     }
 }

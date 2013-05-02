@@ -18,27 +18,20 @@
                 </h1>
             </div>
             <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server"/></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/User/LokaleListe.aspx"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
+                <asp:Label ID="UserNameLabel" runat="server"></asp:Label>
+                &nbsp;<asp:Button ID="LogInButton" runat="server" CssClass="buttonStyle1" 
+                    Text="Log in" />
+                <br />
             </div>
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/User/LokaleListe.aspx" Text="Book lokale"/>
-                        <asp:MenuItem NavigateUrl="~/Administrator/UdstyrsListe.aspx" Text="Udstyrsliste"/>
-                        <asp:MenuItem NavigateUrl="~/Administrator/BookingListe.aspx" Text="Booking-liste"/>
-                        <asp:MenuItem NavigateUrl="~/User/DineBookinger.aspx" Text="Dine bookinger"/>
-                        <asp:MenuItem NavigateUrl="~/Administrator/SuperLokaleListe.aspx" Text="Lokaleliste" />
-                        <asp:MenuItem NavigateUrl="~/Administrator/PersonBookingListe.aspx" Text="Find bookinger" />
-                    </Items>
-                </asp:Menu>
+                <asp:Panel runat="server">
+                    <asp:Button ID="MenuButton_LokaleListe" CssClass="availabeButton" Text="LokaleListe" OnClick="MenuButton_LokaleListe_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_DineBookinger" CssClass="availabeButton" Text="Dine bookinger" OnClick="MenuButton_DineBookinger_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_UdstyrsListe" CssClass="availabeButton" Text="Udstyrsliste" OnClick="MenuButton_UdstyrsListe_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_BookingListe" CssClass="availabeButton" Text="Booking-liste" OnClick="MenuButton_BookingListe_OnClick" runat="server" />
+                    <asp:Button ID="MenuButton_KonfigLokale" CssClass="availabeButton" Text="Konfigurering af lokaler" OnClick="MenuButton_KonfigLokale_OnClick" runat="server" />
+                    <asp:Button ID="MenuButton_FindBookinger" CssClass="availabeButton" Text="Find bookinger" OnClick="MenuButton_FindBookinger_OnClick" runat="server" />
+                </asp:Panel>
             </div>
         </div>
         <div class="main">
@@ -48,7 +41,6 @@
         </div>
     </div>
     <div class="footer">
-        
     </div>
     </form>
 </body>

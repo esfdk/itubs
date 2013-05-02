@@ -140,6 +140,18 @@
 
         public RequestStatus AddEquipmentToBooking(string token, EquipmentChoice equipmentChoice, out Booking editedBooking)
         {
+            editedBooking = null;
+            var p = Person.GetByToken(token);
+            var b = Booking.GetBookingByID(equipmentChoice.BookingID);
+            if (p == null || b == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+            if (!p.Roles.Any((r => r.RoleName.Equals((Configuration.AdminRole)) && p.ID != b.PersonID)))
+            {
+                return RequestStatus.AccessDenied;
+            }
+
             editedBooking = Booking.GetBookingByID(equipmentChoice.BookingID);
             return editedBooking != null ? editedBooking.AddEquipment(equipmentChoice) : RequestStatus.InvalidInput;
         }
@@ -160,11 +172,16 @@
 
         public RequestStatus RemoveEquipmentChoice(string token, EquipmentChoice equipmentChoice, out Booking editedBooking)
         {
+            editedBooking = null;
+            var p = Person.GetByToken(token);
             var ec = EquipmentChoice.GetEquipmentChoiceByID(equipmentChoice.ID);
-            if (ec == null)
+            if (ec == null || p == null)
             {
-                editedBooking = null;
                 return RequestStatus.InvalidInput;
+            }
+            if(!p.Roles.Any(r => r.RoleName.Equals((Configuration.AdminRole)) && p.ID != ec.Booking.PersonID))
+            {
+                return RequestStatus.AccessDenied;
             }
 
             var rs = ec.Remove();

@@ -38,32 +38,33 @@
                         <tr>
                             <td>
                     <asp:Button ID="ÆndreBookButton" runat="server" Text="Ændre booking" 
-                        Width="160px" margin="20px" onclick="ÆndreBookButton_Click" CssClass="buttonStyle1" />
+                        Width="160px" margin="20px" onclick="ÆndreBookButton_Click" 
+                                    CssClass="availabeButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
                     <asp:Button ID="SletBookingButton" runat="server" 
                         Text="Slet booking" Width="160px" onclick="SletBookingButton_Click" 
-                                    CssClass="buttonStyle1" />
+                                    CssClass="availabeButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
                     <asp:Button ID="ForplejningButton" runat="server" Text="Tilføj forplejning" 
-                        Width="160px" onclick="ForplejningButton_Click" CssClass="buttonStyle1" />
+                        Width="160px" onclick="ForplejningButton_Click" CssClass="availabeButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                    <asp:Button ID="UdstyrButton" runat="server" Text="Tilføj Udstyr" 
-                        Width="160px" onclick="UdstyrButton_Click" CssClass="buttonStyle1" />
+                    <asp:Button ID="UdstyrButton" runat="server" Text="Tilføj udstyr" 
+                        Width="160px" onclick="UdstyrButton_Click" CssClass="availabeButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
                     <asp:Button ID="SendGodkendButton" runat="server" Text="Send til godkendelse" 
-                        Width="160px" onclick="SendGodkendButton_Click" CssClass="buttonStyle1" />
+                        Width="160px" onclick="SendGodkendButton_Click" CssClass="availabeButton" />
                             </td>
                         </tr>
                     </table>

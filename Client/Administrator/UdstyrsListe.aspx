@@ -17,10 +17,8 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        Udstyrsliste
-    </h2>
-    <p>
-        &nbsp;</p>
+        Udstyrsliste&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        Tilføj udstyr</h2>
     <table class="style1">
         <tr>
             <td class="style3">
@@ -46,19 +44,23 @@
                             <br />
                 
                             <asp:Button ID="SletUdstyrButton" runat="server" Text="Slet udstyr" 
-                                CssClass="buttonStyle1" onclick="SletUdstyrButton_Click" />
+                                CssClass="availabeButton" onclick="SletUdstyrButton_Click" />
                             &nbsp;<asp:Button ID="ÆndreUdstyrButton" runat="server" Text="Ændre udstyr" 
-                                onclick="ÆndreUdstyrButton_Click" CssClass="buttonStyle1" />
+                                onclick="ÆndreUdstyrButton_Click" CssClass="availabeButton" />
             </td>
             <td>
-            <h2>Tilføj udstyr</h2>
                 <p>Navn:
                     <asp:TextBox ID="UdstyrsNavnTextBox" runat="server"></asp:TextBox>
                 </p>
                 <p>Kommentar:</p>
                 <p>
                     <asp:TextBox ID="KommentarTextBox" runat="server" Height="142px" TextMode="MultiLine" 
-                        Width="405px"></asp:TextBox>
+                        Width="405px" style="margin-top: 0px"></asp:TextBox>
+                </p>
+                <p>
+                    Inventar:
+                    <asp:CheckBox ID="InventarCheckBox" runat="server" />
+&nbsp;Udlån:<asp:CheckBox ID="UdlånCheckBox" runat="server" />
                 </p>
                 <p>Udstyrstype:
                     <asp:DropDownList ID="UdstyrsTypeDropDown" runat="server">
@@ -66,7 +68,7 @@
                 </p>
                 <p>
                     <asp:Button ID="TilføjUdstyrButton" runat="server" Text="Tilføj udstyr" 
-                        onclick="TilføjUdstyrButton_Click" CssClass="buttonStyle1" />
+                        onclick="TilføjUdstyrButton_Click" CssClass="availabeButton" />
                 </p>
                 &nbsp;</td>
         </tr>
