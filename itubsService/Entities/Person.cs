@@ -11,7 +11,7 @@ namespace ITubsService.Entities
 
     using Enums;
 
-    public class Person
+    public sealed class Person
     {
         public Person()
         {
@@ -41,9 +41,9 @@ namespace ITubsService.Entities
         [DataMember]
         public string Token { get; set; }
         [DataMember]
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
         [DataMember]
-        public virtual ICollection<Role> Roles { get; set; }
+        public ICollection<Role> Roles { get; set; }
 
         #endregion Properties
 
@@ -51,8 +51,31 @@ namespace ITubsService.Entities
 
         public static Person Login(string username, string password)
         {
+            if (username.Equals(Configuration.AdminEmail) && password.Equals(Configuration.AdminPassword))
+            {
+                var person = All.First(p => p.Email.Equals(Configuration.AdminEmail));
+                person.Token = GenerateToken();
+
+                ItubsContext.Db.SaveChanges();
+
+                return person;
+            }
+
             // TODO: Improve this
-            var ldap = new LdapConnection(Configuration.LDAPServer) { Credential = new NetworkCredential(Configuration.NetworkUsername, Configuration.NetworkPassword) };
+            var ldap = new LdapConnection(Configuration.LDAPServer);
+            try
+            {
+                ldap.Bind(new NetworkCredential(username, password));
+            }
+            catch (COMException)
+            {
+                return new Person { ID = -1 };
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
 
             var dsFilter = "(samaccountname=" + username.Substring(0, username.IndexOf("@")) + ")";
 
@@ -70,7 +93,7 @@ namespace ITubsService.Entities
             }
             catch (COMException)
             {
-                return new Person() { ID = -1 };
+                return new Person { ID = -1 };
             }
 
             if (result == null)
@@ -81,26 +104,32 @@ namespace ITubsService.Entities
 
             if (!result.Properties.Contains("ituAffiliation"))
             {
-                return new Person() { Email = string.Empty, Name = string.Empty, Token = string.Empty };
+                return new Person { Email = string.Empty, Name = string.Empty, Token = string.Empty };
             }
 
             if (All.Any(p => p.Email.Equals(result.Properties["mail"][0].ToString())))
             {
                 var person = All.First(p => p.Email.Equals(result.Properties["mail"][0].ToString()));
                 person.Token = GenerateToken();
+
                 ItubsContext.Db.SaveChanges();
+
                 return person;
             }
             else
             {
-                var person = new Person();
-                person.Email = result.Properties["mail"][0].ToString();
-                person.Name = result.Properties["displayName"][0].ToString();
+                var person = new Person
+                    {
+                        Email = result.Properties["mail"][0].ToString(),
+                        Name = result.Properties["displayName"][0].ToString()
+                    };
                 person.Roles.Add(new Role() { RoleName = result.Properties["ituAffiliation"][0].ToString() });
                 person.Token = GenerateToken();
+
                 ItubsContext.Db.People.Add(person);
                 ItubsContext.Db.SaveChanges();
-                return person;
+
+                return All.FirstOrDefault(p => p.Email.Equals(person.Email));
             }
         }
 

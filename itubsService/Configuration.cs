@@ -10,16 +10,37 @@ namespace ITubsService
 
     public class Configuration
     {
+        #region Administrator Access
+
+
+        public const string AdminPassword = "zAq12wSx";
+
+        public const string AdminEmail = "Admin@BookIt.dk";
+
+        public const string AdminRole = "Administrator";
+
+        #endregion
+
+        #region LDAP server
 
         public const string LDAPServer = "192.168.30.244";
 
-        public const string NetworkUsername = "jmel@itu.dk";
+        // TODO: Use actual user
+        public const string NetworkUsername = "";
 
-        public const string NetworkPassword = "Esfdk18021991";
+        public const string NetworkPassword = "";
+
+        #endregion
+
+        #region Booking Variables
 
         public readonly static DateTime EarliestBooking = new DateTime(0, 0, 0, 9, 0, 0);
 
         public readonly static DateTime LatestBooking = new DateTime(0, 0, 0, 21, 0, 0);
+
+        #endregion
+
+        #region Catering Variables
 
         public readonly static int CateringLimit = 10;
 
@@ -27,7 +48,7 @@ namespace ITubsService
 
         public readonly static int DaysToPrepareSmallCatering = 2;
 
-        public const string AdminRole = "Administrator";
+        #endregion
 
         public static bool IsAStatus(string status)
         {
