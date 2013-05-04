@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using Entities;
     using Enums;
@@ -29,9 +28,10 @@
 
         public RequestStatus GetBookingsByPerson(Person person, out IEnumerable<Booking> bookings)
         {
+            bookings = null;
+
             if (person == null)
             {
-                bookings = null;
                 return RequestStatus.InvalidInput;
             }
 
@@ -47,12 +47,12 @@
             }
 
             var p = Person.GetByToken(token);
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != newBooking.PersonID)
+            if (p == null)
             {
                 return RequestStatus.AccessDenied;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && !newBooking.Status.Equals("Pending"))
+            if (!p.IsAdmin() && (p.ID != newBooking.PersonID && !newBooking.Status.Equals("Pending")))
             {
                 return RequestStatus.AccessDenied;
             }
@@ -70,13 +70,12 @@
 
             var p = Person.GetByToken(token);
             var booking = Booking.GetBookingByID(changedBooking.ID);
-
-            if (p == null || booking == null)
+            if (booking == null)
             {
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != booking.PersonID)
+            if (p == null || (!p.IsAdmin() && p.ID != booking.PersonID))
             {
                 return RequestStatus.AccessDenied;
             }
@@ -95,13 +94,12 @@
 
             var p = Person.GetByToken(token);
             var booking = Booking.GetBookingByID(changedBooking.ID);
-
-            if (p == null || booking == null)
+            if (booking == null)
             {
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)))
+            if (p == null || !p.IsAdmin())
             {
                 return RequestStatus.AccessDenied;
             }
@@ -120,12 +118,12 @@
 
             var p = Person.GetByToken(token);
             var booking = Booking.GetBookingByID(bookingId);
-            if (booking == null || p == null)
+            if (booking == null)
             {
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != booking.PersonID)
+            if (p == null || (!p.IsAdmin() && p.ID != booking.PersonID))
             {
                 return RequestStatus.AccessDenied;
             }
@@ -144,18 +142,17 @@
 
             var p = Person.GetByToken(token);
             var b = Booking.GetBookingByID(cateringChoice.BookingID);
-
-            if (p == null || b == null)
+            if (b == null)
             {
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != b.PersonID)
+            if (p == null || (!p.IsAdmin() && p.ID != b.PersonID))
             {
                 return RequestStatus.AccessDenied;
             }
 
-            editedBooking = Booking.GetBookingByID(cateringChoice.BookingID);
+            editedBooking = b;
             return editedBooking.AddCatering(cateringChoice);
         }
 
@@ -168,15 +165,14 @@
                 return RequestStatus.InvalidInput;
             }
 
-            var cc = CateringChoice.GetCateringChoice(cateringChoice.ID);
             var p = Person.GetByToken(token);
-
-            if (cc == null || p == null)
+            var cc = CateringChoice.GetCateringChoice(cateringChoice.ID);
+            if (cc == null)
             {
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != cc.Booking.PersonID)
+            if (p == null || (!p.IsAdmin() && p.ID != cc.Booking.PersonID))
             {
                 return RequestStatus.AccessDenied;
             }
@@ -197,12 +193,12 @@
 
             var p = Person.GetByToken(token);
             var cc = CateringChoice.GetCateringChoice(cateringChoice.ID);
-            if (cc == null || p == null)
+            if (cc == null)
             {
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != cc.Booking.PersonID)
+            if (p == null || (!p.IsAdmin() && p.ID != cc.Booking.PersonID))
             {
                 return RequestStatus.AccessDenied;
             }
@@ -215,13 +211,20 @@
         public RequestStatus AddEquipmentToBooking(string token, EquipmentChoice equipmentChoice, out Booking editedBooking)
         {
             editedBooking = null;
-            var p = Person.GetByToken(token);
-            var b = Booking.GetBookingByID(equipmentChoice.BookingID);
-            if (p == null || b == null)
+
+            if (string.IsNullOrWhiteSpace(token) || equipmentChoice == null)
             {
                 return RequestStatus.InvalidInput;
             }
-            if (!p.Roles.Any((r => r.RoleName.Equals((Configuration.AdminRole)) && p.ID != b.PersonID)))
+
+            var p = Person.GetByToken(token);
+            var b = Booking.GetBookingByID(equipmentChoice.BookingID);
+            if (b == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            if (p == null || (!p.IsAdmin() && p.ID != b.PersonID))
             {
                 return RequestStatus.AccessDenied;
             }
@@ -239,15 +242,14 @@
                 return RequestStatus.InvalidInput;
             }
 
-            var ec = EquipmentChoice.GetEquipmentChoiceByID(equipmentChoice.ID);
             var p = Person.GetByToken(token);
-
-            if (ec == null || p == null)
+            var ec = EquipmentChoice.GetEquipmentChoiceByID(equipmentChoice.ID);
+            if (ec == null)
             {
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) && p.ID != ec.Booking.PersonID)
+            if (p == null || (!p.IsAdmin() && p.ID != ec.Booking.PersonID))
             {
                 return RequestStatus.AccessDenied;
             }
@@ -260,13 +262,20 @@
         public RequestStatus RemoveEquipmentChoice(string token, EquipmentChoice equipmentChoice, out Booking editedBooking)
         {
             editedBooking = null;
-            var p = Person.GetByToken(token);
-            var ec = EquipmentChoice.GetEquipmentChoiceByID(equipmentChoice.ID);
-            if (ec == null || p == null)
+
+            if (string.IsNullOrWhiteSpace(token) || equipmentChoice == null)
             {
                 return RequestStatus.InvalidInput;
             }
-            if (!p.Roles.Any(r => r.RoleName.Equals((Configuration.AdminRole)) && p.ID != ec.Booking.PersonID))
+
+            var p = Person.GetByToken(token);
+            var ec = EquipmentChoice.GetEquipmentChoiceByID(equipmentChoice.ID);
+            if (ec == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            if (p == null || (!p.IsAdmin() && p.ID != ec.Booking.PersonID))
             {
                 return RequestStatus.AccessDenied;
             }

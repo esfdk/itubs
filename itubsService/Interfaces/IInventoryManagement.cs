@@ -20,7 +20,7 @@
         RequestStatus DeleteInventory(string token, Inventory inventory);
 
         [OperationContract]
-        RequestStatus GetInventoryByID(ref Inventory item);
+        RequestStatus GetInventoryByID(ref Inventory inventory);
 
         [OperationContract]
         RequestStatus GetInventoryTypes(out IEnumerable<InventoryType> types);

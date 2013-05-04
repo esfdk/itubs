@@ -16,18 +16,18 @@ namespace ITubsService.Interfaces
         RequestStatus ChangeEquipmentItem(string token, ref Equipment equipment);
 
         [OperationContract]
-        RequestStatus DeleteEquipmentItem(string token, Equipment equipment);
+        RequestStatus DeleteEquipment(string token, Equipment equipment);
 
         [OperationContract]
         RequestStatus GetEquipmentChoice(ref EquipmentChoice equipmentChoice);
 
         [OperationContract]
-        RequestStatus GetEquipmentItem(ref Equipment equipmentItem);
+        RequestStatus GetEquipment(ref Equipment equipment);
 
         [OperationContract]
         RequestStatus GetEquipmentTypes(out IEnumerable<EquipmentType> types);
 
         [OperationContract]
-        RequestStatus GetAllEquipmentItems(string type, IEnumerable<Equipment> items);
+        RequestStatus GetAllEquipment(string type, IEnumerable<Equipment> items);
     }
 }

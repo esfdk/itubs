@@ -22,7 +22,7 @@
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)))
+            if (!p.IsAdmin())
             {
                 return RequestStatus.AccessDenied;
             }
@@ -45,7 +45,7 @@
                 return RequestStatus.InvalidInput;
             }
 
-            if (!p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)))
+            if (!p.IsAdmin())
             {
                 return RequestStatus.AccessDenied;
             }
@@ -55,7 +55,7 @@
             return rs;
         }
 
-        public RequestStatus DeleteEquipmentItem(string token, Equipment equipment)
+        public RequestStatus DeleteEquipment(string token, Equipment equipment)
         {
             if (string.IsNullOrWhiteSpace(token) || equipment == null || equipment.ID <= 0)
             {
@@ -69,20 +69,30 @@
                 return RequestStatus.InvalidInput;
             }
 
-            return p.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole)) ? equipment.Remove() : RequestStatus.AccessDenied;
+            return p.IsAdmin() ? equipment.Remove() : RequestStatus.AccessDenied;
         }
 
         public RequestStatus GetEquipmentChoice(ref EquipmentChoice equipmentChoice)
         {
+            if (equipmentChoice == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
             equipmentChoice = EquipmentChoice.GetEquipmentChoiceByID(equipmentChoice.ID);
 
             return equipmentChoice != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
-        public RequestStatus GetEquipmentItem(ref Equipment equipmentItem)
+        public RequestStatus GetEquipment(ref Equipment equipment)
         {
-            equipmentItem = Equipment.GetEquipmentByID(equipmentItem.ID);
-            return equipmentItem != null ? RequestStatus.Success : RequestStatus.InvalidInput;
+            if (equipment == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
+            equipment = Equipment.GetEquipmentByID(equipment.ID);
+            return equipment != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
         public RequestStatus GetEquipmentTypes(out IEnumerable<EquipmentType> types)
@@ -92,7 +102,7 @@
             return types != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
-        public RequestStatus GetAllEquipmentItems(string type, IEnumerable<Equipment> items)
+        public RequestStatus GetAllEquipment(string type, IEnumerable<Equipment> items)
         {
             items = string.IsNullOrWhiteSpace(type) ? Equipment.All.Where(e => e.EquipmentType.Type.Equals(type)) : Equipment.All;
 

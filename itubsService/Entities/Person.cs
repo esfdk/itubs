@@ -136,10 +136,9 @@ namespace ITubsService.Entities
             return All.FirstOrDefault(p => p.Token.Equals(token));
         }
 
-        public bool IsAPerson()
+        public bool IsAdmin()
         {
-            return !string.IsNullOrEmpty(this.Token) && !string.IsNullOrEmpty(this.Email)
-                   && !string.IsNullOrEmpty(this.Name);
+            return this.Roles.Any(r => r.RoleName.Equals(Configuration.AdminRole));
         }
 
         /// <summary>

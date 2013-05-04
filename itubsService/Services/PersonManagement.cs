@@ -10,12 +10,23 @@
     {
         public LoginStatus Login(string username, string password, out Person person)
         {
-            var p = Person.Login(username, password);
             person = null;
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                return LoginStatus.InvalidInput;
+            }
+
+            var p = Person.Login(username, password);
 
             if (p == null)
             {
                 return LoginStatus.WrongUserNameOrPassword;
+            }
+
+            if (!string.IsNullOrWhiteSpace(p.Token))
+            {
+                return LoginStatus.InvalidInput;
             }
 
             if (p.ID == -1)
@@ -23,22 +34,24 @@
                 return LoginStatus.CommunicationFailure;
             }
 
-            if (p.IsAPerson())
-            {
-                person = p;
-                return LoginStatus.Success;
-            }
-
-            return LoginStatus.InvalidInput;
+            person = p;
+            return LoginStatus.Success;
         }
 
         public RequestStatus Logout(string token)
         {
-            return Person.Logout(token);
+            return !string.IsNullOrWhiteSpace(token) ? Person.Logout(token) : RequestStatus.InvalidInput;
         }
 
         public RequestStatus GetAllOfUsers(string token, out IEnumerable<Person> people)
         {
+            people = null;
+
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                return RequestStatus.InvalidInput;
+            }
+
             people = Person.All;
 
             return RequestStatus.Success;
@@ -46,6 +59,11 @@
 
         public RequestStatus GetByEmail(string token, ref Person person)
         {
+            if (string.IsNullOrWhiteSpace(token) || person == null)
+            {
+                return RequestStatus.InvalidInput;
+            }
+
             person = Person.GetByEMail(person.Email);
 
             if (person == null)
@@ -59,14 +77,16 @@
 
         public RequestStatus GetByToken(string token, out Person person)
         {
-            person = Person.GetByToken(token);
+            person = null;
 
-            if (person == null)
+            if (string.IsNullOrWhiteSpace(token))
             {
                 return RequestStatus.InvalidInput;
             }
 
-            return person.IsAPerson() ? RequestStatus.Success : RequestStatus.InvalidInput;
+            person = Person.GetByToken(token);
+
+            return person == null ? RequestStatus.InvalidInput : RequestStatus.Success;
         }
     }
 }
