@@ -1,0 +1,47 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Client.GUI.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="GUI/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    BookIT
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:Label ID="UserNameLabel" runat="server"></asp:Label>
+                &nbsp;<asp:Button ID="LogInButton" runat="server" CssClass="buttonStyle1" 
+                    Text="Log in" />
+                <br />
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Panel runat="server">
+                    <asp:Button ID="MenuButton_LokaleListe" CssClass="availabeButton" Text="LokaleListe" OnClick="MenuButton_LokaleListe_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_DineBookinger" CssClass="availabeButton" Text="Dine bookinger" OnClick="MenuButton_DineBookinger_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_UdstyrsListe" CssClass="availabeButton" Text="Udstyrsliste" OnClick="MenuButton_UdstyrsListe_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_BookingListe" CssClass="availabeButton" Text="Booking-liste" OnClick="MenuButton_BookingListe_OnClick" runat="server" />
+                    <asp:Button ID="MenuButton_KonfigLokale" CssClass="availabeButton" Text="Konfigurering af lokaler" OnClick="MenuButton_KonfigLokale_OnClick" runat="server" />
+                    <asp:Button ID="MenuButton_FindBookinger" CssClass="availabeButton" Text="Find bookinger" OnClick="MenuButton_FindBookinger_OnClick" runat="server" />
+                </asp:Panel>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://rentit.itu.dk/RentIt12/Services/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://rentit.itu.dk/RentIt12/Services/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://rentit.itu.dk/RentIt12/Services/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITubsService.Enums" />
+      <xsd:import schemaLocation="http://rentit.itu.dk/RentIt12/Services/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPersonManagement_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_GetAllOfUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOfUsers" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_GetAllOfUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOfUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_GetByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_GetByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_GetByToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByToken" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManagement_GetByToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_GetBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_GetBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_GetBookingsByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingsByDate" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_GetBookingsByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingsByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_GetBookingsByPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingsByPerson" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_GetBookingsByPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookingsByPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_CreateBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_CreateBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_ChangeTimeOfBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTimeOfBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_ChangeTimeOfBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTimeOfBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_ChangeBookingStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeBookingStatus" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_ChangeBookingStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeBookingStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_DeleteBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_DeleteBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_AddCateringToBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCateringToBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_AddCateringToBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCateringToBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_ChangeTimeOfCateringChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTimeOfCateringChoice" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_ChangeTimeOfCateringChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTimeOfCateringChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_RemoveCateringChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCateringChoice" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_RemoveCateringChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCateringChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_AddEquipmentToBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEquipmentToBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_AddEquipmentToBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEquipmentToBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_ChangeTimeOfEquipmentBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTimeOfEquipmentBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_ChangeTimeOfEquipmentBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTimeOfEquipmentBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_RemoveEquipmentChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEquipmentChoice" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_RemoveEquipmentChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEquipmentChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICateringManagement_GetAllCatering_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCatering" />
+  </wsdl:message>
+  <wsdl:message name="ICateringManagement_GetAllCatering_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCateringResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICateringManagement_GetCatering_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatering" />
+  </wsdl:message>
+  <wsdl:message name="ICateringManagement_GetCatering_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCateringResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICateringManagement_GetCateringChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCateringChoice" />
+  </wsdl:message>
+  <wsdl:message name="ICateringManagement_GetCateringChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCateringChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_CreateNewInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewInventory" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_CreateNewInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_ChangeInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeInventory" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_ChangeInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_DeleteInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInventory" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_DeleteInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_GetInventoryByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryByID" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_GetInventoryByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_GetInventoryTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryTypes" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_GetInventoryTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_GetInventoryItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryItems" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryManagement_GetInventoryItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_AddRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_AddRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_EditRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_EditRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_RemoveRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_RemoveRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_GetRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_GetRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_GetAllRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRooms" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_GetAllRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_AddInventoryItemToRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInventoryItemToRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_AddInventoryItemToRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInventoryItemToRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_RemoveInventoryItemFromRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInventoryItemFromRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomManagement_RemoveInventoryItemFromRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInventoryItemFromRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_CreateNewEquipmentItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewEquipmentItem" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_CreateNewEquipmentItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewEquipmentItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_ChangeEquipmentItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeEquipmentItem" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_ChangeEquipmentItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeEquipmentItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_DeleteEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_DeleteEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_GetEquipmentChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentChoice" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_GetEquipmentChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_GetEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_GetEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_GetEquipmentTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentTypes" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_GetEquipmentTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_GetAllEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentManagement_GetAllEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPersonManagement">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonManagement/Login" message="tns:IPersonManagement_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonManagement/LoginResponse" message="tns:IPersonManagement_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonManagement/Logout" message="tns:IPersonManagement_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonManagement/LogoutResponse" message="tns:IPersonManagement_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOfUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonManagement/GetAllOfUsers" message="tns:IPersonManagement_GetAllOfUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonManagement/GetAllOfUsersResponse" message="tns:IPersonManagement_GetAllOfUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonManagement/GetByEmail" message="tns:IPersonManagement_GetByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonManagement/GetByEmailResponse" message="tns:IPersonManagement_GetByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonManagement/GetByToken" message="tns:IPersonManagement_GetByToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonManagement/GetByTokenResponse" message="tns:IPersonManagement_GetByToken_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IBookingManagement">
+    <wsdl:operation name="GetBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/GetBooking" message="tns:IBookingManagement_GetBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/GetBookingResponse" message="tns:IBookingManagement_GetBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingsByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/GetBookingsByDate" message="tns:IBookingManagement_GetBookingsByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/GetBookingsByDateResponse" message="tns:IBookingManagement_GetBookingsByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingsByPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/GetBookingsByPerson" message="tns:IBookingManagement_GetBookingsByPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/GetBookingsByPersonResponse" message="tns:IBookingManagement_GetBookingsByPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/CreateBooking" message="tns:IBookingManagement_CreateBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/CreateBookingResponse" message="tns:IBookingManagement_CreateBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTimeOfBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/ChangeTimeOfBooking" message="tns:IBookingManagement_ChangeTimeOfBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/ChangeTimeOfBookingResponse" message="tns:IBookingManagement_ChangeTimeOfBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeBookingStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/ChangeBookingStatus" message="tns:IBookingManagement_ChangeBookingStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/ChangeBookingStatusResponse" message="tns:IBookingManagement_ChangeBookingStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/DeleteBooking" message="tns:IBookingManagement_DeleteBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/DeleteBookingResponse" message="tns:IBookingManagement_DeleteBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCateringToBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/AddCateringToBooking" message="tns:IBookingManagement_AddCateringToBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/AddCateringToBookingResponse" message="tns:IBookingManagement_AddCateringToBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTimeOfCateringChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/ChangeTimeOfCateringChoice" message="tns:IBookingManagement_ChangeTimeOfCateringChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/ChangeTimeOfCateringChoiceResponse" message="tns:IBookingManagement_ChangeTimeOfCateringChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCateringChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/RemoveCateringChoice" message="tns:IBookingManagement_RemoveCateringChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/RemoveCateringChoiceResponse" message="tns:IBookingManagement_RemoveCateringChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentToBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/AddEquipmentToBooking" message="tns:IBookingManagement_AddEquipmentToBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/AddEquipmentToBookingResponse" message="tns:IBookingManagement_AddEquipmentToBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTimeOfEquipmentBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/ChangeTimeOfEquipmentBooking" message="tns:IBookingManagement_ChangeTimeOfEquipmentBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/ChangeTimeOfEquipmentBookingResponse" message="tns:IBookingManagement_ChangeTimeOfEquipmentBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEquipmentChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/RemoveEquipmentChoice" message="tns:IBookingManagement_RemoveEquipmentChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/RemoveEquipmentChoiceResponse" message="tns:IBookingManagement_RemoveEquipmentChoice_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICateringManagement">
+    <wsdl:operation name="GetAllCatering">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICateringManagement/GetAllCatering" message="tns:ICateringManagement_GetAllCatering_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICateringManagement/GetAllCateringResponse" message="tns:ICateringManagement_GetAllCatering_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatering">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICateringManagement/GetCatering" message="tns:ICateringManagement_GetCatering_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICateringManagement/GetCateringResponse" message="tns:ICateringManagement_GetCatering_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCateringChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICateringManagement/GetCateringChoice" message="tns:ICateringManagement_GetCateringChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICateringManagement/GetCateringChoiceResponse" message="tns:ICateringManagement_GetCateringChoice_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IInventoryManagement">
+    <wsdl:operation name="CreateNewInventory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/CreateNewInventory" message="tns:IInventoryManagement_CreateNewInventory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/CreateNewInventoryResponse" message="tns:IInventoryManagement_CreateNewInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeInventory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/ChangeInventory" message="tns:IInventoryManagement_ChangeInventory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/ChangeInventoryResponse" message="tns:IInventoryManagement_ChangeInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/DeleteInventory" message="tns:IInventoryManagement_DeleteInventory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/DeleteInventoryResponse" message="tns:IInventoryManagement_DeleteInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryByID" message="tns:IInventoryManagement_GetInventoryByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryByIDResponse" message="tns:IInventoryManagement_GetInventoryByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryTypes" message="tns:IInventoryManagement_GetInventoryTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryTypesResponse" message="tns:IInventoryManagement_GetInventoryTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryItems" message="tns:IInventoryManagement_GetInventoryItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryItemsResponse" message="tns:IInventoryManagement_GetInventoryItems_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRoomManagement">
+    <wsdl:operation name="AddRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomManagement/AddRoom" message="tns:IRoomManagement_AddRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomManagement/AddRoomResponse" message="tns:IRoomManagement_AddRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomManagement/EditRoom" message="tns:IRoomManagement_EditRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomManagement/EditRoomResponse" message="tns:IRoomManagement_EditRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomManagement/RemoveRoom" message="tns:IRoomManagement_RemoveRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomManagement/RemoveRoomResponse" message="tns:IRoomManagement_RemoveRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomManagement/GetRoom" message="tns:IRoomManagement_GetRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomManagement/GetRoomResponse" message="tns:IRoomManagement_GetRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomManagement/GetAllRooms" message="tns:IRoomManagement_GetAllRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomManagement/GetAllRoomsResponse" message="tns:IRoomManagement_GetAllRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInventoryItemToRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomManagement/AddInventoryItemToRoom" message="tns:IRoomManagement_AddInventoryItemToRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomManagement/AddInventoryItemToRoomResponse" message="tns:IRoomManagement_AddInventoryItemToRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInventoryItemFromRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomManagement/RemoveInventoryItemFromRoom" message="tns:IRoomManagement_RemoveInventoryItemFromRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomManagement/RemoveInventoryItemFromRoomResponse" message="tns:IRoomManagement_RemoveInventoryItemFromRoom_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IEquipmentManagement">
+    <wsdl:operation name="CreateNewEquipmentItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentManagement/CreateNewEquipmentItem" message="tns:IEquipmentManagement_CreateNewEquipmentItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentManagement/CreateNewEquipmentItemResponse" message="tns:IEquipmentManagement_CreateNewEquipmentItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeEquipmentItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentManagement/ChangeEquipmentItem" message="tns:IEquipmentManagement_ChangeEquipmentItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentManagement/ChangeEquipmentItemResponse" message="tns:IEquipmentManagement_ChangeEquipmentItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentManagement/DeleteEquipment" message="tns:IEquipmentManagement_DeleteEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentManagement/DeleteEquipmentResponse" message="tns:IEquipmentManagement_DeleteEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentManagement/GetEquipmentChoice" message="tns:IEquipmentManagement_GetEquipmentChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentManagement/GetEquipmentChoiceResponse" message="tns:IEquipmentManagement_GetEquipmentChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentManagement/GetEquipment" message="tns:IEquipmentManagement_GetEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentManagement/GetEquipmentResponse" message="tns:IEquipmentManagement_GetEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentManagement/GetEquipmentTypes" message="tns:IEquipmentManagement_GetEquipmentTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentManagement/GetEquipmentTypesResponse" message="tns:IEquipmentManagement_GetEquipmentTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentManagement/GetAllEquipment" message="tns:IEquipmentManagement_GetAllEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentManagement/GetAllEquipmentResponse" message="tns:IEquipmentManagement_GetAllEquipment_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPersonManagement" type="tns:IPersonManagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IPersonManagement/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://tempuri.org/IPersonManagement/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOfUsers">
+      <soap:operation soapAction="http://tempuri.org/IPersonManagement/GetAllOfUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByEmail">
+      <soap:operation soapAction="http://tempuri.org/IPersonManagement/GetByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByToken">
+      <soap:operation soapAction="http://tempuri.org/IPersonManagement/GetByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IBookingManagement" type="tns:IBookingManagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBooking">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/GetBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingsByDate">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/GetBookingsByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingsByPerson">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/GetBookingsByPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBooking">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/CreateBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTimeOfBooking">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/ChangeTimeOfBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeBookingStatus">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/ChangeBookingStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBooking">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/DeleteBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCateringToBooking">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/AddCateringToBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTimeOfCateringChoice">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/ChangeTimeOfCateringChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCateringChoice">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/RemoveCateringChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentToBooking">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/AddEquipmentToBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTimeOfEquipmentBooking">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/ChangeTimeOfEquipmentBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEquipmentChoice">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/RemoveEquipmentChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ICateringManagement" type="tns:ICateringManagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCatering">
+      <soap:operation soapAction="http://tempuri.org/ICateringManagement/GetAllCatering" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatering">
+      <soap:operation soapAction="http://tempuri.org/ICateringManagement/GetCatering" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCateringChoice">
+      <soap:operation soapAction="http://tempuri.org/ICateringManagement/GetCateringChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IInventoryManagement" type="tns:IInventoryManagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateNewInventory">
+      <soap:operation soapAction="http://tempuri.org/IInventoryManagement/CreateNewInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeInventory">
+      <soap:operation soapAction="http://tempuri.org/IInventoryManagement/ChangeInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventory">
+      <soap:operation soapAction="http://tempuri.org/IInventoryManagement/DeleteInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryByID">
+      <soap:operation soapAction="http://tempuri.org/IInventoryManagement/GetInventoryByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTypes">
+      <soap:operation soapAction="http://tempuri.org/IInventoryManagement/GetInventoryTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryItems">
+      <soap:operation soapAction="http://tempuri.org/IInventoryManagement/GetInventoryItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRoomManagement" type="tns:IRoomManagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddRoom">
+      <soap:operation soapAction="http://tempuri.org/IRoomManagement/AddRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditRoom">
+      <soap:operation soapAction="http://tempuri.org/IRoomManagement/EditRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRoom">
+      <soap:operation soapAction="http://tempuri.org/IRoomManagement/RemoveRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoom">
+      <soap:operation soapAction="http://tempuri.org/IRoomManagement/GetRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRooms">
+      <soap:operation soapAction="http://tempuri.org/IRoomManagement/GetAllRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInventoryItemToRoom">
+      <soap:operation soapAction="http://tempuri.org/IRoomManagement/AddInventoryItemToRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInventoryItemFromRoom">
+      <soap:operation soapAction="http://tempuri.org/IRoomManagement/RemoveInventoryItemFromRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IEquipmentManagement" type="tns:IEquipmentManagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateNewEquipmentItem">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentManagement/CreateNewEquipmentItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeEquipmentItem">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentManagement/ChangeEquipmentItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEquipment">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentManagement/DeleteEquipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentChoice">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentManagement/GetEquipmentChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipment">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentManagement/GetEquipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentTypes">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentManagement/GetEquipmentTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEquipment">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentManagement/GetAllEquipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IPersonManagement" binding="tns:BasicHttpBinding_IPersonManagement">
+      <soap:address location="http://rentit.itu.dk/RentIt12/Services/Service.svc/PersonManagement" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IBookingManagement" binding="tns:BasicHttpBinding_IBookingManagement">
+      <soap:address location="http://rentit.itu.dk/RentIt12/Services/Service.svc/BookingManagement" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ICateringManagement" binding="tns:BasicHttpBinding_ICateringManagement">
+      <soap:address location="http://rentit.itu.dk/RentIt12/Services/Service.svc/CateringManagement" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IInventoryManagement" binding="tns:BasicHttpBinding_IInventoryManagement">
+      <soap:address location="http://rentit.itu.dk/RentIt12/Services/Service.svc/InventoryManagement" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRoomManagement" binding="tns:BasicHttpBinding_IRoomManagement">
+      <soap:address location="http://rentit.itu.dk/RentIt12/Services/Service.svc/RoomManagement" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IEquipmentManagement" binding="tns:BasicHttpBinding_IEquipmentManagement">
+      <soap:address location="http://rentit.itu.dk/RentIt12/Services/Service.svc/EquipmentManagement" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

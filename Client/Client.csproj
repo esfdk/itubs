@@ -57,6 +57,8 @@
     <Reference Include="SanitizerProviders">
       <HintPath>..\packages\AjaxControlToolkit.7.0429\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -74,27 +76,67 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\ChangePassword.aspx" />
-    <Content Include="Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Register.aspx" />
-    <Content Include="Administrator\BookingListe.aspx" />
-    <Content Include="Administrator\PersonBookingListe.aspx" />
-    <Content Include="Administrator\SuperLokaleListe.aspx" />
-    <Content Include="Administrator\TilføjLokale.aspx" />
-    <Content Include="Administrator\TilføjUdstyr.aspx" />
-    <Content Include="Administrator\ÆndreLokale.aspx" />
-    <Content Include="Administrator\ÆndreUdstyr.aspx" />
-    <Content Include="Global.asax" />
-    <Content Include="Images\BlåBoks.png" />
-    <Content Include="Images\HvidBoks.png" />
-    <Content Include="Images\RødBoks.png" />
-    <Content Include="Styles\Site.css" />
-    <Content Include="User\BookUdstyr.aspx" />
-    <Content Include="User\DineBookinger.aspx" />
-    <Content Include="User\Forplejning.aspx" />
-    <Content Include="User\LokaleListe.aspx" />
-    <Content Include="Administrator\UdstyrsListe.aspx" />
+    <Content Include="GUI\Account\Login.aspx" />
+    <Content Include="GUI\Administrator\BookingListe.aspx" />
+    <Content Include="GUI\Administrator\PersonBookingListe.aspx" />
+    <Content Include="GUI\Administrator\SuperLokaleListe.aspx" />
+    <Content Include="GUI\Administrator\TilføjLokale.aspx" />
+    <Content Include="GUI\Administrator\TilføjUdstyr.aspx" />
+    <Content Include="GUI\Administrator\UdstyrsListe.aspx" />
+    <Content Include="GUI\Administrator\ÆndreLokale.aspx" />
+    <Content Include="GUI\Administrator\ÆndreUdstyr.aspx" />
+    <Content Include="GUI\Global.asax" />
+    <Content Include="GUI\Images\BlåBoks.png" />
+    <Content Include="GUI\Images\HvidBoks.png" />
+    <Content Include="GUI\Images\RødBoks.png" />
+    <Content Include="GUI\Styles\Site.css" />
+    <Content Include="GUI\User\BookUdstyr.aspx" />
+    <Content Include="GUI\User\DineBookinger.aspx" />
+    <Content Include="GUI\User\Forplejning.aspx" />
+    <Content Include="GUI\User\LokaleListe.aspx" />
+    <None Include="Service References\BookItService\Client.BookItService.Booking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.Catering.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.CateringChoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.Equipment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.EquipmentChoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.EquipmentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.Inventory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.InventoryType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.LoginStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.Person.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.RequestStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Client.BookItService.Room.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookItService\Service.disco" />
+    <None Include="Service References\BookItService\configuration91.svcinfo" />
+    <None Include="Service References\BookItService\configuration.svcinfo" />
+    <None Include="Service References\BookItService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -102,140 +144,145 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="Service References\BookItService\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
+    <Compile Include="GUI\Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
+    <Compile Include="GUI\Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrator\BookingListe.aspx.cs">
+    <Compile Include="GUI\Administrator\BookingListe.aspx.cs">
       <DependentUpon>BookingListe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrator\BookingListe.aspx.designer.cs">
+    <Compile Include="GUI\Administrator\BookingListe.aspx.designer.cs">
       <DependentUpon>BookingListe.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\PersonBookingListe.aspx.cs">
+    <Compile Include="GUI\Administrator\PersonBookingListe.aspx.cs">
       <DependentUpon>PersonBookingListe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrator\PersonBookingListe.aspx.designer.cs">
+    <Compile Include="GUI\Administrator\PersonBookingListe.aspx.designer.cs">
       <DependentUpon>PersonBookingListe.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\SuperLokaleListe.aspx.cs">
+    <Compile Include="GUI\Administrator\SuperLokaleListe.aspx.cs">
+      <DependentUpon>SuperLokaleListe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Administrator\SuperLokaleListe.aspx.designer.cs">
       <DependentUpon>SuperLokaleListe.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\SuperLokaleListe.aspx.designer.cs">
-      <DependentUpon>SuperLokaleListe.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrator\TilføjLokale.aspx.cs">
+    <Compile Include="GUI\Administrator\TilføjLokale.aspx.cs">
       <DependentUpon>TilføjLokale.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrator\TilføjLokale.aspx.designer.cs">
+    <Compile Include="GUI\Administrator\TilføjLokale.aspx.designer.cs">
       <DependentUpon>TilføjLokale.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\TilføjUdstyr.aspx.cs">
+    <Compile Include="GUI\Administrator\TilføjUdstyr.aspx.cs">
       <DependentUpon>TilføjUdstyr.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrator\TilføjUdstyr.aspx.designer.cs">
+    <Compile Include="GUI\Administrator\TilføjUdstyr.aspx.designer.cs">
       <DependentUpon>TilføjUdstyr.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\ÆndreLokale.aspx.cs">
+    <Compile Include="GUI\Administrator\UdstyrsListe.aspx.cs">
+      <DependentUpon>UdstyrsListe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Administrator\UdstyrsListe.aspx.designer.cs">
+      <DependentUpon>UdstyrsListe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Administrator\ÆndreLokale.aspx.cs">
       <DependentUpon>ÆndreLokale.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrator\ÆndreLokale.aspx.designer.cs">
+    <Compile Include="GUI\Administrator\ÆndreLokale.aspx.designer.cs">
       <DependentUpon>ÆndreLokale.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\ÆndreUdstyr.aspx.cs">
+    <Compile Include="GUI\Administrator\ÆndreUdstyr.aspx.cs">
       <DependentUpon>ÆndreUdstyr.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrator\ÆndreUdstyr.aspx.designer.cs">
+    <Compile Include="GUI\Administrator\ÆndreUdstyr.aspx.designer.cs">
       <DependentUpon>ÆndreUdstyr.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Global.asax.cs">
+    <Compile Include="GUI\Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\User\BookUdstyr.aspx.cs">
+      <DependentUpon>BookUdstyr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\User\BookUdstyr.aspx.designer.cs">
+      <DependentUpon>BookUdstyr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\User\DineBookinger.aspx.cs">
+      <DependentUpon>DineBookinger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\User\DineBookinger.aspx.designer.cs">
+      <DependentUpon>DineBookinger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\User\Forplejning.aspx.cs">
+      <DependentUpon>Forplejning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\User\Forplejning.aspx.designer.cs">
+      <DependentUpon>Forplejning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\User\LokaleListe.aspx.cs">
+      <DependentUpon>LokaleListe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\User\LokaleListe.aspx.designer.cs">
+      <DependentUpon>LokaleListe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BookingModel.cs" />
+    <Compile Include="Model\DataTables.cs" />
+    <Compile Include="Model\ServiceClients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Service References\BookItService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="User\BookUdstyr.aspx.cs">
-      <DependentUpon>BookUdstyr.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\BookUdstyr.aspx.designer.cs">
-      <DependentUpon>BookUdstyr.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\DineBookinger.aspx.cs">
-      <DependentUpon>DineBookinger.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\DineBookinger.aspx.designer.cs">
-      <DependentUpon>DineBookinger.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\Forplejning.aspx.cs">
-      <DependentUpon>Forplejning.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Forplejning.aspx.designer.cs">
-      <DependentUpon>Forplejning.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\LokaleListe.aspx.cs">
-      <DependentUpon>LokaleListe.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\LokaleListe.aspx.designer.cs">
-      <DependentUpon>LokaleListe.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrator\UdstyrsListe.aspx.cs">
-      <DependentUpon>UdstyrsListe.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrator\UdstyrsListe.aspx.designer.cs">
-      <DependentUpon>UdstyrsListe.aspx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GUI\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BookItService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BookItService\Service.wsdl" />
+    <None Include="Service References\BookItService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BookItService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BookItService\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

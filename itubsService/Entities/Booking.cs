@@ -8,7 +8,7 @@ namespace ITubsService.Entities
     using ITubsService.Enums;
 
     /// <summary>
-    /// The booking.
+    /// Booking entity (Entity Framework POCO class)
     /// </summary>
     [DataContract(IsReference = true)]
     [KnownType(typeof(CateringChoice))]
@@ -228,17 +228,29 @@ namespace ITubsService.Entities
             return RequestStatus.InvalidInput;
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public string Status { get; set; }
+        [DataMember]
         public int NumberOfParticipants { get; set; }
+        [DataMember]
         public string Comments { get; set; }
+        [DataMember]
         public DateTime StartTime { get; set; }
+        [DataMember]
         public DateTime EndTime { get; set; }
+        [DataMember]
         public int PersonID { get; set; }
+        [DataMember]
         public int RoomID { get; set; }
+        [DataMember]
         public virtual ICollection<CateringChoice> CateringChoices { get; set; }
+        [DataMember]
         public virtual ICollection<EquipmentChoice> EquipmentChoices { get; set; }
+        [DataMember]
         public virtual Person Person { get; set; }
+        [DataMember]
         public virtual Room Room { get; set; }
 
         private static bool IsAStatus(string status)
