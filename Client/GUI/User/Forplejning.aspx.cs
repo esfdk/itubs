@@ -49,5 +49,10 @@ namespace Client.GUI.User
         {
             this.Response.Redirect("DineBookinger.aspx");
         }
+
+        protected void SletForplejningButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
