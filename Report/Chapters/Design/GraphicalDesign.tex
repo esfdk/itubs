@@ -24,23 +24,6 @@ Brugeren skal have mulighed for nemt at danne sig overblik over bookinger, udsty
 \subsection{Effektivt}
 Det skal være effektivt at udføre opgaver for brugere, som anvender systemet ofte.
 
-\section{Grundstruktur}
-\label{Design_G_Structure}
-Vores brugergrænseflade er delvist inspireret af booking systemer til biografer. Inspirationen består i, at vi laver en visning af lokalerne og får brugeren til grafisk at vælge lokale og tider for deres bookning. Målet var at gøre dette med farvekodning, således at brugeren nemt kunne skelne mellem ledige og optagede lokaler.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/KinoBooking}
-  \caption{Screenshot af kino.dk's billet booking brugergrænseflade}
-\label{Design_G_Structure_kino}
-\end{figure}
-
-Vores første mockup havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Brugerne skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. 
-\\Resultatet af vores første usability test (se \ref{Usability_R1}, side \pageref{Usability_R1}) viste dog, at denne løsning ikke var intuitiv nok for brugeren. Vi valgte derfor at lave checkboxes inde i hvert felt, således at brugeren skal sætte et hak i de checkboxes, som brugeren vil booke tider ud fra. 
-
-Vi anvendte gitterløsningen (se figur \ref{Design_G_Development_FinalGrid}, side \pageref{Design_G_Development_FinalGrid}) som grundstrukturen for de fleste skærmbilleder for at følge vores mål om at lave en strømlinet brugergrænseflade. 
-\\Til resten af skærmbillederne har vi holdt os til simple strukturer, som kun præsenterer den nødvendige data til at udføre arbejdsopgaven.
-
 \section{Brugergrænsefladens udvikling og udseende}
 \label{Design_G_Development}
 Vores skærmbilleder er opdelt i tre typer: Gitter, Almindelig og Pop-ups. 
@@ -50,8 +33,8 @@ Vores skærmbilleder er opdelt i tre typer: Gitter, Almindelig og Pop-ups.
 
 \subsection{Gitterskærmbilledet}
 \label{Design_G_Development_Grid}
-Figur \ref{Design_G_Development_FinalGrid}, side \pageref{Design_G_Development_FinalGrid} er et screenshot af vores endelige design af booking skærmbilledet.
-
+Gitterskærmbillederne er de skærmbilleder som står for at visse hvad der kan bookes i vores system, lokaler, udstyr og forplejning.
+Figur \ref{Design_G_Development_FinalGrid}, side \pageref{Design_G_Development_FinalGrid} og Figur\ref{Design_G_Development_FirstGrid}, side \pageref{Design_G_Development_FirstGrid} er screenshots af vores første udkaste til gitterbilledet og vores endelige design.
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/DigitalMockup/GridEksempel}
@@ -65,6 +48,9 @@ Figur \ref{Design_G_Development_FinalGrid}, side \pageref{Design_G_Development_F
   \caption{Første udgave af gitter layoutet}
 \label{Design_G_Development_FirstGrid}
 \end{figure}
+
+Vores første mockup af gitterskærmbilledet havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Brugerne skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. Som man kan se på Figur \ref{Design_G_Development_FinalGrid} valgte vi at behold den struktur, men vi tilføjede checkboxses til gitteret. Dette blev gjort efter første rund af usability tests hvor vi observerede, at brugeren var i tvivl om hvor man skulle klikke for at vælge tider for en booking, derudover tilføjede vi også, at udstyr m.m., man har booket, ligger øverst i gitteret, når man får oversigten over fx udstyr. Dette gør det nemt at finde det element, man har booket/bestilt
+Det først udkast af gitterskærmbilledet
 
 Vi tilføjede efter usability test 1, at udstyr m.m., man har booket, ligger øverst i gitteret, når man får oversigten over fx udstyr. Dette gør det nemt at finde det element, man har booket/bestilt.
 
@@ -91,3 +77,19 @@ Disse typer af skærmbilleder er primært til administration af udstyr/inventar/
 Derudover har vi i udviklingen af vores design gået efter at overholde Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}. 
 \\Knapper, som hører til vores gitter, skal ses som hørende til gitteret, og knapperne i menuen skal ses som hørende sammen. Figur \ref{Design_G_Development_YourBookings}, side \pageref{Design_G_Development_YourBookings} viser et eksempel på, hvordan vi holder knapperne tæt på gitteret, så de lader til at høre til gitteret.
 \\Vi anvender en menubar som et fast element i den øverste del af brugergrænsefladen, så vi gør det nemt for brugeren at navigere rundt i systemet. Man er aldrig mere end to eller tre klik væk fra listen over lokaler eller ens bookninger. Figur \ref{Design_G_Development_YourBookings} viser desuden, hvordan vi har placeret vores menubar.
+
+\section{Grundstruktur}
+\label{Design_G_Structure}
+Vores brugergrænseflade er delvist inspireret af booking systemer til biografer. Inspirationen består i, at vi laver en visning af lokalerne og får brugeren til grafisk at vælge lokale og tider for deres bookning. Målet var at gøre dette med farvekodning, således at brugeren nemt kunne skelne mellem ledige og optagede lokaler.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/KinoBooking}
+  \caption{Screenshot af kino.dk's billet booking brugergrænseflade}
+\label{Design_G_Structure_kino}
+\end{figure}
+
+\\Resultatet af vores første usability test (se \ref{Usability_R1}, side \pageref{Usability_R1}) viste dog, at denne løsning ikke var intuitiv nok for brugeren. Vi valgte derfor at lave checkboxes inde i hvert felt, således at brugeren skal sætte et hak i de checkboxes, som brugeren vil booke tider ud fra. 
+
+Vi anvendte gitterløsningen (se figur \ref{Design_G_Development_FinalGrid}, side \pageref{Design_G_Development_FinalGrid}) som grundstrukturen for de fleste skærmbilleder for at følge vores mål om at lave en strømlinet brugergrænseflade. 
+\\Til resten af skærmbillederne har vi holdt os til simple strukturer, som kun præsenterer den nødvendige data til at udføre arbejdsopgaven.
