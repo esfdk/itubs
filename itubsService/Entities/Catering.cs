@@ -12,7 +12,10 @@ namespace ITubsService.Entities
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(CateringChoice))]
     public class Catering
     {
         public Catering()
@@ -24,15 +27,21 @@ namespace ITubsService.Entities
         {
             get
             {
-                return ItubsContext.Db.Caterings.Include("CateringChoice").ToList();
+                return ItubsContext.Db.Caterings.Include("CateringChoices").ToList();
             }
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public int Price { get; set; }
+        [DataMember]
         public string ProductName { get; set; }
+        [DataMember]
         public TimeSpan AvailableFrom { get; set; }
+        [DataMember]
         public TimeSpan AvailableTo { get; set; }
+        [DataMember]
         public virtual ICollection<CateringChoice> CateringChoices { get; set; }
 
         public static Catering GetCatering(int id)

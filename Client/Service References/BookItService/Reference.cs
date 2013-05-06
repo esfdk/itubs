@@ -564,7 +564,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CateringChoice", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CateringChoice", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class CateringChoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -862,7 +862,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Catering", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Catering", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Catering : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

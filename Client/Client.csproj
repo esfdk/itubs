@@ -251,6 +251,7 @@
       <DependentUpon>LokaleListe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\BookingModel.cs" />
+    <Compile Include="Model\CateringModel.cs" />
     <Compile Include="Model\DataTables.cs" />
     <Compile Include="Model\ServiceClients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

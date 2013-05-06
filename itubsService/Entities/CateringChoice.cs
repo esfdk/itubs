@@ -2,9 +2,13 @@ namespace ITubsService.Entities
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
     using ITubsService.Enums;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(Catering))]
+    [KnownType(typeof(Booking))]
     public class CateringChoice
     {
         public static IEnumerable<CateringChoice> All
@@ -15,13 +19,21 @@ namespace ITubsService.Entities
             }
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public int Amount { get; set; }
+        [DataMember]
         public System.DateTime Time { get; set; }
+        [DataMember]
         public string Status { get; set; }
+        [DataMember]
         public int BookingID { get; set; }
+        [DataMember]
         public int CateringID { get; set; }
+        [DataMember]
         public virtual Booking Booking { get; set; }
+        [DataMember]
         public virtual Catering Catering { get; set; }
 
         public static CateringChoice GetCateringChoice(int id)

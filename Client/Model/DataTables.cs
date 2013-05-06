@@ -9,18 +9,34 @@
 
     public static class DataTables
     {
-        static List<CateringChoice> ccList;
+        private static List<CateringChoice> cateringChoicesList;
+
+        private static List<Catering> cateringList;
+
+        private static List<Room> roomList;
+
+        private static List<Room> superRoomList;
+
+        private static List<Booking> yourBookingList;
+
+        private static List<Booking> superBookingList;
+
+        private static List<Booking> personBookingList;
+
+        private static List<Booking> bookingList;
+
+        private static List<Equipment> equipmentList;
+
+        private static List<Inventory> inventoryList;
 
         public static DataTable GetCaterings(int bookingID)
         {
             var dt = new DataTable();
 
-            ccList = BookingModel.GetBooking(bookingID).CateringChoices.ToList();
+            cateringChoicesList = BookingModel.GetBooking(bookingID).CateringChoices.ToList();
+            cateringList = CateringModel.GetAllCaterings().ToList();
 
-            var bookedCaterings = ccList.Count;
-            var numberOfCaterings = CateringModel.;
-            
-            for (var i = 0; i < (numberOfCaterings + bookedCaterings); i++)
+            for (var i = 0; i < (cateringList.Count + cateringChoicesList.Count); i++)
             {
                 dt.Rows.Add(dt.NewRow());
             }
@@ -33,7 +49,17 @@
 
         }
 
-        public static void FillSuperRoomList(GridView gv)
+        public static void UpdateInventoryGrid(GridView gv)
+        {
+
+        }
+
+        public static void UpdateRoomGrid(GridView gv)
+        {
+
+        }
+
+        public static void UpdateSuperRoomGrid(GridView gv)
         {
 
         }

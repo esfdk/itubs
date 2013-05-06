@@ -1,6 +1,7 @@
 namespace Client.GUI.User
 {
     using System;
+    using System.Linq;
 
     using Client.Model;
 
@@ -10,9 +11,10 @@ namespace Client.GUI.User
         {
             if (!this.Page.IsPostBack)
             {
+                /*
                 var bookingIDstring = Request.QueryString["bookingID"];
-                var bookingID = int.Parse(bookingIDstring);
-                this.GridView1.DataSource = DataTables.GetCaterings(bookingID);
+                var bookingID = int.Parse(bookingIDstring);*/
+                this.GridView1.DataSource = DataTables.GetCaterings(1);
                 this.GridView1.DataBind();
             }
         }
@@ -36,12 +38,12 @@ namespace Client.GUI.User
 
         protected void GridView_OnDataBound(object sender, EventArgs e)
         {
+            this.Response.Write("" + BookingModel.GetBooking(1).CateringChoices.ToList().Count);
         }
 
         protected void CheckBox_CheckChanged(object sender, EventArgs e)
         {
             this.Response.Redirect("DineBookinger.aspx");
-            Response.Redirect()
         }
 
         protected void Fortryd_Click(object sender, EventArgs e)
