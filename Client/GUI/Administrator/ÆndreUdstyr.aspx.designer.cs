@@ -31,6 +31,15 @@ namespace Client.GUI.Administrator {
         protected global::System.Web.UI.WebControls.TextBox KommentarTextBox;
         
         /// <summary>
+        /// KanUdlånesCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox KanUdlånesCheckBox;
+        
+        /// <summary>
         /// InventarCheckBox control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace Client.GUI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox InventarCheckBox;
-        
-        /// <summary>
-        /// UdlånCheckBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox UdlånCheckBox;
         
         /// <summary>
         /// UdstyrsTypeDropDown control.
@@ -65,5 +65,14 @@ namespace Client.GUI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ÆndreUdstyrButton;
+        
+        /// <summary>
+        /// FortrydButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button FortrydButton;
     }
 }

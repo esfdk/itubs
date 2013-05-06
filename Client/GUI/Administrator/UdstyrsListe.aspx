@@ -58,9 +58,8 @@
                         Width="405px" style="margin-top: 0px"></asp:TextBox>
                 </p>
                 <p>
-                    Inventar:
-                    <asp:CheckBox ID="InventarCheckBox" runat="server" />
-&nbsp;Udlån:<asp:CheckBox ID="UdlånCheckBox" runat="server" />
+                    Kan udlånes:<asp:CheckBox ID="UdlånCheckBox" runat="server" 
+                        oncheckedchanged="UdlånCheckBox_CheckedChanged" />
                 </p>
                 <p>Udstyrstype:
                     <asp:DropDownList ID="UdstyrsTypeDropDown" runat="server">

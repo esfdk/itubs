@@ -13,5 +13,10 @@ namespace Client.GUI.Administrator
         {
             this.Response.Redirect("UdstyrsListe.aspx");
         }
+
+        protected void FortrydButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

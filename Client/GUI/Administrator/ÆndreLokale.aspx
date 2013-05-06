@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<h2>Ændre lokale</h2>
+<h2>Ændre Udstyr i lokale</h2>
     <p>Navn
         <asp:TextBox ID="LokaleNavnTextBox" runat="server" ReadOnly="True"></asp:TextBox>
 &nbsp;&nbsp;&nbsp; Kapacitet
@@ -21,11 +21,6 @@
                             <asp:BoundField HeaderText="Navn" />
                             <asp:BoundField HeaderText="Kommentar" />
                             <asp:BoundField HeaderText="Type" />
-                            <asp:TemplateField>
-                            <ItemTemplate>
-                            <asp:CheckBox ID="CheckBox21" runat="server" />
-                            </ItemTemplate>
-                            </asp:TemplateField>
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

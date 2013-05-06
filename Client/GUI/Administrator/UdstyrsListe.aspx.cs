@@ -29,5 +29,10 @@ namespace Client.GUI.Administrator
             }
             this.Response.Redirect("UdstyrsListe.aspx");
         }
+
+        protected void UdlånCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
