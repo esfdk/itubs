@@ -49,12 +49,8 @@ Figur \ref{Design_G_Development_FinalGrid}, side \pageref{Design_G_Development_F
 \label{Design_G_Development_FirstGrid}
 \end{figure}
 
-Vores første mockup af gitterskærmbilledet havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Brugerne skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. Som man kan se på Figur \ref{Design_G_Development_FinalGrid} valgte vi at behold den struktur, men vi tilføjede checkboxses til gitteret. Dette blev gjort efter første rund af usability tests hvor vi observerede, at brugeren var i tvivl om hvor man skulle klikke for at vælge tider for en booking, derudover tilføjede vi også, at udstyr m.m., man har booket, ligger øverst i gitteret, når man får oversigten over fx udstyr. Dette gør det nemt at finde det element, man har booket/bestilt
-Det først udkast af gitterskærmbilledet
+Vores første mockup af gitterskærmbilledet havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Brugerne skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. Som man kan se på Figur \ref{Design_G_Development_FinalGrid} valgte vi at behold den struktur, men vi tilføjede checkboxses til gitteret. Dette blev gjort efter første rund af usability tests hvor vi observerede, at brugeren var i tvivl om hvor man skulle klikke for at vælge tider for en booking, derudover tilføjede vi også, at udstyr m.m., man har booket, ligger øverst i gitteret, når man får oversigten over fx udstyr. Dette gør det nemt at finde det element, man har booket/bestilt.
 
-Vi tilføjede efter usability test 1, at udstyr m.m., man har booket, ligger øverst i gitteret, når man får oversigten over fx udstyr. Dette gør det nemt at finde det element, man har booket/bestilt.
-
-Figur \ref{Design_G_Development_FirstGrid}, side \pageref{Design_G_Development_FirstGrid} er det papermockup, som blev brugt til første runde af usability tests. Forskellen på de to skærmbilleder er de checkboxe, som er blevet tilføjet inde i gitteret. 
 
 \subsection{Almindelige skærmbilleder}
 \label{Design_G_Development_NormalWindows}
@@ -62,21 +58,68 @@ Disse typer af skærmbilleder er primært til administration af udstyr/inventar/
 
 \begin{figure}[h!]
   \centering
+    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/PaperMockup/AendreUdstyr_001}
+  \caption{Papermockup af skærmbilledet til ændring af udstyr}
+\label{Design_G_Development_EquipmentChange}
+\end{figure} 
+
+\begin{figure}[h!]
+  \centering
     \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/DigitalMockup/AendreUdstyr}
   \caption{Skærmbilledet til ændring af udstyr}
-\label{Design_G_Development_EquipmentChange}
+\label{Design_G_Development_EquipmentChange_Final}
+\end{figure} 
+
+Som man kan se på Figur \ref{Design_G_Development_EquipmentChange} var det første skærmbillede til Ændreudstyr smalt i forhold til det endelig, Figur \ref{Design_G_Development_EquipmentChange_Final}. Gruden til det blev ændret skyldtes at vi fuldte designregel1 og derfor gerne ville have at billederne var visuelt konsistense. 
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/PaperMockup/DineBookinger_001}
+  \caption{Papermockup af skærmbilledet til visning af bookinger}
+\label{Design_G_Development_YourBookings}
 \end{figure} 
 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/DigitalMockup/DineBookinger}
   \caption{Skærmbilledet til visning af bookinger}
-\label{Design_G_Development_YourBookings}
+\label{Design_G_Development_YourBookings_Final}
 \end{figure} 
 
-Derudover har vi i udviklingen af vores design gået efter at overholde Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}. 
-\\Knapper, som hører til vores gitter, skal ses som hørende til gitteret, og knapperne i menuen skal ses som hørende sammen. Figur \ref{Design_G_Development_YourBookings}, side \pageref{Design_G_Development_YourBookings} viser et eksempel på, hvordan vi holder knapperne tæt på gitteret, så de lader til at høre til gitteret.
-\\Vi anvender en menubar som et fast element i den øverste del af brugergrænsefladen, så vi gør det nemt for brugeren at navigere rundt i systemet. Man er aldrig mere end to eller tre klik væk fra listen over lokaler eller ens bookninger. Figur \ref{Design_G_Development_YourBookings} viser desuden, hvordan vi har placeret vores menubar.
+Som man kan se på Figurerne \ref{Design_G_Development_YourBookings} og \ref{Design_G_Development_YourBookings_Final} var den eneste ændringer at vi fjernede forklaringen til hvad de forskellige statuser repræsenterede. Vi har i designet af skræmbilledet\ref{Design_G_Development_YourBookings_Final} fokuset på at overholde Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}, så det virkede naturligt at knapperne til højre hørte til gitteret. 
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/PaperMockup/GodkendBookinger_001}
+  \caption{Papermockup af skærmbilledet til visning af bruger bookinger}
+\label{Design_G_Development_ApproveBookings}
+\end{figure} 
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/DigitalMockup/GodkendBookinger}
+  \caption{Skærmbilledet til visning af bruger bookinger}
+\label{Design_G_Development_ApproveBookings_Final}
+\end{figure}
+
+Figuerne \ref{Design_G_Development_ApproveBookings} og \ref{Design_G_Development_ApproveBookings_Final} viser henholdsvis papermockupen og det færdige skærmbilledede der viser listen over hvilke bookinger der mangler at blive godkendt eller afvist af receptionisten.
+balbalbalbalblablablablalbalbablablablal
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/PaperMockup/UdstyrsListe_001}
+  \caption{Papermockup af skærmbilledet til tilføjelse og visning af udstyr}
+\label{Design_G_Development_EquipmentListl}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/DigitalMockup/UdstyrsListe}
+  \caption{Skærmbilledet til tilføjelse og visning af udstyr}
+\label{Design_G_Development_EquipmentList_Final}
+\end{figure}
+
+bablablablblablalblablallabllbal
 
 \section{Grundstruktur}
 \label{Design_G_Structure}
