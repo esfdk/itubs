@@ -70,6 +70,7 @@ Disse typer af skærmbilleder er primært til administration af udstyr/inventar/
 \label{Design_G_Development_EquipmentChange_Final}
 \end{figure} 
 
+\subusbsection{Ændre udstyr}
 Som man kan se på Figur \ref{Design_G_Development_EquipmentChange} var det første skærmbillede til Ændreudstyr smalt i forhold til det endelig, Figur \ref{Design_G_Development_EquipmentChange_Final}. Gruden til det blev ændret skyldtes at vi fuldte designregel1 og derfor gerne ville have at billederne var visuelt konsistense. 
 
 \begin{figure}[h!]
@@ -86,6 +87,7 @@ Som man kan se på Figur \ref{Design_G_Development_EquipmentChange} var det før
 \label{Design_G_Development_YourBookings_Final}
 \end{figure} 
 
+\subusbsection{Dine bookinger}
 Som man kan se på Figurerne \ref{Design_G_Development_YourBookings} og \ref{Design_G_Development_YourBookings_Final} var den eneste ændringer at vi fjernede forklaringen til hvad de forskellige statuser repræsenterede. Vi har i designet af skræmbilledet\ref{Design_G_Development_YourBookings_Final} fokuset på at overholde Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}, så det virkede naturligt at knapperne til højre hørte til gitteret. 
 
 \begin{figure}[h!]
@@ -102,14 +104,14 @@ Som man kan se på Figurerne \ref{Design_G_Development_YourBookings} og \ref{Des
 \label{Design_G_Development_ApproveBookings_Final}
 \end{figure}
 
-Figuerne \ref{Design_G_Development_ApproveBookings} og \ref{Design_G_Development_ApproveBookings_Final} viser henholdsvis papermockupen og det færdige skærmbilledede der viser listen over hvilke bookinger der mangler at blive godkendt eller afvist af receptionisten.
-balbalbalbalblablablablalbalbablablablal
+\subusbsection{Godkend bookinger}
+Figuerne \ref{Design_G_Development_ApproveBookings} og \ref{Design_G_Development_ApproveBookings_Final} viser henholdsvis papermockupen og det færdige skærmbilledede der viser listen over hvilke bookinger der mangler at blive godkendt eller afvist af receptionisten. Forskellen fra papermockupen til det færdige skærmbillede er, at vi har valgt at flytte godkend og afvis knapperne fra at være tilknyttet til hver enkelt booking til at være uden for gitteret, således at vi ligsom Figur\ref{Design_G_Development_YourBookings_Final} benytter "Law of proximity".
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/PaperMockup/UdstyrsListe_001}
+    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/PaperMockup/UdstyrsListe}
   \caption{Papermockup af skærmbilledet til tilføjelse og visning af udstyr}
-\label{Design_G_Development_EquipmentListl}
+\label{Design_G_Development_EquipmentList}
 \end{figure}
 
 \begin{figure}[h!]
@@ -119,20 +121,5 @@ balbalbalbalblablablablalbalbablablablal
 \label{Design_G_Development_EquipmentList_Final}
 \end{figure}
 
-bablablablblablalblablallabllbal
-
-\section{Grundstruktur}
-\label{Design_G_Structure}
-Vores brugergrænseflade er delvist inspireret af booking systemer til biografer. Inspirationen består i, at vi laver en visning af lokalerne og får brugeren til grafisk at vælge lokale og tider for deres bookning. Målet var at gøre dette med farvekodning, således at brugeren nemt kunne skelne mellem ledige og optagede lokaler.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/KinoBooking}
-  \caption{Screenshot af kino.dk's billet booking brugergrænseflade}
-\label{Design_G_Structure_kino}
-\end{figure}
-
-\\Resultatet af vores første usability test (se \ref{Usability_R1}, side \pageref{Usability_R1}) viste dog, at denne løsning ikke var intuitiv nok for brugeren. Vi valgte derfor at lave checkboxes inde i hvert felt, således at brugeren skal sætte et hak i de checkboxes, som brugeren vil booke tider ud fra. 
-
-Vi anvendte gitterløsningen (se figur \ref{Design_G_Development_FinalGrid}, side \pageref{Design_G_Development_FinalGrid}) som grundstrukturen for de fleste skærmbilleder for at følge vores mål om at lave en strømlinet brugergrænseflade. 
-\\Til resten af skærmbillederne har vi holdt os til simple strukturer, som kun præsenterer den nødvendige data til at udføre arbejdsopgaven.
+\subusbsection{Udstyrsliste}
+Figuerne \ref{Design_G_Development_EquipmentList} og \ref{Design_G_Development_EquipmentList_Final} viser papermockupen og det endelige skærmbillede af listen over udstyr og tilføjelse af nyt udstyr til systemet. Til designet af skærmbilledet har vi brugt "Law of proximity" så det er tydeligt at de to funktioner i skærmbilledet ikke hører sammen.
