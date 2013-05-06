@@ -14,9 +14,7 @@
         <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" 
             Width="30px" />
 &nbsp;= Ikke til rådighed</p>
-    <p>type
-        <asp:DropDownList ID="MorgenMadTypeDropDown" runat="server">
-        </asp:DropDownList>
+    <p>
 &nbsp; Lokale:
         <asp:TextBox ID="LokaleNavnTextBox" runat="server" ReadOnly="True"></asp:TextBox>
 &nbsp;&nbsp;&nbsp; Dato:<asp:TextBox ID="DatoTextBox" runat="server" ReadOnly="True"></asp:TextBox>

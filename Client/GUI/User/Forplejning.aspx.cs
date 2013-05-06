@@ -1,7 +1,6 @@
 namespace Client.GUI.User
 {
     using System;
-    using System.Linq;
 
     using Client.Model;
 
@@ -38,7 +37,7 @@ namespace Client.GUI.User
 
         protected void GridView_OnDataBound(object sender, EventArgs e)
         {
-            this.Response.Write("" + BookingModel.GetBooking(1).CateringChoices.ToList().Count);
+            DataTables.UpdateCateringGrid(GridView1);
         }
 
         protected void CheckBox_CheckChanged(object sender, EventArgs e)

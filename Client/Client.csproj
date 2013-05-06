@@ -81,7 +81,6 @@
     <Content Include="GUI\Administrator\PersonBookingListe.aspx" />
     <Content Include="GUI\Administrator\SuperLokaleListe.aspx" />
     <Content Include="GUI\Administrator\TilføjLokale.aspx" />
-    <Content Include="GUI\Administrator\TilføjUdstyr.aspx" />
     <Content Include="GUI\Administrator\UdstyrsListe.aspx" />
     <Content Include="GUI\Administrator\ÆndreLokale.aspx" />
     <Content Include="GUI\Administrator\ÆndreUdstyr.aspx" />
@@ -183,13 +182,6 @@
     </Compile>
     <Compile Include="GUI\Administrator\TilføjLokale.aspx.designer.cs">
       <DependentUpon>TilføjLokale.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Administrator\TilføjUdstyr.aspx.cs">
-      <DependentUpon>TilføjUdstyr.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GUI\Administrator\TilføjUdstyr.aspx.designer.cs">
-      <DependentUpon>TilføjUdstyr.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\Administrator\UdstyrsListe.aspx.cs">
       <DependentUpon>UdstyrsListe.aspx</DependentUpon>
