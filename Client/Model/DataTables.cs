@@ -25,7 +25,7 @@
 
         private static List<Booking> pendingBookingList;
 
-        private static List<Booking> personBookingList;
+        private static List<Booking> findBookingList;
 
         private static List<Booking> bookingList;
 
@@ -110,6 +110,7 @@
             if (superRoomList.Count == 0)
             {
                 dt.Rows.Add(dt.NewRow());
+                return dt;
             }
 
             foreach (var r in superRoomList)
@@ -120,7 +121,54 @@
             return dt;
         }
 
+        public static DataTable GetFindBookings(int bookingID)
+        {
+            var dt = new DataTable();
+
+            findBookingList = new List<Booking>();
+
+            if (bookingID < 1)
+            {
+                dt.Rows.Add(dt.NewRow());
+                return dt;
+            }
+
+            findBookingList = BookingModel.GetPersonBookings(bookingID).Where(b => b.EndTime > DateTime.Now).ToList();
+
+            foreach (var b in findBookingList)
+            {
+                dt.Rows.Add(dt.NewRow());
+            }
+
+            return dt;
+        }
+
         #endregion
+
+        #region Update Grid Methods
+
+        public static void UpdateFindBookings(GridView gv)
+        {
+            if (findBookingList.Count == 0)
+            {
+                return;
+            }
+
+            if (gv.Rows.Count != findBookingList.Count)
+            {
+                return;
+            }
+
+            for (var i = 0; i < findBookingList.Count; i++)
+            {
+                var b = findBookingList[i];
+                gv.Rows[i].Cells[0].Text = b.Room.Name;
+                gv.Rows[i].Cells[1].Text = b.Room.MaxParticipants.ToString();
+                gv.Rows[i].Cells[2].Text = b.Person.Email;
+                gv.Rows[i].Cells[3].Text = b.StartTime.Date + " " + b.StartTime.Hour.ToString() + "-" + b.EndTime.Hour;
+                gv.Rows[i].Cells[4].Text = b.NumberOfParticipants.ToString();
+            }
+        }
 
         public static void UpdateYourBookingsGrid(GridView gv)
         {
@@ -245,7 +293,7 @@
                 int j;
                 for (j = 0; j < r.Inventories.Count() - 1; j++)
                 {
-                    s += (r.Inventories[j].ProductName + ", ");
+                    s += r.Inventories[j].ProductName + ", ";
                 }
 
                 if (r.Inventories.Count() != 0)
@@ -255,6 +303,15 @@
 
                 gv.Rows[i].Cells[2].Text = s;
             }
+        }
+
+        #endregion
+
+        #region Other Methods
+
+        public static Person GetPersonByMail(string mail)
+        {
+            return PersonModel.GetPersonByMail(mail);
         }
 
         public static bool DeleteRoom(int id)
@@ -267,6 +324,7 @@
             return false;
         }
 
+        #endregion
         #endregion
     }
 }

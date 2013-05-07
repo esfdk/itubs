@@ -25,5 +25,12 @@
 
             return ServiceClients.BookingManager.GetBookingsByPerson(out bookings, PersonModel.loggedInUser) == RequestStatus.Success ? bookings : null;
         }
+
+        public static IEnumerable<Booking> GetPersonBookings(int personID)
+        {
+            Booking[] bookings;
+
+            return ServiceClients.BookingManager.GetBookingsByPerson(out bookings, new Person { ID = personID }) == RequestStatus.Success ? bookings : null;
+        }
     }
 }

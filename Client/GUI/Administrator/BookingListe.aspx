@@ -8,10 +8,10 @@
         <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
-                <asp:BoundField HeaderText="Lokale" />
-                <asp:BoundField HeaderText="Kapacitet" />
+                <asp:BoundField HeaderText="Lokale"/>
+                <asp:BoundField HeaderText="Kapacitet"/>
                 <asp:BoundField HeaderText="Person" />
-                <asp:BoundField HeaderText="Dato" />
+                <asp:BoundField HeaderText="Tidspunkt" />
                 <asp:BoundField HeaderText="Deltagere" />
             </Columns>
             <EditRowStyle BackColor="#999999" />

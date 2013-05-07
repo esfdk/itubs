@@ -59,7 +59,7 @@
 
         public RequestStatus GetByEmail(string token, ref Person person)
         {
-            if (string.IsNullOrWhiteSpace(token) || person == null)
+            if (string.IsNullOrWhiteSpace(token) || person == null || string.IsNullOrWhiteSpace(person.Email))
             {
                 return RequestStatus.InvalidInput;
             }

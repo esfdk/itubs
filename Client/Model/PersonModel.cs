@@ -42,5 +42,11 @@
             }
 
         }
+
+        public static Person GetPersonByMail(string mail)
+        {
+            var p = new Person { Email = mail };
+            return ServiceClients.PersonManager.GetByEmail(loggedInUser.Token, ref p) == RequestStatus.Success ? p : null;
+        }
     }
 }
