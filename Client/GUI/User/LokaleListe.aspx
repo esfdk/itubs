@@ -17,7 +17,8 @@
 &nbsp;= Dine bookinger</p>
     <p>
          Dato:
-        <asp:TextBox ID="DatoTextBox" runat="server" ReadOnly="True"></asp:TextBox>
+         <asp:DropDownList ID="DatoDropDown" runat="server">
+         </asp:DropDownList>
     </p>
     <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" 
         OnPreRender="gvSummary_PreRender" AllowPaging="True">

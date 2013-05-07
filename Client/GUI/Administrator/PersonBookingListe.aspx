@@ -17,8 +17,9 @@ Person Specifikke bookinger
             <Columns>
                 <asp:BoundField HeaderText="Lokale" />
                 <asp:BoundField HeaderText="Kapacitet" />
-                <asp:BoundField HeaderText="Dato" />
                 <asp:BoundField HeaderText="Person" />
+                <asp:BoundField HeaderText="Dato" />
+                <asp:BoundField HeaderText="Deltagere"/>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

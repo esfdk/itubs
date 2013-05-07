@@ -1,6 +1,7 @@
 namespace Client.GUI.User
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Web.UI;
     using System.Web.UI.WebControls;
@@ -41,6 +42,17 @@ namespace Client.GUI.User
         {
             if (!this.Page.IsPostBack)
             {
+                DateTime date = DateTime.Now;
+                List<DateTime> dates = new List<DateTime>();
+
+                for (int i = 0; i < 14; i++)
+                {
+                    dates.Add(date.AddDays(i));
+                }
+
+                this.DatoDropDown.DataSource = dates;
+                this.DatoDropDown.DataBind();
+
                 DataTable originalDataTable = new DataTable();
                 DataRow newDataRow = originalDataTable.NewRow();
                 originalDataTable.Rows.Add(newDataRow);
