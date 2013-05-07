@@ -2,9 +2,13 @@ namespace ITubsService.Entities
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
     using ITubsService.Enums;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(Booking))]
+    [KnownType(typeof(Inventory))]
     public class Room
     {
         public Room()
@@ -13,6 +17,9 @@ namespace ITubsService.Entities
             Inventories = new List<Inventory>();
         }
 
+        /// <summary>
+        /// Gets all the rooms from the database.
+        /// </summary>
         public static IEnumerable<Room> All
         {
             get
@@ -91,10 +98,15 @@ namespace ITubsService.Entities
             return RequestStatus.Success;
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public int MaxParticipants { get; set; }
+        [DataMember]
         public virtual ICollection<Booking> Bookings { get; set; }
+        [DataMember]
         public virtual ICollection<Inventory> Inventories { get; set; }
     }
 }

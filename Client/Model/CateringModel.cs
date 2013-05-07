@@ -5,7 +5,7 @@ namespace Client.Model
 
     using Client.BookItService;
 
-    public class CateringModel
+    public static class CateringModel
     {
         public static IEnumerable<Catering> GetAllCaterings()
         {

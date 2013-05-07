@@ -1,17 +1,10 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Configuration.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace ITubsService
+﻿namespace ITubsService
 {
     using System;
 
     public class Configuration
     {
         #region Administrator Access
-
 
         public const string AdminPassword = "zAq12wSx";
 
@@ -21,14 +14,17 @@ namespace ITubsService
 
         #endregion
 
+        #region Test User Access
+
+        public const string TestPassword = "qwerty123";
+
+        public const string TestEmail = "test@bookit.dk";
+
+        #endregion
+
         #region LDAP server
 
         public const string LDAPServer = "192.168.30.244";
-
-        // TODO: Use actual user
-        public const string NetworkUsername = "";
-
-        public const string NetworkPassword = "";
 
         #endregion
 

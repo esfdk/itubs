@@ -35,7 +35,7 @@ namespace ITubsService
         {
             get
             {
-                return (db ?? (db = new ItubsContext()));
+                return db ?? (db = new ItubsContext());
             }
         }
 

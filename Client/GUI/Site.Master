@@ -19,18 +19,17 @@
             </div>
             <div class="loginDisplay">
                 <asp:Label ID="UserNameLabel" runat="server"></asp:Label>
-                &nbsp;<asp:Button ID="LogInButton" runat="server" CssClass="buttonStyle1" 
-                    Text="Log in" />
+                &nbsp;<asp:Button ID="LogInButton" runat="server" Text="Log in" />
                 <br />
             </div>
             <div class="clear hideSkiplink">
                 <asp:Panel runat="server">
-                    <asp:Button ID="MenuButton_LokaleListe" CssClass="availabeButton" Text="LokaleListe" OnClick="MenuButton_LokaleListe_OnClick" runat="server"/>
-                    <asp:Button ID="MenuButton_DineBookinger" CssClass="availabeButton" Text="Dine bookinger" OnClick="MenuButton_DineBookinger_OnClick" runat="server"/>
-                    <asp:Button ID="MenuButton_UdstyrsListe" CssClass="availabeButton" Text="Udstyrsliste" OnClick="MenuButton_UdstyrsListe_OnClick" runat="server"/>
-                    <asp:Button ID="MenuButton_BookingListe" CssClass="availabeButton" Text="Booking-liste" OnClick="MenuButton_BookingListe_OnClick" runat="server" />
-                    <asp:Button ID="MenuButton_KonfigLokale" CssClass="availabeButton" Text="Konfigurering af lokaler" OnClick="MenuButton_KonfigLokale_OnClick" runat="server" />
-                    <asp:Button ID="MenuButton_FindBookinger" CssClass="availabeButton" Text="Find bookinger" OnClick="MenuButton_FindBookinger_OnClick" runat="server" />
+                    <asp:Button ID="MenuButton_LokaleListe" CssClass="availableButton" Text="LokaleListe" OnClick="MenuButton_LokaleListe_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_DineBookinger" CssClass="availableButton" Text="Dine bookinger" OnClick="MenuButton_DineBookinger_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_UdstyrsListe" CssClass="availableButton" Text="Udstyrsliste" OnClick="MenuButton_UdstyrsListe_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_BookingListe" CssClass="availableButton" Text="Booking-liste" OnClick="MenuButton_BookingListe_OnClick" runat="server" />
+                    <asp:Button ID="MenuButton_KonfigLokale" CssClass="availableButton" Text="Konfigurering af lokaler" OnClick="MenuButton_KonfigLokale_OnClick" runat="server" />
+                    <asp:Button ID="MenuButton_FindBookinger" CssClass="availableButton" Text="Find bookinger" OnClick="MenuButton_FindBookinger_OnClick" runat="server" />
                 </asp:Panel>
             </div>
         </div>

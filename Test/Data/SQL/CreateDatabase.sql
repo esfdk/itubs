@@ -286,7 +286,7 @@ ADD CONSTRAINT [FK_BookingPerson]
     FOREIGN KEY ([PersonID])
     REFERENCES [dbo].[People]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BookingPerson'
 CREATE INDEX [IX_FK_BookingPerson]
@@ -300,7 +300,7 @@ ADD CONSTRAINT [FK_BookingCateringChoice]
     FOREIGN KEY ([BookingID])
     REFERENCES [dbo].[Bookings]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BookingCateringChoice'
 CREATE INDEX [IX_FK_BookingCateringChoice]
@@ -314,7 +314,7 @@ ADD CONSTRAINT [FK_BookingEquipmentChoice]
     FOREIGN KEY ([BookingID])
     REFERENCES [dbo].[Bookings]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BookingEquipmentChoice'
 CREATE INDEX [IX_FK_BookingEquipmentChoice]
@@ -328,7 +328,7 @@ ADD CONSTRAINT [FK_EquipmentEquipmentType]
     FOREIGN KEY ([EquipmentTypeID])
     REFERENCES [dbo].[EquipmentTypes]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EquipmentEquipmentType'
 CREATE INDEX [IX_FK_EquipmentEquipmentType]
@@ -342,7 +342,7 @@ ADD CONSTRAINT [FK_EquipmentEquipmentChoice]
     FOREIGN KEY ([EquipmentID])
     REFERENCES [dbo].[Equipments]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EquipmentEquipmentChoice'
 CREATE INDEX [IX_FK_EquipmentEquipmentChoice]
@@ -356,7 +356,7 @@ ADD CONSTRAINT [FK_BookingRoom]
     FOREIGN KEY ([RoomID])
     REFERENCES [dbo].[Rooms]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BookingRoom'
 CREATE INDEX [IX_FK_BookingRoom]
@@ -370,7 +370,7 @@ ADD CONSTRAINT [FK_InventoryTypeInventory]
     FOREIGN KEY ([InventoryTypeID])
     REFERENCES [dbo].[InventoryTypes]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_InventoryTypeInventory'
 CREATE INDEX [IX_FK_InventoryTypeInventory]
@@ -384,7 +384,7 @@ ADD CONSTRAINT [FK_PersonPersonRole]
     FOREIGN KEY ([PersonID])
     REFERENCES [dbo].[People]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 GO
 
 -- Creating foreign key on [RoleID] in table 'PersonRoles'
@@ -393,7 +393,7 @@ ADD CONSTRAINT [FK_RolePersonRole]
     FOREIGN KEY ([RoleID])
     REFERENCES [dbo].[Roles]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_RolePersonRole'
 CREATE INDEX [IX_FK_RolePersonRole]
@@ -407,7 +407,7 @@ ADD CONSTRAINT [FK_CateringCateringChoice]
     FOREIGN KEY ([CateringID])
     REFERENCES [dbo].[Caterings]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CateringCateringChoice'
 CREATE INDEX [IX_FK_CateringCateringChoice]
@@ -421,7 +421,7 @@ ADD CONSTRAINT [FK_RoomInventory]
     FOREIGN KEY ([RoomID])
     REFERENCES [dbo].[Rooms]
         ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_RoomInventory'
 CREATE INDEX [IX_FK_RoomInventory]

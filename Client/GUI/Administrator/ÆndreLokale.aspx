@@ -34,10 +34,10 @@
                     </asp:GridView>
     </asp:Panel>
     <asp:Button ID="FjernUdstyrButton" runat="server" Text="Fjern udstyr" 
-        CssClass="availabeButton" onclick="FjernUdstyr_Click" />
+        CssClass="availableButton" onclick="FjernUdstyr_Click" />
                         &nbsp;<asp:Button ID="TilføjUdstyrButton" runat="server" Text="Tilføj udstyr" 
                             onclick="TilføjUdstyr_Click" 
-        CssClass="availabeButton" />
+        CssClass="availableButton" />
     &nbsp;<asp:Button ID="AfslutButton" runat="server" Text="Afslut" 
-        CssClass="availabeButton" onclick="Afslut_Click"/>
+        CssClass="availableButton" onclick="Afslut_Click"/>
 </asp:Content>

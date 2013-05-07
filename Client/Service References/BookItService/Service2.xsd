@@ -10,6 +10,8 @@
       <xs:element minOccurs="0" name="Roles" nillable="true" type="tns:ArrayOfRole" />
       <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Person" nillable="true" type="tns:Person" />
   <xs:complexType name="ArrayOfBooking">
@@ -71,42 +73,20 @@
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Catering" nillable="true" type="tns:Catering" />
-  <xs:complexType name="Room">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Bookings" nillable="true" type="tns:ArrayOfBooking" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="Inventories" nillable="true" type="tns:ArrayOfInventory" />
-      <xs:element minOccurs="0" name="MaxParticipants" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Room" nillable="true" type="tns:Room" />
-  <xs:complexType name="ArrayOfInventory">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Inventory" nillable="true" type="tns:Inventory" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfInventory" nillable="true" type="tns:ArrayOfInventory" />
-  <xs:complexType name="Inventory">
+  <xs:complexType name="Role">
     <xs:sequence>
       <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="InventoryType" nillable="true" type="tns:InventoryType" />
-      <xs:element minOccurs="0" name="InventoryTypeID" type="xs:int" />
-      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Room" nillable="true" type="tns:Room" />
-      <xs:element minOccurs="0" name="RoomID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="People" nillable="true" type="tns:ArrayOfPerson" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Inventory" nillable="true" type="tns:Inventory" />
-  <xs:complexType name="InventoryType">
+  <xs:element name="Role" nillable="true" type="tns:Role" />
+  <xs:complexType name="ArrayOfPerson">
     <xs:sequence>
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="Inventories" nillable="true" type="tns:ArrayOfInventory" />
-      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="InventoryType" nillable="true" type="tns:InventoryType" />
+  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
   <xs:complexType name="EquipmentChoice">
     <xs:sequence>
       <xs:element minOccurs="0" name="Booking" nillable="true" type="tns:Booking" />
@@ -150,26 +130,50 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfEquipment" nillable="true" type="tns:ArrayOfEquipment" />
+  <xs:complexType name="Room">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bookings" nillable="true" type="tns:ArrayOfBooking" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Inventories" nillable="true" type="tns:ArrayOfInventory" />
+      <xs:element minOccurs="0" name="MaxParticipants" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Room" nillable="true" type="tns:Room" />
+  <xs:complexType name="ArrayOfInventory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Inventory" nillable="true" type="tns:Inventory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInventory" nillable="true" type="tns:ArrayOfInventory" />
+  <xs:complexType name="Inventory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="InventoryType" nillable="true" type="tns:InventoryType" />
+      <xs:element minOccurs="0" name="InventoryTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="tns:Room" />
+      <xs:element minOccurs="0" name="RoomID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Inventory" nillable="true" type="tns:Inventory" />
+  <xs:complexType name="InventoryType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Inventories" nillable="true" type="tns:ArrayOfInventory" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InventoryType" nillable="true" type="tns:InventoryType" />
   <xs:complexType name="ArrayOfRole">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfRole" nillable="true" type="tns:ArrayOfRole" />
-  <xs:complexType name="Role">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="People" nillable="true" type="tns:ArrayOfPerson" />
-      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Role" nillable="true" type="tns:Role" />
-  <xs:complexType name="ArrayOfPerson">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
   <xs:complexType name="ArrayOfCatering">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Catering" nillable="true" type="tns:Catering" />

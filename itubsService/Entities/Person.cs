@@ -11,6 +11,9 @@ namespace ITubsService.Entities
 
     using Enums;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(Booking))]
+    [KnownType(typeof(Role))]
     public sealed class Person
     {
         public Person()
@@ -53,33 +56,49 @@ namespace ITubsService.Entities
         {
             if (username.Equals(Configuration.AdminEmail) && password.Equals(Configuration.AdminPassword))
             {
-                var person = All.First(p => p.Email.Equals(Configuration.AdminEmail));
-                person.Token = GenerateToken();
+                var person = All.FirstOrDefault(p => p.Email.Equals(Configuration.AdminEmail));
+                if (person != null)
+                {
+                    person.Token = GenerateToken();
+                    ItubsContext.Db.SaveChanges();
 
-                ItubsContext.Db.SaveChanges();
+                    return person;
+                }
 
-                return person;
+                return null;
             }
 
-            // TODO: Improve this
-            var ldap = new LdapConnection(Configuration.LDAPServer);
+            if (username.Equals(Configuration.TestEmail) && password.Equals(Configuration.TestPassword))
+            {
+                var person = All.FirstOrDefault(p => p.Email.Equals(Configuration.TestEmail));
+                if (person != null)
+                {
+                    person.Token = GenerateToken();
+                    ItubsContext.Db.SaveChanges();
+
+                    return person;
+                }
+
+                return null;
+            }
+
+            var ldap = new LdapConnection(Configuration.LDAPServer) { Credential = new NetworkCredential(username.Substring(0, username.IndexOf("@")), password) };
             try
             {
-                ldap.Bind(new NetworkCredential(username, password));
+                ldap.Bind();
             }
             catch (COMException)
             {
                 return new Person { ID = -1 };
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return null;
+                return e.Message.Contains("available") ? new Person { ID = -1 } : null;
             }
 
+            var dsFilter = "(mail=" + username + ")";
 
-            var dsFilter = "(samaccountname=" + username.Substring(0, username.IndexOf("@")) + ")";
-
-            var de = new DirectoryEntry("LDAP://" + Configuration.LDAPServer, username, password);
+            var de = new DirectoryEntry("LDAP://" + Configuration.LDAPServer, username.Substring(0, username.IndexOf("@")), password);
             var ds = new DirectorySearcher(de)
                         {
                             Filter = dsFilter

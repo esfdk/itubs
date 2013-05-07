@@ -16,11 +16,9 @@
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Lokale" />
-                            <asp:BoundField HeaderText="Kapacitet" SortExpression="KapacitetID" />
-                            <asp:BoundField HeaderText="Booket" />
+                            <asp:BoundField HeaderText="Deltagere"/>
+                            <asp:BoundField HeaderText="Tidspunkt" />
                             <asp:BoundField HeaderText="Status" />
-                            <asp:BoundField HeaderText="Forplejning" />
-                            <asp:BoundField HeaderText="Udstyr" />
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -39,32 +37,32 @@
                             <td>
                     <asp:Button ID="ÆndreBookButton" runat="server" Text="Ændre booking" 
                         Width="160px" margin="20px" onclick="ÆndreBookButton_Click" 
-                                    CssClass="availabeButton" />
+                                    CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
                     <asp:Button ID="SletBookingButton" runat="server" 
                         Text="Slet booking" Width="160px" onclick="SletBookingButton_Click" 
-                                    CssClass="availabeButton" />
+                                    CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
                     <asp:Button ID="ForplejningButton" runat="server" Text="Tilføj forplejning" 
-                        Width="160px" onclick="ForplejningButton_Click" CssClass="availabeButton" />
+                        Width="160px" onclick="ForplejningButton_Click" CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
                     <asp:Button ID="UdstyrButton" runat="server" Text="Tilføj udstyr" 
-                        Width="160px" onclick="UdstyrButton_Click" CssClass="availabeButton" />
+                        Width="160px" onclick="UdstyrButton_Click" CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
                     <asp:Button ID="SendGodkendButton" runat="server" Text="Send til godkendelse" 
-                        Width="160px" onclick="SendGodkendButton_Click" CssClass="availabeButton" />
+                        Width="160px" onclick="SendGodkendButton_Click" CssClass="availableButton" />
                             </td>
                         </tr>
                     </table>

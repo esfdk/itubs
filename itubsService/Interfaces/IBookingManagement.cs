@@ -19,6 +19,9 @@
         RequestStatus GetBookingsByPerson(Person person, out IEnumerable<Booking> bookings);
 
         [OperationContract]
+        RequestStatus GetPendingBookings(out IEnumerable<Booking> bookings);
+
+        [OperationContract]
         RequestStatus CreateBooking(string token, ref Booking newBooking);
 
         [OperationContract]

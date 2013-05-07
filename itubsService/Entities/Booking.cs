@@ -27,7 +27,7 @@ namespace ITubsService.Entities
         {
             get
             {
-                return ItubsContext.Db.Bookings.Include("CateringChoices").Include("EquipmentChoices").ToList();
+                return ItubsContext.Db.Bookings.Include("CateringChoices").Include("EquipmentChoices").Include("Room").Include("Person").ToList();
             }
         }
 
@@ -44,6 +44,11 @@ namespace ITubsService.Entities
             }
 
             return All;
+        }
+
+        public static IEnumerable<Booking> GetPendingBookings()
+        {
+            return All.Where(b => b.StartTime > DateTime.Now && b.Status.Equals("Pending"));
         }
 
         public static IEnumerable<Booking> GetBookingsByDate(DateTime date)
@@ -165,16 +170,6 @@ namespace ITubsService.Entities
 
         public RequestStatus Remove()
         {
-            foreach (var ec in this.EquipmentChoices)
-            {
-                ItubsContext.Db.EquipmentChoices.Remove(ec);
-            }
-
-            foreach (var cc in this.CateringChoices)
-            {
-                ItubsContext.Db.CateringChoices.Remove(cc);
-            }
-
             ItubsContext.Db.Bookings.Remove(this);
             ItubsContext.Db.SaveChanges();
 

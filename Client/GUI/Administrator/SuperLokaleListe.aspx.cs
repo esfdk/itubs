@@ -1,12 +1,25 @@
 namespace Client.GUI.Administrator
 {
     using System;
+    using System.Web.UI.WebControls;
+
+    using Client.Model;
 
     public partial class SuperLokaleListe : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SletLokaleButton.OnClientClick = "return confirmRoomDeletion('" + GridView1.SelectedIndex + "')";
+            if (!IsPostBack)
+            {
+                GridView1.DataSource = DataTables.GetSuperRooms();
+                GridView1.DataBind();
+            }
+        }
 
+        protected void GridView_OnDataBound(object sender, EventArgs e)
+        {
+            DataTables.UpdateSuperRoomGrid(GridView1);
         }
 
         protected void ÆndreLokale_Click(object sender, EventArgs e)
@@ -21,13 +34,31 @@ namespace Client.GUI.Administrator
 
         protected void SletLokale_Click(object sender, EventArgs e)
         {
-            if (0 < 1)
+            if (GridView1.SelectedIndex == -1)
             {
-                string popUpText = "Er du sikker på du vil slette 'lokale X' fra lokalelisten?";
-                //The line below will launch a Javascript alert that says "The Value is Testing Value"
-                this.Response.Write(String.Format("<script>alert('{0}');</script>", popUpText));
+                Response.Write("<script type='text/javascript'>alert('Du har ikke valgt et lokale.')</script>");
+                Response.Flush();
+                return;
             }
+
+            if (!DataTables.DeleteRoom(GridView1.SelectedIndex))
+            {
+                Response.Write("<script type='text/javascript'>alert('Kunne ikke udføre handlingen')</script>");
+                Response.Flush();
+                return;
+            }
+
             this.Response.Redirect("SuperLokaleListe.aspx");
+        }
+
+        protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onmouseover"] = "this.style.cursor='pointer';";
+                e.Row.ToolTip = "Click to select row";
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
+            }
         }
     }
 }

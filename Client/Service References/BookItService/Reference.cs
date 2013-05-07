@@ -32,7 +32,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Person : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -455,7 +455,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Room", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Room", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Room : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1503,6 +1503,9 @@ namespace Client.BookItService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingManagement/GetBookingsByPerson", ReplyAction="http://tempuri.org/IBookingManagement/GetBookingsByPersonResponse")]
         Client.BookItService.RequestStatus GetBookingsByPerson(out Client.BookItService.Booking[] bookings, Client.BookItService.Person person);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingManagement/GetPendingBookings", ReplyAction="http://tempuri.org/IBookingManagement/GetPendingBookingsResponse")]
+        Client.BookItService.RequestStatus GetPendingBookings(out Client.BookItService.Booking[] bookings);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingManagement/CreateBooking", ReplyAction="http://tempuri.org/IBookingManagement/CreateBookingResponse")]
         Client.BookItService.RequestStatus CreateBooking(string token, ref Client.BookItService.Booking newBooking);
         
@@ -1571,6 +1574,10 @@ namespace Client.BookItService {
         
         public Client.BookItService.RequestStatus GetBookingsByPerson(out Client.BookItService.Booking[] bookings, Client.BookItService.Person person) {
             return base.Channel.GetBookingsByPerson(out bookings, person);
+        }
+        
+        public Client.BookItService.RequestStatus GetPendingBookings(out Client.BookItService.Booking[] bookings) {
+            return base.Channel.GetPendingBookings(out bookings);
         }
         
         public Client.BookItService.RequestStatus CreateBooking(string token, ref Client.BookItService.Booking newBooking) {

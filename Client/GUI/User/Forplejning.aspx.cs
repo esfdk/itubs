@@ -1,6 +1,7 @@
 namespace Client.GUI.User
 {
     using System;
+    using System.Web.UI.WebControls;
 
     using Client.Model;
 
@@ -24,7 +25,6 @@ namespace Client.GUI.User
             if (0 < 1)
             {
                 string popUpText = "Dine ønsker kunne ikke imøde kommes da der skal bestilles mindst en uge i forvejen til forplejning til mere end 10 personer.";
-                //The line below will launch a Javascript alert that says "The Value is Testing Value"
                 this.Response.Write(String.Format("<script>alert('{0}');</script>", popUpText));
             }
             this.Response.Redirect("DineBookinger.aspx");
@@ -53,6 +53,16 @@ namespace Client.GUI.User
         protected void SletForplejningButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onmouseover"] = "this.style.cursor='pointer';";
+                e.Row.ToolTip = "Click to select row";
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
+            }
         }
     }
 }

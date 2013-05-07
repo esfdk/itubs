@@ -56,6 +56,12 @@
   <wsdl:message name="IBookingManagement_GetBookingsByPerson_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBookingsByPersonResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookingManagement_GetPendingBookings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingBookings" />
+  </wsdl:message>
+  <wsdl:message name="IBookingManagement_GetPendingBookings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingBookingsResponse" />
+  </wsdl:message>
   <wsdl:message name="IBookingManagement_CreateBooking_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateBooking" />
   </wsdl:message>
@@ -289,6 +295,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/GetBookingsByPerson" message="tns:IBookingManagement_GetBookingsByPerson_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/GetBookingsByPersonResponse" message="tns:IBookingManagement_GetBookingsByPerson_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetPendingBookings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/GetPendingBookings" message="tns:IBookingManagement_GetPendingBookings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/GetPendingBookingsResponse" message="tns:IBookingManagement_GetPendingBookings_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingManagement/CreateBooking" message="tns:IBookingManagement_CreateBooking_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingManagement/CreateBookingResponse" message="tns:IBookingManagement_CreateBooking_OutputMessage" />
@@ -500,6 +510,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetBookingsByPerson">
       <soap:operation soapAction="http://tempuri.org/IBookingManagement/GetBookingsByPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingBookings">
+      <soap:operation soapAction="http://tempuri.org/IBookingManagement/GetPendingBookings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -8,18 +8,16 @@
     </h2>
     <p>
         &nbsp;&nbsp;
-        <asp:Image ID="BlueBox" runat="server" Height="30px" 
-            ImageUrl="~/GUI/Images/BlåBoks.png" Width="30px" />
-&nbsp;= Valgte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" 
-            Width="30px" />
-&nbsp;= Ikke til rådighed</p>
+        <asp:Image ID="BlueBox" runat="server" Height="30px" ImageUrl="~/GUI/Images/BlåBoks.png" Width="30px" />
+        &nbsp;= Valgte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" Width="30px" />
+        &nbsp;= Ikke til rådighed
+    </p>
     <p>
-&nbsp; Lokale:
+        &nbsp; Lokale:
         <asp:TextBox ID="LokaleNavnTextBox" runat="server" ReadOnly="True"></asp:TextBox>
-&nbsp;&nbsp;&nbsp; Dato:<asp:TextBox ID="DatoTextBox" runat="server" ReadOnly="True"></asp:TextBox>
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" 
-            onselectedindexchanged="GridView1_SelectedIndexChanged" OnDataBound="GridView_OnDataBound">
+        &nbsp;&nbsp;&nbsp; Dato:<asp:TextBox ID="DatoTextBox" runat="server" ReadOnly="True"></asp:TextBox>
+        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Navn"/>
@@ -111,12 +109,12 @@
         &nbsp;<asp:Panel ID="Panel1" runat="server">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="ForplejningButton" runat="server" Text="Tilføj forplejning" 
-            onclick="ForplejningButton_Click" CssClass="availabeButton" />
+            onclick="ForplejningButton_Click" CssClass="availableButton" />
         &nbsp;<asp:Button ID="SletForplejningButton" runat="server" 
-            CssClass="availabeButton" onclick="SletForplejningButton_Click" 
+            CssClass="availableButton" onclick="SletForplejningButton_Click" 
             Text="Slet forplejning" />
         &nbsp;<asp:Button ID="FortrydButton" runat="server" Text="Fortryd" 
-            CssClass="availabeButton" onclick="Fortryd_Click" />
+            CssClass="availableButton" onclick="Fortryd_Click" />
             <asp:ModalPopupExtender ID="FortrydButton_ModalPopupExtender" runat="server" 
             DynamicServicePath="" Enabled="True" TargetControlID="FortrydButton" 
             PopupControlID="Panel2">

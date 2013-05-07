@@ -39,6 +39,13 @@
             return bookings != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
+        public RequestStatus GetPendingBookings(out IEnumerable<Booking> bookings)
+        {
+            bookings = Booking.GetPendingBookings();
+
+            return bookings != null ? RequestStatus.Success : RequestStatus.Error;
+        }
+
         public RequestStatus CreateBooking(string token, ref Booking newBooking)
         {
             if (string.IsNullOrWhiteSpace(token) || newBooking == null)

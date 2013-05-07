@@ -24,7 +24,7 @@
                 return LoginStatus.WrongUserNameOrPassword;
             }
 
-            if (!string.IsNullOrWhiteSpace(p.Token))
+            if (string.IsNullOrWhiteSpace(p.Token))
             {
                 return LoginStatus.InvalidInput;
             }

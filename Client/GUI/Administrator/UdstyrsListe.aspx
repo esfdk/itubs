@@ -44,9 +44,9 @@
                             <br />
                 
                             <asp:Button ID="SletUdstyrButton" runat="server" Text="Slet udstyr" 
-                                CssClass="availabeButton" onclick="SletUdstyrButton_Click" />
+                                CssClass="availableButton" onclick="SletUdstyrButton_Click" />
                             &nbsp;<asp:Button ID="ÆndreUdstyrButton" runat="server" Text="Ændre udstyr" 
-                                onclick="ÆndreUdstyrButton_Click" CssClass="availabeButton" />
+                                onclick="ÆndreUdstyrButton_Click" CssClass="availableButton" />
             </td>
             <td>
                 <p>Navn:
@@ -67,7 +67,7 @@
                 </p>
                 <p>
                     <asp:Button ID="TilføjUdstyrButton" runat="server" Text="Tilføj udstyr" 
-                        onclick="TilføjUdstyrButton_Click" CssClass="availabeButton" />
+                        onclick="TilføjUdstyrButton_Click" CssClass="availableButton" />
                 </p>
                 &nbsp;</td>
         </tr>
