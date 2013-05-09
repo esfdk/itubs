@@ -14,7 +14,7 @@ namespace ITubsService.Entities
     {
         public static IEnumerable<Inventory> All
         {
-            get { return ItubsContext.Db.Inventories.ToList(); }
+            get { return ItubsContext.Db.Inventories.Include("Room").Include("InventoryType").ToList(); }
         }
 
         public static Inventory GetInventoryByID(int id)

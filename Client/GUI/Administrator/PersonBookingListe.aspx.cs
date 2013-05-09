@@ -1,6 +1,7 @@
 namespace Client.GUI.Administrator
 {
     using System;
+    using System.Web.UI.WebControls;
 
     using Client.Model;
 
@@ -50,6 +51,16 @@ namespace Client.GUI.Administrator
         protected void AfvisBooking_Click(object sender, EventArgs e)
         {
             this.Response.Redirect("PersonBookingListe.aspx");
+        }
+
+        protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onmouseover"] = "this.style.cursor='pointer';";
+                e.Row.ToolTip = "Click to select row";
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
+            }
         }
     }
 }

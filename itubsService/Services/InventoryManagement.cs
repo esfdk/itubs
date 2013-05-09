@@ -92,7 +92,7 @@
             return types != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
-        public RequestStatus GetInventoryItems(string type, bool includeAssigned, out IEnumerable<Inventory> items)
+        public RequestStatus GetAllInventory(string type, bool includeAssigned, out IEnumerable<Inventory> items)
         {
             if (!string.IsNullOrWhiteSpace(type))
             {

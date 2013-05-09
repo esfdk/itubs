@@ -9,13 +9,12 @@
         <asp:Image ID="Image2" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" />
 &nbsp;= Ikke til rådighed</p>
     <p>Udstyrstype
-        <asp:DropDownList ID="UdstyrsTypeDropDown" runat="server">
-        </asp:DropDownList>
+        <asp:DropDownList ID="UdstyrsTypeDropDown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="SelectedTypeChanged"/>
 &nbsp;&nbsp;&nbsp; Lokale:
         <asp:TextBox ID="LokaleTextBox" runat="server" ReadOnly="True"></asp:TextBox>
 &nbsp;Dato:
         <asp:TextBox ID="DatoTextBox" runat="server" ReadOnly="True"></asp:TextBox>
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound">
+        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
             <asp:BoundField HeaderText="Navn" />

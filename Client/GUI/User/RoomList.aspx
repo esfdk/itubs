@@ -1,27 +1,37 @@
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/GUI/Site.Master" AutoEventWireup="true"
-    CodeBehind="LokaleListe.aspx.cs" Inherits="Client.GUI.User.LokaleListe" %>
+    CodeBehind="RoomList.aspx.cs" Inherits="Client.GUI.User.RoomList" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <%-- Source for script: http://www.dotnetcurry.com/ShowArticle.aspx?ID=149 --%>
+    <script type="text/javascript">
+        function checkDate(sender, args) {
+            if (sender._selectedDate < new Date()) {
+                alert("Du kan ikke vælge en dag før i dag!");
+                sender._selectedDate = new Date();
+                // set the date back to the current date
+                sender._textbox.set_Value(sender._selectedDate.format(sender._format));
+            }}
+    </script>
+
+    <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" />  
     <h2>
         Lokaleliste
     </h2>
     <p>
-        <asp:Image ID="Image1" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" />
+        <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" />
 &nbsp;= Booket&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Image ID="Image2" runat="server" BorderColor="Black" BorderStyle="Solid" 
-            BorderWidth="1px" ImageUrl="~/GUI/Images/HvidBoks.png" />
+        <asp:Image ID="WhiteBox" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" ImageUrl="~/GUI/Images/HvidBoks.png" />
 &nbsp;= Ledig&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Image ID="Image3" runat="server" ImageUrl="~/GUI/Images/BlåBoks.png" />
+        <asp:Image ID="BlueBox" runat="server" ImageUrl="~/GUI/Images/BlåBoks.png" />
 &nbsp;= Dine bookinger</p>
     <p>
          Dato:
-         <asp:DropDownList ID="DatoDropDown" runat="server">
-         </asp:DropDownList>
+         <asp:TextBox ID="DateTextBox" AutoPostBack="true" OnTextChanged="DateChanged" runat="server"/>
+         <ajaxToolkit:CalendarExtender ID="DateCalendarExtender" TargetControlID="DateTextBox" Format="dd/MM/yyyy" runat="server" OnClientDateSelectionChanged="checkDate" />  
     </p>
-    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" 
-        OnPreRender="gvSummary_PreRender" AllowPaging="True">
+    <asp:GridView ID="RoomGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField HeaderText="Navn" />

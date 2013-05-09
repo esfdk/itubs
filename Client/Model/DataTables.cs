@@ -8,7 +8,6 @@
     using System.Web.UI.WebControls;
 
     using Client.BookItService;
-    using Client.Model.Types;
 
     public static class DataTables
     {
@@ -18,8 +17,6 @@
 
         private static List<Catering> cateringList;
 
-        private static List<Room> roomList;
-
         private static List<Room> superRoomList;
 
         private static List<Booking> yourBookingList;
@@ -28,15 +25,15 @@
 
         private static List<Booking> findBookingList;
 
-        private static List<Booking> bookingList;
+        private static List<Equipment> bookEquipmentList;
+
+        private static List<Inventory> roomInventoryList;
 
         private static List<Equipment> equipmentList;
 
-        private static List<Equipment> bookEquipmentList;
-
-        private static List<Equipment> changeRoomEquipmentList;
-
         private static List<Inventory> inventoryList;
+
+        private static Room changeRoom;
 
         #endregion
 
@@ -46,7 +43,7 @@
         public static DataTable GetYourBookings()
         {
             var dt = new DataTable();
-            yourBookingList = BookingModel.GetYourBookings().Where(b => b.EndTime > DateTime.Now).ToList();
+            yourBookingList = BookingModel.GetYourBookings().ToList();
 
             if (yourBookingList.Count == 0)
             {
@@ -122,11 +119,11 @@
             return dt;
         }
 
-        public static DataTable GetBookEquipmentList(string type)
+        public static DataTable GetBookEquipment(string type)
         {
             var dt = new DataTable();
 
-            bookEquipmentList = EquipmentModel.GetAllEquipment(type).ToList();
+            bookEquipmentList = EquipmentAndInventoryModel.GetAllEquipment(type).ToList();
 
             if (bookEquipmentList.Count == 0)
             {
@@ -164,9 +161,126 @@
             return dt;
         }
 
-        #endregion
+        public static DataTable GetSuperEquipment()
+        {
+            var dt = new DataTable();
+
+            equipmentList = EquipmentAndInventoryModel.GetAllEquipment(null).ToList();
+            inventoryList = EquipmentAndInventoryModel.GetAllInventory(null, true).ToList();
+
+            if (equipmentList.Count == 0)
+            {
+                dt.Rows.Add(dt.NewRow());
+            }
+
+            foreach (var e in equipmentList)
+            {
+                dt.Rows.Add(dt.NewRow());
+            }
+
+            foreach (var i in inventoryList)
+            {
+                dt.Rows.Add(dt.NewRow());
+            }
+
+            return dt;
+        }
+
+        public static DataTable GetRoomInventory(int roomID)
+        {
+            var dt = new DataTable();
+
+            changeRoom = RoomModel.GetRoomByID(roomID);
+            roomInventoryList = EquipmentAndInventoryModel.GetAllInventory(null, false).ToList();
+
+            if (changeRoom.Inventories.Count() + roomInventoryList.Count == 0)
+            {
+                dt.Rows.Add(dt.NewRow());
+            }
+
+            foreach (var i in changeRoom.Inventories)
+            {
+                dt.Rows.Add(dt.NewRow());
+            }
+
+            foreach (var i in roomInventoryList)
+            {
+                dt.Rows.Add(dt.NewRow());
+            }
+
+            return dt;
+        }
+        #endregion Get Different DataTables
 
         #region Update Grid Methods
+
+        public static void UpdateRoomInventoryGrid(GridView gv)
+        {
+            if (roomInventoryList.Count + changeRoom.Inventories.Count() == 0 || roomInventoryList.Count + changeRoom.Inventories.Count() != gv.Rows.Count)
+            {
+                return;
+            }
+
+            int i;
+            for (i = 0; i < changeRoom.Inventories.Count(); i++)
+            {
+                var row = gv.Rows[i];
+                var inventory = changeRoom.Inventories[i];
+                row.BackColor = Color.LightGray;
+                row.Cells[0].Text = inventory.ProductName;
+                row.Cells[1].Text = inventory.InventoryType.Type;
+                row.Cells[2].Text = inventory.Status;
+            }
+
+            for (var j = i; j - i < roomInventoryList.Count; j++)
+            {
+                var row = gv.Rows[j];
+                var inventory = roomInventoryList[j - i];
+                row.Cells[0].Text = inventory.ProductName;
+                row.Cells[1].Text = inventory.InventoryType.Type;
+                row.Cells[2].Text = inventory.Status;
+            }
+        }
+
+        public static void UpdateSuperEquipment(GridView gv)
+        {
+            if (inventoryList.Count + equipmentList.Count == 0)
+            {
+                return;
+            }
+
+            if (inventoryList.Count + equipmentList.Count != gv.Rows.Count)
+            {
+                return;
+            }
+
+            int i;
+
+            for (i = 0; i < inventoryList.Count; i++)
+            {
+                var row = gv.Rows[i];
+                var inventory = inventoryList[i];
+                row.Cells[0].Text = inventory.ProductName;
+                row.Cells[1].Text = inventory.InventoryType.Type;
+                row.Cells[2].Text = inventory.Status;
+            }
+
+            // Insert thick line inventory already selected
+            if (i > 0)
+            {
+                gv.Rows[i - 1].CssClass = "BorderRow";
+            }
+
+            for (var j = i; j - i < equipmentList.Count; j++)
+            {
+                var row = gv.Rows[j];
+                var equipment = equipmentList[j - i];
+                row.Cells[0].Text = equipment.ProductName;
+                row.Cells[1].Text = equipment.EquipmentType.Type;
+                row.Cells[2].Text = equipment.Status;
+            }
+
+        }
 
         public static void UpdateBookEquipmentGrid(GridView gv, int bookingID)
         {
@@ -174,8 +288,6 @@
             {
                 return;
             }
-
-            gv.Rows[0].Cells[0].Text = "ohhhh yeee";
 
             var b = BookingModel.GetBooking(bookingID);
 
@@ -195,7 +307,8 @@
                             var tc = cb.Parent as TableCell;
                             if (tc != null)
                             {
-                                if (ec.Booking.PersonID == b.PersonID)
+                                var ecpID = ec.Booking.PersonID;
+                                if (PersonModel.loggedInUser != null && ecpID == PersonModel.loggedInUser.ID)
                                 {
                                     tc.BackColor = Color.Blue;
                                     cb.Checked = true;
@@ -251,7 +364,7 @@
                 var b = yourBookingList[i];
                 gv.Rows[i].Cells[0].Text = b.Room.Name;
                 gv.Rows[i].Cells[1].Text = b.NumberOfParticipants.ToString();
-                gv.Rows[i].Cells[2].Text = b.StartTime.Date + " " + b.StartTime.Hour.ToString() + "-" + b.EndTime.Hour;
+                gv.Rows[i].Cells[2].Text = b.StartTime.Date.ToShortDateString() + " " + b.StartTime.Hour.ToString() + "-" + b.EndTime.Hour;
                 gv.Rows[i].Cells[3].Text = b.Status;
             }
         }
@@ -325,16 +438,6 @@
             }
         }
 
-        public static void UpdateInventoryGrid(GridView gv)
-        {
-
-        }
-
-        public static void UpdateRoomGrid(GridView gv)
-        {
-
-        }
-
         public static void UpdateSuperRoomGrid(GridView gv)
         {
             if (superRoomList.Count == 0)
@@ -369,7 +472,7 @@
             }
         }
 
-        #endregion
+        #endregion Update Grid Methods
 
         #region Other Methods
 
@@ -388,7 +491,18 @@
             return false;
         }
 
-        #endregion
+        public static List<String> GetEquipmentTypes()
+        {
+            var etList = new List<string> { "Alle" };
+
+            var eTypes = EquipmentAndInventoryModel.GetEquipmentTypes();
+
+            etList.AddRange(eTypes.Select(et => et.Type));
+
+            return etList;
+        }
+
+        #endregion Other Methods
 
         #endregion
     }

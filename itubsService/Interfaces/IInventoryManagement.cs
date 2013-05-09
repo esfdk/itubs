@@ -26,6 +26,6 @@
         RequestStatus GetInventoryTypes(out IEnumerable<InventoryType> types);
 
         [OperationContract]
-        RequestStatus GetInventoryItems(string type, bool includeAssigned, out IEnumerable<Inventory> items);
+        RequestStatus GetAllInventory(string type, bool includeAssigned, out IEnumerable<Inventory> items);
     }
 }

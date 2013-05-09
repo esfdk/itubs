@@ -66,7 +66,9 @@ SET IDENTITY_INSERT [dbo].[Inventories] OFF
 SET IDENTITY_INSERT [dbo].[Bookings] ON
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (1,'Godkendt',30,'Møde','2013-05-15 12:00:00', '2013-05-15T15:00:00', 3, 2)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (2,'Pending',50,'Møde','2013-06-10T16:00:00', '2013-06-10T18:00:00', 4, 2)
-INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (3,'Godkendt',100,'Forlæsning','2013-06-02T15:00:00', '2013-06-02T18:00:00', 5, 3)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (3,'Godkendt',100,'Forlæsning','2013-06-02T15:00:00', '2013-06-02T18:00:00', 4, 3)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (4,'Godkendt',50,'Møde','2013-06-10T14:00:00', '2013-06-10T15:00:00', 3, 2)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (5,'Godkendt',50,'Møde','2013-06-10T10:00:00', '2013-06-10T18:00:00', 2, 3)
 SET IDENTITY_INSERT [dbo].[Bookings] OFF
 
 -- Choices

@@ -170,11 +170,11 @@
   <wsdl:message name="IInventoryManagement_GetInventoryTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetInventoryTypesResponse" />
   </wsdl:message>
-  <wsdl:message name="IInventoryManagement_GetInventoryItems_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetInventoryItems" />
+  <wsdl:message name="IInventoryManagement_GetAllInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInventory" />
   </wsdl:message>
-  <wsdl:message name="IInventoryManagement_GetInventoryItems_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetInventoryItemsResponse" />
+  <wsdl:message name="IInventoryManagement_GetAllInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInventoryResponse" />
   </wsdl:message>
   <wsdl:message name="IRoomManagement_AddRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:AddRoom" />
@@ -375,9 +375,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryTypes" message="tns:IInventoryManagement_GetInventoryTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryTypesResponse" message="tns:IInventoryManagement_GetInventoryTypes_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetInventoryItems">
-      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryItems" message="tns:IInventoryManagement_GetInventoryItems_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/GetInventoryItemsResponse" message="tns:IInventoryManagement_GetInventoryItems_OutputMessage" />
+    <wsdl:operation name="GetAllInventory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryManagement/GetAllInventory" message="tns:IInventoryManagement_GetAllInventory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryManagement/GetAllInventoryResponse" message="tns:IInventoryManagement_GetAllInventory_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IRoomManagement">
@@ -694,8 +694,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetInventoryItems">
-      <soap:operation soapAction="http://tempuri.org/IInventoryManagement/GetInventoryItems" style="document" />
+    <wsdl:operation name="GetAllInventory">
+      <soap:operation soapAction="http://tempuri.org/IInventoryManagement/GetAllInventory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

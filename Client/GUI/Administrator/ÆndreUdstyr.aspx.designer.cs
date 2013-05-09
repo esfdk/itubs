@@ -40,15 +40,6 @@ namespace Client.GUI.Administrator {
         protected global::System.Web.UI.WebControls.CheckBox KanUdlånesCheckBox;
         
         /// <summary>
-        /// InventarCheckBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox InventarCheckBox;
-        
-        /// <summary>
         /// UdstyrsTypeDropDown control.
         /// </summary>
         /// <remarks>

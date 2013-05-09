@@ -9,6 +9,11 @@ namespace Client.GUI.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (PersonModel.loggedInUser == null)
+            {
+                this.Response.Redirect("~/GUI/User/Lokaleliste.aspx");
+            }
+
             if (!this.Page.IsPostBack)
             {
                 this.GridView1.DataSource = DataTables.GetYourBookings();
@@ -18,8 +23,7 @@ namespace Client.GUI.User
 
         protected void GridView_OnDataBound(object sender, EventArgs e)
         {
-
-
+            DataTables.UpdateYourBookingsGrid(GridView1);
         }
 
         protected void UdstyrButton_Click(object sender, EventArgs e)
@@ -29,7 +33,7 @@ namespace Client.GUI.User
 
         protected void ÆndreBookButton_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect("LokaleListe.aspx");
+            this.Response.Redirect("RoomList.aspx");
         }
 
         protected void SletBookingButton_Click(object sender, EventArgs e)
@@ -47,9 +51,14 @@ namespace Client.GUI.User
             this.Response.Redirect("DineBookinger.aspx");
         }
 
-        protected void GridView1_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
         {
-
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onmouseover"] = "this.style.cursor='pointer';";
+                e.Row.ToolTip = "Click to select row";
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
+            }
         }
     }
 }

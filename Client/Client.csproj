@@ -92,7 +92,7 @@
     <Content Include="GUI\User\BookUdstyr.aspx" />
     <Content Include="GUI\User\DineBookinger.aspx" />
     <Content Include="GUI\User\Forplejning.aspx" />
-    <Content Include="GUI\User\LokaleListe.aspx" />
+    <Content Include="GUI\User\RoomList.aspx" />
     <None Include="Service References\BookItService\Client.BookItService.Booking.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -235,12 +235,12 @@
     <Compile Include="GUI\User\Forplejning.aspx.designer.cs">
       <DependentUpon>Forplejning.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\User\LokaleListe.aspx.cs">
-      <DependentUpon>LokaleListe.aspx</DependentUpon>
+    <Compile Include="GUI\User\RoomList.aspx.cs">
+      <DependentUpon>RoomList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\User\LokaleListe.aspx.designer.cs">
-      <DependentUpon>LokaleListe.aspx</DependentUpon>
+    <Compile Include="GUI\User\RoomList.aspx.designer.cs">
+      <DependentUpon>RoomList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\BookingModel.cs" />
     <Compile Include="Model\CateringModel.cs" />
@@ -248,14 +248,16 @@
     <Compile Include="Model\PersonModel.cs" />
     <Compile Include="Model\RoomModel.cs" />
     <Compile Include="Model\ServiceClients.cs" />
-    <Compile Include="Model\Types\EquipmentModel.cs" />
-    <Compile Include="Model\Types\RequestResult.cs" />
+    <Compile Include="Model\EquipmentAndInventoryModel.cs" />
+    <Compile Include="Types\RequestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\BookItService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\MasterViewModel.cs" />
+    <Compile Include="ViewModel\RoomListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

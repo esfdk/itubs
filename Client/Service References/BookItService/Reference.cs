@@ -1694,8 +1694,8 @@ namespace Client.BookItService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryManagement/GetInventoryTypes", ReplyAction="http://tempuri.org/IInventoryManagement/GetInventoryTypesResponse")]
         Client.BookItService.RequestStatus GetInventoryTypes(out Client.BookItService.InventoryType[] types);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryManagement/GetInventoryItems", ReplyAction="http://tempuri.org/IInventoryManagement/GetInventoryItemsResponse")]
-        Client.BookItService.RequestStatus GetInventoryItems(out Client.BookItService.Inventory[] items, string type, bool includeAssigned);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryManagement/GetAllInventory", ReplyAction="http://tempuri.org/IInventoryManagement/GetAllInventoryResponse")]
+        Client.BookItService.RequestStatus GetAllInventory(out Client.BookItService.Inventory[] items, string type, bool includeAssigned);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1745,8 +1745,8 @@ namespace Client.BookItService {
             return base.Channel.GetInventoryTypes(out types);
         }
         
-        public Client.BookItService.RequestStatus GetInventoryItems(out Client.BookItService.Inventory[] items, string type, bool includeAssigned) {
-            return base.Channel.GetInventoryItems(out items, type, includeAssigned);
+        public Client.BookItService.RequestStatus GetAllInventory(out Client.BookItService.Inventory[] items, string type, bool includeAssigned) {
+            return base.Channel.GetAllInventory(out items, type, includeAssigned);
         }
     }
     

@@ -24,7 +24,7 @@
             </div>
             <div class="clear hideSkiplink">
                 <asp:Panel runat="server">
-                    <asp:Button ID="MenuButton_LokaleListe" CssClass="availableButton" Text="LokaleListe" OnClick="MenuButton_LokaleListe_OnClick" runat="server"/>
+                    <asp:Button ID="MenuButton_LokaleListe" CssClass="availableButton" Text="RoomList" OnClick="MenuButton_LokaleListe_OnClick" runat="server"/>
                     <asp:Button ID="MenuButton_DineBookinger" CssClass="availableButton" Text="Dine bookinger" OnClick="MenuButton_DineBookinger_OnClick" runat="server"/>
                     <asp:Button ID="MenuButton_UdstyrsListe" CssClass="availableButton" Text="Udstyrsliste" OnClick="MenuButton_UdstyrsListe_OnClick" runat="server"/>
                     <asp:Button ID="MenuButton_BookingListe" CssClass="availableButton" Text="Booking-liste" OnClick="MenuButton_BookingListe_OnClick" runat="server" />

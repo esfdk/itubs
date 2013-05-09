@@ -413,7 +413,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetInventoryItems">
+  <xs:element name="GetAllInventory">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
@@ -421,10 +421,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetInventoryItemsResponse">
+  <xs:element name="GetAllInventoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetInventoryItemsResult" type="q70:RequestStatus" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetAllInventoryResult" type="q70:RequestStatus" />
         <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="items" nillable="true" type="q71:ArrayOfInventory" />
       </xs:sequence>
     </xs:complexType>

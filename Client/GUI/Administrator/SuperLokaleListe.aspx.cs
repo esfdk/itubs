@@ -9,7 +9,7 @@ namespace Client.GUI.Administrator
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SletLokaleButton.OnClientClick = "return confirmRoomDeletion('" + GridView1.SelectedIndex + "')";
+            SletLokaleButton.OnClientClick = "return confirmRoomDeletion()";
             if (!IsPostBack)
             {
                 GridView1.DataSource = DataTables.GetSuperRooms();

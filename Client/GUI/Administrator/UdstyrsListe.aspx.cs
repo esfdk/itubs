@@ -1,12 +1,21 @@
 namespace Client.GUI.Administrator
 {
     using System;
+    using System.Web.UI.WebControls;
+
+    using Client.Model;
 
     public partial class About : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            GridView1.DataSource = DataTables.GetSuperEquipment();
+            GridView1.DataBind();
+        }
 
+        protected void GridView_OnDataBound(object sender, EventArgs e)
+        {
+            DataTables.UpdateSuperEquipment(GridView1);
         }
 
         protected void ÆndreUdstyrButton_Click(object sender, EventArgs e)
@@ -30,9 +39,14 @@ namespace Client.GUI.Administrator
             this.Response.Redirect("UdstyrsListe.aspx");
         }
 
-        protected void UdlånCheckBox_CheckedChanged(object sender, EventArgs e)
+        protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
         {
-
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onmouseover"] = "this.style.cursor='pointer';";
+                e.Row.ToolTip = "Click to select row";
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
+            }
         }
     }
 }

@@ -14,14 +14,9 @@
     <p>
         Kan udlånes:<asp:CheckBox ID="KanUdlånesCheckBox" 
             runat="server" />
-&nbsp;Inventar:
-        <asp:CheckBox ID="InventarCheckBox" runat="server" />
-    </p>
+&nbsp;</p>
     <p>Udstyrstype
         <asp:DropDownList ID="UdstyrsTypeDropDown" runat="server">
-            <asp:ListItem>Projektor</asp:ListItem>
-            <asp:ListItem></asp:ListItem>
-            <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
     </p>
     <p>

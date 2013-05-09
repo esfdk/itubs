@@ -23,13 +23,12 @@
         <tr>
             <td class="style3">
                 
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" 
-                                GridLines="Both" Width="451px">
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" GridLines="Both" Width="451px" OnRowCreated="GridView_RowCreated">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                 <Columns>
                                     <asp:BoundField HeaderText="Navn" />
-                                    <asp:BoundField HeaderText="Kommentar" />
-                                    <asp:TemplateField HeaderText="Type"></asp:TemplateField>
+                                    <asp:BoundField HeaderText="Type" />
+                                    <asp:BoundField HeaderText="Status" />
                                 </Columns>
                                 <EditRowStyle BackColor="#999999" />
                                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

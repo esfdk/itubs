@@ -11,11 +11,17 @@ namespace Client.GUI.User
         {
             if (!this.Page.IsPostBack)
             {
-                /*
-                var bookingIDstring = Request.QueryString["bookingID"];
-                var bookingID = int.Parse(bookingIDstring);*/
-                this.GridView1.DataSource = DataTables.GetCaterings(1);
-                this.GridView1.DataBind();
+                int bookingID;
+                if (int.TryParse(Request.QueryString["bookingID"], out bookingID))
+                {
+                    this.GridView1.DataSource = DataTables.GetCaterings(bookingID);
+                    this.GridView1.DataBind();
+                }
+                else
+                {
+                    this.Response.Write("<script>alert('{Der skete en fejl.}');</script>");
+                    this.Response.Redirect("DineBookinger.aspx");
+                }
             }
         }
 

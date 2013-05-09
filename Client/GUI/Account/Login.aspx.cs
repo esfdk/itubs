@@ -35,7 +35,7 @@ namespace Client.GUI.Account
                     return;
 
                 case RequestResult.Success:
-                    this.Response.Redirect("~/GUI/User/LokaleListe.aspx");
+                    this.Response.Redirect("~/GUI/User/RoomList.aspx");
                     break;
 
                 case RequestResult.CommunicationFailure:

@@ -2,25 +2,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<h2>Ændre Udstyr i lokale</h2>
+<h2>Ændre Lokale</h2>
     <p>Navn
-        <asp:TextBox ID="LokaleNavnTextBox" runat="server" ReadOnly="True"></asp:TextBox>
+        <asp:TextBox ID="LokaleNavnTextBox" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp; Kapacitet
-        <asp:TextBox ID="KapacitetTextBox" runat="server" 
-            ontextchanged="TextBox5_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="KapacitetTextBox" runat="server" OnTextChanged="KapacitetTextBox_TextChanged"></asp:TextBox>
+        <asp:Button ID="SaveButton" runat="server" onclick="SaveButton_Click" 
+            style="margin-left: 21px" Text="Gem" Width="78px" Height="21px" />
     </p>
-    <asp:Panel ID="Panel1" runat="server" Height="251px" style="margin-left: 27px" 
-        Width="794px">
-
-                <h3>Tilføj udstyr:</h3>
-
-                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" 
-                    ForeColor="#333333" Width="512px">
+    <asp:Panel ID="Panel1" runat="server" Height="251px" style="margin-left: 27px" Width="794px">
+                <h3>udstyr:</h3>
+                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" ForeColor="#333333" Width="512px">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Navn" />
-                            <asp:BoundField HeaderText="Kommentar" />
                             <asp:BoundField HeaderText="Type" />
+                            <asp:BoundField HeaderText="Status" />
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -33,11 +30,7 @@
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
     </asp:Panel>
-    <asp:Button ID="FjernUdstyrButton" runat="server" Text="Fjern udstyr" 
-        CssClass="availableButton" onclick="FjernUdstyr_Click" />
-                        &nbsp;<asp:Button ID="TilføjUdstyrButton" runat="server" Text="Tilføj udstyr" 
-                            onclick="TilføjUdstyr_Click" 
-        CssClass="availableButton" />
-    &nbsp;<asp:Button ID="AfslutButton" runat="server" Text="Afslut" 
+    <asp:Button ID="AddRemoveButton" runat="server" CssClass="availableButton" onclick="AddRemove_Click" />
+                        &nbsp;&nbsp;<asp:Button ID="AfslutButton" runat="server" Text="Afslut" 
         CssClass="availableButton" onclick="Afslut_Click"/>
 </asp:Content>

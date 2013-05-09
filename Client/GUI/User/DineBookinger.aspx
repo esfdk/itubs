@@ -4,15 +4,11 @@
     <h2>
         Dine bookinger
     </h2>
-    <p>
-    </p>
-    <p>
         &nbsp;&nbsp;
         <table class="style1">
             <tr>
                 <td class="style2">
-                    <asp:GridView ID="GridView1" OnRowDataBound="GridView1_OnRowDataBound" runat="server" CellPadding="4" ForeColor="#333333" 
-                        Width="674px" OnDataBound="GridView_OnDataBound">
+                    <asp:GridView ID="GridView1" OnRowDataBound="GridView_OnRowCreated" runat="server" CellPadding="4" ForeColor="#333333" Width="674px" OnDataBound="GridView_OnDataBound">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Lokale" />
@@ -69,7 +65,6 @@
                 </td>
             </tr>
         </table>
-    </p>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="HeadContent">
     <style type="text/css">
