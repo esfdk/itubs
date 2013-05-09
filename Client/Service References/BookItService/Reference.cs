@@ -378,7 +378,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Role", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Role", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Role : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -721,7 +721,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EquipmentChoice", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EquipmentChoice", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class EquipmentChoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -987,7 +987,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Equipment", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Equipment", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Equipment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1112,7 +1112,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EquipmentType", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EquipmentType", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class EquipmentType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1189,7 +1189,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Inventory", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Inventory", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Inventory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1330,7 +1330,7 @@ namespace Client.BookItService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="InventoryType", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InventoryType", Namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class InventoryType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1855,7 +1855,7 @@ namespace Client.BookItService {
         Client.BookItService.RequestStatus GetEquipmentTypes(out Client.BookItService.EquipmentType[] types);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEquipmentManagement/GetAllEquipment", ReplyAction="http://tempuri.org/IEquipmentManagement/GetAllEquipmentResponse")]
-        Client.BookItService.RequestStatus GetAllEquipment(string type, Client.BookItService.Equipment[] items);
+        Client.BookItService.RequestStatus GetAllEquipment(out Client.BookItService.Equipment[] items, string type);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1909,8 +1909,8 @@ namespace Client.BookItService {
             return base.Channel.GetEquipmentTypes(out types);
         }
         
-        public Client.BookItService.RequestStatus GetAllEquipment(string type, Client.BookItService.Equipment[] items) {
-            return base.Channel.GetAllEquipment(type, items);
+        public Client.BookItService.RequestStatus GetAllEquipment(out Client.BookItService.Equipment[] items, string type) {
+            return base.Channel.GetAllEquipment(out items, type);
         }
     }
 }

@@ -79,6 +79,8 @@
       <xs:element minOccurs="0" name="People" nillable="true" type="tns:ArrayOfPerson" />
       <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Role" nillable="true" type="tns:Role" />
   <xs:complexType name="ArrayOfPerson">
@@ -87,49 +89,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
-  <xs:complexType name="EquipmentChoice">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Booking" nillable="true" type="tns:Booking" />
-      <xs:element minOccurs="0" name="BookingID" type="xs:int" />
-      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Equipment" nillable="true" type="tns:Equipment" />
-      <xs:element minOccurs="0" name="EquipmentID" type="xs:int" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="EquipmentChoice" nillable="true" type="tns:EquipmentChoice" />
-  <xs:complexType name="Equipment">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="EquipmentChoices" nillable="true" type="tns:ArrayOfEquipmentChoice" />
-      <xs:element minOccurs="0" name="EquipmentType" nillable="true" type="tns:EquipmentType" />
-      <xs:element minOccurs="0" name="EquipmentTypeID" type="xs:int" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Equipment" nillable="true" type="tns:Equipment" />
-  <xs:complexType name="ArrayOfEquipmentChoice">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquipmentChoice" nillable="true" type="tns:EquipmentChoice" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfEquipmentChoice" nillable="true" type="tns:ArrayOfEquipmentChoice" />
-  <xs:complexType name="EquipmentType">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Equipments" nillable="true" type="tns:ArrayOfEquipment" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="EquipmentType" nillable="true" type="tns:EquipmentType" />
-  <xs:complexType name="ArrayOfEquipment">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Equipment" nillable="true" type="tns:Equipment" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfEquipment" nillable="true" type="tns:ArrayOfEquipment" />
   <xs:complexType name="Room">
     <xs:sequence>
       <xs:element minOccurs="0" name="Bookings" nillable="true" type="tns:ArrayOfBooking" />
@@ -158,6 +117,8 @@
       <xs:element minOccurs="0" name="RoomID" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Inventory" nillable="true" type="tns:Inventory" />
   <xs:complexType name="InventoryType">
@@ -166,8 +127,59 @@
       <xs:element minOccurs="0" name="Inventories" nillable="true" type="tns:ArrayOfInventory" />
       <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
     </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="InventoryType" nillable="true" type="tns:InventoryType" />
+  <xs:complexType name="EquipmentChoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Booking" nillable="true" type="tns:Booking" />
+      <xs:element minOccurs="0" name="BookingID" type="xs:int" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Equipment" nillable="true" type="tns:Equipment" />
+      <xs:element minOccurs="0" name="EquipmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="EquipmentChoice" nillable="true" type="tns:EquipmentChoice" />
+  <xs:complexType name="Equipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EquipmentChoices" nillable="true" type="tns:ArrayOfEquipmentChoice" />
+      <xs:element minOccurs="0" name="EquipmentType" nillable="true" type="tns:EquipmentType" />
+      <xs:element minOccurs="0" name="EquipmentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Equipment" nillable="true" type="tns:Equipment" />
+  <xs:complexType name="ArrayOfEquipmentChoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquipmentChoice" nillable="true" type="tns:EquipmentChoice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipmentChoice" nillable="true" type="tns:ArrayOfEquipmentChoice" />
+  <xs:complexType name="EquipmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Equipments" nillable="true" type="tns:ArrayOfEquipment" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="EquipmentType" nillable="true" type="tns:EquipmentType" />
+  <xs:complexType name="ArrayOfEquipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Equipment" nillable="true" type="tns:Equipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipment" nillable="true" type="tns:ArrayOfEquipment" />
   <xs:complexType name="ArrayOfRole">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />

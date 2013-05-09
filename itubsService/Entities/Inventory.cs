@@ -3,9 +3,13 @@ namespace ITubsService.Entities
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
     using ITubsService.Enums;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(Room))]
+    [KnownType(typeof(InventoryType))]
     public class Inventory
     {
         public static IEnumerable<Inventory> All
@@ -71,12 +75,19 @@ namespace ITubsService.Entities
             ItubsContext.Db.SaveChanges();
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public string ProductName { get; set; }
+        [DataMember]
         public string Status { get; set; }
+        [DataMember]
         public int InventoryTypeID { get; set; }
+        [DataMember]
         public Nullable<int> RoomID { get; set; }
+        [DataMember]
         public virtual InventoryType InventoryType { get; set; }
+        [DataMember]
         public virtual Room Room { get; set; }
     }
 }

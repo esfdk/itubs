@@ -632,14 +632,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
-        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="items" nillable="true" type="q107:ArrayOfEquipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllEquipmentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetAllEquipmentResult" type="q108:RequestStatus" />
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetAllEquipmentResult" type="q107:RequestStatus" />
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="items" nillable="true" type="q108:ArrayOfEquipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

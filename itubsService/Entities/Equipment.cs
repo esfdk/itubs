@@ -2,9 +2,13 @@ namespace ITubsService.Entities
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
     using ITubsService.Enums;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(EquipmentChoice))]
+    [KnownType(typeof(EquipmentType))]
     public class Equipment
     {
         public Equipment()
@@ -16,7 +20,7 @@ namespace ITubsService.Entities
         {
             get
             {
-                return ItubsContext.Db.Equipments.Include("EquipmentChoices").ToList();
+                return ItubsContext.Db.Equipments.Include("EquipmentChoices").Include("EquipmentType").ToList();
             }
         }
 
@@ -80,11 +84,17 @@ namespace ITubsService.Entities
             return RequestStatus.Success;
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public string ProductName { get; set; }
+        [DataMember]
         public string Status { get; set; }
+        [DataMember]
         public int EquipmentTypeID { get; set; }
+        [DataMember]
         public virtual ICollection<EquipmentChoice> EquipmentChoices { get; set; }
+        [DataMember]
         public virtual EquipmentType EquipmentType { get; set; }
     }
 }

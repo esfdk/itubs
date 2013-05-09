@@ -4,9 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <h2>Book udstyr</h2>
     <p>&nbsp;
-        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/BlåBoks.png" />
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/GUI/Images/BlåBoks.png" />
 &nbsp;= Dine bookinger&nbsp;&nbsp;&nbsp;
-        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/RødBoks.png" />
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" />
 &nbsp;= Ikke til rådighed</p>
     <p>Udstyrstype
         <asp:DropDownList ID="UdstyrsTypeDropDown" runat="server">
@@ -15,37 +15,36 @@
         <asp:TextBox ID="LokaleTextBox" runat="server" ReadOnly="True"></asp:TextBox>
 &nbsp;Dato:
         <asp:TextBox ID="DatoTextBox" runat="server" ReadOnly="True"></asp:TextBox>
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333">
+        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
             <asp:BoundField HeaderText="Navn" />
-                <asp:BoundField HeaderText="Type" />
-            <asp:BoundField HeaderText="Kommentar" />
-<asp:TemplateField HeaderText="09:00">
-                    <ItemTemplate>
-                            <asp:CheckBox ID="CheckBox9" runat="server"/>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="10:00" >
-                    <ItemTemplate>
-                            <asp:CheckBox ID="CheckBox10" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="11:00" >
-                    <ItemTemplate>
-                            <asp:CheckBox ID="CheckBox11" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="12:00" >
-                    <ItemTemplate>
-                            <asp:CheckBox ID="CheckBox12" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="13:00" >
-                    <ItemTemplate>
-                            <asp:CheckBox ID="CheckBox13" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
+            <asp:BoundField HeaderText="Type" />
+            <asp:TemplateField HeaderText="09:00">
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBox9" runat="server"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="10:00" >
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBox10" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="11:00" >
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBox11" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="12:00" >
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBox12" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="13:00" >
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBox13" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
                 <asp:TemplateField HeaderText="14:00" >
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox14" runat="server" />

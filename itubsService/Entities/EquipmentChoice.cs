@@ -3,25 +3,36 @@ namespace ITubsService.Entities
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
     using ITubsService.Enums;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(Booking))]
+    [KnownType(typeof(Equipment))]
     public class EquipmentChoice
     {
         public static IEnumerable<EquipmentChoice> All
         {
             get
             {
-                return ItubsContext.Db.EquipmentChoices.ToList();
+                return ItubsContext.Db.EquipmentChoices.Include("Booking").Include("Equipment").ToList();
             }
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public DateTime StartTime { get; set; }
+        [DataMember]
         public DateTime EndTime { get; set; }
+        [DataMember]
         public int BookingID { get; set; }
+        [DataMember]
         public int EquipmentID { get; set; }
+        [DataMember]
         public virtual Booking Booking { get; set; }
+        [DataMember]
         public virtual Equipment Equipment { get; set; }
 
         public static EquipmentChoice GetEquipmentChoiceByID(int id)

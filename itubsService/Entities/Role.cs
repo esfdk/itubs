@@ -2,7 +2,10 @@ namespace ITubsService.Entities
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(Person))]
     public class Role
     {
         public Role()
@@ -18,8 +21,11 @@ namespace ITubsService.Entities
             }
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public string RoleName { get; set; }
+        [DataMember]
         public virtual ICollection<Person> People { get; set; }
     }
 }

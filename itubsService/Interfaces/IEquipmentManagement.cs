@@ -28,6 +28,6 @@ namespace ITubsService.Interfaces
         RequestStatus GetEquipmentTypes(out IEnumerable<EquipmentType> types);
 
         [OperationContract]
-        RequestStatus GetAllEquipment(string type, IEnumerable<Equipment> items);
+        RequestStatus GetAllEquipment(string type, out IEnumerable<Equipment> items);
     }
 }

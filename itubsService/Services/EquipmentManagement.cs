@@ -102,9 +102,9 @@
             return types != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
-        public RequestStatus GetAllEquipment(string type, IEnumerable<Equipment> items)
+        public RequestStatus GetAllEquipment(string type, out IEnumerable<Equipment> items)
         {
-            items = string.IsNullOrWhiteSpace(type) ? Equipment.All.Where(e => e.EquipmentType.Type.Equals(type)) : Equipment.All;
+            items = !string.IsNullOrWhiteSpace(type) ? Equipment.All.Where(e => e.EquipmentType.Type.Equals(type)) : Equipment.All;
 
             return items != null ? RequestStatus.Success : RequestStatus.Error;
         }

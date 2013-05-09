@@ -80,5 +80,5 @@ SET IDENTITY_INSERT [dbo].[CateringChoices] OFF
 SET IDENTITY_INSERT [dbo].[EquipmentChoices] ON
 INSERT [dbo].[EquipmentChoices] ([ID], [StartTime], [EndTime], [BookingID], [EquipmentID]) VALUES (1, '2013-05-15 12:00:00', '2013-05-15 15:00:00', 1,1)
 INSERT [dbo].[EquipmentChoices] ([ID], [StartTime], [EndTime], [BookingID], [EquipmentID]) VALUES (2, '2013-06-10 10:00:00', '2013-06-10 13:00:00', 2,2)
-INSERT [dbo].[EquipmentChoices] ([ID], [StartTime], [EndTime], [BookingID], [EquipmentID]) VALUES (3, '2013-06-10 14:00:00', '2013-06-10 15:00:00', 2,3)
+INSERT [dbo].[EquipmentChoices] ([ID], [StartTime], [EndTime], [BookingID], [EquipmentID]) VALUES (3, '2013-06-10 14:00:00', '2013-06-10 15:00:00', 3,2)
 SET IDENTITY_INSERT [dbo].[EquipmentChoices] OFF

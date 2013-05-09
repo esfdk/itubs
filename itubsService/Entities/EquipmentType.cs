@@ -2,7 +2,10 @@ namespace ITubsService.Entities
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(Equipment))]
     public class EquipmentType
     {
         public EquipmentType()
@@ -18,8 +21,11 @@ namespace ITubsService.Entities
             }
         }
 
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public string Type { get; set; }
+        [DataMember]
         public virtual ICollection<Equipment> Equipments { get; set; }
     }
 }

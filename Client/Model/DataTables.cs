@@ -8,6 +8,7 @@
     using System.Web.UI.WebControls;
 
     using Client.BookItService;
+    using Client.Model.Types;
 
     public static class DataTables
     {
@@ -121,6 +122,26 @@
             return dt;
         }
 
+        public static DataTable GetBookEquipmentList(string type)
+        {
+            var dt = new DataTable();
+
+            bookEquipmentList = EquipmentModel.GetAllEquipment(type).ToList();
+
+            if (bookEquipmentList.Count == 0)
+            {
+                dt.Rows.Add(dt.NewRow());
+                return dt;
+            }
+
+            foreach (var r in bookEquipmentList)
+            {
+                dt.Rows.Add(dt.NewRow());
+            }
+
+            return dt;
+        }
+
         public static DataTable GetFindBookings(int bookingID)
         {
             var dt = new DataTable();
@@ -147,7 +168,50 @@
 
         #region Update Grid Methods
 
-        public static void UpdateFindBookings(GridView gv)
+        public static void UpdateBookEquipmentGrid(GridView gv, int bookingID)
+        {
+            if (bookEquipmentList == null || bookEquipmentList.Count == 0 || gv.Rows.Count != bookEquipmentList.Count)
+            {
+                return;
+            }
+
+            gv.Rows[0].Cells[0].Text = "ohhhh yeee";
+
+            var b = BookingModel.GetBooking(bookingID);
+
+            for (var i = 0; i < bookEquipmentList.Count; i++)
+            {
+                var e = bookEquipmentList[i];
+                gv.Rows[i].Cells[0].Text = e.ProductName;
+                gv.Rows[i].Cells[1].Text = e.EquipmentType.Type;
+
+                foreach (var ec in e.EquipmentChoices.Where(d => d.StartTime.Date == b.StartTime.Date).Where(ec => ec.StartTime.Hour < ec.EndTime.Hour))
+                {
+                    for (var j = ec.StartTime.Hour; j < ec.EndTime.Hour; j++)
+                    {
+                        var cb = gv.Rows[i].FindControl("CheckBox" + j) as CheckBox;
+                        if (cb != null)
+                        {
+                            var tc = cb.Parent as TableCell;
+                            if (tc != null)
+                            {
+                                if (ec.Booking.PersonID == b.PersonID)
+                                {
+                                    tc.BackColor = Color.Blue;
+                                    cb.Checked = true;
+                                }
+                                else
+                                {
+                                    tc.BackColor = Color.Red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void UpdateFindBookingsGrid(GridView gv)
         {
             if (findBookingList.Count == 0)
             {
@@ -325,6 +389,7 @@
         }
 
         #endregion
+
         #endregion
     }
 }

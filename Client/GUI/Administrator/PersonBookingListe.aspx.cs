@@ -39,7 +39,7 @@ namespace Client.GUI.Administrator
 
         protected void GridView_OnDataBound(object sender, EventArgs e)
         {
-            DataTables.UpdateFindBookings(GridView1);
+            DataTables.UpdateFindBookingsGrid(this.GridView1);
         }
 
         protected void GodkendBooking_Click(object sender, EventArgs e)
