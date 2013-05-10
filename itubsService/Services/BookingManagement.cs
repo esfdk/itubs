@@ -64,7 +64,10 @@
                 return RequestStatus.AccessDenied;
             }
 
+            newBooking.PersonID = p.ID;
+
             newBooking = Booking.CreateNewBooking(newBooking);
+
             return newBooking != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 

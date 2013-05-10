@@ -104,7 +104,7 @@
                     return true;
                 }
 
-                if (cb.Checked)
+                if (gvr.Cells[i].BackColor != Color.Blue && cb.Checked)
                 {
                     return true;
                 }
@@ -113,21 +113,96 @@
             return false;
         }
 
-        public static bool CreateAndUpdateBookings(GridViewRow gvr, int rowID, DateTime date, out bool BookingWasUpdated)
+        public static RequestResult CreateOrUpdateBooking(GridViewRow gvr, int rowID, DateTime date, out bool wasAChange)
         {
-            BookingWasUpdated = false;
+            wasAChange = false;
+            var status = PersonModel.loggedInUser.Roles.Any(r => r.RoleName.Equals("Administrator"))
+                            ? "Accepted"
+                            : "Pending";
+
+            var b = new Booking
+            {
+                PersonID = MasterViewModel.LoggedInUserID(),
+                RoomID = roomList[rowID].ID,
+                Comments = string.Empty,
+                NumberOfParticipants = roomList[rowID].MaxParticipants,
+                Status = status
+            };
+
             for (var i = 3; i < gvr.Cells.Count; i++)
             {
-                var cb = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
-                if (cb != null)
+                var firstCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
+                if (firstCB != null)
                 {
-                    if (cb.Checked && gvr.Cells[i].BackColor == Color.Red)
+                    if (firstCB.Checked && gvr.Cells[i].BackColor == Color.Red)
                     {
-                        return false;
-                        //roomList[rowID].Bookings.Any(b => b.StartTime.Date == date.Date &&)
+                        return RequestResult.Error;
+                    }
+
+                    if (!firstCB.Checked && gvr.Cells[i].BackColor == Color.Blue)
+                    {
+                        var startTime = new DateTime();
+                        i++;
+                        var nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
+                        while (nextCB != null && !nextCB.Checked && i < gvr.Cells.Count)
+                        {
+                            i++;
+                            nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
+                        }
+
+                        if (nextCB != null && nextCB.Checked && i < gvr.Cells.Count)
+                        {
+                            if (gvr.Cells[i].BackColor == Color.Red)
+                            {
+                                return RequestResult.Error;
+                            }
+
+                            startTime = new DateTime(date.Year, date.Month, date.Day, i + 6, 0, 0);
+                            i++;
+                            nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
+                        }
+
+                        while (nextCB != null && nextCB.Checked && i < gvr.Cells.Count)
+                        {
+                            if (gvr.Cells[i].BackColor == Color.Red)
+                            {
+                                return RequestResult.Error;
+                            }
+
+                            i++;
+                            nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
+                        }
+
+                        b.StartTime = startTime;
+                        b.EndTime = new DateTime(date.Year, date.Month, date.Day, i + 6, 0, 0);
+                        break;
+                    }
+
+                    if (firstCB.Checked && gvr.Cells[i].BackColor != Color.Blue)
+                    {
+                        var startTime = new DateTime(date.Year, date.Month, date.Day, i + 6, 0, 0);
+
+                        i++;
+                        var nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
+                        while (nextCB != null && nextCB.Checked && i < gvr.Cells.Count)
+                        {
+                            if (gvr.Cells[i].BackColor == Color.Red)
+                            {
+                                return RequestResult.Error;
+                            }
+
+                            i++;
+                            nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
+                        }
+
+                        b.StartTime = startTime;
+                        b.EndTime = new DateTime(date.Year, date.Month, date.Day, i + 6, 0, 0);
+                        break;
                     }
                 }
             }
+
+            return BookingModel.CreateOrUpdateBooking(b, out wasAChange);
         }
     }
 }

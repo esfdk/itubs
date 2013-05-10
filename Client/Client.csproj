@@ -90,8 +90,8 @@
     <Content Include="GUI\Images\RødBoks.png" />
     <Content Include="GUI\Styles\Site.css" />
     <Content Include="GUI\User\BookUdstyr.aspx" />
-    <Content Include="GUI\User\DineBookinger.aspx" />
-    <Content Include="GUI\User\Forplejning.aspx" />
+    <Content Include="GUI\User\YourBookings.aspx" />
+    <Content Include="GUI\User\CateringList.aspx" />
     <Content Include="GUI\User\RoomList.aspx" />
     <None Include="Service References\BookItService\Client.BookItService.Booking.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -221,19 +221,19 @@
     <Compile Include="GUI\User\BookUdstyr.aspx.designer.cs">
       <DependentUpon>BookUdstyr.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\User\DineBookinger.aspx.cs">
-      <DependentUpon>DineBookinger.aspx</DependentUpon>
+    <Compile Include="GUI\User\YourBookings.aspx.cs">
+      <DependentUpon>YourBookings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\User\DineBookinger.aspx.designer.cs">
-      <DependentUpon>DineBookinger.aspx</DependentUpon>
+    <Compile Include="GUI\User\YourBookings.aspx.designer.cs">
+      <DependentUpon>YourBookings.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\User\Forplejning.aspx.cs">
-      <DependentUpon>Forplejning.aspx</DependentUpon>
+    <Compile Include="GUI\User\CateringList.aspx.cs">
+      <DependentUpon>CateringList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\User\Forplejning.aspx.designer.cs">
-      <DependentUpon>Forplejning.aspx</DependentUpon>
+    <Compile Include="GUI\User\CateringList.aspx.designer.cs">
+      <DependentUpon>CateringList.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\User\RoomList.aspx.cs">
       <DependentUpon>RoomList.aspx</DependentUpon>
@@ -256,8 +256,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CateringListViewModel.cs" />
     <Compile Include="ViewModel\MasterViewModel.cs" />
     <Compile Include="ViewModel\RoomListViewModel.cs" />
+    <Compile Include="ViewModel\YourBookingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

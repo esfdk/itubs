@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/GUI/Site.Master" AutoEventWireup="true" CodeBehind="Forplejning.aspx.cs" Inherits="Client.GUI.User.Forplejning" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/GUI/Site.Master" AutoEventWireup="true" CodeBehind="CateringList.aspx.cs" Inherits="Client.GUI.User.CateringList" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -15,9 +15,9 @@
     </p>
     <p>
         &nbsp; Lokale:
-        <asp:TextBox ID="LokaleNavnTextBox" runat="server" ReadOnly="True"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp; Dato:<asp:TextBox ID="DatoTextBox" runat="server" ReadOnly="True"></asp:TextBox>
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
+        <asp:TextBox ID="RoomNameTextBox" runat="server" ReadOnly="True"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp; Dato:<asp:TextBox ID="DateTextBox" runat="server" ReadOnly="True"></asp:TextBox>
+        <asp:GridView ID="CateringListGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Navn"/>
@@ -83,7 +83,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Antal">
                     <ItemTemplate>
-                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="AmountTextBox" runat="server"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField HeaderText="Pris per styk" />
@@ -100,25 +100,11 @@
         </asp:GridView>
     </p>
     <p>
-    <script type='text/javascript'>
-        //Your alert function
-        function displayAlert() {
-            alert("Your Message Here!");
-        }
-</script>
         &nbsp;<asp:Panel ID="Panel1" runat="server">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="ForplejningButton" runat="server" Text="Tilføj forplejning" 
-            onclick="ForplejningButton_Click" CssClass="availableButton" />
-        &nbsp;<asp:Button ID="SletForplejningButton" runat="server" 
-            CssClass="availableButton" onclick="SletForplejningButton_Click" 
-            Text="Slet forplejning" />
-        &nbsp;<asp:Button ID="FortrydButton" runat="server" Text="Fortryd" 
-            CssClass="availableButton" onclick="Fortryd_Click" />
-            <asp:ModalPopupExtender ID="FortrydButton_ModalPopupExtender" runat="server" 
-            DynamicServicePath="" Enabled="True" TargetControlID="FortrydButton" 
-            PopupControlID="Panel2">
-        </asp:ModalPopupExtender>
+        <asp:Button ID="AddCateringButton" runat="server" Text="Tilføj Forplejning" onclick="AddCateringButton_Click" CssClass="availableButton" />
+        &nbsp;<asp:Button ID="DeleteCateringButton" runat="server" CssClass="availableButton" onclick="DeleteCateringButton_Click" Text="Slet Forplejning" />
+        &nbsp;<asp:Button ID="CancelButton" runat="server" Text="Fortryd" CssClass="availableButton" onclick="Cancel_Click" />
             </asp:Panel>
     </p>
 </asp:Content>

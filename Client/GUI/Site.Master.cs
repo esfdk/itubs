@@ -55,7 +55,7 @@ namespace Client.GUI
                 this.Response.Redirect("~/GUI/Account/Login.aspx");
             }
 
-            this.Response.Redirect("~/GUI/User/DineBookinger.aspx");
+            this.Response.Redirect("~/GUI/User/YourBookings.aspx");
         }
 
         protected void MenuButton_UdstyrsListe_OnClick(object sender, EventArgs e)

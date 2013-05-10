@@ -36,7 +36,7 @@ namespace Client.GUI.User
             }
             else
             {
-                this.Response.Redirect("DineBookinger.aspx");
+                this.Response.Redirect("YourBookings.aspx");
             }
         }
 
@@ -49,7 +49,7 @@ namespace Client.GUI.User
             }
             else
             {
-                this.Response.Redirect("DineBookinger.aspx");
+                this.Response.Redirect("YourBookings.aspx");
             }
         }
 
@@ -59,7 +59,7 @@ namespace Client.GUI.User
 
         protected void FortrydButton_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect("DineBookinger.aspx");
+            this.Response.Redirect("YourBookings.aspx");
         }
 
         protected void ÆndringerButton_Click(object sender, EventArgs e)

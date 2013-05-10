@@ -1,6 +1,14 @@
-<%@ Page Language="C#" MasterPageFile="~/GUI/Site.Master" AutoEventWireup="true" CodeBehind="DineBookinger.aspx.cs" Inherits="Client.GUI.User.DineBookinger" %>
+<%@ Page Language="C#" MasterPageFile="~/GUI/Site.Master" AutoEventWireup="true" CodeBehind="YourBookings.aspx.cs" Inherits="Client.GUI.User.YourBookings" %>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <script language="javascript" type="text/javascript">
+        function confirmBookingDeletion() {
+            if (confirm("Er du sikker på, at du vil slette lokale den valgte booking?") == true) {
+                return true;
+            }
+            return false;
+        }
+</script>
     <h2>
         Dine bookinger
     </h2>
@@ -8,7 +16,7 @@
         <table class="style1">
             <tr>
                 <td class="style2">
-                    <asp:GridView ID="GridView1" OnRowDataBound="GridView_OnRowCreated" runat="server" CellPadding="4" ForeColor="#333333" Width="674px" OnDataBound="GridView_OnDataBound">
+                    <asp:GridView ID="YourBookingsGridView" OnRowDataBound="GridView_RowCreated" runat="server" CellPadding="4" ForeColor="#333333" Width="674px" OnDataBound="GridView_OnDataBound">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Lokale" />
@@ -20,7 +28,7 @@
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#f47a07" Font-Bold="True" ForeColor="White" />
                         <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                        <SelectedRowStyle BackColor="blue" Font-Bold="True" ForeColor="blue" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
@@ -31,35 +39,28 @@
                     <table class="style1">
                         <tr>
                             <td>
-                    <asp:Button ID="ÆndreBookButton" runat="server" Text="Ændre booking" 
-                        Width="160px" margin="20px" onclick="ÆndreBookButton_Click" 
+                    <asp:Button ID="ChangeBookingButton" runat="server" Text="Ændre Booking" Width="160px" margin="20px" onclick="ChangeBookingButton_Click" 
                                     CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                    <asp:Button ID="SletBookingButton" runat="server" 
-                        Text="Slet booking" Width="160px" onclick="SletBookingButton_Click" 
-                                    CssClass="availableButton" />
+                    <asp:Button ID="DeleteBookingButton" runat="server" Text="Slet Booking" Width="160px" onclick="DeleteBookingButton_Click" CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                    <asp:Button ID="ForplejningButton" runat="server" Text="Tilføj forplejning" 
-                        Width="160px" onclick="ForplejningButton_Click" CssClass="availableButton" />
+                    <asp:Button ID="CateringButton" runat="server" Text="Tilføj forplejning" Width="160px" onclick="CateringButton_Click" CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                    <asp:Button ID="UdstyrButton" runat="server" Text="Tilføj udstyr" 
-                        Width="160px" onclick="UdstyrButton_Click" CssClass="availableButton" />
+                    <asp:Button ID="EquipmentButton" runat="server" Text="Tilføj Udstyr" Width="160px" onclick="EquipmentButton_Click" CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                    <asp:Button ID="SendGodkendButton" runat="server" Text="Send til godkendelse" 
-                        Width="160px" onclick="SendGodkendButton_Click" CssClass="availableButton" />
-                            </td>
+                                &nbsp;</td>
                         </tr>
                     </table>
                 </td>

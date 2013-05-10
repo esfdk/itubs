@@ -10,7 +10,7 @@
 namespace Client.GUI.User {
     
     
-    public partial class Forplejning {
+    public partial class CateringList {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -40,31 +40,31 @@ namespace Client.GUI.User {
         protected global::System.Web.UI.WebControls.Image RedBox;
         
         /// <summary>
-        /// LokaleNavnTextBox control.
+        /// RoomNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LokaleNavnTextBox;
+        protected global::System.Web.UI.WebControls.TextBox RoomNameTextBox;
         
         /// <summary>
-        /// DatoTextBox control.
+        /// DateTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DatoTextBox;
+        protected global::System.Web.UI.WebControls.TextBox DateTextBox;
         
         /// <summary>
-        /// GridView1 control.
+        /// CateringListGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView CateringListGridView;
         
         /// <summary>
         /// Panel1 control.
@@ -76,39 +76,30 @@ namespace Client.GUI.User {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// ForplejningButton control.
+        /// AddCateringButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ForplejningButton;
+        protected global::System.Web.UI.WebControls.Button AddCateringButton;
         
         /// <summary>
-        /// SletForplejningButton control.
+        /// DeleteCateringButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SletForplejningButton;
+        protected global::System.Web.UI.WebControls.Button DeleteCateringButton;
         
         /// <summary>
-        /// FortrydButton control.
+        /// CancelButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FortrydButton;
-        
-        /// <summary>
-        /// FortrydButton_ModalPopupExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender FortrydButton_ModalPopupExtender;
+        protected global::System.Web.UI.WebControls.Button CancelButton;
     }
 }

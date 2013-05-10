@@ -61,10 +61,11 @@ namespace ITubsService.Entities
             var room = Room.GetRoomByID(booking.RoomID);
 
             if (!IsBookingTimeValid(booking)
-                && !OverlappingBookings(booking).Any()
-                && (booking.NumberOfParticipants > room.MaxParticipants)
-                && !IsAStatus(booking.Status)
-                && (booking.PersonID <= 0 || booking.RoomID <= 0))
+                || OverlappingBookings(booking).Any()
+                || (booking.NumberOfParticipants > room.MaxParticipants)
+                || !IsAStatus(booking.Status)
+                || booking.PersonID <= 0
+                || booking.RoomID <= 0)
             {
                 return null;
             }
@@ -100,7 +101,7 @@ namespace ITubsService.Entities
                 && IsBookingTimeValid(changedBooking))
             {
                 var overlapping = OverlappingBookings(changedBooking);
-                if (overlapping.Count > 0 && overlapping.All(b => b.PersonID != changedBooking.PersonID))
+                if (overlapping.Count > 0 && overlapping.All(b => b.PersonID == changedBooking.PersonID))
                 {
                     var updatedBooking = overlapping.First();
                     updatedBooking.StartTime = changedBooking.StartTime;

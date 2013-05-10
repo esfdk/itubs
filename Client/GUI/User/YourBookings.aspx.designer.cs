@@ -10,60 +10,51 @@
 namespace Client.GUI.User {
     
     
-    public partial class DineBookinger {
+    public partial class YourBookings {
         
         /// <summary>
-        /// GridView1 control.
+        /// YourBookingsGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView YourBookingsGridView;
         
         /// <summary>
-        /// ÆndreBookButton control.
+        /// ChangeBookingButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ÆndreBookButton;
+        protected global::System.Web.UI.WebControls.Button ChangeBookingButton;
         
         /// <summary>
-        /// SletBookingButton control.
+        /// DeleteBookingButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SletBookingButton;
+        protected global::System.Web.UI.WebControls.Button DeleteBookingButton;
         
         /// <summary>
-        /// ForplejningButton control.
+        /// CateringButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ForplejningButton;
+        protected global::System.Web.UI.WebControls.Button CateringButton;
         
         /// <summary>
-        /// UdstyrButton control.
+        /// EquipmentButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UdstyrButton;
-        
-        /// <summary>
-        /// SendGodkendButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SendGodkendButton;
+        protected global::System.Web.UI.WebControls.Button EquipmentButton;
     }
 }

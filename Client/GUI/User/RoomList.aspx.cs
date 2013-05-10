@@ -12,19 +12,11 @@ namespace Client.GUI.User
             if (!this.Page.IsPostBack)
             {
                 DateTime d;
-                if (DateTime.TryParse(Request.QueryString["date"], out d))
-                {
-                    this.DateTextBox.Text = d.Date.ToShortDateString();
-                }
-                else
-                {
-                    this.DateTextBox.Text = DateTime.Today.Date.ToShortDateString();
-                }
+                this.DateTextBox.Text = DateTime.TryParse(this.Request.QueryString["date"], out d) ? d.Date.ToShortDateString() : DateTime.Today.Date.ToShortDateString();
+
+                this.RoomGridView.DataSource = RoomListViewModel.GetBookRooms();
+                this.RoomGridView.DataBind();
             }
-
-            this.RoomGridView.DataSource = RoomListViewModel.GetBookRooms();
-            this.RoomGridView.DataBind();
-
         }
 
         protected void DateChanged(object sender, EventArgs e)
@@ -53,39 +45,46 @@ namespace Client.GUI.User
         {
             if (MasterViewModel.LoggedInUserID() == -1)
             {
-                this.Response.Redirect("~/GUI/Account/Login.apsx");
+                this.Response.Redirect("~/GUI/Account/Login.aspx");
                 return;
             }
-
-            var remindUser = false;
 
             DateTime date;
             if (!DateTime.TryParse(DateTextBox.Text, out date))
             {
                 this.Response.Write(String.Format("<script>alert('Forkert dato format.');</script>"));
+                this.Response.Flush();
                 return;
             }
+
+            var bookingUpdated = false;
 
             for (var i = 0; i < RoomGridView.Rows.Count; i++)
             {
                 if (RoomListViewModel.RowChanged(RoomGridView.Rows[i]))
                 {
-                    var temp = false;
-                    RoomListViewModel.CreateAndUpdateBookings(RoomGridView.Rows[i], i, date, out temp);
-                    if (temp)
+                    var rr = RoomListViewModel.CreateOrUpdateBooking(
+                        RoomGridView.Rows[i], i, date, out bookingUpdated);
+                    if (rr == RequestResult.Success)
                     {
-                        remindUser = true;
+                        if (bookingUpdated)
+                        {
+                            Response.Write("<script></script>");
+                            this.Response.Write("<script>alert('Husk også at ændre dine bookinger af forplejning og udstyr.');location.href = ~/GUI/User/YourBookings.aspx';</script>");
+                            this.Response.Flush();
+                        }
+                        else
+                        {
+                            this.Response.Redirect("~/GUI/User/YourBookings.aspx");
+                        }
+                    }
+                    else
+                    {
+                        this.Response.Write("<script>alert('Kunne ikke udføre handlingen.');</script>");
+                        this.Response.Flush();
                     }
                 }
             }
-
-            //If booking is changed and have a equipment and/or catering choices then throw a popup alert 
-            if (0 < 1)
-            {
-                string popUpText1 = "Husk også at ændre dine bookinger af forplejning og udstyr.";
-                this.Response.Write(String.Format("<script>alert('{0}');</script>", popUpText1));
-            }
-            this.Response.Redirect("~/GUI/User/DineBookinger.aspx");
         }
 
         protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
