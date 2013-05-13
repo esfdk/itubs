@@ -1,6 +1,6 @@
 \chapter{Design af brugergrænsefladen}
 \label{Design_G}
-Dette kapitel beskriver det generelle design af brugergrænsefladen samt de beslutninger, som ligger bag.
+Dette kapitel beskriver det generelle design af brugergrænsefladen samt de beslutninger, som ligger bag. Alle vores papermockups og endelige skærmbilleder kan findes i appendix, afsnit \ref{App_GUI} på side \pageref{App_GUI}.
 
 \section{Generelle mål}
 \label{Design_G_Goals}
@@ -13,13 +13,13 @@ Vi har valgt at designe vores brugergrænseflade ud fra reglerne om design af vi
 \end{itemize}
 
 \subsection{Strømlinet brugergrænseflade}
-Vi har valgt at designe skærmbillederne med samme grundstruktur. Denne lighed bør gøre det intuitivt at gå fra et skærmbillede til et andet i forbindelse med udførsel af opgaver. Desuden følger det designregel 1\footnote{Few window templates} om få vindueskabeloner.
+Vi har valgt at designe skærmbillederne med samme grundstruktur. Denne lighed bør gøre det intuitivt at gå fra et skærmbillede til et andet i forbindelse med udførsel af opgaver. Desuden følger det reglen om få vindueskabeloner.
 
 \subsection{Kort vej fra en opgave til en anden}
-Brugergrænsefladen skal gøre det hurtigt og nemt for brugeren at komme fra en opgave til en anden. Dette skal gøres ved at have få skærmbilleder involvereret i en enkelt task (designregel 2\footnote{Few window instances per task.}).
+Brugergrænsefladen skal gøre det hurtigt og nemt for brugeren at komme fra en opgave til en anden. Dette skal gøres ved at have få skærmbilleder involvereret i en enkelt task (reglen om få vinduer per opgave).
 
 \subsection{Overblik}
-Brugeren skal have mulighed for nemt at danne sig overblik over bookinger, udstyr og forplejning (regel 6\footnote{Necessary overview of data}). Derfor skal vi have seperate skærmbilleder, som giver overblik over hver type.
+Brugeren skal have mulighed for nemt at danne sig overblik over bookinger, udstyr og forplejning\footnote{Reglen om den nødvendige oversigt af data.}. Derfor skal vi have seperate skærmbilleder, som giver overblik over hver type.
 
 \subsection{Effektivt}
 Det skal være effektivt at udføre opgaver for brugere, som anvender systemet ofte.
@@ -27,21 +27,17 @@ Det skal være effektivt at udføre opgaver for brugere, som anvender systemet o
 \section{Brugergrænsefladens udvikling og udseende}
 \label{Design_G_Development}
 Vores skærmbilleder er opdelt i tre typer: Gitter, Almindelig og Pop-ups. 
-\\Gitterskærmbillederne bruger vi til booking af lokale, forplejning og udstyr samt administration af udstyr og lokaleinventar.
-\\Almindelige vinduer anvender vi, hvis man skal ændre noget på et stykke udstyr/inventar eller et lokale.
+\\Gitterskærmbillederne bruger vi til booking af lokale, forplejning og udstyr samt administration af bookinger, lokaleinventar og udstyr.
+\\Almindelige vinduer anvender vi i forbindelse med login eller, hvis man skal ændre noget på et stykke udstyr/inventar.
 \\Pop-up skærmbilleder er generelt advarsler eller fejlbeskeder.
 
-For at få et overblik over hvordan man navigere i brugergrænsefladen og hvordan de forskellige skærmbilleder er designet, vil vi tage udgangspunkt i et eksemepel på hvordan work flowet er, hvis man skulle booke et lokale og tilføje forplejning til det. Vi vil derefter gennemgå de resterende interessante skærmbilleder individuelt.
+Vores første mockup af skærmbilledet til booking af lokaler (figur \ref{Design_G_Development_FirstGrid}) havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Man skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. 
 
-Det første skærmbillede som man blive præsenteret for når man starter programmet er figur \ref{Design_G_Development_FinalGrid}, man er i stand til at markere de tider man gerne vil booke et lokale, for at kunne booke skal man dog først logge ind via login knappen i øverste højre hjørne\footnote{Se billed af login skærm i \ref{Appendix} på side \pageref{Appendix}}. 
-
-Vores første mockup af Skærmbilledet til booking af lokaler se figur \ref{Design_G_Development_FirstGrid} havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Man skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. 
-
-Som man kan se på Figur \ref{Design_G_Development_FinalGrid} valgte vi at beholde den struktur, men vi tilføjede checkboxses til gitteret. Dette blev gjort efter første runde af usability tests hvor vi observerede, at brugeren var i tvivl om, hvor man skulle klikke for at vælge tider for en booking, derudover tilføjede vi også, at udstyr m.m., man har booket, ligger øverst i gitteret, når man får oversigten over fx udstyr. Dette gør det nemt at finde det element, man har booket/bestilt.
+Vi valgte at beholde gitterstrukturen. Vi tilføjede dog checkboxe til gitteret for at imødekomme et problem, som vi observerede i forbindelse med vores usability test\footnote{Se afsnit \ref{Usability_R1} på side \pageref{Usability_R1}}. Figur \ref{Design_G_Development_FinalGrid} viser vores endelige version.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[angle=90, width=0.5\textwidth]{Appendix/GUI-Prototype/PaperMockup/LokaleListe_001}
+    \includegraphics[angle=90, width=0.65\textwidth]{Appendix/GUI-Prototype/PaperMockup/LokaleListe_001}
   \caption{Første udgave af gitter layoutet}
 \label{Design_G_Development_FirstGrid}
 \end{figure}
@@ -49,13 +45,11 @@ Som man kan se på Figur \ref{Design_G_Development_FinalGrid} valgte vi at behol
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.6\textwidth]{Appendix/GUI-Prototype/DigitalMockup/GridEksempel}
-  \caption{Den endelige udgave af gitteret}
+  \caption{Skærmbilledet til booking af lokaler}
 \label{Design_G_Development_FinalGrid}
 \end{figure}
 
-Hvis man markere et lokale i det tidsrum man gerne vil booke det og trykker book vil bookingen blive oprettet og man vil blive navigeret videre til en side der visser en oversigt over alle dine bookinger, se figur\ref{Design_G_Development_YourBookings_Final}. 
-
-Til designet af det skærmbillede fokuserede vi på at overholde Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}, da vi gerne ville opnå, at det virkede intuitivt for brugeren, hvilke knapper der skulle bruges til at interegere med gitteret. 
+Når man har valgt lokale og tidspunkt, bliver man sendt videre til en oversigt over ens egne bookinger (se figur \ref{Design_G_Development_YourBookings_Final}).
 
 \begin{figure}[h!]
   \centering
@@ -64,7 +58,8 @@ Til designet af det skærmbillede fokuserede vi på at overholde Gestalt-lovene\
 \label{Design_G_Development_YourBookings_Final}
 \end{figure} 
 
-Figur\ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbilled til forplejnings valg. Til designet af skærmbilledet fokuserede vi på, at det grafisk skulle minde om \ref{Design_G_Development_FinalGrid} således, at vi overholdte designregel 1, på den måde ville brugeren intuitivt vide hvordan man skulle tilføje forplejning. De samme design beslutninger gælder for tilføjelse af udstyr til en booking, skærmbilledet kan ses i  \ref{Appendix} på side \pageref{Appendix}.
+Figur \ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbillede til valg af forplejning. 
+Vi fokuserede på, at skærmbilledet skulle minde om \ref{Design_G_Development_FinalGrid}, så vi holdte os til reglen om få vindueskabeloner. De samme designbeslutninger gælder for skærmbilleder til tilføjelse af udstyr til en booking (se appendix).
 
 \begin{figure}[h!]
   \centering
@@ -74,26 +69,29 @@ Figur\ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbille
 \end{figure} 
 
 \subsection{Bookingliste}
-For at en bruger kan tilføje udstyr eller forplejning til sin booking skal den først godkendes. Dette gøres af recepsionisten, som har en liste over alle bookinger som brugerne har oprettet, se figur \ref{Design_G_Development_BookingListe_Final}.
-
-Til det endelig design af skærmbilledet valgt vi at flytte godkend/afvis knapperne fra inde i gitteret, som de var i papermockupen se figur \ref{Design_G_Development_BookingListe}, til at være ved siden af gitteret således, at vi ligesom i figur\ref{Design_G_Development_YourBookings_Final} benyttede "Law of proximity". Desuden havde ingen af de andre gittre knapper i sig, så vi vurderede, at det så vidt muligt skulle være ens på alle billeder således, at vi overholdt designregel 1.
+Figur \ref{Design_G_Development_BookingListe} viser vores papermockup til godkendelse af bookinger. 
+I papermockup havde vi godkend/afvis-knapperne inde i selve gitteret. Dette besluttede vi dog kunne blive forvirrende, så den endelige version af skærmbilledet (figur \ref{Design_G_Development_BookingListe_Final}) har knapperne ved siden af gitteret. Da ingen af de andre skærmbilleder har egentlige knapper inde i gitteret, opfylder i større grad reglen om få vindueskabeloner.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.6\textwidth]{Appendix/GUI-Prototype/DigitalMockup/BookingListe}
-  \caption{Skærmbilledet af recepsionistens liste af bruger bookinger.}
+  \caption{Skærmbilledet af recepsionistens liste af bruger bookinger}
 \label{Design_G_Development_BookingListe_Final}
 \end{figure} 
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.5\textwidth]{Appendix/GUI-Prototype/PaperMockup/GodkendBookinger_001}
-  \caption{Papermockup af recepsionistens liste af bruger bookinger.}
+    \includegraphics[width=0.7\textwidth]{Appendix/GUI-Prototype/PaperMockup/GodkendBookinger_001}
+  \caption{Papermockup af recepsionistens liste af bruger bookinger}
 \label{Design_G_Development_BookingListe}
 \end{figure} 
 
 \subsection{Udstyrsliste}
-Figuren \ref{Design_G_Development_UdstyrsListe_Final} viser det endelige skærmbillede af listen over udstyr og tilføjelse af nyt udstyr til systemet. Til designet af skærmbilledet brugte vi "Law of proximity" så det er tydeligt, at de to funktionaliteter i skærmbilledet ikke hører sammen. Den eneste ændring der er blevet lavet til det endelige skærmbillede  i forhold til den originale papermockup\ref{Appendix} på side \pageref{Appendix} er, at der er blevet tilføjet en checkbox, hvor man kan vælge om udstyret skal kunne udlånes. Hvis den ikke udfyldes vil udstyret blive kvalificeret som inventar og det vil derfor ikke blive vist under muligt udstyr, der kan tilføjes en booking. 
+Figur \ref{Design_G_Development_UdstyrsListe_Final} viser det endelige skærmbillede af listen over udstyr.
+Skærmbilledet indeholder både overblikket over alt det udstyr, som er tilrådighed, og muligheden for at registrere nyt udstyr til systemet. % law of???
+\\Vi delte de to funktionaliteter op, så det var tydeligt, at det er seperate funktionaliteter.
+
+Den eneste ændring siden vores papermockup (se appendix) er tilføjelsen af en checkbox, hvor man kan vælge et nyt stykke udstyr skal være til udlån. Dette betyder, at vi sparer et skærmbillede væk. Da udstyr og inventar er stort set ens i systemet, kan vi afgøre, om det nye element er inventar eller udstyr gennem denne checkbox.
 
 \begin{figure}[h!]
   \centering
@@ -102,22 +100,11 @@ Figuren \ref{Design_G_Development_UdstyrsListe_Final} viser det endelige skærmb
 \label{Design_G_Development_UdstyrsListe_Final}
 \end{figure} 
 
-\subsection{Lokale liste}
-I systemet er der mulighed for få en liste over lokaler, se figur \ref{Design_G_Development_LokaleListe_Final}. Til designet af skærmbilledet fokuserede vi på, at der skulle være et  klart overblik, vi sørgede derfor for at overholde law of proximity ved at ligge knapperne tæt på gitteret, hvilket også gør, at det kun er det vigtige information der bliver præsenteret i gitteret.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.6\textwidth]{Appendix/GUI-Prototype/DigitalMockup/LokaleListe}
-  \caption{Skærmbilledet af recepsionistens liste over lokaler i ITUs system.}
-\label{Design_G_Development_LokaleListe_Final}
-\end{figure} 
-
 \subsection{Ændring af lokale}
-Til ændring af lokaler i systemet fokuserede vi på, at man skulle være i stand til at ændre de basale ting som navn og kapacitet, og samtidig være i stand til, at se en liste over inventar i lokalet hvor man skulle kunne tilføje eller fjerne udstyr.
+Skærmbilledet til ændring af lokale er designet således, at man kan ændre navn og kapacitet på lokalet samtidig med, at man kan få et overblik over udstyret, som er tilføjet til lokalet.
 
-Til papermockupen, se figur \ref{Design_G_Development_AendreLokale} havde vi skærmbilledet opdelt i tre afsnit, et til at skifte kapcitet og navn, et til at tilføje inventar og et til at slette inventar.
-
-Dette var en meget uoverskuelige løsning og den var ikke strømlignet i forhold til resten af GUI'en. Vi valgte derfor at lave en løsningen som var i stil med de andre skærmbilleder se figur \ref{Design_G_Development_AendreLokale_Final} vi valgte, at skærmbilledet kun skulle være fokuseret på en gitterløsning hvor den øverste del ville være det udstyr der allerede var i lokalet og resten af gitteret ville være fyldt med udstyr som man kunne vælge at tilføje til lokalet.
+Papermockup af dette skærmbillede (figur \ref{Design_G_Development_AendreLokale}) var delt op i tre dele: et til at skifte navn/kapacitet, et til at tilføje inventar og et til at fjerne inventar.
+\\Dette var meget uoverskueligt og mindede ikke om resten af vores design. Vi valgte derfor at bruge gitterløsningen til udstyret. Den øverste del af gitteret viser det inventar, som er tilføjet lokalet. Resten af gitteret viser det inventar, som ikke er tildelt noget lokale. Teksten på "Tilføj Udstyr"-knappen ændrer sig til "Fjern Udstyr", hvis man trykker på en linje i den øverste del af gitteret.
 
 \begin{figure}[h!]
   \centering
@@ -132,3 +119,21 @@ Dette var en meget uoverskuelige løsning og den var ikke strømlignet i forhold
   \caption{Papermockup til ændring af lokale.}
 \label{Design_G_Development_AendreLokale}
 \end{figure} 
+
+\section{Fremtidig design}
+\label{Design_G_Future}
+Dette afsnit er en liste af vores forslag til ændringer i brugergrænsefladen. Det er ikke en prioteret liste, da alle ændringerne er quality of life forbedringer.
+
+\begin{my_itemize}
+\item{Brugerens egne bookinger skal være øverst på listen over bookinger}
+\item{Sammenlægning af "Booking-Liste" og "Find Bookinger"}
+\item{Sammenlægning af "Konfigurering af Lokaler" og "Ændre Lokale"}
+\item{Informering om ændringer i status på en brugers booking}
+\item{Understøt godkendelse af forplejning og udstyrsvalg}
+\item{Mulighed for at skifte mellem sprog (dansk/engelsk)}
+\item{Tilføjelse af nye typer forplejning og nye udstyrstyper}
+\item{Mulighed for ændre priser på forplejning}
+\item{Være i stand til at søge på sal i lokalelisten}
+\item{Mulighed for at angive antal deltagere til en booking}
+\item{Mulighed for at administrator kan ændre bookinger}
+\end{my_itemize}

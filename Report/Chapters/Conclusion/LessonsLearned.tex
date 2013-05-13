@@ -1,0 +1,48 @@
+\section{Lessons learned}
+\label{Conclusion_Lessons}
+I dette afsnit vil vi beskrive de tign, som vi har lært af projektforløbet. Det er specielt ting, som vi i retrospekt ville have gjort anderledes eller bedre. 
+
+\subsection{Kravspecifikationen}
+\label{Conclusion_Lessons_Krav}
+I begyndelsen af projektet så vi kravspecifikationen som en række af fejlfri krav, som ikke kunne diskuteres eller bøjes. Vi forsøgte at følge kravspecifikationen i dets fulde omfang i stedet for at opfylde de krav, som vi mente var de vigtigste.
+
+Da vi havde nærlæst kravspecifikationen, fandt vi ud af, at der var dele af den, som ikke var godt designet. Dette førte til, at vi i samråd med Søren Lauesen lavede nogle ændringer til data modellen\footnote{Ændringerne er beskrevet i kapitel \ref{Background}.}.
+
+Som nævnt forsøgte vi at følge kravspecifikationen i dets fulde omfang, da vi så den som en række krav til en første release. På grund af dette forsøgte vi at designe et system, som kunne håndterer alle de forskellige krav fra kravspecifikationen. 
+\\Dette var dog ikke nødvendigt i forbindelse med dette projekt, da det er langt mere interessant, hvordan systemet håndterer de vigtige arbejdsopgaver.
+\\Vores tidsplan skred på grund af dette, og dermed endte vi op med at skære ned på mængden af features alligevel.
+
+Vi kunne have anvendt en iterativ projektstyringsmodel. Dette havde betydet, at vi kunne lave en første udgave tidligere i processen, som vi senere udvidede. I forbindelse med en sådan iterativ projektstyringsmodel ville vi også have haft bedre mulighed for at lave usability tests og funktionelle tests.
+
+Lektien for os har været, at udvikleren skal være opmærksom på, hvilke krav kunden stiller, og være klar til at diskutere kravene med kunden, så man er sikker på, at det bedste produkt bliver lavet. Desuden bør man diskutere en prioriteringsliste med kunden, således at kunden er sikker på, at udvikleren laver det vigtigste først.
+
+\subsection{Projekter af samme natur er ikke nødvendigvis ens}
+\label{Conclusion_Lessons_Projekt}
+Da vi begge havde været med til at udvikle et system til filmudlejning, endte vi med at undervurdere, hvor meget arbejde der lå i implementationen af vores design af booking-systemet.
+
+Systemet var udviklet i C\# med en WCF-service hooket op til en Microsoft SQL-database med en tilhørende klient. Da dette system delte mange af de samme elementer som systemet, vi har udviklet i forbindelse med dette projekt, så vurderede vi, at det ikke ville være et stort problem at overføre meget af funktionaliteten til dette projekt.
+
+Vi glemte at tage med i vores vurdering, at vi var fem personer på det forrige projekt, og derfor havde vi specialiseret os i forskellige dele af systemet. Dette betød, at de fleste af tingene ikke bare kunne tages med direkte over til vores nye projekt, og derfor blev vores vurdering forkert.
+
+Lektien i denne forbindelse har været, at man skal passe på med at fejlvurdere, hvor meget erfaring fra tidligere projekter kan gavne en i et andet projekt, selvom projekterne er meget ens.
+
+\subsection{En service er ikke altid den rigtige løsning}
+\label{Conclusion_Lessons_Service}
+I forbindelse med vores valg af implementationsstrategi, lavede vi en vurdering af, hvor meget det ville gavne kunden (ITU), hvis vi udviklede en service som en del af systemet. Vi vurderede, at det ville være en stor fordel for kunden, hvis det var nemt at udvide systemet.
+
+Den første release, som vi udviklede i forbindelse med dette projekt, havde dog slet ikke brug for en service. Vi burde i stedet have koblet vores klient direkte til databasen. 
+\\Arkitekturen, vi anvender i klienten, gør det relativt smertefrit at koble klienten op til en service i stedet for direkte til databasen, hvis systemet senere skulle udvides.
+
+Vi tænkte ikke over, at projektperioden var begrænset, så vi vurderede kun omkostningerne i vores cost/benefit-analyse i forhold til hinanden. Dette betød, at vi ikke havde lavet en egentlig vurdering af, om det var muligt for os at nå udvikle både service og klient.
+
+I fremtidige projekter vil vi sørge for at vurdere, om der overhovedet er brug for avancerede features i forhold til kundes behov.
+
+\subsection{Projekt styring}
+\label{Conclusion_Lessons_Styring}
+Vores strying af projektet har været meget løs og parallel. 
+
+Det havde været en fordel for vores projekt, hvis vi havde haft delmilestones eller en iterativ styringsmodel. Vi ville have haft bedre styr på, hvor meget vi manglede på et givent tidspunkt i processen. Desuden ville vi haft mere materiale at få feedback på fra vores vejleder.
+
+Da vi har arbejdet meget parallelt, har vi ikke været gode nok til at holde hiinanden opdateret på, hvor man var i forbindelse med det, man arbejdede på. Vi burde have lavet en form for stand-up meeting, så vi fik holdt hinanden opdateret.
+
+Dette har tydeliggjort vigtigheden i, at man dokumenterer, hvad man laver og beslutter. Hvis vi havde haft flere delmilestones, ville vi også have været i stand til at se, om vi var på samme bølgelængde i forbindelse med projektet.
