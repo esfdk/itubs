@@ -1,6 +1,7 @@
 namespace Client.GUI.Administrator
 {
     using System;
+    using System.Collections.Generic;
     using System.Web.UI.WebControls;
 
     using Client.Model;
@@ -9,6 +10,9 @@ namespace Client.GUI.Administrator
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var temporaryList = new List<string> {"Alle"};
+            EquipmentListTypeDropDown.DataSource = temporaryList;
+            EquipmentListTypeDropDown.DataBind();
             GridView1.DataSource = DataTables.GetSuperEquipment();
             GridView1.DataBind();
         }

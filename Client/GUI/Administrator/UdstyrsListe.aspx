@@ -23,6 +23,11 @@
         <tr>
             <td class="style3">
                 
+                            &nbsp;Udstyrstype
+                            <asp:DropDownList ID="EquipmentListTypeDropDown" runat="server">
+                            </asp:DropDownList>
+                            <br />
+                
                             <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" GridLines="Both" Width="451px" OnRowCreated="GridView_RowCreated">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                 <Columns>
