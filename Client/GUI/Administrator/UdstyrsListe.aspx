@@ -54,15 +54,13 @@
                 <p>Kommentar:</p>
                 <p>
                     <asp:TextBox ID="KommentarTextBox" runat="server" Height="142px" TextMode="MultiLine" 
-                        Width="405px" style="margin-top: 0px"></asp:TextBox>
+                        Width="405px" style="margin-top: 0px"/>
                 </p>
                 <p>
-                    Kan udlånes:<asp:CheckBox ID="UdlånCheckBox" runat="server" 
-                        oncheckedchanged="UdlånCheckBox_CheckedChanged" />
+                    Kan udlånes:<asp:CheckBox ID="UdlånCheckBox" runat="server"/>
                 </p>
                 <p>Udstyrstype:
-                    <asp:DropDownList ID="UdstyrsTypeDropDown" runat="server">
-                    </asp:DropDownList>
+                    <asp:DropDownList ID="UdstyrsTypeDropDown" runat="server"/>
                 </p>
                 <p>
                     <asp:Button ID="TilføjUdstyrButton" runat="server" Text="Tilføj udstyr" 

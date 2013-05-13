@@ -6,9 +6,9 @@ Dette kapitel beskriver, hvad vores strategi for usability testing har været sa
 \label{Usability_TS}
 Kravspecifikationen beskriver, at det er nødvendigt at lave usability tests tidligt i processen for at bevise proof of concept. Vi lavede papermockups af vores skærmbilleder for at opfylde dette krav. 
 
-Vi valgte at lave to runder af usability tests.
+Vi har valgt at lave to runder af usability tests.
 \\Runde 1 bestod af tests med en papermockup på en enkelt bruger.
-\\Runde 2 bestod af tests af det endelige produkt på flere brugere.
+\\Runde 2 består af tests af det endelige produkt på flere brugere.
 
 Vi valgte kun at teste én bruger i runde 1, da flere testpersoner tidligt i udviklingsfasen kan føre til en overvældende liste af problemer\cite[s. 416]{SL_UID}. Derudover er en enkelt testperson ofte nok til at afsløre de mest seriøse problemer i brugergrænsefladen.
 
@@ -50,9 +50,9 @@ I første runde af tests havde vi fokus på de store problemer i systemet, hvor 
 \label{Usability_R1}
 Efter den første runde af tests var der fem problemer, problemerne er klassifikeret i forhold til skalaen fra \cite[s. 439]{SL_UID}:
 \begin{description}
-\item [Punkt 1:] Minor problem - Usikker på hvordan man vælger booking tidspunkter.
-\item [Punkt 2:] Cumbersome - Brugeren synes det var besværlig at navigere imellem skærmbillederne.
-\item [Punkt 3:] Medium problem - Svært ved at forstå sletning af forplejning/udstyr og booking.
+\item [Punkt 1:] Medium problem - Usikker på hvordan man vælger booking tidspunkter.
+\item [Punkt 2:] Cumbersome - Brugeren synes det var besværligt at navigere imellem skærmbillederne.
+\item [Punkt 3:] Minor problem - Brugeren fandt det ikke naturligt, at man skulle bruge lokalelisten til at ændre sin booking.
 \item [Punkt 4:] Minor problem - Problem med at tilføje udstyr/forplejning.
 \item [Punkt 5:] Positiv feedback på den generelle struktur af systemet.
 \end{description}
@@ -70,23 +70,28 @@ Vi løste problemet ved at lave en menubar, som var placeret nærmere midten af 
 \paragraph{Punkt 3}
 Testpersonen fandt det ikke naturligt, at man skulle bruge lokalelisten til at ændre sin booking.
 \subparagraph{Konsekvenser og løsning}
-Da det var første test af vores system og det kun var testet på en person valgte vi ikke at gøre noget ved problemet da vi mente, at vores grundstruktur i systemet var solid og derfor ikke burde ændres kun på grund af det problem.
+Da vi kun testede på én person og det er et minor problem, valgte vi ikke at gøre noget ved problemet. Hvis problemer opstår i yderligere usability tests, bør en ændring overvejes.
 
 \paragraph{Punkt 4}
 Testpersonen nævnte, at hun ikke mente, det burde være muligt at tilføje udstyr/forplejning til en booking før, den er blevet godkendt.
 \subparagraph{Konsekvenser og løsning}
 Vi valgte at imødekomme dette ved at implementere logik, så man ikke kan trykke på knapperne til at tilføje forplejning/udstyr, hvis man ikke har valgt en godkendt booking.
 
-\paragraph{Punkkt 5}
-Testpersonen kunne godt lide den overordnede struktur af systemet og var positiv overfor booking funktionaliteten (gitteret). Personen skulle bare lære at bruge booking funktionaliteten.
+\paragraph{Punkt 5}
+Testpersonen kunne lide den overordnede struktur af systemet og var positiv overfor booking funktionaliteten (gitteret). Personen skulle dog lære at bruge booking funktionaliteten.
 \subparagraph{Konsekvenser og løsning}
 Denne feedback havde stor indflydelse på, at vi valgte at beholde vores grundstruktur.
 
-\section{Fremgangs måde for usabilitytest runde 2}
+\section{Usability Test: Runde 2}
 \label{Usability_R2}
-Vi nåede desværre ikke at lave en anden runde af usabilitytests før produktet skulle aflevers, den sidste runde af usabilitytests vil derfor først blive lavet efter at produktet er færdigt. Vi vuderede dog stadig at det er i ITU's interesse, at der bliver lavet usabilitytests på det færdige system, for både at bevise brugervenligheden i systemt og finde eventuelle mangler og bugs. Måden hvorpå vi ville have foretaget anden runde af usabilitytest, ville være at vi tog to til tre test personer fra hver test gruppe, som vi ville lave "think-aloud" test på ligsom i første runde af tests, vi ville bruge de samme test cases som vi brugte i første runde af tests. Vi vil ligesom i første runde tag en snak med brugeren efter hver test for at høre hvad de synes om systemet og om de har ideer til mulige forbedringer.  
+Vi fik ikke mulighed for at udføre runde 2 af vores usability tests i tide. Da vi planlægger at arbejde videre på systemet efter denne rapport er afleveret, så vil vi følge op på vores strategi ved at lave runde 2 efter at de programmingstekniske fejl er rettet.
 
-\section{Mulige konsekvenser af usabilitytest runde 2}
-\label{Usability_R2_Possibilities}
-Optimalt set ville konsekvenserne af den anden usabilitytest runde være, at der ikke er nogen af problemerne fra første runde der går igen, dette ville tyde på at det overordnet design er i orden og vi derfor vil være i stand til kun at fokusere på at forbedre funktionaliteten af programmet.
-Det er dog mere realistisk at brugerne stadig vil synes at der er nogle mindre problemer med brugergrænsefladen, vi vil derefter vudere om hvorvidt der er nok bruger der synes det er et problem og om problemet kan klassificeres som noget der burde fikses. Hvis vi finder at alle brugerne støder på et problem og har besværligheder med færdiggøre en task, vil vi gør ITU opmærksom på fejlen og komme med en liste over mulige løsning forslag.
+Som beskrevet i afsnit \ref{Usability_TS} består runde 2 af test med flere brugere. Der skal laves tests med 2-3 personer fra hver af de to testgrupper. Disse brugere skal udføre "think-aloud" tests som beskrevet i vores usability test strategi. Testcases fra runde 1 skal genanvendes. Desuden vil vi tage en feedback-session efter testen sammen med brugeren på samme måde, som gjort i forbindelse med runde 1.
+
+Målet med runde 2 er, at problemerne fra runde 1 er blevet løst samt at der ikke er nogen major problem eller task failures.
+
+\subsection{Mulige konsekvenser af usabilitytest runde 2}
+\label{Usability_R2_cons}
+Konsekvenserne af testresultaterne i runde 2 ville være forslag til ændringer til næste udgave af systemet. Hvis ingen af problemerne fra runde 1 gentager sig, går vi ud fra at det overordnede design/layout er i orden. 
+
+I tilfælde af at der kun er cumbersome problemer i forbindelse med brugergrænsefladen, mener vi, at det vil være sandsynligt at systemet er være klar til brug i forhold til usability.
