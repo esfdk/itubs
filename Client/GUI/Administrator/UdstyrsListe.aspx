@@ -5,23 +5,26 @@
     <style type="text/css">
         .style1
         {
-            width: 70%;
+            width: 80%;
             margin-top: 0px;
             height: 231px;
         }
         .style3
         {
-            width: 416px;
+            width: 500px;
+        }
+        .style4
+        {
+            width: 461px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        Udstyrsliste&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        Tilføj udstyr</h2>
+        Udstyrsliste&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h2>
     <table class="style1">
         <tr>
-            <td class="style3">
+            <td class="style3" style="border-right-style: solid">
                 
                             &nbsp;Udstyrstype
                             <asp:DropDownList ID="EquipmentListTypeDropDown" runat="server">
@@ -52,7 +55,8 @@
                             &nbsp;<asp:Button ID="ÆndreUdstyrButton" runat="server" Text="Ændre udstyr" 
                                 onclick="ÆndreUdstyrButton_Click" CssClass="availableButton" />
             </td>
-            <td>
+            <td class="style4">
+                <h2>Tilføj udstyr</h2>
                 <p>Navn:
                     <asp:TextBox ID="UdstyrsNavnTextBox" runat="server"></asp:TextBox>
                 </p>
