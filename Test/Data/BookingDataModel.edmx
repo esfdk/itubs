@@ -308,7 +308,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BookingDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="itubsContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BookITContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="People" EntityType="BookingDataModel.Person" />
           <EntitySet Name="Roles" EntityType="BookingDataModel.Role" />
           <EntitySet Name="Bookings" EntityType="BookingDataModel.Booking" />
@@ -634,7 +634,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BookingDataModelStoreContainer" CdmEntityContainer="itubsContext">
+  <EntityContainerMapping StorageEntityContainer="BookingDataModelStoreContainer" CdmEntityContainer="BookITContext">
     <EntitySetMapping Name="People">
       <EntityTypeMapping TypeName="IsTypeOf(BookingDataModel.Person)">
         <MappingFragment StoreEntitySet="People">

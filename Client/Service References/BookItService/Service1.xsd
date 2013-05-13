@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://rentit.itu.dk/RentIt12/Services/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ITubsService.Enums" />
-  <xs:import schemaLocation="http://rentit.itu.dk/RentIt12/Services/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ITubsService.Entities" />
+  <xs:import schemaLocation="http://rentit.itu.dk/RentIt12/Services/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BookITService.Enums" />
+  <xs:import schemaLocation="http://rentit.itu.dk/RentIt12/Services/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BookITService.Entities" />
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
@@ -13,8 +13,8 @@
   <xs:element name="LoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="LoginResult" type="q1:LoginStatus" />
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="person" nillable="true" type="q2:Person" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="LoginResult" type="q1:LoginStatus" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="person" nillable="true" type="q2:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -28,7 +28,7 @@
   <xs:element name="LogoutResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="LogoutResult" type="q3:RequestStatus" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="LogoutResult" type="q3:RequestStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -42,8 +42,8 @@
   <xs:element name="GetAllOfUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetAllOfUsersResult" type="q4:RequestStatus" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="people" nillable="true" type="q5:ArrayOfPerson" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetAllOfUsersResult" type="q4:RequestStatus" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="people" nillable="true" type="q5:ArrayOfPerson" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -51,15 +51,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="person" nillable="true" type="q6:Person" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="person" nillable="true" type="q6:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetByEmailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetByEmailResult" type="q7:RequestStatus" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="person" nillable="true" type="q8:Person" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetByEmailResult" type="q7:RequestStatus" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="person" nillable="true" type="q8:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -73,23 +73,23 @@
   <xs:element name="GetByTokenResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetByTokenResult" type="q9:RequestStatus" />
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="person" nillable="true" type="q10:Person" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetByTokenResult" type="q9:RequestStatus" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="person" nillable="true" type="q10:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetBooking">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="booking" nillable="true" type="q11:Booking" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="booking" nillable="true" type="q11:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetBookingResult" type="q12:RequestStatus" />
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="booking" nillable="true" type="q13:Booking" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetBookingResult" type="q12:RequestStatus" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="booking" nillable="true" type="q13:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -103,23 +103,23 @@
   <xs:element name="GetBookingsByDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetBookingsByDateResult" type="q14:RequestStatus" />
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="bookings" nillable="true" type="q15:ArrayOfBooking" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetBookingsByDateResult" type="q14:RequestStatus" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="bookings" nillable="true" type="q15:ArrayOfBooking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetBookingsByPerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="person" nillable="true" type="q16:Person" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="person" nillable="true" type="q16:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetBookingsByPersonResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetBookingsByPersonResult" type="q17:RequestStatus" />
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="bookings" nillable="true" type="q18:ArrayOfBooking" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetBookingsByPersonResult" type="q17:RequestStatus" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="bookings" nillable="true" type="q18:ArrayOfBooking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -131,8 +131,8 @@
   <xs:element name="GetPendingBookingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetPendingBookingsResult" type="q19:RequestStatus" />
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="bookings" nillable="true" type="q20:ArrayOfBooking" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetPendingBookingsResult" type="q19:RequestStatus" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="bookings" nillable="true" type="q20:ArrayOfBooking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -140,15 +140,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="newBooking" nillable="true" type="q21:Booking" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="newBooking" nillable="true" type="q21:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="CreateBookingResult" type="q22:RequestStatus" />
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="newBooking" nillable="true" type="q23:Booking" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="CreateBookingResult" type="q22:RequestStatus" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="newBooking" nillable="true" type="q23:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -156,15 +156,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="changedBooking" nillable="true" type="q24:Booking" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="changedBooking" nillable="true" type="q24:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ChangeTimeOfBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="ChangeTimeOfBookingResult" type="q25:RequestStatus" />
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="changedBooking" nillable="true" type="q26:Booking" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="ChangeTimeOfBookingResult" type="q25:RequestStatus" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="changedBooking" nillable="true" type="q26:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -172,15 +172,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="changedBooking" nillable="true" type="q27:Booking" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="changedBooking" nillable="true" type="q27:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ChangeBookingStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="ChangeBookingStatusResult" type="q28:RequestStatus" />
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="changedBooking" nillable="true" type="q29:Booking" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="ChangeBookingStatusResult" type="q28:RequestStatus" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="changedBooking" nillable="true" type="q29:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -195,7 +195,7 @@
   <xs:element name="DeleteBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="DeleteBookingResult" type="q30:RequestStatus" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="DeleteBookingResult" type="q30:RequestStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -203,15 +203,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q31:CateringChoice" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q31:CateringChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddCateringToBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="AddCateringToBookingResult" type="q32:RequestStatus" />
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q33:Booking" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="AddCateringToBookingResult" type="q32:RequestStatus" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q33:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -219,15 +219,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q34:CateringChoice" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q34:CateringChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ChangeTimeOfCateringChoiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="ChangeTimeOfCateringChoiceResult" type="q35:RequestStatus" />
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q36:Booking" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="ChangeTimeOfCateringChoiceResult" type="q35:RequestStatus" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q36:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -235,15 +235,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q37:CateringChoice" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q37:CateringChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RemoveCateringChoiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="RemoveCateringChoiceResult" type="q38:RequestStatus" />
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q39:Booking" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="RemoveCateringChoiceResult" type="q38:RequestStatus" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q39:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -251,15 +251,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q40:EquipmentChoice" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q40:EquipmentChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddEquipmentToBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="AddEquipmentToBookingResult" type="q41:RequestStatus" />
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q42:Booking" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="AddEquipmentToBookingResult" type="q41:RequestStatus" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q42:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -267,15 +267,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q43:EquipmentChoice" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q43:EquipmentChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ChangeTimeOfEquipmentBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="ChangeTimeOfEquipmentBookingResult" type="q44:RequestStatus" />
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q45:Booking" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="ChangeTimeOfEquipmentBookingResult" type="q44:RequestStatus" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q45:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -283,15 +283,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q46:EquipmentChoice" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q46:EquipmentChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RemoveEquipmentChoiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="RemoveEquipmentChoiceResult" type="q47:RequestStatus" />
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q48:Booking" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="RemoveEquipmentChoiceResult" type="q47:RequestStatus" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="editedBooking" nillable="true" type="q48:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -303,38 +303,38 @@
   <xs:element name="GetAllCateringResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetAllCateringResult" type="q49:RequestStatus" />
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="cateringItems" nillable="true" type="q50:ArrayOfCatering" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetAllCateringResult" type="q49:RequestStatus" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="cateringItems" nillable="true" type="q50:ArrayOfCatering" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCatering">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="catering" nillable="true" type="q51:Catering" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="catering" nillable="true" type="q51:Catering" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCateringResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetCateringResult" type="q52:RequestStatus" />
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="catering" nillable="true" type="q53:Catering" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetCateringResult" type="q52:RequestStatus" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="catering" nillable="true" type="q53:Catering" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCateringChoice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q54:CateringChoice" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q54:CateringChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCateringChoiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetCateringChoiceResult" type="q55:RequestStatus" />
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q56:CateringChoice" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetCateringChoiceResult" type="q55:RequestStatus" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="cateringChoice" nillable="true" type="q56:CateringChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -342,15 +342,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="newInventory" nillable="true" type="q57:Inventory" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="newInventory" nillable="true" type="q57:Inventory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateNewInventoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="CreateNewInventoryResult" type="q58:RequestStatus" />
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="newInventory" nillable="true" type="q59:Inventory" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="CreateNewInventoryResult" type="q58:RequestStatus" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="newInventory" nillable="true" type="q59:Inventory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -358,15 +358,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="inventory" nillable="true" type="q60:Inventory" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="inventory" nillable="true" type="q60:Inventory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ChangeInventoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="ChangeInventoryResult" type="q61:RequestStatus" />
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="inventory" nillable="true" type="q62:Inventory" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="ChangeInventoryResult" type="q61:RequestStatus" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="inventory" nillable="true" type="q62:Inventory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -374,29 +374,29 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="inventory" nillable="true" type="q63:Inventory" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="inventory" nillable="true" type="q63:Inventory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteInventoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="DeleteInventoryResult" type="q64:RequestStatus" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="DeleteInventoryResult" type="q64:RequestStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetInventoryByID">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="inventory" nillable="true" type="q65:Inventory" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="inventory" nillable="true" type="q65:Inventory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetInventoryByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetInventoryByIDResult" type="q66:RequestStatus" />
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="inventory" nillable="true" type="q67:Inventory" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetInventoryByIDResult" type="q66:RequestStatus" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="inventory" nillable="true" type="q67:Inventory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -408,8 +408,8 @@
   <xs:element name="GetInventoryTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetInventoryTypesResult" type="q68:RequestStatus" />
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="types" nillable="true" type="q69:ArrayOfInventoryType" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetInventoryTypesResult" type="q68:RequestStatus" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="types" nillable="true" type="q69:ArrayOfInventoryType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -424,8 +424,8 @@
   <xs:element name="GetAllInventoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetAllInventoryResult" type="q70:RequestStatus" />
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="items" nillable="true" type="q71:ArrayOfInventory" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetAllInventoryResult" type="q70:RequestStatus" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="items" nillable="true" type="q71:ArrayOfInventory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -433,15 +433,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="newRoom" nillable="true" type="q72:Room" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="newRoom" nillable="true" type="q72:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddRoomResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="AddRoomResult" type="q73:RequestStatus" />
-        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="newRoom" nillable="true" type="q74:Room" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="AddRoomResult" type="q73:RequestStatus" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="newRoom" nillable="true" type="q74:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -449,15 +449,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="editedRoom" nillable="true" type="q75:Room" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="editedRoom" nillable="true" type="q75:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditRoomResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="EditRoomResult" type="q76:RequestStatus" />
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="editedRoom" nillable="true" type="q77:Room" />
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="EditRoomResult" type="q76:RequestStatus" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="editedRoom" nillable="true" type="q77:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -465,29 +465,29 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="room" nillable="true" type="q78:Room" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="room" nillable="true" type="q78:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RemoveRoomResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="RemoveRoomResult" type="q79:RequestStatus" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="RemoveRoomResult" type="q79:RequestStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRoom">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="room" nillable="true" type="q80:Room" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="room" nillable="true" type="q80:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRoomResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetRoomResult" type="q81:RequestStatus" />
-        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="room" nillable="true" type="q82:Room" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetRoomResult" type="q81:RequestStatus" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="room" nillable="true" type="q82:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -499,8 +499,8 @@
   <xs:element name="GetAllRoomsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetAllRoomsResult" type="q83:RequestStatus" />
-        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="rooms" nillable="true" type="q84:ArrayOfRoom" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetAllRoomsResult" type="q83:RequestStatus" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="rooms" nillable="true" type="q84:ArrayOfRoom" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -509,15 +509,15 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="inventoryId" type="xs:int" />
-        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="updatedRoom" nillable="true" type="q85:Room" />
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="updatedRoom" nillable="true" type="q85:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddInventoryItemToRoomResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="AddInventoryItemToRoomResult" type="q86:RequestStatus" />
-        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="updatedRoom" nillable="true" type="q87:Room" />
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="AddInventoryItemToRoomResult" type="q86:RequestStatus" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="updatedRoom" nillable="true" type="q87:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -526,15 +526,15 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="inventoryId" type="xs:int" />
-        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="updatedRoom" nillable="true" type="q88:Room" />
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="updatedRoom" nillable="true" type="q88:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RemoveInventoryItemFromRoomResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="RemoveInventoryItemFromRoomResult" type="q89:RequestStatus" />
-        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="updatedRoom" nillable="true" type="q90:Room" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="RemoveInventoryItemFromRoomResult" type="q89:RequestStatus" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="updatedRoom" nillable="true" type="q90:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -542,15 +542,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="newEquipment" nillable="true" type="q91:Equipment" />
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="newEquipment" nillable="true" type="q91:Equipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateNewEquipmentItemResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="CreateNewEquipmentItemResult" type="q92:RequestStatus" />
-        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="newEquipment" nillable="true" type="q93:Equipment" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="CreateNewEquipmentItemResult" type="q92:RequestStatus" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="newEquipment" nillable="true" type="q93:Equipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -558,15 +558,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipment" nillable="true" type="q94:Equipment" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipment" nillable="true" type="q94:Equipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ChangeEquipmentItemResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="ChangeEquipmentItemResult" type="q95:RequestStatus" />
-        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipment" nillable="true" type="q96:Equipment" />
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="ChangeEquipmentItemResult" type="q95:RequestStatus" />
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipment" nillable="true" type="q96:Equipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -574,44 +574,44 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipment" nillable="true" type="q97:Equipment" />
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipment" nillable="true" type="q97:Equipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteEquipmentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="DeleteEquipmentResult" type="q98:RequestStatus" />
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="DeleteEquipmentResult" type="q98:RequestStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEquipmentChoice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q99:EquipmentChoice" />
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q99:EquipmentChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEquipmentChoiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetEquipmentChoiceResult" type="q100:RequestStatus" />
-        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q101:EquipmentChoice" />
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetEquipmentChoiceResult" type="q100:RequestStatus" />
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipmentChoice" nillable="true" type="q101:EquipmentChoice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEquipment">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipment" nillable="true" type="q102:Equipment" />
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipment" nillable="true" type="q102:Equipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEquipmentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetEquipmentResult" type="q103:RequestStatus" />
-        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="equipment" nillable="true" type="q104:Equipment" />
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetEquipmentResult" type="q103:RequestStatus" />
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="equipment" nillable="true" type="q104:Equipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -623,8 +623,8 @@
   <xs:element name="GetEquipmentTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetEquipmentTypesResult" type="q105:RequestStatus" />
-        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="types" nillable="true" type="q106:ArrayOfEquipmentType" />
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetEquipmentTypesResult" type="q105:RequestStatus" />
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="types" nillable="true" type="q106:ArrayOfEquipmentType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -638,8 +638,8 @@
   <xs:element name="GetAllEquipmentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/ITubsService.Enums" minOccurs="0" name="GetAllEquipmentResult" type="q107:RequestStatus" />
-        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/ITubsService.Entities" minOccurs="0" name="items" nillable="true" type="q108:ArrayOfEquipment" />
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/BookITService.Enums" minOccurs="0" name="GetAllEquipmentResult" type="q107:RequestStatus" />
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/BookITService.Entities" minOccurs="0" name="items" nillable="true" type="q108:ArrayOfEquipment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

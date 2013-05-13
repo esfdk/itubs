@@ -22,15 +22,6 @@ namespace Client.GUI.Administrator {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// ÆndreLokaleButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ÆndreLokaleButton;
-        
-        /// <summary>
         /// TilføjLokaleButton control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace Client.GUI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button TilføjLokaleButton;
+        
+        /// <summary>
+        /// ÆndreLokaleButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ÆndreLokaleButton;
         
         /// <summary>
         /// SletLokaleButton control.

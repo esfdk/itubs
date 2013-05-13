@@ -44,12 +44,12 @@
                 </asp:GridView>
             </td>
             <td>
-                <asp:Button ID="ÆndreLokaleButton" runat="server" Text="Ændre" CssClass="availableButton" 
-                    Width="89px" onclick="ÆndreLokale_Click" />
-                <br />
-                <br />
                 <asp:Button ID="TilføjLokaleButton" runat="server" Text="Tilføj" CssClass="availableButton" 
                     Width="89px" onclick="TilføjLokale_Click" />
+                <br />
+                <br />
+                <asp:Button ID="ÆndreLokaleButton" runat="server" Text="Ændre" CssClass="availableButton" 
+                    Width="89px" onclick="ÆndreLokale_Click" />
                 <br />
                 <br />
                 <asp:Button ID="SletLokaleButton" runat="server" Text="Slet" CssClass="availableButton" 

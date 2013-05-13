@@ -50,7 +50,7 @@
                         </tr>
                         <tr>
                             <td>
-                    <asp:Button ID="CateringButton" runat="server" Text="Tilføj forplejning" Width="160px" onclick="CateringButton_Click" CssClass="availableButton" />
+                    <asp:Button ID="CateringButton" runat="server" Text="Tilføj Forplejning" Width="160px" onclick="CateringButton_Click" CssClass="availableButton" />
                             </td>
                         </tr>
                         <tr>

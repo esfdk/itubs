@@ -58,7 +58,7 @@
 
                 if (r.Inventories.Count() != 0)
                 {
-                    s += r.Inventories[0].ProductName;
+                    s += r.Inventories[j].ProductName;
                 }
 
                 row.Cells[2].Text = s;

@@ -12,10 +12,13 @@ namespace Client.GUI.Administrator
         {
             if (!Page.IsPostBack)
             {
-                int roomID = 1;
+                var roomID = 1;
+                LokaleNavnTextBox.Text = "2A12";
+                KapacitetTextBox.Text = "30";
+
                 GridView1.DataSource = DataTables.GetRoomInventory(roomID);
                 GridView1.DataBind();
-                GridView1.SelectedIndex = 0;
+                //GridView1.SelectedIndex = 0;
             }
 
             if (GridView1.SelectedIndex > -1)

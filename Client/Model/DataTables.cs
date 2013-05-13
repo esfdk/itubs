@@ -187,6 +187,11 @@
                 row.Cells[2].Text = inventory.Status;
             }
 
+            if (i > 0)
+            {
+                gv.Rows[i - 1].CssClass = "BorderRow";
+            }
+
             for (var j = i; j - i < roomInventoryList.Count; j++)
             {
                 var row = gv.Rows[j];
@@ -215,6 +220,7 @@
             {
                 var row = gv.Rows[i];
                 var inventory = inventoryList[i];
+                row.BackColor = Color.LightGray;
                 row.Cells[0].Text = inventory.ProductName;
                 row.Cells[1].Text = inventory.InventoryType.Type;
                 row.Cells[2].Text = inventory.Status;
@@ -352,7 +358,7 @@
 
                 if (r.Inventories.Count() != 0)
                 {
-                    s += r.Inventories[0].ProductName;
+                    s += r.Inventories[j].ProductName;
                 }
 
                 gv.Rows[i].Cells[2].Text = s;
