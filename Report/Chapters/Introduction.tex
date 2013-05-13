@@ -1,0 +1,25 @@
+\chapter{Indledning}
+\label{Intro}
+Det har længe været på tale at få lavet et integreret system til IT-Universitetets booking af lokaler for interne og eksterne brugere. Den nuværende metode er besværlig og uoverskuelig, da planlægningen og håndteringen af bookinger foregår i flere forskellige systemer med Facility Management (FM) som centralt bindepunkt\cite[Kap. A]{kravspec}.
+\\Det integrerede systems primære formål er at lette arbejdsbyrden for FM samt minimere fejl. 
+
+Denne rapport er udarbejdet i forbindelse med et projekt løbende fra 15. februar til 22. maj, 2013. Målet med projektet var at udvikle en løsning til IT-Universitetets ønske om et bookingsystem. 
+
+Projektet resulterede i en første udgave, som opfylder nogle af kravene fra en kravspefikation (beskrevet i \ref{Intro_kravspec}). Den første udgave af løsningen består af det grafiske design og implementationen. 
+\\Vi evaluerer løsningen ud fra antal problemer i usability tests samt hvor stor en del af kravspecifikationen, løsningen opfylder. Desuden har vi lavet en kort undersøgelse af, hvilke alternativer IT-Universitetet har i forbindelse med anskaffelsen af et booking-system.
+\\Vores konklusion består en evalueringen af projektet samt en beskrivelse af de erfaringer, vi har gjort igennem processen.
+
+\section{Kravspecifikationen}
+\label{Intro_kravspec}
+Systemet er baseret på en kravspecifikation udarbejdet på kurset "Anskaffelse og kravspecifikation" i efteråret 2012. Kravspecifikationen er udarbejdet af Stig Larsen (stla@itu.dk), Miki Ipsen (mikc@itu.dk), Garwun Jeffrey Lai (gjel@itu.dk) og Merete Larsen (mnol@itu.dk)\footnote{Vi anskaffede kravspecifikationen hos Jeffrey Lai.}. 
+
+\section{Versionsstyring, database og service info}
+\label{Intro_vs}
+Vi har anvendt Git (på github.com) til versionsstyring. Derudover har vi brugt en virtuel server opsat af ITU til at hoste vores service og database.
+\begin{my_description}
+\item[GitHub repository] https://github.com/esfdk/itubs
+\item[Service URL] http://rentit.itu.dk/RentIt12/Services/Service.svc
+\item[Database] RentIt12 på http://rentit.itu.dk (brugernavn: RentIt12Db -- adgangskode: Zaq12wsx)
+\item[Test Administrator] Brugernavn="Admin@BookIt.dk" Adganskode="zAq12wSx"
+\item[Test Bruger] Brugernavn="test@bookit.dk" Adgangskode="qwerty123"
+\end{my_description}
