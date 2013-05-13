@@ -31,11 +31,12 @@ Vores skærmbilleder er opdelt i tre typer: Gitter, Almindelig og Pop-ups.
 \\Almindelige vinduer anvender vi, hvis man skal ændre noget på et stykke udstyr/inventar eller et lokale.
 \\Pop-up skærmbilleder er generelt advarsler eller fejlbeskeder.
 
-For at få et overblik over hvordan man navigere i brugergrænsefladen og hvordan de forskellige skærmbilleder er designet, vil vi tage udgangspunkt i et eksemepel på hvordan work flowet for, hvis man skulle booke et lokale og tilføje forplejning til det. Vi vil derefter gennemgå de resterende interessante skærmbilleder individuelt.
+For at få et overblik over hvordan man navigere i brugergrænsefladen og hvordan de forskellige skærmbilleder er designet, vil vi tage udgangspunkt i et eksemepel på hvordan work flowet er, hvis man skulle booke et lokale og tilføje forplejning til det. Vi vil derefter gennemgå de resterende interessante skærmbilleder individuelt.
 
-Det første skærmbillede som man blive præsenteret for når man starter programmet er \ref{Design_G_Development_FinalGrid} her man i stand til at markere de tider man gerne vil booke et lokale, for at kunne booke skal man dog først logge ind via login knappen i øverste højre hjørne. 
+Det første skærmbillede som man blive præsenteret for når man starter programmet er figur \ref{Design_G_Development_FinalGrid}, man er i stand til at markere de tider man gerne vil booke et lokale, for at kunne booke skal man dog først logge ind via login knappen i øverste højre hjørne\footnote{Se billed af login skærm i \ref{Appendix} på side \pageref{Appendix}}. 
 
-Vores første mockup af gitterskærmbilledet se figur \ref{Design_G_Development_FirstGrid} havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Man skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. 
+Vores første mockup af Skærmbilledet til booking af lokaler se figur \ref{Design_G_Development_FirstGrid} havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Man skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Når man havde valgt de tider og lokaler, man gerne ville booke, skulle man trykke på en "Book" knap. 
+
 Som man kan se på Figur \ref{Design_G_Development_FinalGrid} valgte vi at beholde den struktur, men vi tilføjede checkboxses til gitteret. Dette blev gjort efter første runde af usability tests hvor vi observerede, at brugeren var i tvivl om, hvor man skulle klikke for at vælge tider for en booking, derudover tilføjede vi også, at udstyr m.m., man har booket, ligger øverst i gitteret, når man får oversigten over fx udstyr. Dette gør det nemt at finde det element, man har booket/bestilt.
 
 \begin{figure}[h!]
@@ -54,7 +55,7 @@ Som man kan se på Figur \ref{Design_G_Development_FinalGrid} valgte vi at behol
 
 Hvis man markere et lokale i det tidsrum man gerne vil booke det og trykker book vil bookingen blive oprettet og man vil blive navigeret videre til en side der visser en oversigt over alle dine bookinger, se figur\ref{Design_G_Development_YourBookings_Final}. 
 
-Til designet af det skærmbillede fokuserede vi på at overholde Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}, da vi gerne ville opnå, at det virkede intuitivt for brugeren, at det var de knapper der skulle bruges til at interegere med gitteret. 
+Til designet af det skærmbillede fokuserede vi på at overholde Gestalt-lovene\cite[s. 68]{SL_UID}, specifikt Law of Proximity\footnote{"Pieces that are close together are perceived as belonging together".}, da vi gerne ville opnå, at det virkede intuitivt for brugeren, hvilke knapper der skulle bruges til at interegere med gitteret. 
 
 \begin{figure}[h!]
   \centering
@@ -63,7 +64,7 @@ Til designet af det skærmbillede fokuserede vi på at overholde Gestalt-lovene\
 \label{Design_G_Development_YourBookings_Final}
 \end{figure} 
 
-Figur\ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbilled til forplejnings valg. Til designet af skærmbillede fokuserede vi på, at det grafisk skulle minde om \ref{Design_G_Development_FinalGrid således, at vi overholdte designregel 1 på den måde ville brugeren intuitivt vide hvordan man skulle tilføje forplejning. De samme design beslutninger gælder for tilføjelse af udstyr til en booking, skærmbilledet kan ses i  \ref{Appendix} på side \pageref{Appendix}.
+Figur\ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbilled til forplejnings valg. Til designet af skærmbilledet fokuserede vi på, at det grafisk skulle minde om \ref{Design_G_Development_FinalGrid} således, at vi overholdte designregel 1, på den måde ville brugeren intuitivt vide hvordan man skulle tilføje forplejning. De samme design beslutninger gælder for tilføjelse af udstyr til en booking, skærmbilledet kan ses i  \ref{Appendix} på side \pageref{Appendix}.
 
 \begin{comment}
 \begin{figure}[h!]
@@ -74,7 +75,9 @@ Figur\ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbille
 \end{figure} 
 \end{comment}
 \subsection{Bookingliste}
-For at en bruger kan tilføje udstyr eller forplejning til sin booking skal den først godkendes. Dette gøres af recepsionisten, som har en liste over alle bookinger som brugerne har oprettet, se figur \ref{Design_G_Development_BookingListe_Final}. Til det endelig design af skærmbilledet valgt vi at flytte godkend/afvis knapperne fra inde i gitteret, som de var i papermockupen se figur \ref{Design_G_Development_BookingListe}, til at være ved siden af gitteret således at vi ligesom i figur\ref{Design_G_Development_YourBookings_Final} benyttede "Law of proximity". Desuden havde ingen af de andre gittre knapper i sig, så vi vurderede, at det så vidt muligt skulle være ens på alle billeder således, at vi overholdt designregel 1.
+For at en bruger kan tilføje udstyr eller forplejning til sin booking skal den først godkendes. Dette gøres af recepsionisten, som har en liste over alle bookinger som brugerne har oprettet, se figur \ref{Design_G_Development_BookingListe_Final}.
+
+Til det endelig design af skærmbilledet valgt vi at flytte godkend/afvis knapperne fra inde i gitteret, som de var i papermockupen se figur \ref{Design_G_Development_BookingListe}, til at være ved siden af gitteret således, at vi ligesom i figur\ref{Design_G_Development_YourBookings_Final} benyttede "Law of proximity". Desuden havde ingen af de andre gittre knapper i sig, så vi vurderede, at det så vidt muligt skulle være ens på alle billeder således, at vi overholdt designregel 1.
 
 \begin{comment}
 \begin{figure}[h!]
@@ -93,7 +96,7 @@ For at en bruger kan tilføje udstyr eller forplejning til sin booking skal den 
 \end{figure} 
 
 \subsection{Udstyrsliste}
-Figuren \ref{Design_G_Development_BookingListe_Final} viser det endelige skærmbillede af listen over udstyr og tilføjelse af nyt udstyr til systemet. Til designet af skærmbilledet brugte vi "Law of proximity" så det er tydeligt, at de to funktionaliteter i skærmbilledet ikke hører sammen. Den eneste ændring der er blevet lavet til det endelige skærmbillede  i forhold til den originale papermockup\ref{Appendix} på side \pageref{Appendix} er, at der er blevet tilføjet en checkbox, hvor man kan vælge om udstyret skal kunne udlånes. Hvis den ikke udfyldes vil udstyret blive kvalificeret som inventar og det vil derfor ikke blive vist under muligt udstyr, der kan tilføjes en booking. 
+Figuren \ref{Design_G_Development_UdstyrsListe_Final} viser det endelige skærmbillede af listen over udstyr og tilføjelse af nyt udstyr til systemet. Til designet af skærmbilledet brugte vi "Law of proximity" så det er tydeligt, at de to funktionaliteter i skærmbilledet ikke hører sammen. Den eneste ændring der er blevet lavet til det endelige skærmbillede  i forhold til den originale papermockup\ref{Appendix} på side \pageref{Appendix} er, at der er blevet tilføjet en checkbox, hvor man kan vælge om udstyret skal kunne udlånes. Hvis den ikke udfyldes vil udstyret blive kvalificeret som inventar og det vil derfor ikke blive vist under muligt udstyr, der kan tilføjes en booking. 
 
 \begin{comment}
 \begin{figure}[h!]
@@ -105,7 +108,7 @@ Figuren \ref{Design_G_Development_BookingListe_Final} viser det endelige skærmb
 \end{comment}
 
 \subsection{Lokale liste}
-I systemet er der også mulighed for ændre i listen over lokaler, se figur \ref{Design_G_Development_LokaleListe_Final}. Til designet af skærmbilledet fokuserede vi på, at der skulle være klart overblik, vi sørgede derfor for at overholde law of proximity ved at ligge knapperne tæt på gitteret, hvilket også gør, at det kun er det vigtige information der bliver præsenteret i gitteret.
+I systemet er der mulighed for få en liste over lokaler, se figur \ref{Design_G_Development_LokaleListe_Final}. Til designet af skærmbilledet fokuserede vi på, at der skulle være et  klart overblik, vi sørgede derfor for at overholde law of proximity ved at ligge knapperne tæt på gitteret, hvilket også gør, at det kun er det vigtige information der bliver præsenteret i gitteret.
 
 \begin{comment}
 \begin{figure}[h!]
@@ -117,9 +120,11 @@ I systemet er der også mulighed for ændre i listen over lokaler, se figur \ref
 \end{comment}
 
 \subsection{Ændring af lokale}
-Til ændring af lokaler i systemet fokuserede vi på, at man skulle være i stand til at ændre de basale ting som navn og kapacitet, og samtidig være i stand til, at se en liste over inventar i lokalet hvor man skulle kunne tilføje eller fjerne udstyr. Til papermockupen, se figur \ref{Design_G_Development_AendreLokale} havde vi skærmbilledet opdelt i tre afsnit, et til at skifte kapcitet og navn, et til at tilføje inventar og et til at slette inventar.
+Til ændring af lokaler i systemet fokuserede vi på, at man skulle være i stand til at ændre de basale ting som navn og kapacitet, og samtidig være i stand til, at se en liste over inventar i lokalet hvor man skulle kunne tilføje eller fjerne udstyr.
 
-Dette var en meget uoverskuelige løsning og den var ikke strømlignet i forhold til resten af GUI'en. Vi valgte at lave en løsningen som var i stil med de andre skærmbilleder se figur \ref{Design_G_Development_AendreLokale_Final} vi valgte, at skærmbilledet kun skulle være fokuseret på en gitterløsning hvor den øverste del ville være det udstyr der allerede var i lokalet og resten af gitteret ville så være fyldt med udstyr som man kunne vælge at tilføje til lokalet.
+Til papermockupen, se figur \ref{Design_G_Development_AendreLokale} havde vi skærmbilledet opdelt i tre afsnit, et til at skifte kapcitet og navn, et til at tilføje inventar og et til at slette inventar.
+
+Dette var en meget uoverskuelige løsning og den var ikke strømlignet i forhold til resten af GUI'en. Vi valgte derfor at lave en løsningen som var i stil med de andre skærmbilleder se figur \ref{Design_G_Development_AendreLokale_Final} vi valgte, at skærmbilledet kun skulle være fokuseret på en gitterløsning hvor den øverste del ville være det udstyr der allerede var i lokalet og resten af gitteret ville være fyldt med udstyr som man kunne vælge at tilføje til lokalet.
 
 \begin{comment}
 \begin{figure}[h!]
