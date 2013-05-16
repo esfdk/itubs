@@ -4,6 +4,7 @@ namespace Client.GUI.User
     using System.Web.UI.WebControls;
 
     using Client.ViewModel;
+    using Client.ViewModel.User;
 
     public partial class RoomList : System.Web.UI.Page
     {

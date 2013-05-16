@@ -5,6 +5,7 @@ namespace Client.GUI.User
     using System.Web.UI.WebControls;
 
     using Client.ViewModel;
+    using Client.ViewModel.User;
 
     public partial class CateringList : System.Web.UI.Page
     {

@@ -2,7 +2,6 @@ namespace Client.GUI
 {
     using System;
 
-    using Client.Model;
     using Client.ViewModel;
 
     public partial class SiteMaster : System.Web.UI.MasterPage
@@ -39,7 +38,7 @@ namespace Client.GUI
 
         protected void LogoutClick(object sender, EventArgs e)
         {
-            PersonModel.Logout();
+            MasterViewModel.Logout();
             this.Response.Redirect("~/GUI/User/RoomList.aspx");
         }
 
@@ -85,7 +84,7 @@ namespace Client.GUI
                 return;
             }
 
-            this.Response.Redirect("~/GUI/Administrator/BookingListe.aspx");
+            this.Response.Redirect("~/GUI/Administrator/BookingList.aspx");
         }
 
         protected void MenuButton_KonfigLokale_OnClick(object sender, EventArgs e)
@@ -100,7 +99,7 @@ namespace Client.GUI
                 return;
             }
 
-            this.Response.Redirect("~/GUI/Administrator/SuperLokaleListe.aspx");
+            this.Response.Redirect("~/GUI/Administrator/AdminRoomList.aspx");
         }
 
         protected void MenuButton_FindBookinger_OnClick(object sender, EventArgs e)
@@ -115,7 +114,7 @@ namespace Client.GUI
                 return;
             }
 
-            this.Response.Redirect("~/GUI/Administrator/PersonBookingListe.aspx");
+            this.Response.Redirect("~/GUI/Administrator/PersonBookingList.aspx");
         }
     }
 }

@@ -30,5 +30,10 @@
 
             return PersonModel.loggedInUser.Name;
         }
+
+        public static void Logout()
+        {
+            PersonModel.Logout();
+        }
     }
 }

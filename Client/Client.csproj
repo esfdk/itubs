@@ -77,19 +77,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GUI\Account\Login.aspx" />
-    <Content Include="GUI\Administrator\BookingListe.aspx" />
-    <Content Include="GUI\Administrator\PersonBookingListe.aspx" />
-    <Content Include="GUI\Administrator\SuperLokaleListe.aspx" />
-    <Content Include="GUI\Administrator\TilføjLokale.aspx" />
-    <Content Include="GUI\Administrator\UdstyrsListe.aspx" />
-    <Content Include="GUI\Administrator\ÆndreLokale.aspx" />
-    <Content Include="GUI\Administrator\ÆndreUdstyr.aspx" />
+    <Content Include="GUI\Administrator\BookingList.aspx" />
+    <Content Include="GUI\Administrator\PersonBookingList.aspx" />
+    <Content Include="GUI\Administrator\AdminRoomList.aspx" />
+    <Content Include="GUI\Administrator\AddRoom.aspx" />
+    <Content Include="GUI\Administrator\EquipmentList.aspx" />
+    <Content Include="GUI\Administrator\EditRoom.aspx" />
+    <Content Include="GUI\Administrator\EditEquipment.aspx" />
     <Content Include="GUI\Global.asax" />
     <Content Include="GUI\Images\BlåBoks.png" />
     <Content Include="GUI\Images\HvidBoks.png" />
     <Content Include="GUI\Images\RødBoks.png" />
     <Content Include="GUI\Styles\Site.css" />
-    <Content Include="GUI\User\BookUdstyr.aspx" />
+    <Content Include="GUI\User\BookEquipment.aspx" />
     <Content Include="GUI\User\YourBookings.aspx" />
     <Content Include="GUI\User\CateringList.aspx" />
     <Content Include="GUI\User\RoomList.aspx" />
@@ -155,54 +155,54 @@
     <Compile Include="GUI\Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Administrator\BookingListe.aspx.cs">
-      <DependentUpon>BookingListe.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\BookingList.aspx.cs">
+      <DependentUpon>BookingList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\Administrator\BookingListe.aspx.designer.cs">
-      <DependentUpon>BookingListe.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\BookingList.aspx.designer.cs">
+      <DependentUpon>BookingList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Administrator\PersonBookingListe.aspx.cs">
-      <DependentUpon>PersonBookingListe.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\PersonBookingList.aspx.cs">
+      <DependentUpon>PersonBookingList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\Administrator\PersonBookingListe.aspx.designer.cs">
-      <DependentUpon>PersonBookingListe.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\PersonBookingList.aspx.designer.cs">
+      <DependentUpon>PersonBookingList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Administrator\SuperLokaleListe.aspx.cs">
-      <DependentUpon>SuperLokaleListe.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\AdminRoomList.aspx.cs">
+      <DependentUpon>AdminRoomList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\Administrator\SuperLokaleListe.aspx.designer.cs">
-      <DependentUpon>SuperLokaleListe.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\AdminRoomList.aspx.designer.cs">
+      <DependentUpon>AdminRoomList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Administrator\TilføjLokale.aspx.cs">
-      <DependentUpon>TilføjLokale.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\AddRoom.aspx.cs">
+      <DependentUpon>AddRoom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\Administrator\TilføjLokale.aspx.designer.cs">
-      <DependentUpon>TilføjLokale.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\AddRoom.aspx.designer.cs">
+      <DependentUpon>AddRoom.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Administrator\UdstyrsListe.aspx.cs">
-      <DependentUpon>UdstyrsListe.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\EquipmentList.aspx.cs">
+      <DependentUpon>EquipmentList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\Administrator\UdstyrsListe.aspx.designer.cs">
-      <DependentUpon>UdstyrsListe.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\EquipmentList.aspx.designer.cs">
+      <DependentUpon>EquipmentList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Administrator\ÆndreLokale.aspx.cs">
-      <DependentUpon>ÆndreLokale.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\EditRoom.aspx.cs">
+      <DependentUpon>EditRoom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\Administrator\ÆndreLokale.aspx.designer.cs">
-      <DependentUpon>ÆndreLokale.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\EditRoom.aspx.designer.cs">
+      <DependentUpon>EditRoom.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Administrator\ÆndreUdstyr.aspx.cs">
-      <DependentUpon>ÆndreUdstyr.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\EditEquipment.aspx.cs">
+      <DependentUpon>EditEquipment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\Administrator\ÆndreUdstyr.aspx.designer.cs">
-      <DependentUpon>ÆndreUdstyr.aspx</DependentUpon>
+    <Compile Include="GUI\Administrator\EditEquipment.aspx.designer.cs">
+      <DependentUpon>EditEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,12 +214,12 @@
     <Compile Include="GUI\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="GUI\User\BookUdstyr.aspx.cs">
-      <DependentUpon>BookUdstyr.aspx</DependentUpon>
+    <Compile Include="GUI\User\BookEquipment.aspx.cs">
+      <DependentUpon>BookEquipment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\User\BookUdstyr.aspx.designer.cs">
-      <DependentUpon>BookUdstyr.aspx</DependentUpon>
+    <Compile Include="GUI\User\BookEquipment.aspx.designer.cs">
+      <DependentUpon>BookEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\User\YourBookings.aspx.cs">
       <DependentUpon>YourBookings.aspx</DependentUpon>
@@ -244,7 +244,6 @@
     </Compile>
     <Compile Include="Model\BookingModel.cs" />
     <Compile Include="Model\CateringModel.cs" />
-    <Compile Include="Model\DataTables.cs" />
     <Compile Include="Model\PersonModel.cs" />
     <Compile Include="Model\RoomModel.cs" />
     <Compile Include="Model\ServiceClients.cs" />
@@ -256,10 +255,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CateringListViewModel.cs" />
+    <Compile Include="ViewModel\Account\LoginViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\AddRoomViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\AdminRoomListViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\BookingListViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\EditEquipmentViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\EditRoomViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\EquipmentListViewModel.cs" />
+    <Compile Include="ViewModel\Administrator\PersonBookingListViewModel.cs" />
     <Compile Include="ViewModel\MasterViewModel.cs" />
-    <Compile Include="ViewModel\RoomListViewModel.cs" />
-    <Compile Include="ViewModel\YourBookingsViewModel.cs" />
+    <Compile Include="ViewModel\User\BookEquipmentViewModel.cs" />
+    <Compile Include="ViewModel\User\CateringListViewModel.cs" />
+    <Compile Include="ViewModel\User\RoomListViewModel.cs" />
+    <Compile Include="ViewModel\User\YourBookingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

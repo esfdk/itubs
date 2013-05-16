@@ -5,6 +5,7 @@ namespace Client.GUI.User
 
     using Client.Model;
     using Client.ViewModel;
+    using Client.ViewModel.User;
 
     public partial class YourBookings : System.Web.UI.Page
     {
@@ -59,7 +60,7 @@ namespace Client.GUI.User
                 this.Response.Write("<script>alert('Du skal vælge en booking.');</script>");
             }
 
-            this.Response.Redirect("~/GUI/User/BookUdstyr.aspx?bookingID=" + id);
+            this.Response.Redirect("~/GUI/User/BookEquipment.aspx?bookingID=" + id);
         }
 
         protected void CateringButton_Click(object sender, EventArgs e)

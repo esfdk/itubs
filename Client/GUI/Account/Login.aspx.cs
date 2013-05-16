@@ -3,7 +3,8 @@ namespace Client.GUI.Account
     using System;
     using System.Web.UI.WebControls;
 
-    using Client.Model;
+    using Client.ViewModel;
+    using Client.ViewModel.Account;
 
     public partial class Login : System.Web.UI.Page
     {
@@ -24,7 +25,7 @@ namespace Client.GUI.Account
 
             var failure = LoginUser.FindControl("FailureText") as Literal;
 
-            switch (PersonModel.Login(un.Text, pw.Text))
+            switch (LoginViewModel.Login(un.Text, pw.Text))
             {
                 case RequestResult.WrongUserNameOrPassword:
                     if (failure != null)
