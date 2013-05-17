@@ -1,0 +1,72 @@
+\chapter{Vurdering af vores løsning}
+\label{Evaluation}
+
+\section{Understøttelse af arbejdsopgaver}
+\label{Evaluation_workareas}
+Denne sektion beskriver hvilke arbejdsopgaver vi understøtter i første release samt giver en prioritering af, hvilke arbejdsopgaver der bør fokuseres på i følgende releases.
+
+Kravspecifikationen definerer 13 arbejdsopgaver:
+\begin{my_enumerate}
+\item[\textbf{C01.}]{Administrer booking}
+\item[\textbf{C02.}]{Forespørg på booking}
+\item[\textbf{C03.}]{Modtag forespørgsel fra Ekstern}
+\item[\textbf{C04.}]{Klargør lokaler}
+\item[\textbf{C05.}]{Udlevér nøgle}
+\item[\textbf{C06.}]{Håndtér forplejning}
+\item[\textbf{C07.}]{Fakturér forplejning}
+\item[\textbf{C08.}]{Opdatér menukort}
+\item[\textbf{C09.}]{Opdater listen for ekstra udstyr}
+\item[\textbf{C10.}]{Opdatér lokaler}
+\item[\textbf{C11.}]{Administrér bruger}
+\item[\textbf{C12.}]{Håndter statistik}
+\item[\textbf{C13.}]{Behandl faktura}
+\end{my_enumerate}
+
+Ud af de 13 arbejdesopgaver understøtter vi \textbf{C01}, \textbf{C09} og \textbf{C10}.
+\\Hver af arbejdsopgaverne har en række underpunkter, som beskriver delopgaver og varianter af disse delopgaver.
+
+\textbf{C01:} Administrer booking\\
+\textbf{Brugere:} Ansatte og studerende på ITU.\\
+\textbf{Hyppighed:} Flere gange om dagen i alt for både studerende og ansatte.\\
+\textbf{Start:} En person går ind i booking systemet for at booke, ændre eller få overblik over bookinger.\\
+\textbf{Slut:} Når bookingen eller lændringen er foretaget.
+\begin{my_enumerate}
+\item[1.]{Søg efter ledigt tidspunkt for ny booking}
+\item[1a.]{Søg efter eksisterende booking}
+\item[2.]{ Vælg ledigt lokale, forplejning og ekstra udstyr}
+\item[2a.]{Vis eksisterende booking(er)}
+\item[3.]{Opdater booking}
+\item[4.]{Annullér booking}
+\item[5.]{Opret booking}
+\end{my_enumerate}
+
+\textbf{C09:} Opdater listen for ekstra udstyr\\
+\textbf{Brugere:} Facility Management (FM)\\
+\textbf{Hyppighed:} Når der sker ændring i udvalget af ekstra udstyr (en gang om måneden)\\
+\textbf{Start:} Når der er behov for at udstyrslisten skal opdateres\\
+\textbf{Slut:} Når listen er opdateret
+\begin{my_enumerate}
+\item{Rediger udstyrslisten}
+\end{my_enumerate}
+
+
+\textbf{C10:} Opdatér lokaler\\
+\textbf{Brugere:} Facility Management (FM)\\
+\textbf{Hyppighed:} Når der sker ændring i antallet af lokaler til bookingen (en gang om måneden)\\
+\textbf{Start:} Når der er behov for at lokalelisten skal opdateres\\
+\textbf{Slut:} Når listen er opdateret
+\begin{my_enumerate}
+\item{Rediger lokalelisten}
+\item{Rediger lokale inventar}
+\end{my_enumerate}
+
+\subsection{Prioritering af arbejdsopgaver}
+\label{Evaluation_workareas_priorities}
+Vi valgte til den første release af systemet at priotere
+
+Til den første release af systemet valgte vi at fokusere på at understøtte systemadministration og booking af lokaler og udstyr, hvilket tydeligt kan ses i afsnit \ref{Baggrund_Arb_opgaver} da alle arbejdsopgaverne i arbejdsområderne \textbf{C1},\textbf{C9} og \textbf{C10} er understøttet. 
+
+I kravspecifikationen er de arbejdsområder også blandt dem som er vægtet højest og det er samtidig de arbejdsområder som indeholder kernefunktionerne i systemet. Det som ikke blev prioriteret højt nok til at komme med i første release var de arbejdsopgaver som fokuserede på integrationen med kantinen, samt mulighed for fakturing og statestik , arbejdsopgaverne \textbf{C6}, \textbf{C7}, \textbf{C12} og \textbf{C13} er eksempler på sådanne opgaver.
+\\Grunden til, at vi ikke tog de arbejdsopgaver med var, at vi vurderede, at de ikke var nødvendige for at have et system der understøttede basis funktioner, derudover lagde arbejdsopgaverne op til, at der skulle implementeres et interface specifikt til kantinen hvilket vi vurderede ville tage lang tid at implementere og vi ville også have tre brugergrupper at tage hensyn til ift. usability og testing.
+
+Fokus for næste release vil derfor være at få udarbejdet et interface som kantinen kan bruge til at integrere med resten af systemet og få finpudset de allerede eksisterende funktioner i kravspecifikationen. Behandling af faktura har også en høj vægtning, så det vil der også blive lagt fokus på. 
