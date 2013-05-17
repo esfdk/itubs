@@ -69,8 +69,8 @@ SET IDENTITY_INSERT [dbo].[Caterings] OFF
 
 SET IDENTITY_INSERT [dbo].[Rooms] ON
 INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (1, '2A01', 6)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (2, '2A03', 10)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (3, '2A05', 15)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (2, '2A03', 30)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (3, '2A05', 25)
 INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (4, '2A07', 8)
 INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (5, '2A09', 25)
 INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (6, '3A01', 10)
@@ -95,16 +95,34 @@ INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [R
 INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (2, 'Skrivebordsstol', 'Reperation', 2, 2)
 INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (3, 'IBM X500', 'Virker', 3, 1)
 INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (4, 'Lænestol', 'Virker', 2, NULL)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (5, 'Skrivebordsstol', 'Virker', 2, NULL)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (6, 'Skammel', 'Virker', 2, NULL)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (7, 'Læder Lænestol', 'Virker', 2, NULL)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (8, 'Hæve-sænke bord', 'Virker', 1, 1)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (9, 'Skrivebord', 'Virker', 1, 1)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (10, 'Kontorstol', 'Virker', 2, NULL)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (11, 'Samsung stationær', 'Virker', 3, NULL)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (12, 'Kontorstol', 'Virker', 2, NULL)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (13, 'IBM laptop', 'Virker', 3, NULL)
 SET IDENTITY_INSERT [dbo].[Inventories] OFF
 
 -- Bookings
 
 SET IDENTITY_INSERT [dbo].[Bookings] ON
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (1,'Godkendt',30,'Møde','2013-05-15 12:00:00', '2013-05-15T15:00:00', 3, 2)
-INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (2,'Pending',50,'Møde','2013-06-10T16:00:00', '2013-06-10T18:00:00', 4, 2)
-INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (3,'Pending',100,'Forlæsning','2013-06-02T15:00:00', '2013-06-02T18:00:00', 4, 3)
-INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (4,'Pending',50,'Møde','2013-06-10T14:00:00', '2013-06-10T15:00:00', 3, 2)
-INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (5,'Pending',50,'Møde','2013-06-10T10:00:00', '2013-06-10T18:00:00', 2, 3)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (2,'Pending',30,'Møde','2013-06-10T16:00:00', '2013-06-10T18:00:00', 4, 2)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (3,'Pending',25,'Forlæsning','2013-06-02T15:00:00', '2013-06-02T18:00:00', 4, 3)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (4,'Pending',10,'Møde','2013-06-10T14:00:00', '2013-06-10T15:00:00', 3, 2)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (5,'Godkendt',8,'Møde','2013-06-10T12:00:00', '2013-06-10T14:00:00', 2, 4)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (6,'Godkendt',12,'Møde','2013-06-10T10:00:00', '2013-06-10T18:00:00', 2, 5)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (7,'Godkendt',8,'Møde','2013-06-11T10:00:00', '2013-06-11T18:00:00', 2, 6)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (8,'Godkendt',6,'Møde','2013-06-12T16:00:00', '2013-06-12T18:00:00', 2, 7)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (9,'Godkendt',6,'Møde','2013-06-13T10:00:00', '2013-06-13T12:00:00', 3, 7)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (10,'Godkendt',12,'Møde','2013-06-14T10:00:00', '2013-06-14T12:00:00', 2, 8)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (11,'Godkendt',15,'Møde','2013-06-15T10:00:00', '2013-06-15T14:00:00', 2, 8)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (12,'Pending',20,'Møde','2013-06-17T10:00:00', '2013-06-16T16:00:00', 4, 8)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (12,'Pending',23,'Møde','2013-06-18T12:00:00', '2013-06-16T16:00:00', 5, 8)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (12,'Pending',17,'Møde','2013-06-19T09:00:00', '2013-06-16T16:00:00', 3, 8)
 SET IDENTITY_INSERT [dbo].[Bookings] OFF
 
 -- Choices

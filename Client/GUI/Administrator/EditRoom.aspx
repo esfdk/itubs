@@ -9,9 +9,12 @@
         <asp:TextBox ID="CapacityTextBox" runat="server"/>
         <asp:Button ID="SaveButton" runat="server" onclick="SaveButton_Click" style="margin-left: 21px" Text="Gem" Width="78px" Height="21px" />
     </p>
-    <asp:Panel ID="Panel1" runat="server" Height="251px" style="margin-left: 27px" Width="794px">
+    <asp:Panel ID="Panel1" runat="server" Height="357px" style="margin-left: 27px" 
+        Width="794px">
                 <h3>udstyr:</h3>
-                    <asp:GridView ID="EditRoomGridView" runat="server" CellPadding="4" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" ForeColor="#333333" Width="512px">
+                    <asp:GridView ID="EditRoomGridView" runat="server" CellPadding="4" 
+                    OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" 
+                    ForeColor="#333333" Width="512px" AllowPaging="True">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Navn" />

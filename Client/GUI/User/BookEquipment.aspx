@@ -14,7 +14,9 @@
         <asp:TextBox ID="RoomTextBox" runat="server" ReadOnly="True"></asp:TextBox>
 &nbsp;Dato:
         <asp:TextBox ID="DateTextBox" runat="server" ReadOnly="True"></asp:TextBox>
-        <asp:GridView ID="BookEquipmentGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="BookEquipmentGridView_OnDataBound" OnRowCreated="BookEquipmentGridView_RowCreated">
+        <asp:GridView ID="BookEquipmentGridView" runat="server" CellPadding="4" 
+            ForeColor="#333333" OnDataBound="BookEquipmentGridView_OnDataBound" 
+            OnRowCreated="BookEquipmentGridView_RowCreated" AllowPaging="True">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
             <asp:BoundField HeaderText="Navn" />
