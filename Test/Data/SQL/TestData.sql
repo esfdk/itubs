@@ -38,21 +38,56 @@ SET IDENTITY_INSERT [dbo].[Equipments] ON
 INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (1, 'Projektor 350X', 'Virker', 1)
 INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (2, 'Canon Kamera 150P', 'Virker', 2)
 INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (3, 'Sony Kamera Xperia', 'Virker', 2)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (4, 'Sony HD Kamera', 'Virker', 2)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (5, 'HD Projektor', 'Virker', 1)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (6, 'Canon Lydoptager', 'Virker', 3)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (7, 'Canon HD Lydoptager', 'Virker', 3)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (8, 'Sony HD Lydoptager', 'Virker', 3)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (9, 'Sony Lydoptager', 'Virker', 3)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (10, 'Sony Projektor', 'Virker', 1)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (11, 'Canon Projektor', 'Virker', 1)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (12, 'Samsung Kamera', 'Virker', 2)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (13, 'Samsung Projektor S500', 'Virker', 1)
+INSERT [dbo].[Equipments] ([ID], [ProductName], [Status], [EquipmentTypeID]) VALUES (14, 'Samsung Lydoptager XS', 'Virker', 3)
 SET IDENTITY_INSERT [dbo].[Equipments] OFF
 
 SET IDENTITY_INSERT [dbo].[Caterings] ON
 INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (1, 8, 'Kanelsnegl', '09:00:00', '13:00:00' )
-INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (2, 5, 'Kaffe/Te', '09:00:00', '20:00:00' )
-INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (3, 30, 'Sandwich', '12:00:00', '16:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (2, 5, 'Kaffe', '09:00:00', '20:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (3, 25, 'Sandwich', '12:00:00', '16:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (4, 45, 'Oksebryst m. ris', '17:00:00', '19:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (5, 30, 'Rygbrød m. divers pålæg', '11:00:00', '15:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (6, 5, 'Te', '09:00:00', '20:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (7, 15, 'Pepsi', '09:00:00', '20:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (8, 15, 'Faxe kondi', '09:00:00', '20:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (9, 15, 'Fanta orange', '09:00:00', '20:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (10, 12, 'Multikerne bolle', '09:00:00', '12:00:00' )
+INSERT [dbo].[Caterings] ([ID], [Price], [ProductName], [AvailableFrom], [AvailableTo]) VALUES (11, 40, 'Boller i karry', '17:00:00', '19:00:00' )
 SET IDENTITY_INSERT [dbo].[Caterings] OFF
 
 -- Rooms and inventories
 
 SET IDENTITY_INSERT [dbo].[Rooms] ON
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (1, '2A12', 30)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (2, '3A14', 60)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (3, 'Audi2', 124)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (4, '5A56', 45)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (1, '2A01', 6)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (2, '2A03', 10)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (3, '2A05', 15)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (4, '2A07', 8)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (5, '2A09', 25)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (6, '3A01', 10)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (7, '3A03', 6)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (8, '3A05', 30)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (9, '3A07', 12)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (10, '3A09', 5)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (11, '4A01', 18)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (12, '4A03', 10)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (14, '4A05', 15)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (14, '4A07', 4)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (15, '4A09', 8)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (16, '5A01', 12)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (17, '5A03', 10)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (18, '5A05', 6)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (19, '5A07', 16)
+INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (20, '5A09', 22)
 SET IDENTITY_INSERT [dbo].[Rooms] OFF
 
 SET IDENTITY_INSERT [dbo].[Inventories] ON
