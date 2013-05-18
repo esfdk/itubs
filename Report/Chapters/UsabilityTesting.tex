@@ -48,36 +48,29 @@ I første runde af tests havde vi fokus på de store problemer i systemet, hvor 
 
 \section{Runde 1: Resultater og konsekvenser}
 \label{Usability_R1}
-Efter den første runde af tests var der fem problemer, problemerne er klassifikeret i forhold til skalaen fra \cite[s. 439]{SL_UID}:
-\begin{my_description}
-\item [Punkt 1:] Medium problem - Usikker på hvordan man vælger booking tidspunkter.
-\item [Punkt 2:] Cumbersome - Brugeren synes det var besværligt at navigere imellem skærmbillederne.
-\item [Punkt 3:] Minor problem - Brugeren fandt det ikke naturligt, at man skulle bruge lokalelisten til at ændre sin booking.
-\item [Punkt 4:] Minor problem - Problem med at tilføje udstyr/forplejning.
-\item [Punkt 5:] Positiv feedback på den generelle struktur af systemet.
-\end{my_description}
+Efter den første runde af tests var der fem problemer. Problemerne er klassifikeret efter skalaen fra \cite[s. 439]{SL_UID}:
 
-\paragraph{Punkt 1}
-Test personen havde problemer med at finde ud af, hvordan vores gitter til booking af lokaler fungerede. Personen troede ikke, man kunne klikke på felterne i gitteret, så der skulle lidt hjælp til, før personen forstod princippet.
+\paragraph{Problem 1: Task failure}
+Test personen havde problemer med at finde ud af, hvordan vores gitter til booking af lokaler fungerede. Personen troede ikke, man kunne klikke på felterne i gitteret, så der skulle hjælp til, før personen forstod princippet.
 \subparagraph{Konsekvenser og løsning}
 Vi blev enige om, at dette problem kunne løses ved at indsætte en checkbox i felterne. Det vil gøre det mere intuitivt, når man skal trykke på tiderne.
 
-\paragraph{Punkt 2}
+\paragraph{Problem 2: Cumbersome}
 Testpersonen følte, at der manglede navigeringsmuligheder mellem de forskellige skærmbilleder. Det var ikke intuitivt, at man skulle bruges tabsne til at skifte skærmbillede.
 \subparagraph{Konsekvenser og løsning}
 Vi løste problemet ved at lave en menubar, som var placeret nærmere midten af billedet, så den blev mere synlig.
 
-\paragraph{Punkt 3}
-Testpersonen fandt det ikke naturligt, at man skulle bruge lokalelisten til at ændre sin booking.
+\paragraph{Problem 3: Medium problem}
+Testpersonen fandt det ikke naturligt, at man skulle bruge lokalelisten til at ændre sin booking og var derfor lang tid om at finde ud af det.
 \subparagraph{Konsekvenser og løsning}
 Da vi kun testede på én person og det er et minor problem, valgte vi ikke at gøre noget ved problemet. Hvis problemer opstår i yderligere usability tests, bør en ændring overvejes.
 
-\paragraph{Punkt 4}
+\paragraph{Problem 4: Minor problem}
 Testpersonen nævnte, at hun ikke mente, det burde være muligt at tilføje udstyr/forplejning til en booking før, den er blevet godkendt.
 \subparagraph{Konsekvenser og løsning}
 Vi valgte at imødekomme dette ved at implementere logik, så man ikke kan trykke på knapperne til at tilføje forplejning/udstyr, hvis man ikke har valgt en godkendt booking.
 
-\paragraph{Punkt 5}
+\paragraph{Problem 5}
 Testpersonen kunne lide den overordnede struktur af systemet og var positiv overfor booking funktionaliteten (gitteret). Personen skulle dog lære at bruge booking funktionaliteten.
 \subparagraph{Konsekvenser og løsning}
 Denne feedback havde stor indflydelse på, at vi valgte at beholde vores grundstruktur.
@@ -88,10 +81,8 @@ Vi fik ikke mulighed for at udføre runde 2 af vores usability tests i tide. Da 
 
 Som beskrevet i afsnit \ref{Usability_TS} består runde 2 af test med flere brugere. Der skal laves tests med 2-3 personer fra hver af de to testgrupper. Disse brugere skal udføre "think-aloud" tests som beskrevet i vores usability test strategi. Testcases fra runde 1 skal genanvendes. Desuden vil vi tage en feedback-session efter testen sammen med brugeren på samme måde, som gjort i forbindelse med runde 1.
 
-Målet med runde 2 er, at problemerne fra runde 1 er blevet løst samt at der ikke er nogen major problem eller task failures.
+Målet med runde 2 er, at problemerne fra runde 1 er blevet løst samt at der ikke er nogen task failures.
 
 \subsection{Mulige konsekvenser af usabilitytest runde 2}
 \label{Usability_R2_cons}
-Konsekvenserne af testresultaterne i runde 2 ville være forslag til ændringer til næste udgave af systemet. Hvis ingen af problemerne fra runde 1 gentager sig, går vi ud fra at det overordnede design/layout er i orden. 
-
-I tilfælde af at der kun er cumbersome problemer i forbindelse med brugergrænsefladen, mener vi, at det vil være sandsynligt at systemet er være klar til brug i forhold til usability.
+Konsekvenserne af testresultaterne i runde 2 ville være forslag til ændringer til næste udgave af systemet, samt mulig liste af fejl eller mangler i systemet. Disse forslag og mangler ville vi få kunden til at priotere, vi ville derefter diskutere omkostningerne af de forskellige forslag og derefter få kunden til at priotere listen igen. Usability test runde 2 vil derfor give også en prioteret liste over hvad kunden ville have implementeret og i hvilken rækkefølge.
