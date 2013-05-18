@@ -3,3 +3,241 @@
 
 \subsection{Test af arbejdsopgaver}
 \label{App_Test_ListOfTest_Work}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Opgave: Administrer booking & Resultat & Status\\ 
+\hline
+	C100 & Søg efter ledigt tidspunkt for ny booking & & \\
+\hline
+	a & Søg efter eksisterende booking & & \\
+\hline
+	C101 & Vælg ledigt lokale, forplejning og ekstra udstyr & & \\
+\hline
+	a & Vis eksisterende booking(er) & & \\
+\hline
+	C102 & Opdater booking & & \\
+\hline
+	C103 & Anullér booking & & \\
+\hline
+	C104 & Opret booking & & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Opgave: Opdater listen for ekstra udstyr & Resultat & Status\\ 
+\hline
+	C200 & Rediger udstyrslisten & & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Opgave: Opdater lokaler & Resultat & Status\\ 
+\hline
+	C300 & Rediger lokalelisten & & \\
+\hline
+	C301 & Rediger lokale inventar & & \\
+\hline
+\end{tabularx}
+
+
+\subsection{Test af skærmbilleder}
+ \label{App_Test_ListOfTest_ScreenTests}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Tilføj lokale  & Forventet resultat & Status\\ 
+\hline
+	D100 &Tilføj lokale med data i felterne & Lokalet vil blive tilføjet til listen i konfigurering af lokaler & \\
+\hline
+	a & Tilføj lokale uden data i felterne  & En advarsel vil sige der ikke er indtaste data & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Konfigurering af lokaler & Forventet resultat & Status\\ 
+\hline
+	D200 & Tryk "Ændre" med et valgt lokale & Brugerne vil blive ført til Ændre lokale skærmbilledet, hvor den udfyldt data vil være tilhøre til det valgte lokale & \\
+\hline
+	a & Tryk "Ændre" uden der er valgt et lokale & En advarsel vil sige der ikke er valgt et lokale & \\
+\hline
+	D201 & Tryk "Slet" med et valgt lokale &En advarsel vil spørge om man er sikker på sit valg, hvis ja vil det valgte lokale vil blive slettet fra listen & \\
+\hline
+	a & Tryk "Slet" uden der er valgt et lokale & En advarsel vil der ikke er valgt et lokale & \\
+\hline
+	D202 & Tryk "Tilføj" & Brugeren vil blive ført til Tilføj lokale skærmbilledet & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Booking-liste  & Forventet resultat & Status\\ 
+\hline
+	D300 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & \\
+\hline
+	a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking & \\
+\hline
+	D301 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & \\
+\hline
+	a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Ændre udstyr & Forventet resultat & Status\\ 
+\hline
+	D400 & Tryk "Gem ændringer" med data i felterne & Brugeren vil blive ført til skærmbilledet udstyrslisten, hvor udstyret vil være i listen med de ønskede ændringer & \\
+\hline
+	a & Tryk "Gem ændringer" uden data i felterne & En advarsel vil sige der skal være udfyldt data i felterne & \\
+\hline
+	D401 & Tryk "Fortryd" & Brugerne vil blive ført til skærmbilledet udstyrslisten & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Ændre lokale  & Forventet resultat & Status\\ 
+\hline
+	D500 & Tryk "Gem" med data i felterne & Brugeren vil blive ført til konfigurering af lokaler, hvor det vil ligge i listen over lokaler med de ønskede ændringer  & \\
+\hline
+	a & Tryk "Gem" uden data i felterne & En advarsel vil sige at der skal være data i felterne & \\
+\hline
+	D501 & Tryk "Tilføj udstyr" med valgt udstyr & Udstyret vil blive fjernet fra den nederste liste og tilføjet til listen øverst i billedet & \\
+\hline
+	a & Tryk "Tilføj udstyr" uden valgt udstyr & En advarsel vil sige der skal være valgt udstyr for at kunne tilføje det & \\
+\hline
+	D502 & Tryk "Slet udstyr" med valgt udstyr & Udstyret vil blive fjernet fra den øverste liste og tilføjet til den nederste  & \\
+\hline
+	D503 & Tryk "Afslut" & Brugeren vil blive ført til skærmbilledet konfigurering af lokaler & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Udstyrsliste  & Forventet resultat & Status\\ 
+\hline
+	D600 & Tryk "Tilføj udstyr" med data i felterne & Det nye udstyr vil blive tilføjet til listen i venstre side af skærmbilledet & \\
+\hline
+	a & Tryk "Tilføj udstyr" uden data i felterne & En advarsel vil sige at der skal være data i felterne & \\
+\hline
+	D601 & Tryk "Slet udstyr" med valgt udstyr & Det valgte udstyr vil blive slettet fra listen & \\
+\hline
+	a & Tryk "Slet udstyr" uden valgt udstyr & En advarsel vil sige, at der ikke er valgt et udstyr & \\
+\hline
+	D602 & Tryk "Ændre udstyr" med valgt udstyr & Brugeren vil blive ført til skærmbilledet Ændre lokale som vil blive oprettet med dets valgte udstyrs data & \\
+\hline
+	a & Tryk "Ændre udstyr" uden valgt udstyr & En advarsel vil sige at der ikke er valgt et udstyr & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Person Booking liste   & Forventet resultat & Status\\ 
+\hline
+	D700 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & \\
+\hline
+	a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking & \\
+\hline
+	D701 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & \\
+\hline
+	a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & \\
+\hline
+	D702 & Tryk "Find bookinger" med email i feltet & Listen i skærmbilledet vil blive udfyldt med alle de bookinger den pågældende email har & \\
+\hline 
+	a & Tryk "Find bookinger" uden email i feltet & En advarsel vil sige at der skal være indtastet en email & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Book udstyr  & Forventet resultat & Status\\ 
+\hline
+	D800 & Tryk "Tilføj ændringer" med valgte booking tider for et stk. udstyr & de valgte felter bliver blå og udstyret bliver knyttet til brugerens booking & \\
+\hline
+	a & Tryk "Tilføj ændringer" uden valgte booking tider for et stk. udstyr & En advarsel vil sige at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det & \\
+\hline
+	b & Tryk "Tilføj ændringer" mens der er markeret booking tider for en allerede eksisterende booking & En advarsel vil sige at det ikke er muligt at booke allerede booket udstyr & \\
+\hline
+	c & Tryk "Tilføj ændringer" efter at start tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider & \\
+\hline
+	d & Tryk "Tilføj ændringer" efter at slut tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider & \\
+\hline
+	D801 & Tryk "Tilføj ændringer" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af udstyr skal ligge inde for booking tiden af lokalet & \\
+\hline
+	D802 & Tryk "Tilføj ændringer" med valgte booking tider for flere stk. udstyr & de valgte felter bliver blå og de valgte stykker udstyr vil blive knyttet til brugerens booking & \\
+\hline
+	D803 & Tryk "Tilføj ændringer" med flere valgte booking tider for et stk. udstyr & de valgte felter bliver blå og udstyret bliver knyttet til brugerens booking & \\
+\hline
+	D804 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Forplejning  & Forventet resultat & Status\\ 
+\hline
+	D900 & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning med et antal & Brugerens valg vil blive vist øverst i listen med antal & \\
+\hline
+	a & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning uden et antal & En advarsel vil sige at der skal vælges et antal for at forplejning kan books & \\
+\hline
+	b & Tryk "Tilføj Forplejning" uden valgte booking tider for et stk. forplejning & En advarsel vil sige at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det & \\
+\hline
+	901 & Tryk "Tilføj Forplejning" efter at start tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider & \\
+\hline
+	a & Tryk "Tilføj Forplejning" efter at slut tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider & \\
+\hline
+	D902 & Tryk "Tilføj Forplejning" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af forplejning skal ligge inde for booking tiden af lokalet & \\
+\hline
+	D903 & Tryk "Tilføj Forplejning" med valgte booking tider for flere stk. forplejning & De valgt forplejning vil kom til at ligge øverst i listen & \\
+\hline
+	D904 & Tryk "Tilføj Forplejning" med flere valgte booking tider for et stk. forplejning & Brugeren vil få leveret flere omgange af det valgt forplejning & \\
+\hline
+	D905 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Book lokale  & Forventet resultat & Status\\ 
+\hline
+	D1000 & Tryk "Book lokale" med valgte booking tidspunkter & Brugerne vil blive ført til skærmbilledet Dine bookinger hvor den nye booking vil ligge i listen & \\
+\hline
+	a & Tryk "Book lokale" uden valgte booking tidspunkter & En advarsel vil sige at der skal være markeret tider for at kunne oprette en booking & \\
+\hline
+	D1001 & Tryk "Book lokale" med flere valgte booking tidspunkter på samme lokale &  Brugerne vil blive ført til skærmbilledet Dine bookinger hvor de nye bookinger vil ligge i listen & \\
+\hline
+	D1002 & Tryk "Book lokale" med flere valgte booking på flere forskellige lokaler&  Brugerne vil blive ført til skærmbilledet Dine bookinger hvor de nye bookinger vil ligge i listen & \\
+\hline
+	D1003 & Tryk "Book lokale" efter at start tidspunktet for brugerens booking er blevet ændret & Brugeren vil blive ført til skærmbilledet Dine bookinger hvor bookings start tidspunkt vil være ændret & \\
+\hline
+	a & Tryk "Book lokale" efter at slut tidspunktet for brugerens booking er blevet ændret & Brugeren vil blive ført til skærmbilledet Dine bookinger hvor bookings slut tidspunkt vil være ændret & \\
+\hline
+	D1004 & Trky "Book lokale" mens der er markeret et tidspunkt som allerede af booket af en anden bruger & En advarsel vil sige at det kun er muligt at book lokaler i ledige tidspunkter & \\
+\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\hline
+	ID & Billede: Dine bookinger  & Forventet resultat & Status\\ 
+\hline
+	D1100 & Tryk "Ændre Booking" med en valgt booking & Brugeren vil blive ført til skærmbilledet Book lokale & \\
+\hline
+	a & Tryk "Ændre Booking" uden valgt booking & En advarsel vil sige at der skal være valgt en booking & \\
+\hline
+	D1101 & Tryk "Slet Booking" med en valgt booking & Booking vil blive slette fra listen & \\
+\hline
+	a & Tryk "Slet Booking" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & \\
+\hline
+	D1102 & Tryk "Tilføj Forplejning" med en valgt booking & Brugeren vil blive ført til skærmbilledet Forplejning & \\
+\hline
+	a &  Tryk "Tilføj Forplejning" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & \\
+\hline
+	D1103 & Tryk "Tilføj Udstyr" med en valgt boking & Brugeren vil blive ført til skærmbilledet Udstyrsliste & \\
+\hline
+	a & Tryk "Tilføj Udstyr" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & \\
+\hline
+\end{tabularx}
