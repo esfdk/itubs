@@ -24,7 +24,7 @@ Vi ville muligvis have været i stand til at reducere antallet af defekter, hvis
 
 \section{Ønsket teststrategi}
 \label{Test_intendedStrat}
-Hvis vi havde mere tid, ville vi have indført en mere grundig teststrategi. Denne test strategi består af flere typer af test samt en anden tilgang til testproceduren.
+Hvis vi havde mere tid, ville vi have indført en mere grundig teststrategi. Denne test strategi består af flere typer af test samt en anden tilgang til testproceduren. Testene vil både være automatiske (test skrevet i kode) eller manuelle (en bruger sidder og udfører dem manuelt).
 
 Testproceduren til vores ønskede teststrategi er fokuseret på at beskrive en række test til hver arbejdsopgave tidligt i processen. Mange af forretningsreglerne burde indgå som test eller dele af test. For eksempel bør det være en negativ test, at man ikke kan booke på samme tidspunkt, som en anden bruger har booket.
 \\Derudover vil det være målet, at hver funktion har en række test (positive og negative), som skrives før selve funktionaliteten implementeres. I denne forbindelse er det vigtigt, at man får defineret, hvad funktionen skal gøre, da man ellers ville blive tvunget til at skrive testene om, hvis man laver ændringer i funktionaliteten.
@@ -39,24 +39,45 @@ For det første gør \textit{Code Contracts} koden nemmere at implementere, da m
 Vores ønskede strategi består af flere niveauer af tests:
 \begin{my_description}
 \item[Unit] Test af mindre dele af koden (fx enkelte metodekald).
-\item[Scenario] Består hovedsageligt af test, som kombinerer flere funktioner.
+\item[Scenario] Består af test, som kombinerer flere funktioner.
 \item[Service] Test af forbindelse samt regler for input til servicekald.
 \item[Brugergrænseflade] Test af navigering og arbejdsopgaver i brugergrænsefladen.
 \end{my_description}
 
 \subsubsection{Unit}
 \label{Test_intendedStrat_types_unit}
-Vores unit test vil, for det meste, bestå af den testsuite, som PEX genererer. Vi mener ikke, at det er nødvendigt at lave håndskrevne unit test, medmindre de andre test i systemet ikke dækker alle kritiske dele af en funktion.
+Vores unit-test vil hovedsageligt bestå af den testsuite, som PEX genererer. Vi mener ikke, at det er nødvendigt at lave håndskrevne unit-test, medmindre de andre test i systemet ikke dækker alle kritiske dele af en funktion.
 
 \subsubsection{Scenario}
 \label{Test_intendedStrat_types_sce}
-Scenario-test er test, som udfører en kombination af funktioner for at simulerere en kortere arbejdsopgave. 
+Scenario-test er test, som udfører en kombination af funktioner for at simulerere en kortere arbejdsopgave. Disse test er håndskrevne automatiske test, som ikke bliver udført gennem brugergrænsefladen. Kaldene vil typisk være til enten Service klassen\footnote{Testen ville blive udført direkte igennem projektet og ikke som kald til servicens webinterface.} eller entitets klasserne i vores service. Ydeligere kunne en scenario-test være test udført på model klasserne i klienten. 
+\\Et eksempel på en scenario-test kunne være "Log ind og opret en booking".
+
 \subsubsection{Service}
 \label{Test_intendedStrat_types_service}
+Vores service-test kalder servicens webinterface. Service-test fokuserer på tre elementer: forbindelse, problemer med data-bindings \& fejlhåndtering. De er ikke lige så fyldestgørende som scenario-test, da de kun tester de avancerede dele af hver service contract.
 
 \subsubsection{Brugergrænseflade}
 \label{Test_intendedStrat_types_UI}
+Test af brugergrænsefladen kan både være automatiske og manuelle. De automatiske test vil bestå af simple test, hvor det forventede resultat altid er det samme (som fx navigering). De manuelle test vil bestå af de mere komplicerede opgaver, som udføres af brugeren.
+\\"Log ind som testbruger og naviger til Dine Bookinger" kunne være en automatisk test af brugergrænsefladen.
+\\"Log ind som testbruger, opret en booking, find bookingen i 'Dine Bookinger', slet bookingen" kunne være et manuel test af brugergrænsefladen.
+
+\subsection{Regressionstest}
+\label{Test_intendedStrat_regression}
+Hvis vi (eller brugere af systemet) finder en fejl i systemet, er det planen at lave en test, som dækker præcis den case, som bliver beskrevet i forbindelse med fejlen. Det er meningen, at disse test skal fejle ved første kørsel for at sikre, at fejlen eksisterer samt, at testen er skrevet korrekt. Når fejlen er rettet, vil testen ikke længere fejle.
+\\Da regressionstestene allerede er designet, beholder vi dem som en del af vores test. Dette sørger for, at fejlen ikke opstår på et senere tidspunkt i udviklingsprocessen.
 
 \subsection{Kodedækning}
 \label{Test_intendedStrat_coverage}
-\footnote{http://www.jetbrains.com/dotcover/}
+Det er sjældent en effektiv strategi at teste alt sin kode, da det er meget tidskrævende (både i design og udførelsen af testene). Vi mener, man bør teste indtil, man dækker en stor del af funktionaliteten uden, at det bliver redundant at teste yderligere. 
+\\Vi vil anvende kodedækning\footnote{Der findes forskellige værktøjer til at måle kodedækning. Vi har tidligere anvendt DotCover(http://www.jetbrains.com/dotcover/).} til at sørge for, at vi tester vores system grundigt. Udover at vi skal have dækning af arbejdsopgaverne, så har vi følgende mål for kodedækning:
+\begin{my_itemize}
+\item \textbf{Service}
+\item Mindst 50\% "overall" dækning af servicen.
+\item Målet er 85\% "overall" dækning af servicen.
+\item
+\item \textbf{Klient}\footnote{Det er sværere at måle kodedækning i klienten, da en stor del af klientens funktionalitet foregår i koden til brugergrænsefladen, som kan være svær at måle kodedækning for.}
+\item Mindst 30\% "overall" dækning af klienten.
+\item Målet er 65\% "overall" dækning af klienten. 
+\end{my_itemize}
