@@ -18,28 +18,45 @@ Vi skrev vores test efter vi havde implementeret brugergrænsefladen. Dette bet�
 \subsection{Vurdering af resultater}
 \label{Test_Results_eval}
 
+
 Vi ville muligvis have været i stand til at reducere antallet af defekter, hvis vi havde skrevet vores tes efter vi designede brugergrænsefladen, men før vi implementerede den. Testene beskriver mange af de forskellige input, som brugeren kan give til brugergrænsefladen. 
-\\Risikoen ved dette er, at vores implementation ville blive så fokuseret på at opfylde testkravene, at vi ikke fik skrevet god kode. Eksempelvis kunne vi ende op med kode, som var fokuserede på at
+\\Risikoen ved dette er, at vores implementation ville blive så fokuseret på at opfylde testkravene, at vi ikke fik skrevet god kode. Eksempelvis kunne vi ende op med kode, som var fokuseret på at bestå individuelle test. Kode, som er fokuseret på enkelte cases, kan være svært at udvide og/eller vedligeholde.
 
 \section{Ønsket teststrategi}
 \label{Test_intendedStrat}
 Hvis vi havde mere tid, ville vi have indført en mere grundig teststrategi. Denne test strategi består af flere typer af test samt en anden tilgang til testproceduren.
 
+Testproceduren til vores ønskede teststrategi er fokuseret på at beskrive en række test til hver arbejdsopgave tidligt i processen. Mange af forretningsreglerne burde indgå som test eller dele af test. For eksempel bør det være en negativ test, at man ikke kan booke på samme tidspunkt, som en anden bruger har booket.
+\\Derudover vil det være målet, at hver funktion har en række test (positive og negative), som skrives før selve funktionaliteten implementeres. I denne forbindelse er det vigtigt, at man får defineret, hvad funktionen skal gøre, da man ellers ville blive tvunget til at skrive testene om, hvis man laver ændringer i funktionaliteten.
+
+Ydeligere vil vi anvende \textit{Code Contracts}\footnote{http://research.microsoft.com/en-us/projects/contracts/}. \textit{Code Contracts} gør det muligt at udtrykke krav til input, løfter om output samt objekt invarianter som en del af koden (i stedet for i dokumentationen). Der er to store fordele ved at anvende \textit{Code Contracts}. 
+
+For det første gør \textit{Code Contracts} koden nemmere at implementere, da man har brug for langt færre if-statements til fx at undersøge korrekthed af input og output.
+\\Derudover gør \textit{Code Contracts} det muligt at anvende "PEX and Moles"\footnote{http://research.microsoft.com/en-us/projects/pex/}. Pex finder interessante input/output værdier til metoder. Disse kan så gemmes som testsuites, hvilket gør det nemt at teste, om en metode gør det, den skal. Det er ikke nødvendigt at have \textit{Code Contracts} for at anvende PEX, men det gør det nemmere for PEX at generere meningsfulde test. PEX test kan dog ikke erstatte håndskrevne test, men de kan supplere kodedækningen af de håndskrevne test.
+
 \subsection{Testtyper}
 \label{Test_intendedStrat_types}
 Vores ønskede strategi består af flere niveauer af tests:
-\paragraph{Scenario} Består hovedsageligt af test af vores entities.
-\paragraph{Service} Test af forbindelse samt regler for input til servicekald.
-\paragraph{Brugergrænseflade} Test af navigering og arbejdsopgaver i brugergrænsefladen.
+\begin{my_description}
+\item[Unit] Test af mindre dele af koden (fx enkelte metodekald).
+\item[Scenario] Består hovedsageligt af test, som kombinerer flere funktioner.
+\item[Service] Test af forbindelse samt regler for input til servicekald.
+\item[Brugergrænseflade] Test af navigering og arbejdsopgaver i brugergrænsefladen.
+\end{my_description}
+
+\subsubsection{Unit}
+\label{Test_intendedStrat_types_unit}
+Vores unit test vil, for det meste, bestå af den testsuite, som PEX genererer. Vi mener ikke, at det er nødvendigt at lave håndskrevne unit test, medmindre de andre test i systemet ikke dækker alle kritiske dele af en funktion.
 
 \subsubsection{Scenario}
-\label{Test_intendedStrattypes_sce}
-
+\label{Test_intendedStrat_types_sce}
+Scenario-test er test, som udfører en kombination af funktioner for at simulerere en kortere arbejdsopgave.
 \subsubsection{Service}
-\label{Test_intendedStrattypes_service}
+\label{Test_intendedStrat_types_service}
 
 \subsubsection{Brugergrænseflade}
-\label{Test_intendedStrattypes_UI}
+\label{Test_intendedStrat_types_UI}
 
 \subsection{Kodedækning}
 \label{Test_intendedStrat_coverage}
+\footnote{http://www.jetbrains.com/dotcover/}
