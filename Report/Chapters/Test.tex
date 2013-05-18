@@ -71,13 +71,14 @@ Hvis vi (eller brugere af systemet) finder en fejl i systemet, er det planen at 
 \subsection{Kodedækning}
 \label{Test_intendedStrat_coverage}
 Det er sjældent en effektiv strategi at teste alt sin kode, da det er meget tidskrævende (både i design og udførelsen af testene). Vi mener, man bør teste indtil, man dækker en stor del af funktionaliteten uden, at det bliver redundant at teste yderligere. 
-\\Vi vil anvende kodedækning\footnote{Der findes forskellige værktøjer til at måle kodedækning. Vi har tidligere anvendt DotCover(http://www.jetbrains.com/dotcover/).} til at sørge for, at vi tester vores system grundigt. Udover at vi skal have dækning af arbejdsopgaverne, så har vi følgende mål for kodedækning:
+\\Vi vil anvende kodedækning\footnote{Der findes forskellige værktøjer til at måle kodedækning. Vi har tidligere anvendt DotCover (http://www.jetbrains.com/dotcover/).} til at sørge for, at vi tester vores system grundigt. Udover at vi skal have dækning af arbejdsopgaverne, så har vi følgende mål for kodedækning:
 \begin{my_itemize}
 \item \textbf{Service}
-\item Mindst 50\% "overall" dækning af servicen.
-\item Målet er 85\% "overall" dækning af servicen.
-\item
+\item Mindst 50\% dækning af servicen.
+\item Målet er 85\% dækning af servicen.
 \item \textbf{Klient}\footnote{Det er sværere at måle kodedækning i klienten, da en stor del af klientens funktionalitet foregår i koden til brugergrænsefladen, som kan være svær at måle kodedækning for.}
-\item Mindst 30\% "overall" dækning af klienten.
-\item Målet er 65\% "overall" dækning af klienten. 
+\item Mindst 30\% dækning af klienten.
+\item Målet er 65\% dækning af klienten. 
 \end{my_itemize}
+
+Disse mål burde sikre, at størstedelen af koden bliver testet. Hvis dækningen af service eller klient er lavere end vores mindstekrav, mener vi ikke, at systemet ikke tilstrækkeligt testet.
