@@ -1,26 +1,45 @@
 \chapter{Test Af Systemet}
 \label{Test}
-I dette kapitel beskriver vi vores test strategy og resultaterne af vores tests. Derudover diskuterer vi, hvad vi kunne have gjort anderledes i forbindelse med vores test strategi.
-\\En liste af de test, vi har udført kan ses i afsnit \ref{App_Test_ListOfTest} på side \pageref{App_Test_ListOfTest} i appendix. En liste af defekter kan findes i afsnit \ref{App_Test_Defects} på side \pageref{App_Test_Defects}.
-\section{Strategi}
-\label{Test_Strat}
+I dette kapitel beskriver vi vores test strategi og resultaterne af vores tests. Derudover diskuterer vi, hvad vi kunne have gjort anderledes og den strategi, vi gerne ville have indført, hvis vi havde haft mere tid.
+\\En liste af de test, vi har udført findes i appendixafsnit \ref{App_Test_ListOfTest}. En liste af defekter i systemet findes i appendixafsnit \ref{App_Test_Defects}.
 
-\subsection{Testtyper}
-\label{Test_Strat_codetypes}
-Vores strategi består af flere niveauer af tests:
-\begin{my_itemize}
-\item[Scenario] Består hovedsageligt af .
-\item[Service] Test af forbindelse samt regler for input til servicekald.
-\item[Brugergrænseflade] Test af navigering og arbejdsopgaver i brugergrænsefladen.
-\end{my_itemize}
+\section{Udført teststrategi}
+\label{Test_strat}
+Vi har udført en række test af vores brugergrænseflades funktionalitet. Disse test består af både postive og negative test af navigering og funktionalitet. Desuden tester vi, om det er muligt at udføre de arbejdsopgaver, vi understøtter (beskrevet i afsnit \ref{Evaluation_workareas}).
 
-\subsubsection{}
+Vores test af navigering og funktionalitet er delt op per skærmbillede. Testene til hvert skærmbillede består hovedsageligt af test af knapper. De positive test skal undersøge, om brugergrænsefladen gør det, som den er beregnet til. Modsat skal de negative test undersøge, om brugergrænsefladen gør noget, som den ikke bør.
 
-\subsection{Typer af test}
-\label{Test_Strat_types}
-
-\subsection{Kodedækning}
-\label{Test_Strat_coverage}
+Vi skrev vores test efter vi havde implementeret brugergrænsefladen. Dette betød, at vi ikke forsøgte at rette fundne defekter. Vi har i stedet  tilføjet de fundne defekter til vores "future release"-liste.
 
 \section{Resultater}
 \label{Test_Results}
+
+
+\subsection{Vurdering af resultater}
+\label{Test_Results_eval}
+
+Vi ville muligvis have været i stand til at reducere antallet af defekter, hvis vi havde skrevet vores tes efter vi designede brugergrænsefladen, men før vi implementerede den. Testene beskriver mange af de forskellige input, som brugeren kan give til brugergrænsefladen. 
+\\Risikoen ved dette er, at vores implementation ville blive så fokuseret på at opfylde testkravene, at vi ikke fik skrevet god kode. Eksempelvis kunne vi ende op med kode, som var fokuserede på at
+
+\section{Ønsket teststrategi}
+\label{Test_intendedStrat}
+Hvis vi havde mere tid, ville vi have indført en mere grundig teststrategi. Denne test strategi består af flere typer af test samt en anden tilgang til testproceduren.
+
+\subsection{Testtyper}
+\label{Test_intendedStrat_types}
+Vores ønskede strategi består af flere niveauer af tests:
+\paragraph{Scenario} Består hovedsageligt af test af vores entities.
+\paragraph{Service} Test af forbindelse samt regler for input til servicekald.
+\paragraph{Brugergrænseflade} Test af navigering og arbejdsopgaver i brugergrænsefladen.
+
+\subsubsection{Scenario}
+\label{Test_intendedStrattypes_sce}
+
+\subsubsection{Service}
+\label{Test_intendedStrattypes_service}
+
+\subsubsection{Brugergrænseflade}
+\label{Test_intendedStrattypes_UI}
+
+\subsection{Kodedækning}
+\label{Test_intendedStrat_coverage}
