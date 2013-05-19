@@ -19,7 +19,7 @@
         &nbsp;&nbsp;&nbsp; Dato:<asp:TextBox ID="DateTextBox" runat="server" ReadOnly="True"></asp:TextBox>
         <asp:GridView ID="CateringListGridView" runat="server" CellPadding="4" 
             ForeColor="#333333" OnDataBound="GridView_OnDataBound" 
-            OnRowCreated="GridView_RowCreated" AllowPaging="True">
+            OnRowCreated="GridView_RowCreated">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Navn"/>

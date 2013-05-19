@@ -14,7 +14,7 @@
                 <h3>udstyr:</h3>
                     <asp:GridView ID="EditRoomGridView" runat="server" CellPadding="4" 
                     OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" 
-                    ForeColor="#333333" Width="512px" AllowPaging="True">
+                    ForeColor="#333333" Width="512px">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Navn" />

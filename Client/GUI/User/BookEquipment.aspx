@@ -16,7 +16,7 @@
         <asp:TextBox ID="DateTextBox" runat="server" ReadOnly="True"></asp:TextBox>
         <asp:GridView ID="BookEquipmentGridView" runat="server" CellPadding="4" 
             ForeColor="#333333" OnDataBound="BookEquipmentGridView_OnDataBound" 
-            OnRowCreated="BookEquipmentGridView_RowCreated" AllowPaging="True">
+            OnRowCreated="BookEquipmentGridView_RowCreated">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
             <asp:BoundField HeaderText="Navn" />

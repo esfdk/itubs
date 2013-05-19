@@ -53,11 +53,11 @@ namespace Client.GUI.User
             DateTime date;
             if (DateTime.TryParse(this.DateTextBox.Text, out date))
             {
-                RoomListViewModel.UpdateRoomGridV2(this.RoomGridView, date.Date, RoomGridView.PageIndex);   
+                RoomListViewModel.UpdateRoomGrid(this.RoomGridView, date.Date, RoomGridView.PageIndex);   
             }
             else
             {
-                RoomListViewModel.UpdateRoomGridV2(this.RoomGridView, DateTime.Today.Date, RoomGridView.PageIndex);
+                RoomListViewModel.UpdateRoomGrid(this.RoomGridView, DateTime.Today.Date, RoomGridView.PageIndex);
                 
             }
         }

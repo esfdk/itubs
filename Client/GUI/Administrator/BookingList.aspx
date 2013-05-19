@@ -7,7 +7,7 @@
     <p>
         <asp:GridView ID="BookingListGridView" runat="server" CellPadding="4" 
             ForeColor="#333333" OnDataBound="GridView_OnDataBound" 
-            OnRowCreated="GridView_RowCreated" AllowPaging="True">
+            OnRowCreated="GridView_RowCreated">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Lokale"/>

@@ -26,7 +26,7 @@
             <td class="style2">
                 <asp:GridView ID="AdminRoomGridView" runat="server" CellPadding="4" ForeColor="#333333" 
                     OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" 
-                    Width="627px" AllowPaging="True">
+                    Width="627px">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField HeaderText="Lokale" />

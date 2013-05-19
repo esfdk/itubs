@@ -33,7 +33,7 @@
                 
                             <asp:GridView ID="EquipmentListGridView" runat="server" CellPadding="4" 
                                 ForeColor="#333333" OnDataBound="GridView_OnDataBound" GridLines="Both" 
-                                Width="451px" OnRowCreated="GridView_RowCreated" AllowPaging="True">
+                                Width="451px" OnRowCreated="GridView_RowCreated">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                 <Columns>
                                     <asp:BoundField HeaderText="Navn" />

@@ -18,7 +18,7 @@
                 <td class="style2">
                     <asp:GridView ID="YourBookingsGridView" OnRowDataBound="GridView_RowCreated" 
                         runat="server" CellPadding="4" ForeColor="#333333" Width="674px" 
-                        OnDataBound="GridView_OnDataBound" AllowPaging="True">
+                        OnDataBound="GridView_OnDataBound">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Lokale" />
