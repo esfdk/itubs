@@ -34,16 +34,16 @@ namespace Client.ViewModel.User
             return dt;
         }
 
-        public static void UpdateRoomGrid(GridView gv, DateTime date)
+        public static void UpdateRoomGrid(GridView gv, DateTime date, int pageIndex)
         {
-            if (roomList == null || roomList.Count == 0 || gv.Rows.Count != roomList.Count)
+            if (roomList == null || roomList.Count == 0 || pageIndex < 0)
             {
                 return;
             }
 
-            for (var i = 0; i < roomList.Count; i++)
+            for (var i = 0; i < 10 && i < roomList.Count; i++)
             {
-                var r = roomList[i];
+                var r = roomList[i + (10 * pageIndex)];
                 var row = gv.Rows[i];
 
                 row.Cells[0].Text = r.Name;
@@ -113,21 +113,22 @@ namespace Client.ViewModel.User
             return false;
         }
 
-        public static RequestResult CreateOrUpdateBooking(GridViewRow gvr, int rowID, DateTime date, out bool wasAChange)
+        public static RequestResult CreateOrUpdateBooking(
+            GridViewRow gvr, int rowID, DateTime date, out bool wasAChange)
         {
             wasAChange = false;
             var status = PersonModel.loggedInUser.Roles.Any(r => r.RoleName.Equals("Administrator"))
-                            ? "Accepted"
-                            : "Pending";
+                             ? "Accepted"
+                             : "Pending";
 
             var b = new Booking
-            {
-                PersonID = MasterViewModel.LoggedInUserID(),
-                RoomID = roomList[rowID].ID,
-                Comments = string.Empty,
-                NumberOfParticipants = roomList[rowID].MaxParticipants,
-                Status = status
-            };
+                {
+                    PersonID = MasterViewModel.LoggedInUserID(),
+                    RoomID = roomList[rowID].ID,
+                    Comments = string.Empty,
+                    NumberOfParticipants = roomList[rowID].MaxParticipants,
+                    Status = status
+                };
 
             for (var i = 3; i < gvr.Cells.Count; i++)
             {
@@ -204,5 +205,6 @@ namespace Client.ViewModel.User
 
             return BookingModel.CreateOrUpdateBooking(b, out wasAChange);
         }
+
     }
 }

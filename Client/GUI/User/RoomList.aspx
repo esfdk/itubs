@@ -27,9 +27,9 @@
         <asp:Image ID="BlueBox" runat="server" ImageUrl="~/GUI/Images/BlåBoks.png" />
 &nbsp;= Dine bookinger</p>
     <p>
-         Dato:
+         Dato(mm/dd/YYYY):
          <asp:TextBox ID="DateTextBox" AutoPostBack="true" OnTextChanged="DateChanged" runat="server"/>
-         <ajaxToolkit:CalendarExtender ID="DateCalendarExtender" TargetControlID="DateTextBox" Format="dd/MM/yyyy" runat="server" OnClientDateSelectionChanged="checkDate" />  
+         <ajaxToolkit:CalendarExtender ID="DateCalendarExtender" TargetControlID="DateTextBox" Format="MM/dd/yyyy" runat="server" OnClientDateSelectionChanged="checkDate" />  
     </p>
     <asp:GridView ID="RoomGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

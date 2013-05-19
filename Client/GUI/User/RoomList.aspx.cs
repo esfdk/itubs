@@ -18,6 +18,9 @@ namespace Client.GUI.User
                 this.RoomGridView.DataSource = RoomListViewModel.GetBookRooms();
                 this.RoomGridView.DataBind();
             }
+
+            RoomGridView.PageIndexChanging += this.PageIndexChanging;
+            //RoomGridView.RowDataBound += this.OnRowDataBound;
         }
 
         protected void DateChanged(object sender, EventArgs e)
@@ -29,16 +32,33 @@ namespace Client.GUI.User
             }
         }
 
+        
+
+        protected void PageIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        protected void PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            RoomGridView.PageIndex = e.NewPageIndex;
+
+            RoomGridView.EditIndex = -1;
+            RoomGridView.SelectedIndex = -1;
+            this.RoomGridView.DataSource = RoomListViewModel.GetBookRooms();
+            RoomGridView.DataBind();
+        }
+
         protected void GridView_OnDataBound(object sender, EventArgs e)
         {
             DateTime date;
-            if (DateTime.TryParse(DateTextBox.Text, out date))
+            if (DateTime.TryParse(this.DateTextBox.Text, out date))
             {
-                RoomListViewModel.UpdateRoomGrid(this.RoomGridView, date.Date);
+                RoomListViewModel.UpdateRoomGridV2(this.RoomGridView, date.Date, RoomGridView.PageIndex);   
             }
             else
             {
-                RoomListViewModel.UpdateRoomGrid(this.RoomGridView, DateTime.Today.Date);
+                RoomListViewModel.UpdateRoomGridV2(this.RoomGridView, DateTime.Today.Date, RoomGridView.PageIndex);
+                
             }
         }
 
