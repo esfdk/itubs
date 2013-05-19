@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
@@ -35,54 +36,51 @@ using System.Xml.Serialization;
 namespace Test.Data
 {
     #region Contexts
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
     public partial class BookITContext : ObjectContext
     {
         #region Constructors
-
+    
         /// <summary>
         /// Initializes a new BookITContext object using the connection string found in the 'BookITContext' section of the application configuration file.
         /// </summary>
-        public BookITContext()
-            : base("name=BookITContext", "BookITContext")
+        public BookITContext() : base("name=BookITContext", "BookITContext")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         /// <summary>
         /// Initialize a new BookITContext object.
         /// </summary>
-        public BookITContext(string connectionString)
-            : base(connectionString, "BookITContext")
+        public BookITContext(string connectionString) : base(connectionString, "BookITContext")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         /// <summary>
         /// Initialize a new BookITContext object.
         /// </summary>
-        public BookITContext(EntityConnection connection)
-            : base(connection, "BookITContext")
+        public BookITContext(EntityConnection connection) : base(connection, "BookITContext")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         #endregion
-
+    
         #region Partial Methods
-
+    
         partial void OnContextCreated();
-
+    
         #endregion
-
+    
         #region ObjectSet Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -98,7 +96,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<Person> _People;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -114,7 +112,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<Role> _Roles;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -130,7 +128,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<Booking> _Bookings;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -146,7 +144,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<Inventory> _Inventories;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -162,7 +160,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<Catering> _Caterings;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -178,7 +176,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<Equipment> _Equipments;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -194,7 +192,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<CateringChoice> _CateringChoices;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -210,7 +208,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<Room> _Rooms;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -226,7 +224,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<EquipmentChoice> _EquipmentChoices;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -242,7 +240,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<EquipmentType> _EquipmentTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -258,7 +256,7 @@ namespace Test.Data
             }
         }
         private ObjectSet<InventoryType> _InventoryTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -278,7 +276,7 @@ namespace Test.Data
         #endregion
 
         #region AddTo Methods
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the People EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -286,7 +284,7 @@ namespace Test.Data
         {
             base.AddObject("People", person);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Roles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -294,7 +292,7 @@ namespace Test.Data
         {
             base.AddObject("Roles", role);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Bookings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -302,7 +300,7 @@ namespace Test.Data
         {
             base.AddObject("Bookings", booking);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Inventories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -310,7 +308,7 @@ namespace Test.Data
         {
             base.AddObject("Inventories", inventory);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Caterings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -318,7 +316,7 @@ namespace Test.Data
         {
             base.AddObject("Caterings", catering);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Equipments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -326,7 +324,7 @@ namespace Test.Data
         {
             base.AddObject("Equipments", equipment);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CateringChoices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -334,7 +332,7 @@ namespace Test.Data
         {
             base.AddObject("CateringChoices", cateringChoice);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Rooms EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -342,7 +340,7 @@ namespace Test.Data
         {
             base.AddObject("Rooms", room);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EquipmentChoices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -350,7 +348,7 @@ namespace Test.Data
         {
             base.AddObject("EquipmentChoices", equipmentChoice);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EquipmentTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -358,7 +356,7 @@ namespace Test.Data
         {
             base.AddObject("EquipmentTypes", equipmentType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the InventoryTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -366,7 +364,7 @@ namespace Test.Data
         {
             base.AddObject("InventoryTypes", inventoryType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the PersonRoles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -382,17 +380,17 @@ namespace Test.Data
     #endregion
 
     #region Entities
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "Booking")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="Booking")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Booking : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Booking object.
         /// </summary>
@@ -421,11 +419,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -448,11 +446,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Status
         {
@@ -472,11 +470,11 @@ namespace Test.Data
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 NumberOfParticipants
         {
@@ -496,11 +494,11 @@ namespace Test.Data
         private global::System.Int32 _NumberOfParticipants;
         partial void OnNumberOfParticipantsChanging(global::System.Int32 value);
         partial void OnNumberOfParticipantsChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Comments
         {
@@ -520,11 +518,11 @@ namespace Test.Data
         private global::System.String _Comments;
         partial void OnCommentsChanging(global::System.String value);
         partial void OnCommentsChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime StartTime
         {
@@ -544,11 +542,11 @@ namespace Test.Data
         private global::System.DateTime _StartTime;
         partial void OnStartTimeChanging(global::System.DateTime value);
         partial void OnStartTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime EndTime
         {
@@ -568,11 +566,11 @@ namespace Test.Data
         private global::System.DateTime _EndTime;
         partial void OnEndTimeChanging(global::System.DateTime value);
         partial void OnEndTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 PersonID
         {
@@ -592,11 +590,11 @@ namespace Test.Data
         private global::System.Int32 _PersonID;
         partial void OnPersonIDChanging(global::System.Int32 value);
         partial void OnPersonIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 RoomID
         {
@@ -619,9 +617,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -659,7 +657,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -681,7 +679,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -703,7 +701,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -745,17 +743,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "Catering")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="Catering")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Catering : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Catering object.
         /// </summary>
@@ -778,11 +776,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -805,11 +803,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Price
         {
@@ -829,11 +827,11 @@ namespace Test.Data
         private global::System.Int32 _Price;
         partial void OnPriceChanging(global::System.Int32 value);
         partial void OnPriceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ProductName
         {
@@ -853,11 +851,11 @@ namespace Test.Data
         private global::System.String _ProductName;
         partial void OnProductNameChanging(global::System.String value);
         partial void OnProductNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan AvailableFrom
         {
@@ -877,11 +875,11 @@ namespace Test.Data
         private global::System.TimeSpan _AvailableFrom;
         partial void OnAvailableFromChanging(global::System.TimeSpan value);
         partial void OnAvailableFromChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan AvailableTo
         {
@@ -904,9 +902,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -932,17 +930,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "CateringChoice")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="CateringChoice")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CateringChoice : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CateringChoice object.
         /// </summary>
@@ -967,11 +965,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -994,11 +992,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Amount
         {
@@ -1018,11 +1016,11 @@ namespace Test.Data
         private global::System.Int32 _Amount;
         partial void OnAmountChanging(global::System.Int32 value);
         partial void OnAmountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Time
         {
@@ -1042,11 +1040,11 @@ namespace Test.Data
         private global::System.DateTime _Time;
         partial void OnTimeChanging(global::System.DateTime value);
         partial void OnTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Status
         {
@@ -1066,11 +1064,11 @@ namespace Test.Data
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 BookingID
         {
@@ -1090,11 +1088,11 @@ namespace Test.Data
         private global::System.Int32 _BookingID;
         partial void OnBookingIDChanging(global::System.Int32 value);
         partial void OnBookingIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 CateringID
         {
@@ -1117,9 +1115,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1157,7 +1155,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1199,17 +1197,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "Equipment")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="Equipment")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Equipment : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Equipment object.
         /// </summary>
@@ -1230,11 +1228,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -1257,11 +1255,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ProductName
         {
@@ -1281,11 +1279,11 @@ namespace Test.Data
         private global::System.String _ProductName;
         partial void OnProductNameChanging(global::System.String value);
         partial void OnProductNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Status
         {
@@ -1305,11 +1303,11 @@ namespace Test.Data
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 EquipmentTypeID
         {
@@ -1332,9 +1330,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1372,7 +1370,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1398,17 +1396,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "EquipmentChoice")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="EquipmentChoice")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EquipmentChoice : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EquipmentChoice object.
         /// </summary>
@@ -1431,11 +1429,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -1458,11 +1456,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime StartTime
         {
@@ -1482,11 +1480,11 @@ namespace Test.Data
         private global::System.DateTime _StartTime;
         partial void OnStartTimeChanging(global::System.DateTime value);
         partial void OnStartTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime EndTime
         {
@@ -1506,11 +1504,11 @@ namespace Test.Data
         private global::System.DateTime _EndTime;
         partial void OnEndTimeChanging(global::System.DateTime value);
         partial void OnEndTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 BookingID
         {
@@ -1530,11 +1528,11 @@ namespace Test.Data
         private global::System.Int32 _BookingID;
         partial void OnBookingIDChanging(global::System.Int32 value);
         partial void OnBookingIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 EquipmentID
         {
@@ -1557,9 +1555,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1597,7 +1595,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1639,17 +1637,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "EquipmentType")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="EquipmentType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EquipmentType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EquipmentType object.
         /// </summary>
@@ -1666,11 +1664,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -1693,11 +1691,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -1720,9 +1718,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1748,17 +1746,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "Inventory")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="Inventory")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Inventory : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Inventory object.
         /// </summary>
@@ -1779,11 +1777,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -1806,11 +1804,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ProductName
         {
@@ -1830,11 +1828,11 @@ namespace Test.Data
         private global::System.String _ProductName;
         partial void OnProductNameChanging(global::System.String value);
         partial void OnProductNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Status
         {
@@ -1854,11 +1852,11 @@ namespace Test.Data
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 InventoryTypeID
         {
@@ -1878,11 +1876,11 @@ namespace Test.Data
         private global::System.Int32 _InventoryTypeID;
         partial void OnInventoryTypeIDChanging(global::System.Int32 value);
         partial void OnInventoryTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> RoomID
         {
@@ -1905,9 +1903,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1945,7 +1943,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1987,17 +1985,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "InventoryType")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="InventoryType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class InventoryType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new InventoryType object.
         /// </summary>
@@ -2014,11 +2012,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -2041,11 +2039,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -2068,9 +2066,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2096,17 +2094,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "Person")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="Person")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Person : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Person object.
         /// </summary>
@@ -2127,11 +2125,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -2154,11 +2152,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -2178,11 +2176,11 @@ namespace Test.Data
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -2202,11 +2200,11 @@ namespace Test.Data
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Token
         {
@@ -2229,9 +2227,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2253,7 +2251,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2279,17 +2277,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "PersonRole")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="PersonRole")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class PersonRole : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new PersonRole object.
         /// </summary>
@@ -2306,11 +2304,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 PersonID
         {
@@ -2333,11 +2331,11 @@ namespace Test.Data
         private global::System.Int32 _PersonID;
         partial void OnPersonIDChanging(global::System.Int32 value);
         partial void OnPersonIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 RoleID
         {
@@ -2363,9 +2361,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2403,7 +2401,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2445,17 +2443,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "Role")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="Role")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Role : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Role object.
         /// </summary>
@@ -2472,11 +2470,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -2499,11 +2497,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String RoleName
         {
@@ -2526,9 +2524,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2554,17 +2552,17 @@ namespace Test.Data
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "BookingDataModel", Name = "Room")]
+    [EdmEntityTypeAttribute(NamespaceName="BookingDataModel", Name="Room")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Room : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Room object.
         /// </summary>
@@ -2583,11 +2581,11 @@ namespace Test.Data
         #endregion
 
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ID
         {
@@ -2610,11 +2608,11 @@ namespace Test.Data
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -2634,11 +2632,11 @@ namespace Test.Data
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaxParticipants
         {
@@ -2661,9 +2659,9 @@ namespace Test.Data
 
         #endregion
 
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2685,7 +2683,7 @@ namespace Test.Data
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2714,5 +2712,5 @@ namespace Test.Data
 
     #endregion
 
-
+    
 }

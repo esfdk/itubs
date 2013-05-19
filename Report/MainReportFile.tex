@@ -5,6 +5,7 @@
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{fullpage}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{fancyhdr}
 \usepackage[final]{pdfpages}
 \usepackage[font=sl]{caption}
@@ -87,6 +88,8 @@ numbers = left}
 \newenvironment{my_description}{\begin{description}[itemsep=0pt, topsep=0pt, partopsep=0pt]}{\end{description}}
 \addto\captionsenglish{  \renewcommand{\contentsname}  {Indholdsfortegnelse} }
 \addto\captionsenglish{  \renewcommand{\bibname}  {Litteraturliste} }
+\addto\captionsenglish{  \renewcommand{\figurename}  {Figur} }
+\addto\captionsenglish{  \renewcommand{\tablename}  {Tabel} }
 
 
 % Title
@@ -116,7 +119,7 @@ Frederik Lysgaard, frly@itu.dk
 \input{Chapters/UsabilityTesting.tex}
 \input{Chapters/Design/TechnicalDesign.tex}
 \input{Chapters/Test.tex}
-\input{Chapters/Evalutation.tex}
+\input{Chapters/Evaluation.tex}
 \input{Chapters/Comparison.tex}
 \input{Chapters/LessonsLearned.tex}
 \input{Chapters/Bibliography.tex}
