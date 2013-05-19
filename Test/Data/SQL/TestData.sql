@@ -73,11 +73,6 @@ INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (12, '4A03', 10)
 INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (13, '4A05', 15)
 INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (14, '4A07', 4)
 INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (15, '4A09', 8)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (16, '5A01', 12)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (17, '5A03', 10)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (18, '5A05', 6)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (19, '5A07', 16)
-INSERT [dbo].[Rooms] ([ID], [Name], [MaxParticipants]) VALUES (20, '5A09', 22)
 SET IDENTITY_INSERT [dbo].[Rooms] OFF
 
 SET IDENTITY_INSERT [dbo].[Inventories] ON
