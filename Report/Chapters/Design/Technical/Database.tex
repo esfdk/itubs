@@ -15,16 +15,19 @@ Der er en række ting, som skal ændres ved datamodellen for at tilpasse den til
 
 \subsubsection{Personinformation}
 \label{Technical_Database_ks_personinfo}
-Det har primært været vores fokus at understøtte anvendelsen af IT-Universitetets Active Directory (AD) til at logge ind i systemet. Da ITUs AD ikke indeholder addresse
+Det har primært været vores fokus at understøtte anvendelsen af IT-Universitetets Active Directory (AD) til at logge ind i systemet. Da ITUs AD ikke indeholder addresse eller telefonnummer, så inkluderer vi det ikke i vores datamodel. Dette kunne eventuelt indføres senere, hvis man ændrede i AD, brugte et andet system til godkende adgang eller lod brugeren redigere i sine data.
 
 \subsubsection{Priser på lokaler/udstyr}
 \label{Technical_Database_ks_prices}
+Vi har valgt ikke at understøtte eksterne brugere i første release, er det ikke nødvendigt at inkludere priser på lokaler og udstyr. De kunne eventuelt blive introduceret som separate entiteter i databaser, således at priser kan justeres efter hvilken rolle, brugeren har i systemet.
 
 \subsubsection{Lokale status}
 \label{Technical_Database_ks_roomStatus}
+Vi besluttede os for, at en booking kun kan bestå af et enkelt tidsrum og et enkelt lokale. Dette var hovedsageligt for at gøre det nemmere at implementere. Det gør det dog også nemmere at design brugergrænsefladen, da man ikke behøver lave et nyt skærmbillede i forbindelse med ændring af lokaler/tid til en booking.
 
 \subsubsection{Lokale egenskaber}
-\label{Technical_Database_ks_roomProperties}
+\label{Technica l_Database_ks_roomProperties}
+Da vi vil bruge 7
 
 \subsubsection{Inventar- og udstyrstyper}
 \label{Technical_Database_ks_types}
