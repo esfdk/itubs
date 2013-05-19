@@ -9,11 +9,11 @@ Vores skærmbilleder er opdelt i tre typer: Gitter, Almindelig og Pop-ups.
 \\Almindelige vinduer anvender vi i forbindelse med login eller, hvis man skal ændre noget på et stykke udstyr/inventar.
 \\Pop-up skærmbilleder er generelt advarsler eller fejlbeskeder.
 
-Det første skærmbillede man ser når man starter programmet er listen  over lokaler og hvornår de er booket. For at book et lokale markere man tiderne i checkbokse der høre til det ønskede lokale og tryk book. Hvis man ikke er logget ind skal man logge ind først for at booke.
-Grunden til man ikke skal  logge ind for at starte system op, er at vi gerne vil gøre brugeren i stand til først at se om der overhovedet er nogen ledige lokaler.
+Det første skærmbillede man ser når man starter programmet er en listen over lokaler og hvornår de er booket eller ledige. For at book et lokale markere man tiderne i checkboksne der hører til det ønskede lokale og tryk "Book lokale". Hvis man ikke er logget ind skal det gøres før man kan booke.
+Grunden til man ikke skal  logge ind for at starte systemet op er, at vi gerne vil gøre brugeren i stand til først at se om der er nogen ledige lokaler før de blive tvunget til at logge ind.
 
 Vores første mockup af skærmbilledet til booking af lokaler (figur \ref{Design_G_Development_FirstGrid}) havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Man skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt.
-Vi valgte at beholde gitterstrukturen. Vi tilføjede dog checkboxe til gitteret for at imødekomme et problem, som vi observerede i forbindelse med vores usability test\footnote{Se afsnit \ref{Usability_R1} på side \pageref{Usability_R1}}. Figur \ref{Design_G_Development_FinalGrid} viser vores endelige version.
+Vi valgte at beholde gitterstrukturen. Vi tilføjede dog checkboxe til gitteret for at imødekomme et problem, som vi observerede i forbindelse med vores usability test\footnote{Se afsnit \ref{Usability_R1} på side \pageref{Usability_R1}}. Figur \ref{Design_G_Development_FinalGrid} viser den endelige version.
 
 \begin{figure}[h!]
   \centering
@@ -29,7 +29,7 @@ Vi valgte at beholde gitterstrukturen. Vi tilføjede dog checkboxe til gitteret 
 \label{Design_G_Development_FinalGrid}
 \end{figure}
 
-Når man har valgt lokale og tidspunkt, og man trykker book bliver man sendt videre til skærmbilledet der visser en liste over ens egne bookinger (se figur \ref{Design_G_Development_YourBookings_Final}). Hvis man vælger en booking og trykker "Ændre Booking" vil man blive navigeret tilbage til det først skærmbillede hvor ens booking vil markeret med blå boks, her kan man så vælge at skifte booking tidspunkt. Hvis man trykker "Tilføj Forplejning" vil man blive navigeret til skærmbilledet.
+Når man har valgt lokale og tidspunkt, og man trykker "Book lokale" bliver man sendt videre til skærmbilledet der visser en liste over ens egne bookinger (se figur \ref{Design_G_Development_YourBookings_Final}). Hvis man vælger en booking og trykker "Ændre Booking" vil man blive navigeret tilbage til det først skærmbillede hvor ens booking vi værel markeret med blå bokse, her kan man så vælge at skifte booking tidspunkt ved at checke checkboksene fra eller til. Hvis man trykker "Tilføj Forplejning" vil man blive navigeret til forplenings skærmbilledet.
 
 \begin{figure}[h!]
   \centering
@@ -38,8 +38,8 @@ Når man har valgt lokale og tidspunkt, og man trykker book bliver man sendt vid
 \label{Design_G_Development_YourBookings_Final}
 \end{figure} 
 
-Figur \ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbillede til valg af forplejning. For at tilføje forplejning til en booking skal man ligsom med lokale booking markere de tider man kan vil have forplejningen leveret, derudover skal man også vælge antal.
-Til Designet af  skærmbillede fokuserede vi på, at det skulle minde om \ref{Design_G_Development_FinalGrid}, så vi holdte os til reglen om få vindueskabeloner. De samme designbeslutninger gælder for skærmbilleder til tilføjelse af udstyr til en booking (se appendix).
+Figur \ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbillede til valg af forplejning. For at tilføje forplejning til en booking skal man ligsom med lokale booking markere de tider man gerne vil have forplejningen leveret, derudover skal man også vælge det antal man gerne vil have.
+Til Designet af  skærmbillede fokuserede vi på, at det skulle minde om \ref{Design_G_Development_FinalGrid}, så vi holdte os til reglen om få vindueskabeloner. De samme designbeslutninger og navigerings muligheder gælder også for skærmbilledet til tilføjelse af udstyr til en booking (se appendix).
 
 \begin{figure}[h!]
   \centering
@@ -49,14 +49,14 @@ Til Designet af  skærmbillede fokuserede vi på, at det skulle minde om \ref{De
 \end{figure} 
 
 \subsection{Bookingliste}
-Man kan i skærmbilledet til booking liste makere booking i listen og enten godkend eller afvis brugerens booking ved klikk på "Godkend" eller "Afvis" knapperne.
+Man kan i skærmbilledet til booking liste kan administratoren makere booking i listen og enten godkend eller afvis brugerens booking ved at markere den og trykke på "Godkend" eller "Afvis" knapperne.
 Figur \ref{Design_G_Development_BookingListe} viser vores papermockup til godkendelse af bookinger. 
 I papermockup havde vi godkend/afvis-knapperne inde i selve gitteret. Dette besluttede vi dog kunne blive forvirrende, så den endelige version af skærmbilledet (figur \ref{Design_G_Development_BookingListe_Final}) har knapperne ved siden af gitteret. Da ingen af de andre skærmbilleder har egentlige knapper inde i gitteret, opfylder i større grad reglen om få vindueskabeloner.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.6\textwidth]{Appendix/GUI-Prototype/DigitalMockup/BookingListe}
-  \caption{Skærmbilledet af recepsionistens liste af bruger bookinger}
+  \caption{Skærmbilledet af recepcionistens liste af bruger bookinger}
 \label{Design_G_Development_BookingListe_Final}
 \end{figure} 
 
@@ -69,6 +69,7 @@ I papermockup havde vi godkend/afvis-knapperne inde i selve gitteret. Dette besl
 
 \subsection{Udstyrsliste}
 I skærmbilledet over udstyrslisten kan man i venstre side se en liste over det udstyr der allerede er i systemet, hvis man vil ændre eller slette noget af det vælger man udstyret og trykke på "Ændre Udstyr" eller "Slet Udstyr" knappen. Højre side af skærmbilledet giver brugeren mulighed for at tilføj lokaler til listen på venstre side ved at udfylde felterne med data og trykke på "Tilføj udstyr".
+
 Figur \ref{Design_G_Development_UdstyrsListe_Final} viser det endelige skærmbillede af listen over udstyr.
 Skærmbilledet indeholder både overblikket over alt det udstyr, som er tilrådighed, og muligheden for at registrere nyt udstyr til systemet.
 \\Vi delte de to funktionaliteter op, så det var tydeligt, at det er seperate funktionaliteter.
