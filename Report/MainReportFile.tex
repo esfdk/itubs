@@ -26,6 +26,7 @@
 \usepackage{savefnmark}
 \usepackage{verbatim}
 \usepackage{tabularx}
+\usepackage{caption}
 
 % Chapter and section spacings
 \titleformat{\chapter}{\normalfont\huge\bfseries}{{\thechapter} }{0pt}{\Huge}
@@ -90,7 +91,13 @@ numbers = left}
 \addto\captionsenglish{\renewcommand{\bibname}  {Litteraturliste} }
 \addto\captionsenglish{\renewcommand{\figurename}  {Figur} }
 \addto\captionsenglish{\renewcommand{\tablename}  {Tabel} }
+\addto\captionsenglish{\renewcommand{\lstlistingname}{Kodestykke}}
 
+%Modify 
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{  \parbox{\textwidth}{\colorbox{darkgray}{\parbox{\textwidth}{#1#2#3}}\vskip-4pt}}
+\captionsetup[lstlisting]{format=listing,labelfont=white, textfont=white}
+\lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
 
 % Title
 \title{\Huge{BookIT}\\

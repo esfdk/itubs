@@ -1,11 +1,24 @@
 \section{Kodeeksempler}
 \label{Technical_CodeExamples}
-
+Vi har udvalgt tre dele af koden, som viser vigtige dele af vores implementation.
 \subsection{Active Directory tilgang}
 \label{Technical_CodeExamples_AD}
+Vi tilgår ITUs active directory i forbindelse med login og oprettelse af nye brugere i systemet.
+\subsubsection{Godkendelse af login via AD}
+\label{Technical_CodeExamples_AD_authen}
+Vi godkender login oplysninger igennem følgende kode:
+
+\input{Chapters/Design/Technical/Code/AD/ADAuthentication.tex}
+
+\subsubsection{Hentning af brugerdata gennem AD}
+\label{Technical_CodeExamples_AD_userdata}
+
+\input{Chapters/Design/Technical/Code/AD/ADGetInfo.tex}
 
 \subsection{Trådsikker tilgang til database}
 \label{Technical_CodeExamples_threadstatic}
+
+\input{Chapters/Design/Technical/Code/ThreadStatic.tex}
 
 \subsection{Oprettelse af booking}
 \label{Technical_CodeExamples_bookingcreation}
