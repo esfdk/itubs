@@ -1,67 +1,72 @@
 \chapter{Vurdering af vores løsning}
 \label{Evaluation}
+\section{Opfyldelse af kravspecifikation}
+\label{Evaluation_KS}
+Vi vurderer vores løsning ud fra en kravspecifikation, som er udarbejdet på kurset "Anskaffelse og kravspecifikation" (SANS) i efteråret 2012. Kravspecifikationen er baseret på Kravskabelon SL-07\footnote{http://www.itu.dk/people/slauesen/SorenReqs.html\#SL-07} (\copyright  Søren Lauesen, 2012).
 
-\section{Understøttelse af arbejdsopgaver}
-\label{Evaluation_workareas}
-Denne sektion beskriver hvilke arbejdsopgaver vi understøtter i første release samt giver en prioritering af, hvilke arbejdsopgaver der bør fokuseres på i følgende releases.
+\subsection{Nuværende og ønsket situation}
+\label{Evaluation_KS_situation}
 
+
+\subsection{Understøttede arbejdsopgaver}
+\label{Evaluation_KS_workareas}
 Kravspecifikationen definerer 13 arbejdsopgaver:
-\begin{my_enumerate}
-\item[\textbf{C01.}]{Administrer booking}
-\item[\textbf{C02.}]{Forespørg på booking}
-\item[\textbf{C03.}]{Modtag forespørgsel fra Ekstern}
-\item[\textbf{C04.}]{Klargør lokaler}
-\item[\textbf{C05.}]{Udlevér nøgle}
-\item[\textbf{C06.}]{Håndtér forplejning}
-\item[\textbf{C07.}]{Fakturér forplejning}
-\item[\textbf{C08.}]{Opdatér menukort}
-\item[\textbf{C09.}]{Opdater listen for ekstra udstyr}
+\begin{my_description}
+\item[\textbf{C1.}]{Administrer booking}
+\item[\textbf{C2.}]{Forespørg på booking}
+\item[\textbf{C3.}]{Modtag forespørgsel fra Ekstern}
+\item[\textbf{C4.}]{Klargør lokaler}
+\item[\textbf{C5.}]{Udlevér nøgle}
+\item[\textbf{C6.}]{Håndtér forplejning}
+\item[\textbf{C7.}]{Fakturér forplejning}
+\item[\textbf{C8.}]{Opdatér menukort}
+\item[\textbf{C9.}]{Opdater listen for ekstra udstyr}
 \item[\textbf{C10.}]{Opdatér lokaler}
 \item[\textbf{C11.}]{Administrér bruger}
 \item[\textbf{C12.}]{Håndter statistik}
 \item[\textbf{C13.}]{Behandl faktura}
-\end{my_enumerate}
+\end{my_description}
 
-Ud af de 13 arbejdesopgaver understøtter vi \textbf{C01}, \textbf{C09} og \textbf{C10}.
-\\Hver af arbejdsopgaverne har en række underpunkter, som beskriver delopgaver og varianter af disse delopgaver.
+Ud af de 13 arbejdesopgaver understøtter vi \textbf{C1}, \textbf{C9} og \textbf{C10}.
+\\Hver af arbejdsopgaverne har en række underpunkter, som beskriver delopgaver og varianter af disse delopgaver. 
 
-\textbf{C01:} Administrer booking\\
+\textbf{C1:} Administrer booking\\
 \textbf{Brugere:} Ansatte og studerende på ITU.\\
 \textbf{Hyppighed:} Flere gange om dagen i alt for både studerende og ansatte.\\
 \textbf{Start:} En person går ind i booking systemet for at booke, ændre eller få overblik over bookinger.\\
 \textbf{Slut:} Når bookingen eller lændringen er foretaget.
 
-\begin{tabular}{ | l | l | l | l | p{5} |}
+\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{2.7cm} |}
 \hline
-\textbf{Arbejdesopgave} & \textbf{Understøttet} & \textbf{Eksempel løsning} & \textbf{Vores løsning}\\ 
+\textbf{Arbejdesopgave} & \textbf{Eks. løsning} & \textbf{Understøttet}  & \textbf{Vores løsning}\\ 
 \hline
-C1.1 Søg efter ledigt tidspunkt for ny booking & Ja & & Skærmbillede \ref{Design_G_Development_FinalGrid} på side \pageref{Design_G_Development_FinalGrid} \\ 
+1. Søg efter ledigt tidspunkt for ny booking & & Ja & Billede \ref{Design_G_Development_FinalGrid}(side \pageref{Design_G_Development_FinalGrid}) \\ 
 \hline
-C1.1a Søg efter eksisterende booking & Ja & &Skærmbillede \ref{Design_G_Development_YourBookings_Final} på side \pageref{Design_G_Development_YourBookings_Final}\\ 
+1a. Søg efter eksisterende booking &  & Ja & Billede \ref{Design_G_Development_YourBookings_Final}(side \pageref{Design_G_Development_YourBookings_Final}) \\ 
 \hline
-C.2 Vælg ledigt lokale, forplejning og ekstra udstyr & Ja & &Skærmbillede \ref{Design_G_Development_Forplejning_Final} på side \pageref{Design_G_Development_Forplejning_Final}\\ 
+2. Vælg ledigt lokale, forplejning og ekstra udstyr & & Ja & Billede \ref{Design_G_Development_Forplejning_Final}(side \pageref{Design_G_Development_Forplejning_Final})\\ 
 \hline
-C1.2a Vis eksisterende booking(er) & Ja & &Skærmbillede \ref{Design_G_Development_FinalGrid} på side \pageref{Design_G_Development_FinalGrid}\\ 
+2a. Vis eksisterende booking(er) & & Ja & Billede \ref{Design_G_Development_FinalGrid}(side \pageref{Design_G_Development_FinalGrid})\\ 
 \hline
-C1.3 Opdater booking & Ja & &Skærmbillede \ref{Design_G_Development_FinalGrid} på side \pageref{Design_G_Development_FinalGrid}\\ 
+3. Opdater booking & & Ja & Billede \ref{Design_G_Development_FinalGrid}(side \pageref{Design_G_Development_FinalGrid})\\ 
 \hline
-C1.4 Annuller booking & Ja & &Skærmbillede \ref{Design_G_Development_YourBookings_Final} på side \pageref{Design_G_Development_YourBookings_Final}\\ 
+4. Annuller booking & & Ja & Billede \ref{Design_G_Development_YourBookings_Final}(side \pageref{Design_G_Development_YourBookings_Final})\\ 
 \hline
-C1.5 Opret booking & Ja & &Skærmbillede \ref{Design_G_Development_FinalGrid} på side \pageref{Design_G_Development_FinalGrid}\\ 
+5. Opret booking & & Ja & Billede \ref{Design_G_Development_FinalGrid}(side \pageref{Design_G_Development_FinalGrid})\\ 
 \hline
 \end{tabular}
 
-\textbf{C09:} Opdater listen for ekstra udstyr\\
+\textbf{C9:} Opdater listen for ekstra udstyr\\
 \textbf{Brugere:} Facility Management (FM)\\
 \textbf{Hyppighed:} Når der sker ændring i udvalget af ekstra udstyr (en gang om måneden)\\
 \textbf{Start:} Når der er behov for at udstyrslisten skal opdateres\\
 \textbf{Slut:} Når listen er opdateret
 
-\begin{tabular}{ | l | l | l | l | p{5} |}
+\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{3.5cm} |}
 \hline
-\textbf{Arbejdesopgave} & \textbf{Understøttet} & \textbf{Eksempel løsning} & \textbf{Vores løsning}\\ 
+\textbf{Arbejdesopgave} & \textbf{Eks. løsning} & \textbf{Understøttet}  & \textbf{Vores løsning}\\ 
 \hline
-C9.1 Rediger udstyrslisten & Ja & FM er ansvarlig & Skærmbillede \ref{Design_G_Development_UdstyrsListe_Final} på side \pageref{Design_G_Development_UdstyrsListe_Final} \\ 
+C9.1 Rediger udstyrslisten & FM er ansvarlig & Ja & Billede \ref{Design_G_Development_UdstyrsListe_Final}(side \pageref{Design_G_Development_UdstyrsListe_Final}) \\ 
 \hline
 \end{tabular}
 
@@ -71,18 +76,17 @@ C9.1 Rediger udstyrslisten & Ja & FM er ansvarlig & Skærmbillede \ref{Design_G_
 \textbf{Start:} Når der er behov for at lokalelisten skal opdateres\\
 \textbf{Slut:} Når listen er opdateret
 
-\begin{tabular}{ | l | l | l | l | p{5} |}
+\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{3.2cm} |}
 \hline
-\textbf{Arbejdesopgave} & \textbf{Understøttet} & \textbf{Eksempel løsning} & \textbf{Vores løsning}\\ 
+\textbf{Arbejdesopgave} & \textbf{Eks. løsning} & \textbf{Understøttet}  & \textbf{Vores løsning}\\ 
 \hline
-% Der skal være ref til superlokaleliste som kommer til at ligge i appendix
-C10.1 Rediger lokalelisten & Ja & & Skærmbillede \ref{} på side \pageref{} \\ 
+C10.1 Rediger lokalelisten & & Ja & Billede \ref{App_GUI_final_LokaleListe}(side \pageref{App_GUI_final_LokaleListe}) \\ 
 \hline
-	C10.2 Rediger lokale inventar & Ja & & Skærmbillede \ref{Design_G_Development_AendreLokale_Final} på side \pageref{Design_G_Development_AendreLokale_Final} \\ 
+C10.2 Rediger lokale inventar & & Ja & Billede \ref{Design_G_Development_AendreLokale_Final}(side \pageref{Design_G_Development_AendreLokale_Final}) \\ 
 \hline
 \end{tabular}
 
-\subsection{Prioritering af arbejdsopgaver}
+\subsubsection{Prioritering af arbejdsopgaver}
 \label{Evaluation_workareas_priorities}
 Vi valgte til den første release af systemet at priotere
 
