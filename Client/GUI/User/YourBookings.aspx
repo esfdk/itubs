@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <script language="javascript" type="text/javascript">
         function confirmBookingDeletion() {
-            if (confirm("Er du sikker på, at du vil slette lokale den valgte booking?") == true) {
+            if (confirm("Er du sikker på, at du vil slette den valgte booking?") == true) {
                 return true;
             }
             return false;
