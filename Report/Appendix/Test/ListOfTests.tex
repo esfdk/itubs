@@ -4,239 +4,242 @@
 \subsection{Test af arbejdsopgaver}
 \label{App_Test_ListOfTest_Work}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
 	ID & Opgave: Administrer booking & Resultat & Status\\ 
 \hline
 	C100 & Søg efter ledigt tidspunkt for ny booking & Understøttes af skærmbillede\ref{App_GUI_final_GridEksempel} & ok \\
 \hline
-	a & Søg efter eksisterende booking & Det er muligt at gøre og det understøttes af skærmbillederne: \ref{App_GUI_final_GridEksempel} på side \pageref{App_GUI_final_GridEksempel} og \ref{App_GUI_final_DineBookinger} på side \pageref{App_GUI_final_DineBookinger} & ok \\
+	a & Søg efter eksisterende booking & Det er muligt at gøre og det understøttes af skærmbillederne: \ref{App_GUI_final_GridEksempel} på side  og \ref{App_GUI_final_DineBookinger} på side \pageref{App_GUI_final_DineBookinger} & ok \\
 \hline
-	C101 & Vælg ledigt lokale, forplejning og ekstra udstyr & Det er muligt at vælge lokale og forplejning men ikke udstyr, da siden refresher sig selv hver gang en checkboks bliver checket. funktioner bliver understøttet af skærmbillederne \ref{App_GUI_final_GridEksempel}, \ref{App_GUI_final_Forplejning} og \ref{App_GUI_final_BookEquip}  & ok men failed på udstyr \\
+	C101 & Vælg ledigt lokale, forplejning og ekstra udstyr & Det er muligt at vælge lokale og forplejning . funktioner bliver understøttet af skærmbillederne \ref{App_GUI_final_GridEksempel}, \ref{App_GUI_final_Forplejning} og \ref{App_GUI_final_BookEquip}  & Delvist ok (men defekt D1) \\
 \hline
 	a & Vis eksisterende booking(er) & Understøttes af skærmbillederne \ref{App_GUI_final_GridEksempel} og \ref{App_GUI_final_DineBookinger} & ok \\
 \hline
-	C102 & Opdater booking & En popup siger handlingen ikke kunne udføres, men det ville være understøttet af skærmbilledet \ref{App_GUI_final_GridEksempel} & Not implemented \\
+	C102 & Opdater booking & Ikke implementeret, men det ville være understøttet af skærmbilledet \ref{App_GUI_final_GridEksempel} & Not implemented \\
 \hline
 	C103 & Anullér booking & Understøttes af skærmbilledet \ref{App_GUI_final_DineBookinger} & ok \\
 \hline
 	C104 & Opret booking & Undersøttes af skærmbilledet \ref{App_GUI_final_GridEksempel} & ok \\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
 	ID & Opgave: Opdater listen for ekstra udstyr & Resultat & Status\\ 
 \hline
-	C200 & Rediger udstyrslisten & Der sker ingen ting hvis man prøver at slette udstyr fra listen, hvis man vælger at ændre et stk udstyr bliver skærmbilledet ikke oprettet med det valgte udstyrs info, og der sker ingen ting når man prøver at tilføje et lokale, skal understøttes af skærmbillede \ref{App_GUI_final_UdstyrsListe} og \ref{App_GUI_final_AendreUdstyr} & Not implemented \\
+	C900 & Tilføj udstyr & Der sker ingen ting. Skal understøttes af skærmbillede \ref{App_GUI_final_UdstyrsListe} og \ref{App_GUI_final_AendreUdstyr} & Not implemented \\
 \hline
-\end{tabularx}
+	a & Slet udstyr &Der sker ingen ting. Skal understøttes af skærmbillede \ref{App_GUI_final_UdstyrsListe} og \ref{App_GUI_final_AendreUdstyr} & Not implemented \\
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
 	ID & Opgave: Opdater lokaler & Resultat & Status\\ 
 \hline
-	C300 & Rediger lokalelisten & Det er muligt at slette lokaler fra listen, men der sker ingen ting når man prøver at tilføje et lokale til listen, skal understøttes af skærmbilledet \ref{App_GUI_final_LokaleListe} & ok (not implemented) \\
+	C1000 & Slet lokale & Understøttes af skærmbilledet \ref{App_GUI_final_LokaleListe} & ok \\
 \hline
-	C301 & Rediger lokale inventar & Når man trykker på Fjern/Tilføj udstyr sker der ingen ting, skal understøttes af skræmbilledet \ref{App_GUI_final_AendreLokale} & not implemented \\
+	a & Tilføj &Understøtes ikke, men skal understøttes af skærmbillede\ref{App_GUI_final_LokaleListe} & (not implemented) \\
 \hline
-\end{tabularx}
+	C1001 & Rediger lokale inventar &Sker ingen ting, skal understøttes af skræmbilledet \ref{App_GUI_final_AendreLokale} & not implemented \\
+\hline
+\end{tabular}
 
 
 \subsection{Test af skærmbilleder}
  \label{App_Test_ListOfTest_ScreenTests}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Tilføj lokale  & Forventet resultat & Status\\ 
+ID & Billede: Tilføj lokale (\ref{})  & Forventet resultat & Status\\ 
 \hline
-	D100 &Tilføj lokale med data i felterne & Lokalet vil blive tilføjet til listen i konfigurering af lokaler & Brugeren bliver ført til "konfigurering af lokale" men lokalet bliver ikke tilføjet til listen \\
+D100 &Tilføj lokale med data i felterne & Lokalet vil blive tilføjet til listen i konfigurering af lokaler & Brugeren bliver ført til "konfigurering af lokale" men lokalet bliver ikke tilføjet til listen \\
 \hline
-	a & Tilføj lokale uden data i felterne  & En advarsel vil sige der ikke er indtaste data &(not implemented) bliver ført tilbage til konfigurering af lokale skærmbilledet. \\
+a & Tilføj lokale uden data i felterne  & En advarsel vil sige der ikke er indtaste data &(not implemented) bliver ført tilbage til konfigurering af lokale skærmbilledet. \\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Konfigurering af lokaler & Forventet resultat & Status\\ 
+ID & Billede: Konfigurering af lokaler (\ref{}) & Forventet resultat & Status\\ 
 \hline
-	D200 & Tryk "Ændre" med et valgt lokale & Brugerne vil blive ført til Ændre lokale skærmbilledet, hvor den udfyldt data vil være tilhøre til det valgte lokale & bliver navigeret til ændre lokale men intet af dataen er korrekt (not implemented) \\
+D200 & Tryk "Ændre" med et valgt lokale & Brugerne vil blive ført til Ændre lokale skærmbilledet, hvor den udfyldt data vil være tilhøre til det valgte lokale & bliver navigeret til ændre lokale men intet af dataen er korrekt (not implemented) \\
 \hline
-	a & Tryk "Ændre" uden der er valgt et lokale & En advarsel vil sige der ikke er valgt et lokale & (not implemented) blive ført videre til ændre lokale \\
+a & Tryk "Ændre" uden der er valgt et lokale & En advarsel vil sige der ikke er valgt et lokale & (not implemented) blive ført videre til ændre lokale \\
 \hline
-	D201 & Tryk "Slet" med et valgt lokale &En advarsel vil spørge om man er sikker på sit valg, hvis ja vil det valgte lokale vil blive slettet fra listen & ok \\
+D201 & Tryk "Slet" med et valgt lokale &En advarsel vil spørge om man er sikker på sit valg, hvis ja vil det valgte lokale vil blive slettet fra listen & ok \\
 \hline
-	a & Tryk "Slet" uden der er valgt et lokale & En advarsel vil der ikke er valgt et lokale & ok \\
+a & Tryk "Slet" uden der er valgt et lokale & En advarsel vil der ikke er valgt et lokale & ok \\
 \hline
-	D202 & Tryk "Tilføj" & Brugeren vil blive ført til Tilføj lokale skærmbilledet & ok\\
+D202 & Tryk "Tilføj" & Brugeren vil blive ført til Tilføj lokale skærmbilledet & ok\\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Booking-liste  & Forventet resultat & Status\\ 
+ID & Billede: Booking-liste (\ref{})  & Forventet resultat & Status\\ 
 \hline
-	D300 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & (not implemented), der sker ingen ting \\
+D300 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & (not implemented), der sker ingen ting \\
 \hline
-	a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking &( not implemented), der sker ingen ting \\
+a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking &( not implemented), der sker ingen ting \\
 \hline
-	D301 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & (not implemented), der sker ingen ting \\
+D301 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & (not implemented), der sker ingen ting \\
 \hline
-	a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & (not implemented), der sker ingen ting \\
+a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & (not implemented), der sker ingen ting \\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Ændre udstyr & Forventet resultat & Status\\ 
+ID & Billede: Ændre udstyr (\ref{}) & Forventet resultat & Status\\ 
 \hline
-	D400 & Tryk "Gem ændringer" med data i felterne & Brugeren vil blive ført til skærmbilledet udstyrslisten, hvor udstyret vil være i listen med de ønskede ændringer &(not implemented) ændringerne bliver ikke gemt \\
+D400 & Tryk "Gem ændringer" med data i felterne & Brugeren vil blive ført til skærmbilledet udstyrslisten, hvor udstyret vil være i listen med de ønskede ændringer &(not implemented) ændringerne bliver ikke gemt \\
 \hline
-	a & Tryk "Gem ændringer" uden data i felterne & En advarsel vil sige der skal være udfyldt data i felterne &(not implemented) bliver førte tilbage til udstyrslisten \\
+a & Tryk "Gem ændringer" uden data i felterne & En advarsel vil sige der skal være udfyldt data i felterne &(not implemented) bliver førte tilbage til udstyrslisten \\
 \hline
-	D401 & Tryk "Fortryd" & Brugerne vil blive ført til skærmbilledet udstyrslisten & ok \\
+D401 & Tryk "Fortryd" & Brugerne vil blive ført til skærmbilledet udstyrslisten & ok \\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Ændre lokale  & Forventet resultat & Status\\ 
+ID & Billede: Ændre lokale (\ref{})  & Forventet resultat & Status\\ 
 \hline
-	D500 & Tryk "Gem" med data i felterne & Brugeren vil blive ført til konfigurering af lokaler, hvor det vil ligge i listen over lokaler med de ønskede ændringer  & (not implemented), der sker ingen ting\\
+D500 & Tryk "Gem" med data i felterne & Brugeren vil blive ført til konfigurering af lokaler, hvor det vil ligge i listen over lokaler med de ønskede ændringer  & (not implemented), der sker ingen ting\\
 \hline
-	a & Tryk "Gem" uden data i felterne & En advarsel vil sige at der skal være data i felterne &(not implemented) der sker ingen ting \\
+a & Tryk "Gem" uden data i felterne & En advarsel vil sige at der skal være data i felterne &(not implemented) der sker ingen ting \\
 \hline
-	D501 & Tryk "Tilføj udstyr" med valgt udstyr & Udstyret vil blive fjernet fra den nederste liste og tilføjet til listen øverst i billedet &(not implemented), der sker ingen ting \\
+D501 & Tryk "Tilføj udstyr" med valgt udstyr & Udstyret vil blive fjernet fra den nederste liste og tilføjet til listen øverst i billedet &(not implemented), der sker ingen ting \\
 \hline
-	a & Tryk "Tilføj udstyr" uden valgt udstyr & En advarsel vil sige der skal være valgt udstyr for at kunne tilføje det &(not implemented), der sker ingen ting \\
+a & Tryk "Tilføj udstyr" uden valgt udstyr & En advarsel vil sige der skal være valgt udstyr for at kunne tilføje det &(not implemented), der sker ingen ting \\
 \hline
-	D502 & Tryk "Slet udstyr" med valgt udstyr & Udstyret vil blive fjernet fra den øverste liste og tilføjet til den nederste  &(not implemented), der sker ingen ting \\
+D502 & Tryk "Slet udstyr" med valgt udstyr & Udstyret vil blive fjernet fra den øverste liste og tilføjet til den nederste  &(not implemented), der sker ingen ting \\
 \hline
-	D503 & Tryk "Afslut" & Brugeren vil blive ført til skærmbilledet konfigurering af lokaler & ok\\
+D503 & Tryk "Afslut" & Brugeren vil blive ført til skærmbilledet konfigurering af lokaler & ok\\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Udstyrsliste  & Forventet resultat & Status\\ 
+ID & Billede: Udstyrsliste (\ref{})  & Forventet resultat & Status\\ 
 \hline
-	D600 & Tryk "Tilføj udstyr" med data i felterne & Det nye udstyr vil blive tilføjet til listen i venstre side af skærmbilledet &(not implemented), der sker ingen ting \\
+D600 & Tryk "Tilføj udstyr" med data i felterne & Det nye udstyr vil blive tilføjet til listen i venstre side af skærmbilledet &(not implemented), der sker ingen ting \\
 \hline
-	a & Tryk "Tilføj udstyr" uden data i felterne & En advarsel vil sige at der skal være data i felterne &(not implemented), der sker ingen ting \\
+a & Tryk "Tilføj udstyr" uden data i felterne & En advarsel vil sige at der skal være data i felterne &(not implemented), der sker ingen ting \\
 \hline
-	D601 & Tryk "Slet udstyr" med valgt udstyr & Det valgte udstyr vil blive slettet fra listen &(not implemented), der sker ingen ting \\
+D601 & Tryk "Slet udstyr" med valgt udstyr & Det valgte udstyr vil blive slettet fra listen &(not implemented), der sker ingen ting \\
 \hline
-	a & Tryk "Slet udstyr" uden valgt udstyr & En advarsel vil sige, at der ikke er valgt et udstyr &(not implemented), der sker ingen ting \\
+a & Tryk "Slet udstyr" uden valgt udstyr & En advarsel vil sige, at der ikke er valgt et udstyr &(not implemented), der sker ingen ting \\
 \hline
-	D602 & Tryk "Ændre udstyr" med valgt udstyr & Brugeren vil blive ført til skærmbilledet Ændre udstyr som vil blive oprettet med det valgte udstyrs data &(not implemented), bliver ført til ændre udstyr, men der ikke noget data i felterne \\
+D602 & Tryk "Ændre udstyr" med valgt udstyr & Brugeren vil blive ført til skærmbilledet Ændre udstyr som vil blive oprettet med det valgte udstyrs data &(not implemented), bliver ført til ændre udstyr, men der ikke noget data i felterne \\
 \hline
-	a & Tryk "Ændre udstyr" uden valgt udstyr & En advarsel vil sige at der ikke er valgt et udstyr & (not implemented), bliver ført videre til ændre udstyr \\
+a & Tryk "Ændre udstyr" uden valgt udstyr & En advarsel vil sige at der ikke er valgt et udstyr & (not implemented), bliver ført videre til ændre udstyr \\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Person Booking liste   & Forventet resultat & Status\\ 
+ID & Billede: Person Booking liste (\ref{})   & Forventet resultat & Status\\ 
 \hline
-	D700 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & failed, listen reseter og bliver tom \\
+D700 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & failed, listen reseter og bliver tom \\
 \hline
-	a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking & failed, listen reseter og bliver tom \\
+a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking & failed, listen reseter og bliver tom \\
 \hline
-	D701 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & failed, listen reseter og bliver tom \\
+D701 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & failed, listen reseter og bliver tom \\
 \hline
-	a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & failed, listen reseter og bliver tom\\
+a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & failed, listen reseter og bliver tom\\
 \hline
-	D702 & Tryk "Find bookinger" med email i feltet & Listen i skærmbilledet vil blive udfyldt med alle de bookinger den pågældende email har & ok \\
+D702 & Tryk "Find bookinger" med email i feltet & Listen i skærmbilledet vil blive udfyldt med alle de bookinger den pågældende email har & ok \\
 \hline 
-	a & Tryk "Find bookinger" uden email i feltet & En advarsel vil sige at der ikke kan findes en person med den email & ok \\
+a & Tryk "Find bookinger" uden email i feltet & En advarsel vil sige at der ikke kan findes en person med den email & ok \\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Book udstyr  & Forventet resultat & Status\\ 
+ID & Billede: Book udstyr (\ref{})  & Forventet resultat & Status\\ 
 \hline
-	D800 & Tryk "Tilføj ændringer" med valgte booking tider for et stk. udstyr & de valgte felter bliver blå og udstyret bliver knyttet til brugerens booking &(not implemented), kan ikke vælge booking tider for udstyr \\
+D800 & Tryk "Tilføj ændringer" med valgte booking tider for et stk. udstyr & de valgte felter bliver blå og udstyret bliver knyttet til brugerens booking &(not implemented), kan ikke vælge booking tider for udstyr \\
 \hline
-	a & Tryk "Tilføj ændringer" uden valgte booking tider for et stk. udstyr & En advarsel vil sige at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det &(not implemented), der sker ingen ting \\
+a & Tryk "Tilføj ændringer" uden valgte booking tider for et stk. udstyr & En advarsel vil sige at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det &(not implemented), der sker ingen ting \\
 \hline
-	b & Tryk "Tilføj ændringer" mens der er markeret booking tider for en allerede eksisterende booking & En advarsel vil sige at det ikke er muligt at booke allerede booket udstyr &(not implemented), kan ikke vælge booking tider, hvoren de er booket i forvejen eller ikke \\
+b & Tryk "Tilføj ændringer" mens der er markeret booking tider for en allerede eksisterende booking & En advarsel vil sige at det ikke er muligt at booke allerede booket udstyr &(not implemented), kan ikke vælge booking tider, hvoren de er booket i forvejen eller ikke \\
 \hline
-	c & Tryk "Tilføj ændringer" efter at start tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider &(not implemented), da man ikke kan vælge udstyr  \\
+c & Tryk "Tilføj ændringer" efter at start tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider &(not implemented), da man ikke kan vælge udstyr  \\
 \hline
-	d & Tryk "Tilføj ændringer" efter at slut tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider & (not implemented), da man ikke kan vælge udstyr\\
+d & Tryk "Tilføj ændringer" efter at slut tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider & (not implemented), da man ikke kan vælge udstyr\\
 \hline
-	D801 & Tryk "Tilføj ændringer" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af udstyr skal ligge inde for booking tiden af lokalet & (not implemented), da man ikke kan vælge udstyr \\
+D801 & Tryk "Tilføj ændringer" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af udstyr skal ligge inde for booking tiden af lokalet & (not implemented), da man ikke kan vælge udstyr \\
 \hline
-	D802 & Tryk "Tilføj ændringer" med valgte booking tider for flere stk. udstyr & de valgte felter bliver blå og de valgte stykker udstyr vil blive knyttet til brugerens booking & (not implemented), da man ikke kan vælge udstyr \\
+D802 & Tryk "Tilføj ændringer" med valgte booking tider for flere stk. udstyr & de valgte felter bliver blå og de valgte stykker udstyr vil blive knyttet til brugerens booking & (not implemented), da man ikke kan vælge udstyr \\
 \hline
-	D803 & Tryk "Tilføj ændringer" med flere valgte booking tider for et stk. udstyr & de valgte felter bliver blå og udstyret bliver knyttet til brugerens booking & (not implemented), da man ikke kan vælge udstyr\\
+D803 & Tryk "Tilføj ændringer" med flere valgte booking tider for et stk. udstyr & de valgte felter bliver blå og udstyret bliver knyttet til brugerens booking & (not implemented), da man ikke kan vælge udstyr\\
 \hline
-	D804 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & ok \\
+D804 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & ok \\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Forplejning  & Forventet resultat & Status\\ 
+ID & Billede: Forplejning (\ref{})  & Forventet resultat & Status\\ 
 \hline
-	D900 & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning med et antal & Brugerens valg vil blive vist øverst i listen med antal & failed, crasher når man trykker på tilføj forplejning \\
+D900 & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning med et antal & Brugerens valg vil blive vist øverst i listen med antal & failed, crasher når man trykker på tilføj forplejning \\
 \hline
-	a & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning uden et antal & En advarsel vil sige at der skal vælges et antal for at forplejning kan books &(not implemented), kan ikke skrive antal da siden postbacker når man forsøge at skrive i feltet \\
+a & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning uden et antal & En advarsel vil sige at der skal vælges et antal for at forplejning kan books &(not implemented), kan ikke skrive antal da siden postbacker når man forsøge at skrive i feltet \\
 \hline
-	b & Tryk "Tilføj Forplejning" uden valgte booking tider for et stk. forplejning & En advarsel vil sige, at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det &(not implemented), navigerer til dine bookinger istedet \\
+b & Tryk "Tilføj Forplejning" uden valgte booking tider for et stk. forplejning & En advarsel vil sige, at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det &(not implemented), navigerer til dine bookinger istedet \\
 \hline
-	D901 & Tryk "Tilføj Forplejning" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af forplejning ikke kan oprettes & ok, men crasher efter popupen da den ikke kan navigere tilbage til forplejnings siden \\
+D901 & Tryk "Tilføj Forplejning" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af forplejning ikke kan oprettes & ok, men crasher efter popupen da den ikke kan navigere tilbage til forplejnings siden \\
 \hline
-	D902 & Tryk "Tilføj Forplejning" med valgte booking tider for flere stk. forplejning & De valgt forplejning vil kom til at ligge øverst i listen & failed, crasher når man trykker på tilføj forplejning da den ikke kan navigere tilbage til forplejnings siden \\
+D902 & Tryk "Tilføj Forplejning" med valgte booking tider for flere stk. forplejning & De valgt forplejning vil kom til at ligge øverst i listen & failed, crasher når man trykker på tilføj forplejning da den ikke kan navigere tilbage til forplejnings siden \\
 \hline
-	D903 & Tryk "Tilføj Forplejning" med flere valgte booking tider for et stk. forplejning & Brugeren vil få leveret flere omgange af det valgt forplejning & failed, crasher når man trykker på tilføj forplejning da den ikke kan navigere tilbage til forplejnings siden\\
+D903 & Tryk "Tilføj Forplejning" med flere valgte booking tider for et stk. forplejning & Brugeren vil få leveret flere omgange af det valgt forplejning & failed, crasher når man trykker på tilføj forplejning da den ikke kan navigere tilbage til forplejnings siden\\
 \hline
-	D904 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & ok \\
+D904 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & ok \\
 \hline
-\end{tabularx}
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{0.85cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Book lokale  & Forventet resultat & Status\\ 
+ID & Billede: Book lokale (\ref{})  & Forventet resultat & Status\\ 
 \hline
-	D1000 & Tryk "Book lokale" med valgte booking tidspunkter & Brugerne vil blive ført til skærmbilledet Dine bookinger hvor den nye booking vil ligge i listen & ok\\
+D1000 & Tryk "Book lokale" med valgte booking tidspunkter & Brugerne vil blive ført til skærmbilledet Dine bookinger hvor den nye booking vil ligge i listen & ok\\
 \hline
-	a & Tryk "Book lokale" uden valgte booking tidspunkter & En advarsel vil sige at der skal være markeret tider for at kunne oprette en booking &(not implemented), sker ingen ting \\
+a & Tryk "Book lokale" uden valgte booking tidspunkter & En advarsel vil sige at der skal være markeret tider for at kunne oprette en booking &(not implemented), sker ingen ting \\
 \hline
 D1001 & Tryk "Book lokale" med valgte booking tidspunkter uden at være logget ind & Brugerne vil blive ført til login skærmbilledet  & ok \\
 \hline
-	D1002 & Tryk "Book lokale" med flere valgte booking tidspunkter på samme lokale &  Brugerne vil blive ført til skærmbilledet Dine bookinger hvor de nye bookinger vil ligge i listen & (not implemented), det er kun den første af bookingerne som bliver oprettet\\
+D1002 & Tryk "Book lokale" med flere valgte booking tidspunkter på samme lokale &  Kun den første booking vil blive oprettet & ok\\
 \hline
-	D1003 & Tryk "Book lokale" med flere valgte booking på flere forskellige lokaler&  Brugerne vil blive ført til skærmbilledet Dine bookinger hvor de nye bookinger vil ligge i listen &(not implemented), det er kun det første lokale der blive booket \\
+D1003 & Tryk "Book lokale" med flere valgte booking på flere forskellige lokaler&  Kun den første booking vil blive oprettet & ok \\
 \hline
-	D1004 & Tryk "Book lokale" efter at start tidspunktet for brugerens booking er blevet ændret & Brugeren vil blive ført til skærmbilledet Dine bookinger hvor bookings start tidspunkt vil være ændret &(not implemented), en popup siger handlingen ikke er mulig \\
+D1004 & Tryk "Book lokale" efter at start tidspunktet for en brugerens booking er blevet ændret & Brugeren vil blive ført til skærmbilledet Dine bookinger hvor bookings start tidspunkt vil være ændret &(not implemented), en popup siger handlingen ikke er mulig \\
 \hline
-	a & Tryk "Book lokale" efter at slut tidspunktet for brugerens booking er blevet ændret & Brugeren vil blive ført til skærmbilledet Dine bookinger hvor bookings slut tidspunkt vil være ændret &(not implemented), en popup siger handlingen ikke er mulig \\
+a & Tryk "Book lokale" efter at slut tidspunktet for brugerens booking er blevet ændret & Brugeren vil blive ført til skærmbilledet Dine bookinger hvor bookings slut tidspunkt vil være ændret &(not implemented), en popup siger handlingen ikke er mulig \\
 \hline
-	D1005 & Tryk "Book lokale" mens der er markeret et tidspunkt som allerede af booket af en anden bruger & En advarsel vil sige at det kun er muligt at book lokaler i ledige tidspunkter & ok, popup siger "handlingen er ikke mulig" \\
+D1005 & Tryk "Book lokale" mens der er markeret et tidspunkt som allerede af booket af en anden bruger & En advarsel vil sige at det kun er muligt at book lokaler i ledige tidspunkter & ok, popup siger "handlingen er ikke mulig" \\
 \hline
-	D1006 & Prøv at vælg en dato at book som ligger i fortiden & En advarsel vil sige at man ikke kan vælge dage som ligger før i dag & ok \\
-\end{tabularx}
+D1006 & Prøv at vælg en dato at book som ligger i fortiden & En advarsel vil sige at man ikke kan vælge dage som ligger før i dag & ok \\
+\end{tabular}
 
-\begin{tabularx}{\textwidth}{ |X|X|X|X| }
+\begin{tabular}{ |p{1cm}| p{5cm} | p{4cm} | p{1cm} | }
 \hline
-	ID & Billede: Dine bookinger  & Forventet resultat & Status\\ 
+ID & Billede: Dine bookinger (\ref{})  & Forventet resultat & Status\\ 
 \hline
-	D1100 & Tryk "Ændre Booking" med en valgt booking & Brugeren vil blive ført til skærmbilledet Book lokale hvor bookingen ligger &(not implemented), vil altid blive ført til den dag som det er \\
+D1100 & Tryk "Ændre Booking" med en valgt booking & Brugeren vil blive ført til skærmbilledet Book lokale hvor bookingen ligger &(not implemented), vil altid blive ført til den dag som det er \\
 \hline
-	a & Tryk "Ændre Booking" uden valgt booking & En advarsel vil sige at der skal være valgt en booking &(not implemented), bliver ført til book lokale billedet alligevel \\
+a & Tryk "Ændre Booking" uden valgt booking & En advarsel vil sige at der skal være valgt en booking &(not implemented), bliver ført til book lokale billedet alligevel \\
 \hline
-	D1101 & Tryk "Slet Booking" med en valgt booking & Booking vil blive slette fra listen & ok \\
+D1101 & Tryk "Slet Booking" med en valgt booking & Booking vil blive slette fra listen & ok \\
 \hline
-	a & Tryk "Slet Booking" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & ok \\
+a & Tryk "Slet Booking" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & ok \\
 \hline
-	D1102 & Tryk "Tilføj Forplejning" med en valgt booking & Brugeren vil blive ført til skærmbilledet Forplejning, hvor den vil visse allerede eksisterende bookinger øverst & ok, men giver et forkert booking ID med. \\
+D1102 & Tryk "Tilføj Forplejning" med en valgt booking & Brugeren vil blive ført til skærmbilledet Forplejning, hvor den vil visse allerede eksisterende bookinger øverst & ok, men giver et forkert booking ID med. \\
 \hline
-	a &  Tryk "Tilføj Forplejning" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking &failed, programmet crasher \\
+a &  Tryk "Tilføj Forplejning" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking &failed, programmet crasher \\
 \hline
-	D1103 & Tryk "Tilføj Udstyr" med en valgt boking & Brugeren vil blive ført til skærmbilledet Udstyrsliste, hvor den vil visse allerede eksisterende bookinger & ok, men giver et forkert booking ID med. \\
+D1103 & Tryk "Tilføj Udstyr" med en valgt boking & Brugeren vil blive ført til skærmbilledet Udstyrsliste, hvor den vil visse allerede eksisterende bookinger & ok, men giver et forkert booking ID med. \\
 \hline
-	a & Tryk "Tilføj Udstyr" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & failed, programmet crasher \\
+a & Tryk "Tilføj Udstyr" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & failed, programmet crasher \\
 \hline
-\end{tabularx}
+\end{tabular}
