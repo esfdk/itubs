@@ -50,9 +50,9 @@
 \hline
 	ID & Billede: Tilføj lokale  & Forventet resultat & Status\\ 
 \hline
-	D100 &Tilføj lokale med data i felterne & Lokalet vil blive tilføjet til listen i konfigurering af lokaler & Bliver ført til konfigurering af lokale men lokalet bliver ikke tilført til lokalet \\
+	D100 &Tilføj lokale med data i felterne & Lokalet vil blive tilføjet til listen i konfigurering af lokaler & Brugeren bliver ført til "konfigurering af lokale" men lokalet bliver ikke tilføjet til listen \\
 \hline
-	a & Tilføj lokale uden data i felterne  & En advarsel vil sige der ikke er indtaste data & nej bliver ført tilbage til konfigurering af lokale skærmbilledet. \\
+	a & Tilføj lokale uden data i felterne  & En advarsel vil sige der ikke er indtaste data &(not implemented) bliver ført tilbage til konfigurering af lokale skærmbilledet. \\
 \hline
 \end{tabularx}
 
@@ -76,13 +76,13 @@
 \hline
 	ID & Billede: Booking-liste  & Forventet resultat & Status\\ 
 \hline
-	D300 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & not implemented, der sker ingen ting \\
+	D300 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & (not implemented), der sker ingen ting \\
 \hline
-	a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking & not implemented, der sker ingen ting \\
+	a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking &( not implemented), der sker ingen ting \\
 \hline
-	D301 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & not implemented, der sker ingen ting \\
+	D301 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & (not implemented), der sker ingen ting \\
 \hline
-	a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & not implemented, der sker ingen ting \\
+	a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & (not implemented), der sker ingen ting \\
 \hline
 \end{tabularx}
 
@@ -184,13 +184,13 @@
 \hline
 	a & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning uden et antal & En advarsel vil sige at der skal vælges et antal for at forplejning kan books &(not implemented), kan ikke skrive antal da siden postbacker når man forsøge at skrive i feltet \\
 \hline
-	b & Tryk "Tilføj Forplejning" uden valgte booking tider for et stk. forplejning & En advarsel vil sige at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det & \\
+	b & Tryk "Tilføj Forplejning" uden valgte booking tider for et stk. forplejning & En advarsel vil sige, at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det &(not implemented), navigerer til dine bookinger istedet \\
 \hline
 	D901 & Tryk "Tilføj Forplejning" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af forplejning ikke kan oprettes & ok, men crasher efter popupen da den ikke kan navigere tilbage til forplejnings siden \\
 \hline
-	D902 & Tryk "Tilføj Forplejning" med valgte booking tider for flere stk. forplejning & De valgt forplejning vil kom til at ligge øverst i listen & failed, crasher når man trykker på tilføj forplejning \\
+	D902 & Tryk "Tilføj Forplejning" med valgte booking tider for flere stk. forplejning & De valgt forplejning vil kom til at ligge øverst i listen & failed, crasher når man trykker på tilføj forplejning da den ikke kan navigere tilbage til forplejnings siden \\
 \hline
-	D903 & Tryk "Tilføj Forplejning" med flere valgte booking tider for et stk. forplejning & Brugeren vil få leveret flere omgange af det valgt forplejning & failed, crasher når man trykker på tilføj forplejning\\
+	D903 & Tryk "Tilføj Forplejning" med flere valgte booking tider for et stk. forplejning & Brugeren vil få leveret flere omgange af det valgt forplejning & failed, crasher når man trykker på tilføj forplejning da den ikke kan navigere tilbage til forplejnings siden\\
 \hline
 	D904 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & ok \\
 \hline
@@ -231,11 +231,11 @@ D1001 & Tryk "Book lokale" med valgte booking tidspunkter uden at være logget i
 \hline
 	a & Tryk "Slet Booking" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & ok \\
 \hline
-	D1102 & Tryk "Tilføj Forplejning" med en valgt booking & Brugeren vil blive ført til skærmbilledet Forplejning & ok \\
+	D1102 & Tryk "Tilføj Forplejning" med en valgt booking & Brugeren vil blive ført til skærmbilledet Forplejning, hvor den vil visse allerede eksisterende bookinger øverst & ok, men giver et forkert booking ID med. \\
 \hline
 	a &  Tryk "Tilføj Forplejning" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking &failed, programmet crasher \\
 \hline
-	D1103 & Tryk "Tilføj Udstyr" med en valgt boking & Brugeren vil blive ført til skærmbilledet Udstyrsliste & ok \\
+	D1103 & Tryk "Tilføj Udstyr" med en valgt boking & Brugeren vil blive ført til skærmbilledet Udstyrsliste, hvor den vil visse allerede eksisterende bookinger & ok, men giver et forkert booking ID med. \\
 \hline
 	a & Tryk "Tilføj Udstyr" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & failed, programmet crasher \\
 \hline

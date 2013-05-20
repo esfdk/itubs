@@ -10,6 +10,11 @@
 
     public partial class Service : IBookingManagement
     {
+        /// <summary>
+        /// Gets a booking.
+        /// </summary>
+        /// <param name="booking">The booking to get. Must not be null.</param>
+        /// <returns>The status of the request.</returns>
         public RequestStatus GetBooking(ref Booking booking)
         {
             if (booking == null)
@@ -21,12 +26,24 @@
             return booking != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
+        /// <summary>
+        /// Gets all the bookings with a specific date.
+        /// </summary>
+        /// <param name="date">Date to get by.</param>
+        /// <param name="bookings">The list of bookings that has the specified date.</param>
+        /// <returns>The status of the request.</returns>
         public RequestStatus GetBookingsByDate(DateTime date, out IEnumerable<Booking> bookings)
         {
             bookings = Booking.GetBookingsByDate(date);
             return bookings != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
+        /// <summary>
+        /// Gets all the bookings associated with a specific person.
+        /// </summary>
+        /// <param name="person">Person to get by.</param>
+        /// <param name="bookings">The list of bookings that has the specified person.</param>
+        /// <returns>The status of the request.</returns>
         public RequestStatus GetBookingsByPerson(Person person, out IEnumerable<Booking> bookings)
         {
             bookings = null;
@@ -40,6 +57,11 @@
             return bookings != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
+        /// <summary>
+        /// Gets all the pending bookings.
+        /// </summary>
+        /// <param name="bookings">The list of bookings to get.</param>
+        /// <returns>The status of the request.</returns>
         public RequestStatus GetPendingBookings(out IEnumerable<Booking> bookings)
         {
             bookings = Booking.GetPendingBookings();
@@ -47,6 +69,12 @@
             return bookings != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
+        /// <summary>
+        /// Creates a new booking.
+        /// </summary>
+        /// <param name="token">The token of the user.</param>
+        /// <param name="newBooking">The new booking.</param>
+        /// <returns>The status of the request.</returns>
         public RequestStatus CreateBooking(string token, ref Booking newBooking)
         {
             if (string.IsNullOrWhiteSpace(token) || newBooking == null)
@@ -72,6 +100,12 @@
             return newBooking != null ? RequestStatus.Success : RequestStatus.InvalidInput;
         }
 
+        /// <summary>
+        /// Changes time of the booking.
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="changedBooking">The booking to be changed.</param>
+        /// <returns>The status of the request.</returns>
         public RequestStatus ChangeTimeOfBooking(string token, ref Booking changedBooking)
         {
             if (string.IsNullOrWhiteSpace(token) || changedBooking == null)
@@ -96,6 +130,12 @@
             return rs;
         }
 
+        /// <summary>
+        /// Changes the status of a booking.
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="changedBooking">The booking which status is to be changed.</param>
+        /// <returns>The status of the request.</returns>
         public RequestStatus ChangeBookingStatus(string token, ref Booking changedBooking)
         {
             if (string.IsNullOrWhiteSpace(token) || changedBooking == null)
