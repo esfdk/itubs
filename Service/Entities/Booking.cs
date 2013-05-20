@@ -23,6 +23,9 @@ namespace BookITService.Entities
             this.EquipmentChoices = new List<EquipmentChoice>();
         }
 
+        /// <summary>
+        /// Gets all bookings in the database.
+        /// </summary>
         private static IEnumerable<Booking> All
         {
             get
@@ -56,12 +59,18 @@ namespace BookITService.Entities
             return All.Where(b => b.StartTime.Date.Equals(date.Date));
         }
 
+        /// <summary>
+        /// Creates a new booking in the database.
+        /// </summary>
+        /// <param name="booking">The booking to create.</param>
+        /// <returns>The newly created booking object.</returns>
         public static Booking CreateNewBooking(Booking booking)
         {
+            // Gets the room that the booking is for.
             var room = Room.GetRoomByID(booking.RoomID);
 
-            if (!IsBookingTimeValid(booking)
-                || OverlappingBookings(booking).Any()
+            // Checks if input is valid
+            if (!IsBookingTimeValid(booking) || OverlappingBookings(booking).Any()
                 || (booking.NumberOfParticipants > room.MaxParticipants)
                 || !IsAStatus(booking.Status)
                 || booking.PersonID <= 0
@@ -70,6 +79,7 @@ namespace BookITService.Entities
                 return null;
             }
 
+            // Adds a new booking object (with the input parameters) to the Bookings collection
             BookITContext.Db.Bookings.Add(
                 new Booking
                     {
@@ -82,8 +92,10 @@ namespace BookITService.Entities
                         Status = booking.Status,
                     });
 
+            // Saves the change to the database
             BookITContext.Db.SaveChanges();
 
+            // Finds the booking that was just created (to make sure the object is fully updated).
             return
                 All.FirstOrDefault(
                     b =>
@@ -249,11 +261,21 @@ namespace BookITService.Entities
         [DataMember]
         public virtual Room Room { get; set; }
 
+        /// <summary>
+        /// Checks if input string is not null, not empty and is either equal to "Accepted" or "Pending".
+        /// </summary>
+        /// <param name="status">The status to check.</param>
+        /// <returns>True if input string is a status, false if not.</returns>
         private static bool IsAStatus(string status)
         {
             return !string.IsNullOrWhiteSpace(status) && (status.Equals("Accepted") || status.Equals("Pending"));
         }
 
+        /// <summary>
+        /// Checks if time of a booking is within acceptable time.
+        /// </summary>
+        /// <param name="booking">Booking to check.</param>
+        /// <returns>True if time of booking is valid, false if not.</returns>
         private static bool IsBookingTimeValid(Booking booking)
         {
             return booking.StartTime < booking.EndTime
@@ -262,6 +284,11 @@ namespace BookITService.Entities
                    && booking.StartTime.Date.Equals(booking.EndTime.Date);
         }
 
+        /// <summary>
+        /// Finds all the bookings that overlap with a specific booking.
+        /// </summary>
+        /// <param name="booking">The booking to check.</param>
+        /// <returns>The list of bookings that over with input booking. If empty, no bookings overlap.</returns>
         private static List<Booking> OverlappingBookings(Booking booking)
         {
             return All.Where(

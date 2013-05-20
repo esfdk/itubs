@@ -10,6 +10,9 @@ namespace BookITService
     {
         #region Fields
 
+        /// <summary>
+        /// The database context object.
+        /// </summary>
         [ThreadStatic]
         private static BookITContext db;
 
@@ -32,10 +35,14 @@ namespace BookITService
 
         #region Context getter and reloader
 
+        /// <summary>
+        /// The database context object. 
+        /// </summary>
         public static BookITContext Db
         {
             get
             {
+                // If db is null, instantiate it.
                 return db ?? (db = new BookITContext());
             }
         }

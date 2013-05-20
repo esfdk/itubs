@@ -1,2 +1,26 @@
 \begin{lstlisting}[caption=Kode til godkendelse af login, label=AD-AUTH]
+
+// Create new LDAP connection with the users credentials
+var ldap = new LdapConnection(Configuration.LDAPServer) 
+	{ Credential =
+	    new NetworkCredential(
+		username.Substring(0, username.IndexOf("@")), 
+		password) 
+	};
+try
+{
+    // Attempt to bind the connection
+    ldap.Bind();
+}
+catch (COMException)
+{
+    // If communication exception is thrown, return -1
+    return new Person { ID = -1 };
+}
+catch (Exception e)
+{
+    // If exception specifies that the LDAP server is not available, return -1
+    // Any other exception, return null
+    return e.Message.Contains("available") ? new Person { ID = -1 } : null;
+}
 \end{lstlisting}
