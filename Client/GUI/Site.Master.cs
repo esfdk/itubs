@@ -69,7 +69,7 @@ namespace Client.GUI
                 return;
             }
 
-            this.Response.Redirect("~/GUI/Administrator/UdstyrsListe.aspx");
+            this.Response.Redirect("~/GUI/Administrator/EquipmentList.aspx");
         }
 
         protected void MenuButton_BookingListe_OnClick(object sender, EventArgs e)

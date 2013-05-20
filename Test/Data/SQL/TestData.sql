@@ -94,7 +94,7 @@ INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [S
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (4,'Pending',10,'Møde','2013-06-10T14:00:00', '2013-06-10T15:00:00', 3, 2)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (5,'Godkendt',8,'Møde','2013-06-10T12:00:00', '2013-06-10T14:00:00', 2, 4)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (6,'Godkendt',12,'Møde','2013-06-10T10:00:00', '2013-06-10T18:00:00', 2, 5)
-INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (7,'Godkendt',8,'Møde','2013-06-11T10:00:00', '2013-06-11T18:00:00', 2, 6)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (7,'Godkendt',8,'Møde','2013-06-12T10:00:00', '2013-06-12T18:00:00', 3, 6)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (8,'Godkendt',6,'Møde','2013-06-12T16:00:00', '2013-06-12T18:00:00', 2, 7)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (9,'Godkendt',6,'Møde','2013-06-13T10:00:00', '2013-06-13T12:00:00', 3, 7)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (10,'Godkendt',12,'Møde','2013-06-14T10:00:00', '2013-06-14T12:00:00', 2, 8)
@@ -110,10 +110,11 @@ SET IDENTITY_INSERT [dbo].[CateringChoices] ON
 INSERT [dbo].[CateringChoices] ([ID], [Amount], [Time], [Status], [BookingID], [CateringID]) VALUES (1, 15, '2013-05-15 12:00:00', 'Godkendt', 1, 1)
 INSERT [dbo].[CateringChoices] ([ID], [Amount], [Time], [Status], [BookingID], [CateringID]) VALUES (2, 20, '2013-06-10 10:00:00', 'Godkendt', 2, 2)
 INSERT [dbo].[CateringChoices] ([ID], [Amount], [Time], [Status], [BookingID], [CateringID]) VALUES (3, 50, '2013-06-02 15:00:00', 'Godkendt', 3, 3)
+INSERT [dbo].[CateringChoices] ([ID], [Amount], [Time], [Status], [BookingID], [CateringID]) VALUES (4, 10, '2013-06-02 15:00:00', 'Godkendt', 7, 3)
 SET IDENTITY_INSERT [dbo].[CateringChoices] OFF
 
 SET IDENTITY_INSERT [dbo].[EquipmentChoices] ON
 INSERT [dbo].[EquipmentChoices] ([ID], [StartTime], [EndTime], [BookingID], [EquipmentID]) VALUES (1, '2013-05-15 12:00:00', '2013-05-15 15:00:00', 1,1)
-INSERT [dbo].[EquipmentChoices] ([ID], [StartTime], [EndTime], [BookingID], [EquipmentID]) VALUES (2, '2013-06-10 10:00:00', '2013-06-10 13:00:00', 2,2)
+INSERT [dbo].[EquipmentChoices] ([ID], [StartTime], [EndTime], [BookingID], [EquipmentID]) VALUES (2, '2013-06-10 10:00:00', '2013-06-10 13:00:00', 7,2)
 INSERT [dbo].[EquipmentChoices] ([ID], [StartTime], [EndTime], [BookingID], [EquipmentID]) VALUES (3, '2013-06-10 14:00:00', '2013-06-10 15:00:00', 3,2)
 SET IDENTITY_INSERT [dbo].[EquipmentChoices] OFF

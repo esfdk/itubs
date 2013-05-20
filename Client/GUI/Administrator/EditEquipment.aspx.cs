@@ -11,12 +11,12 @@ namespace Client.GUI.Administrator
 
         protected void SaveChangesButton_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect("UdstyrsListe.aspx");
+            this.Response.Redirect("EquipmentList.aspx");
         }
 
         protected void CancelButton_Click(object sender, EventArgs e)
         {
-
+            this.Response.Redirect("EquipmentList.aspx");
         }
     }
 }
