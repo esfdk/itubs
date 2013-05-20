@@ -1,4 +1,7 @@
-﻿public enum RequestResult
+﻿namespace Client.Types
 {
-    Success = 0, WrongUserNameOrPassword = 1, InvalidInput = 2, CommunicationFailure = 3, AccessDenied = 4, Error = 5
+    public enum RequestResult
+    {
+        Success = 0, WrongUserNameOrPassword = 1, InvalidInput = 2, CommunicationFailure = 3, AccessDenied = 4, Error = 5
+    }
 }

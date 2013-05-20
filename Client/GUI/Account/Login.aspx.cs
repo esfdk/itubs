@@ -3,7 +3,7 @@ namespace Client.GUI.Account
     using System;
     using System.Web.UI.WebControls;
 
-    using Client.ViewModel;
+    using Client.Types;
     using Client.ViewModel.Account;
 
     public partial class Login : System.Web.UI.Page

@@ -3,7 +3,6 @@ namespace Client.GUI.User
     using System;
     using System.Web.UI.WebControls;
 
-    using Client.Model;
     using Client.ViewModel;
     using Client.ViewModel.User;
 
@@ -11,7 +10,7 @@ namespace Client.GUI.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (PersonModel.loggedInUser == null)
+            if (MasterViewModel.LoggedInUserID() == -1)
             {
                 this.Response.Redirect("~/GUI/User/RoomList.aspx");
             }

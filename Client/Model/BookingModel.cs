@@ -5,6 +5,7 @@
     using System.Linq;
 
     using Client.BookItService;
+    using Client.Types;
 
     public static class BookingModel
     {

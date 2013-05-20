@@ -2,6 +2,7 @@
 namespace Client.ViewModel.Account
 {
     using Client.Model;
+    using Client.Types;
 
     public static class LoginViewModel
     {

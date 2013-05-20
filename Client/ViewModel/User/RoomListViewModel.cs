@@ -9,6 +9,7 @@ namespace Client.ViewModel.User
 
     using Client.BookItService;
     using Client.Model;
+    using Client.Types;
 
     public static class RoomListViewModel
     {

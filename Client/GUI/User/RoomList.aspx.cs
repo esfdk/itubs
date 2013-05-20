@@ -3,6 +3,7 @@ namespace Client.GUI.User
     using System;
     using System.Web.UI.WebControls;
 
+    using Client.Types;
     using Client.ViewModel;
     using Client.ViewModel.User;
 
@@ -32,7 +33,7 @@ namespace Client.GUI.User
             }
         }
 
-        
+
 
         protected void PageIndexChanged(object sender, EventArgs e)
         {
@@ -53,12 +54,12 @@ namespace Client.GUI.User
             DateTime date;
             if (DateTime.TryParse(this.DateTextBox.Text, out date))
             {
-                RoomListViewModel.UpdateRoomGrid(this.RoomGridView, date.Date, RoomGridView.PageIndex);   
+                RoomListViewModel.UpdateRoomGrid(this.RoomGridView, date.Date, RoomGridView.PageIndex);
             }
             else
             {
                 RoomListViewModel.UpdateRoomGrid(this.RoomGridView, DateTime.Today.Date, RoomGridView.PageIndex);
-                
+
             }
         }
 

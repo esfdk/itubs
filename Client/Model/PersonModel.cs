@@ -1,6 +1,7 @@
 ﻿namespace Client.Model
 {
     using Client.BookItService;
+    using Client.Types;
 
     public static class PersonModel
     {
