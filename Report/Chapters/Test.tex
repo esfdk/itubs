@@ -13,13 +13,18 @@ Vi skrev vores test efter vi havde implementeret brugergrænsefladen. Dette bet�
 
 \section{Resultater}
 \label{Test_Results}
+Vi har udført 78 test af vores system. 12 af disse er test i forbindelse med de arbejdsopgaver, vi understøtter (se afsnit \ref{Evaluation_workareas}). De resterende 66 test er test af vores skærmbilleder.
 
+22 af vores test har status "OK", 35 rapporterer en defekt og 21 rapporterer "Not Yet Implemented". Dette betyder, at $\sim$28\% af vores er "OK". Dette er lav værdi, men den bliver over 50\% ($\sim$55\%), hvis man medregner de test, som rapporterer "Not Yet Implemented". 
+
+Vi har valgt ikke at inkludere "Not Yet Implemented" i vores liste af defekter, da vi mener, der er forskel på test, som fejler på grund af bugs og test, der fejler grundet manglende implementation. 
 
 \subsection{Vurdering af resultater}
 \label{Test_Results_eval}
+Det er skuffende for os, at vi har så få test, som har status "OK". Selvom det sjældent er muligt at konstruere et system, hvor alt funktionalitet er testet og alle test har status "OK", så er det stadig et mål for os i forbindelse med future releases. 
+\\Vi vurderer, at det er muligt implementere det meste af den funktionalitet, hvis test fejler på grund af, at de ikke er implementeret. Dette ville bringe systemet tættere på 50\% godkendte test. 50\% godkendte test er dog stadig ikke nok til, at vi mener, at produktet ville være klar egentlig release. Derfor mener vi, at der bør lægges stor vægt på at få fixet størstedelen af de rapporterede defekter, før man fokuserer på tilføjelse af nye funktionaliteter.
 
-
-Vi ville muligvis have været i stand til at reducere antallet af defekter, hvis vi havde skrevet vores tes efter vi designede brugergrænsefladen, men før vi implementerede den. Testene beskriver mange af de forskellige input, som brugeren kan give til brugergrænsefladen. 
+Vi ville muligvis have været i stand til at reducere antallet af defekter, hvis vi havde skrevet vores test efter vi designede brugergrænsefladen, men før vi implementerede den. Testene beskriver mange af de forskellige input, som brugeren kan give til brugergrænsefladen. 
 \\Risikoen ved dette er, at vores implementation ville blive så fokuseret på at opfylde testkravene, at vi ikke fik skrevet god kode. Eksempelvis kunne vi ende op med kode, som var fokuseret på at bestå individuelle test. Kode, som er fokuseret på enkelte cases, kan være svært at udvide og/eller vedligeholde.
 
 \section{Ønsket teststrategi}
