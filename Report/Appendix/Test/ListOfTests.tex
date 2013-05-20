@@ -1,10 +1,10 @@
 \section{Testliste}
 \label{App_Test_ListOfTest}
-
+Liste af de test, vi har udført på første udgave af systemet. NYI står for "Not Yet Implemented" og D? står for defekt (hvor ? er defektens nummer). Listen af defekter kan findes på side \pageref{App_Test_Defects}.
 \subsection{Test af arbejdsopgaver}
 \label{App_Test_ListOfTest_Work}
 
-\begin{longtable}{ |p{0.85cm}| p{7.1cm} | p{5.5cm} | p{2cm} | }
+\begin{tabular}{ |p{0.85cm}| p{7.1cm} | p{5.5cm} | p{2cm} | }
 \hline
 \textbf{ID} & \textbf{Opgave: Administrer booking} & \textbf{Understøttet af} & \textbf{Status}\\ 
 \hline
@@ -22,9 +22,9 @@ C103 & Anullér booking & Skærmbillede \ref{App_GUI_final_DineBookinger} & OK \
 \hline
 C104 & Opret booking & Skærmbillede \ref{App_GUI_final_GridEksempel} & OK \\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7.1cm} | p{5.5cm} | p{2cm} | }
+\begin{tabular}{ |p{0.85cm}| p{7.1cm} | p{5.5cm} | p{2cm} | }
 \hline
 \textbf{ID} & \textbf{Opgave: Opdater listen for ekstra udstyr} & \textbf{Understøttet af} &\textbf{Status}\\ 
 \hline
@@ -32,9 +32,9 @@ C900 & Tilføj udstyr & Skærmbillede \ref{App_GUI_final_UdstyrsListe} og \ref{A
 \hline
 a & Slet udstyr & Skærmbillede \ref{App_GUI_final_UdstyrsListe} og \ref{App_GUI_final_AendreUdstyr} & NYI \\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7.1cm} | p{5.5cm} | p{2cm} | }
+\begin{tabular}{ |p{0.85cm}| p{7.1cm} | p{5.5cm} | p{2cm} | }
 \hline
 \textbf{ID} & \textbf{Opgave: Opdater lokaler} & \textbf{Understøttet af} & \textbf{Status}\\ 
 \hline
@@ -44,202 +44,205 @@ a & Tilføj lokale & Skærmbillede \ref{App_GUI_final_LokaleListe} & NYI \\
 \hline
 C1001 & Rediger lokale inventar & Skærmbillede \ref{App_GUI_final_AendreLokale} & NYI \\
 \hline
-\end{longtable}
+\end{tabular}
 \pagebreak
 
 \subsection{Test af skærmbilleder}
 \label{App_Test_ListOfTest_ScreenTests}
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Tilføj lokale (\ref{})  & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Tilføj lokale (\ref{App_GUI_final_AddRoom})}  & \textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D100 &Tilføj lokale med data i felterne & lokalet vil blive tilføjet til listen i konfigurering af lokaler & Brugeren bliver ført til "konfigurering af lokale" men lokalet bliver ikke tilføjet til listen \\
+D100 &Tilføj lokale med data i felterne & Lokalet bliver oprettet og brugeren redirectes til konf. af lokaler & D2 \\
 \hline
-a & Tilføj lokale uden data i felterne  & En advarsel vil sige der ikke er indtaste data &(not implemented) bliver ført tilbage til konfigurering af lokale skærmbilledet. \\
+a & Tilføj lokale uden data i felterne & Pop-up "Du har ikke indtastet de nødvendige data" & D3\\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Konfigurering af lokaler (\ref{}) & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Konf. af lokaler (\ref{App_GUI_final_LokaleListe})} & \textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D200 & Tryk "Ændre" med et valgt lokale & Brugerne vil blive ført til Ændre lokale skærmbilledet, hvor den udfyldt data vil være tilhøre til det valgte lokale & bliver navigeret til ændre lokale men intet af dataen er korrekt (not implemented) \\
+D200 & Tryk "Ændre" med et lokale valgt & Brugeren redirectes til "Ændre Lokale", hvor datafelterne vil indeholde værdier fra det valgte lokale & D4\\
 \hline
-a & Tryk "Ændre" uden der er valgt et lokale & En advarsel vil sige der ikke er valgt et lokale & (not implemented) blive ført videre til ændre lokale \\
+a & Tryk "Ændre" uden der er valgt et lokale & Pop-up "Du har ikke valgt et lokale!" & D3 \\
 \hline
-D201 & Tryk "Slet" med et valgt lokale &En advarsel vil spørge om man er sikker på sit valg, hvis ja vil det valgte lokale vil blive slettet fra listen & OK \\
+D201 & Tryk "Slet" med et valgt lokale & Pop-up "Er du sikker på, du vil slette lokalet?" (hvis ja, så slet lokale) & OK \\
 \hline
-a & Tryk "Slet" uden der er valgt et lokale & En advarsel vil der ikke er valgt et lokale & OK \\
+a & Tryk "Slet" uden der er valgt et lokale & Pop-up "Du har ikke valgt et lokale!" & OK \\
 \hline
-D202 & Tryk "Tilføj" & Brugeren vil blive ført til Tilføj lokale skærmbilledet & OK\\
+D202 & Tryk "Tilføj" & Brugeren redirectes til "Tilføj Lokale" & OK\\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: booking-liste (\ref{})  & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Booking-liste (\ref{App_GUI_final_BookingListe})}  & \textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D300 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & (not implemented), der sker ingen ting \\
+D300 & Tryk "Godkend" med en booking valgt  & Den valgte booking forsvinder fra listen (og være godkendt i systemet) & NYI\\
 \hline
-a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking &( not implemented), der sker ingen ting \\
+a & Tryk "Godkend" uden der er valgt en booking & Pop-up "Du har ikke valgt en booking!" & NYI\\
 \hline
-D301 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & (not implemented), der sker ingen ting \\
+D301 & Tryk "Afvis" med en valgt booking & Den valgte booking forsvinder fra listen (og fra systemet) & NYI \\
 \hline
-a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & (not implemented), der sker ingen ting \\
+a & Tryk "Afvis" uden en valgt en booking & Pop-up "Du har ikke valgt en booking!" & NYI\\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Ændre udstyr (\ref{}) & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Ændre udstyr (\ref{App_GUI_final_AendreUdstyr})} &\textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D400 & Tryk "Gem ændringer" med data i felterne & Brugeren vil blive ført til skærmbilledet udstyrslisten, hvor udstyret vil være i listen med de ønskede ændringer &(not implemented) ændringerne bliver ikke gemt \\
+D400 & Tryk "Gem ændringer" med data i felterne & Redirect til "Udstyrsliste" (og udstyret tilføjet til systemet) & D2\\
 \hline
-a & Tryk "Gem ændringer" uden data i felterne & En advarsel vil sige der skal være udfyldt data i felterne &(not implemented) bliver førte tilbage til udstyrslisten \\
+a & Tryk "Gem ændringer" uden data i felterne & Pop-up "Du har ikke indtastet de nødvendige data" & D3\\
 \hline
-D401 & Tryk "Fortryd" & Brugerne vil blive ført til skærmbilledet udstyrslisten & OK \\
+D401 & Tryk "Fortryd" & Redirect til "Udstyrsliste" & OK \\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Ændre lokale (\ref{})  & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Ændre lokale (\ref{App_GUI_final_AendreLokale})}  & \textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D500 & Tryk "Gem" med data i felterne & Brugeren vil blive ført til konfigurering af lokaler, hvor det vil ligge i listen over lokaler med de ønskede ændringer  & (not implemented), der sker ingen ting\\
+D500 & Tryk "Gem" med data i felterne & Redirect til "Konfigurering af lokaler" (og ændringer er gemt i systemet)  & NYI\\
 \hline
-a & Tryk "Gem" uden data i felterne & En advarsel vil sige at der skal være data i felterne &(not implemented) der sker ingen ting \\
+a & Tryk "Gem" uden data i felterne & Pop-up "Du har ikke udfyldt de nødvendige datafelter!" &NYI \\
 \hline
-D501 & Tryk "Tilføj udstyr" med valgt udstyr & Udstyret vil blive fjernet fra den nederste liste og tilføjet til listen øverst i billedet &(not implemented), der sker ingen ting \\
+D501 & Tryk "Tilføj udstyr" med valgt udstyr & Udstyret tilføjes til øverste del af listen og kan ikke længere findes i nederste del af listen  & NYI\\
 \hline
-a & Tryk "Tilføj udstyr" uden valgt udstyr & En advarsel vil sige der skal være valgt udstyr for at kunne tilføje det &(not implemented), der sker ingen ting \\
+a & Tryk "Tilføj udstyr" uden valgt udstyr & Pop-up "Du har ikke valgt udstyr!" &NYI \\
 \hline
-D502 & Tryk "Slet udstyr" med valgt udstyr & Udstyret vil blive fjernet fra den øverste liste og tilføjet til den nederste  &(not implemented), der sker ingen ting \\
+D502 & Tryk "Slet udstyr" med valgt udstyr & Udstyret fjernes fra øverste del af listen og kan findes i nederste del af listen & NYI \\
 \hline
-D503 & Tryk "Afslut" & Brugeren vil blive ført til skærmbilledet konfigurering af lokaler & OK\\
+a & Tryk "Slet udstyr" uden valgt udstyr & Pop-up "Du har ikke valgt udstyr!" & NYI \\
 \hline
-\end{longtable}
+D503 & Tryk "Afslut" & Redirect til "Konfigurering af lokaler" & OK\\
+\hline
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Udstyrsliste (\ref{})  & Forventet resultat & Status\\ 
+\textbf{ID} &\textbf{Billede: Udstyrsliste (\ref{App_GUI_final_UdstyrsListe})}  &\textbf{Forventet resultat} & \textbf{Status} \\ 
 \hline
-D600 & Tryk "Tilføj udstyr" med data i felterne & Det nye udstyr vil blive tilføjet til listen i venstre side af skærmbilledet &(not implemented), der sker ingen ting \\
+D600 & Tryk "Tilføj udstyr" med data i felterne & Det nye udstyr tilføjes til listen i venstre side & NYI \\
 \hline
-a & Tryk "Tilføj udstyr" uden data i felterne & En advarsel vil sige at der skal være data i felterne &(not implemented), der sker ingen ting \\
+a & Tryk "Tilføj udstyr" uden data i felterne & Pop-up "Du har ikke udfyldt de nødvendige datafelter!" & NYI \\
 \hline
-D601 & Tryk "Slet udstyr" med valgt udstyr & Det valgte udstyr vil blive slettet fra listen &(not implemented), der sker ingen ting \\
+D601 & Tryk "Slet udstyr" med valgt udstyr & Det valgte udstyr bliver slettet fra listen & NYI \\
 \hline
-a & Tryk "Slet udstyr" uden valgt udstyr & En advarsel vil sige, at der ikke er valgt et udstyr &(not implemented), der sker ingen ting \\
+a & Tryk "Slet udstyr" uden valgt udstyr & Pop-up "Du har ikke valgt udstyr!" & NYI \\
 \hline
-D602 & Tryk "Ændre udstyr" med valgt udstyr & Brugeren vil blive ført til skærmbilledet Ændre udstyr som vil blive oprettet med det valgte udstyrs data &(not implemented), bliver ført til ændre udstyr, men der ikke noget data i felterne \\
+D602 & Tryk "Ændre udstyr" med valgt udstyr & Redirect til "Ændre udstyr", som viser det valgte udstyrs data & D4 \\
 \hline
-a & Tryk "Ændre udstyr" uden valgt udstyr & En advarsel vil sige at der ikke er valgt et udstyr & (not implemented), bliver ført videre til ændre udstyr \\
+a & Tryk "Ændre udstyr" uden valgt udstyr & Pop-up "Du har ikke valgt udstyr!" & D3 \\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Person booking liste (\ref{})   & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Person Booking-liste (\ref{App_GUI_final_SpecifikBookingListe})} & \textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D700 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & failed, listen reseter og bliver tom \\
+D700 & Tryk "Godkend" med en valgt booking & Den valgt booking vil forsvinde fra listen & D5 \\
 \hline
-a & Tryk "Godkend" uden der er valgt en booking & En advarsel vil sige der ikke er valgt en booking & failed, listen reseter og bliver tom \\
+a & Tryk "Godkend" uden der er valgt en booking & Pop-up "Du skal vælge en booking!" & D5 \\
 \hline
-D701 & Tryk "Afvis" med en valgt booking & Den valgt booking vil forsvinde fra listen & failed, listen reseter og bliver tom \\
+D701 & Tryk "Afvis" med en valgt booking & Den valgte booking forsvinder fra listen & D6 \\
 \hline
-a & Tryk "Afvis" uden en valgt en booking & En advarsel vil sige der ikke er valgt en booking & failed, listen reseter og bliver tom\\
+a & Tryk "Afvis" uden en valgt en booking & Pop-up "Du skal vælge en booking!"  & D6 \\
 \hline
-D702 & Tryk "Find bookinger" med email i feltet & Listen i skærmbilledet vil blive udfyldt med alle de bookinger den pågældende email har & OK \\
+D702 & Tryk "Find bookinger" med en eksisterende email i feltet & Listen i skærmbilledet vil blive udfyldt med de bookinger,der er associeret med email-addressen & OK \\
 \hline 
-a & Tryk "Find bookinger" uden email i feltet & En advarsel vil sige at der ikke kan findes en person med den email & OK \\
+a & Tryk "Find bookinger" med tomt email felt & Pop-up "Du har ikke indtastet en email!" & OK \\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: book udstyr (\ref{})  & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Book udstyr (\ref{App_GUI_final_BookEquip})}  & \textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D800 & Tryk "Tilføj ændringer" med valgte booking tider for et stk. udstyr & de valgte felter bliver blå og udstyret bliver knyttet til brugerens booking &(not implemented), kan ikke vælge booking tider for udstyr \\
+D800 & Tryk "Tilføj ændringer" med valgte tider for udstyr & Valgte felter bliver blå og udstyret bliver tilknyttet brugerens booking & D1 \\
 \hline
-a & Tryk "Tilføj ændringer" uden valgte booking tider for et stk. udstyr & En advarsel vil sige at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det &(not implemented), der sker ingen ting \\
+a & Tryk "Tilføj ændringer" uden valgte tider for udstyr & Pop-up "Du skal vælge tider for at kunne booke!" & NYI \\
 \hline
-b & Tryk "Tilføj ændringer" mens der er markeret booking tider for en allerede eksisterende booking & En advarsel vil sige at det ikke er muligt at booke allerede booket udstyr &(not implemented), kan ikke vælge booking tider, hvoren de er booket i forvejen eller ikke \\
+b & Tryk "Tilføj ændringer" mens der er markeret tider for en allerede eksisterende udstyrsbooking & Pop-up "Udstyret er ikke til rådighed i dette tidsrum & D1 \\
 \hline
-c & Tryk "Tilføj ændringer" efter at start tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider &(not implemented), da man ikke kan vælge udstyr  \\
+c & Tryk "Tilføj ændringer" efter at starttidspunktet for brugerens booking er blevet ændret & Tiden for bookingen tilpasses valget & D1 \\
 \hline
-d & Tryk "Tilføj ændringer" efter at slut tidspunktet for brugerens booking er blevet ændret & De blå felter der marker brugerens booking vil blive fløttet så de passer til de nye tider & (not implemented), da man ikke kan vælge udstyr\\
+d & Tryk "Tilføj ændringer" efter at sluttidspunktet for brugerens booking er blevet ændret & Tiden for bookingen tilpasses valget & D1 \\
 \hline
-D801 & Tryk "Tilføj ændringer" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af udstyr skal ligge inde for booking tiden af lokalet & (not implemented), da man ikke kan vælge udstyr \\
+D801 & Tryk "Tilføj ændringer" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & Pop-up "Du kan ikke booke udstyr uden for lokalebookingens tidsrum!" & D1 \\
 \hline
-D802 & Tryk "Tilføj ændringer" med valgte booking tider for flere stk. udstyr & de valgte felter bliver blå og de valgte stykker udstyr vil blive knyttet til brugerens booking & (not implemented), da man ikke kan vælge udstyr \\
+D802 & Tryk "Tilføj ændringer" med valgte tider for mere end 1 stykke udstyr & Den første booking registreres & D1 \\
 \hline
-D803 & Tryk "Tilføj ændringer" med flere valgte booking tider for et stk. udstyr & de valgte felter bliver blå og udstyret bliver knyttet til brugerens booking & (not implemented), da man ikke kan vælge udstyr\\
+D803 & Tryk "Tilføj ændringer" med flere valgte tidsperioder for et enkelt stykke udstyr &  Den første booking registreres & D1\\
 \hline
-D804 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & OK \\
+D804 & Tryk "Fortryd" & Redirect til "Dine Bookinger" & OK \\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Forplejning (\ref{})  & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Forplejning (\ref{App_GUI_final_Forplejning})}  & \textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D900 & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning med et antal & Brugerens valg vil blive vist øverst i listen med antal & failed, crasher når man trykker på tilføj forplejning \\
+D900 & Tryk "Tilføj Forplejning" med valgt tidspunkt og antal for en forplejning & Brugerens valg bliver vist øverst i listen (og bliver tilføjet til systemet & D7 \\
 \hline
-a & Tryk "Tilføj Forplejning" med valgte booking tider for et stk. forplejning uden et antal & En advarsel vil sige at der skal vælges et antal for at forplejning kan books &(not implemented), kan ikke skrive antal da siden postbacker når man forsøge at skrive i feltet \\
+a & Tryk "Tilføj Forplejning" med valgt tid, men ikke antal & Pop-up "Du skal angive et antal for at kunne bestille forplejning!" & D8 \\
 \hline
-b & Tryk "Tilføj Forplejning" uden valgte booking tider for et stk. forplejning & En advarsel vil sige, at man skal vælge booking tider for et stykke udstyr for at kunne tilføje det &(not implemented), navigerer til dine bookinger istedet \\
+b & Tryk "Tilføj Forplejning" uden valgt tid & Pop-up "Du skal vælge tidspunkt for at kunne bestille forplejning!" & D3 \\
 \hline
-D901 & Tryk "Tilføj Forplejning" mens der er markeret booking tidspunkter der ligger uden for booking tiden af lokalet & En advarsel vil sige at booking af forplejning ikke kan oprettes & OK, men crasher efter popupen da den ikke kan navigere tilbage til forplejnings siden \\
+D901 & Tryk "Tilføj Forplejning" mens der er valgt et tidspunkt, som ligger uden for lokalebookingens tidsrum & Pop-up "Du kan ikke bestille forplejning uden for lokalebookingens tidsrum!" & D7 \\
 \hline
-D902 & Tryk "Tilføj Forplejning" med valgte booking tider for flere stk. forplejning & De valgt forplejning vil kom til at ligge øverst i listen & failed, crasher når man trykker på tilføj forplejning da den ikke kan navigere tilbage til forplejnings siden \\
+D902 & Tryk "Tilføj Forplejning" med valgt tid og antal for mere end 1 forplejning & De valgte forplejningsbestillinger bliver tilføjet til toppen af listen (og til systemet) & D7 \\
 \hline
-D903 & Tryk "Tilføj Forplejning" med flere valgte booking tider for et stk. forplejning & Brugeren vil få leveret flere omgange af det valgt forplejning & failed, crasher når man trykker på tilføj forplejning da den ikke kan navigere tilbage til forplejnings siden\\
+D903 & Tryk "Tilføj Forplejning" med flere tider valgt på samme forplejningstype & Pop-up "Du kan kun tilføje en bestilling af samme type forplejning ad gangen! & D7 \\
 \hline
-D904 & Tryk "Fortryd" & Brugeren vil blive førte tilbage til skærmbilledet Dine bookinger & OK \\
+D904 & Tryk "Fortryd" & Redirect til "Dine Bookinger" & OK \\
 \hline
-\end{longtable}
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Book lokale (\ref{})  & Forventet resultat & Status\\ 
+\textbf{ID} & \textbf{Billede: Book lokale (\ref{App_GUI_final_GridEksempel})}  & \textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D1000 & Tryk "book lokale" med valgte booking tidspunkter & Brugerne vil blive ført til skærmbilledet Dine bookinger hvor den nye booking vil ligge i listen & OK\\
+D1000 & Tryk "Book lokale" med valgt(e) tidspunkt(er) & Redirect til "Dine Bookinger" (og bookingen oprettes i systemet) & OK\\
 \hline
-a & Tryk "book lokale" uden valgte booking tidspunkter & En advarsel vil sige at der skal være markeret tider for at kunne oprette en booking &(not implemented), sker ingen ting \\
+a & Tryk "Book lokale" uden valgt tidspunkt & Pop-up "Du skal ændre i en booking eller tilføje en ny!" & NYI \\
 \hline
-D1001 & Tryk "book lokale" med valgte booking tidspunkter uden at være logget ind & Brugerne vil blive ført til login skærmbilledet  & OK \\
+D1001 & Tryk "Book lokale" med valgt(e) tidspunkt(er) uden at være logget ind & Redirect til loginskærm  & OK \\
 \hline
-D1002 & Tryk "book lokale" med flere valgte booking tidspunkter på samme lokale &  Kun den første booking vil blive oprettet & OK\\
+D1002 & Tryk "Book lokale" med flere valgte tidsrum på samme lokale &  Kun den første booking bliver oprettet & OK\\
 \hline
-D1003 & Tryk "book lokale" med flere valgte booking på flere forskellige lokaler&  Kun den første booking vil blive oprettet & OK \\
+D1003 & Tryk "Book lokale" med valgte tidsrum på flere lokaler &  Kun den første booking bliver oprettet & OK \\
 \hline
-D1004 & Tryk "book lokale" efter at start tidspunktet for en brugerens booking er blevet ændret & Brugeren vil blive ført til skærmbilledet Dine bookinger hvor bookings start tidspunkt vil være ændret &(not implemented), en popup siger handlingen ikke er mulig \\
+D1004 & Tryk "Book lokale" efter starttidspunktet for brugerens booking er blevet ændret & Redirect til "Dine Bookinger" (og bookingen er ændret i systemet) & D10\\
 \hline
-a & Tryk "book lokale" efter at slut tidspunktet for brugerens booking er blevet ændret & Brugeren vil blive ført til skærmbilledet Dine bookinger hvor bookings slut tidspunkt vil være ændret &(not implemented), en popup siger handlingen ikke er mulig \\
+a & Tryk "Book lokale" efter sluttidspunktet for brugerens booking er blevet ændret &Redirect til "Dine Bookinger" (og bookingen er ændret i systemet) & D10 \\
 \hline
-D1005 & Tryk "book lokale" mens der er markeret et tidspunkt som allerede af booket af en anden bruger & En advarsel vil sige at det kun er muligt at book lokaler i ledige tidspunkter & OK, popup siger "handlingen er ikke mulig" \\
+D1005 & Tryk "Book lokale" mens der er markeret et tidspunkt som er booket af en anden bruger & Pop-up "Det er ikke muligt at booke på det valgte tidspunkt!" & D11 \\
 \hline
-D1006 & Prøv at vælg en dato at book som ligger i fortiden & En advarsel vil sige at man ikke kan vælge dage som ligger før i dag & OK \\
-\end{longtable}
+D1006 & Vælg en dato, som ligger i fortiden & Pop-up "Du kan ikke vælge en dag før i dag!" & OK \\
+\hline
+\end{tabular}
 
-\begin{longtable}{ |p{0.85cm}| p{7cm} | p{7.15cm} | p{1cm} | }
+\begin{tabular}{ |p{0.85cm}| p{5.5cm} | p{8.65cm} | p{1cm} | }
 \hline
-ID & Billede: Dine bookinger (\ref{})  & Forventet resultat & Status\\ 
+\textbf{ID} &\textbf{Billede: Dine bookinger} (\ref{App_GUI_final_DineBookinger})  &\textbf{Forventet resultat} & \textbf{Status}\\ 
 \hline
-D1100 & Tryk "Ændre booking" med en valgt booking & Brugeren vil blive ført til skærmbilledet book lokale hvor bookingen ligger &(not implemented), vil altid blive ført til den dag som det er \\
+D1100 & Tryk "Ændre booking" med en valgt booking & Redirect til "LokaleListe" (hvor lokalet med bookingen er øverst) & D12 \\
 \hline
-a & Tryk "Ændre booking" uden valgt booking & En advarsel vil sige at der skal være valgt en booking &(not implemented), bliver ført til book lokale billedet alligevel \\
+a & Tryk "Ændre booking" uden valgt booking & Pop-up "Du skal vælge en booking!" & D3 \\
 \hline
-D1101 & Tryk "Slet booking" med en valgt booking & booking vil blive slette fra listen & OK \\
+D1101 & Tryk "Slet booking" med en valgt booking & Pop-up "Er du sikker på, at du vil slette den valgte booking?" (hvis ja, bliver bookingen slettet) & OK \\
 \hline
-a & Tryk "Slet booking" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & OK \\
+a & Tryk "Slet booking" uden en valgt booking & Pop-up "Du skal vælge en booking!" & OK \\
 \hline
-D1102 & Tryk "Tilføj Forplejning" med en valgt booking & Brugeren vil blive ført til skærmbilledet Forplejning, hvor den vil visse allerede eksisterende bookinger øverst & OK, men giver et forkert booking ID med. \\
+D1102 & Tryk "Tilføj Forplejning" med en valgt booking & Redirect til Forplejning & D13 \\
 \hline
-a &  Tryk "Tilføj Forplejning" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking &failed, programmet crasher \\
+a &  Tryk "Tilføj Forplejning" uden en valgt booking & Pop-up "Du skal vælge en booking!" & D7 \\
 \hline
-D1103 & Tryk "Tilføj Udstyr" med en valgt bOKing & Brugeren vil blive ført til skærmbilledet Udstyrsliste, hvor den vil visse allerede eksisterende bookinger & OK, men giver et forkert booking ID med. \\
+D1103 & Tryk "Tilføj Udstyr" med en valgt booking & Redirect til "Book Udstyr" & D13 \\
 \hline
-a & Tryk "Tilføj Udstyr" uden en valgt booking & En advarsel vil sige at der skal være valgt en booking & failed, programmet crasher \\
+a & Tryk "Tilføj Udstyr" uden en valgt booking & Pop-up "Du skal vælge en booking!" & D7 \\
 \hline
-\end{longtable}
+\end{tabular}
