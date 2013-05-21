@@ -1,31 +1,31 @@
 \chapter{Test af systemet}
 \label{Test}
-I dette kapitel beskriver vi vores test strategi og resultaterne af vores tests. Derudover diskuterer vi, hvad vi kunne have gjort anderledes og den strategi, vi gerne ville have indført, hvis vi havde haft mere tid.
-\\En liste af de test, vi har udført findes i appendixafsnit \ref{App_Test_ListOfTest}. En liste af defekter i systemet findes i appendixafsnit \ref{App_Test_Defects}.
+I dette kapitel beskriver vi vores teststrategi og resultaterne af vores test. Derudover diskuterer vi, hvad vi kunne have gjort anderledes og den strategi, vi gerne ville have indført, hvis vi havde haft mere tid.
+\\En liste af de test, vi har udført findes i appendix \ref{App_Test_ListOfTest}. En liste af defekter i systemet findes i appendix \ref{App_Test_Defects}.
 
 \section{Udført teststrategi}
 \label{Test_strat}
-Vi har udført en række test af vores brugergrænseflades funktionalitet. Disse test består af både postive og negative test af navigering og funktionalitet. Desuden tester vi, om det er muligt at udføre de arbejdsopgaver, vi understøtter (beskrevet i afsnit \ref{Evaluation_workareas}).
+Vi har udført en række test af vores brugergrænseflades funktionalitet. Disse test består af både positive og negative test af navigering og funktionalitet. Desuden tester vi, om det er muligt at udføre de arbejdsopgaver, vi understøtter (beskrevet i afsnit \ref{Evaluation_KS_workareas}).
 
 Vores test af navigering og funktionalitet er delt op per skærmbillede. Testene til hvert skærmbillede består hovedsageligt af test af knapper. De positive test skal undersøge, om brugergrænsefladen gør det, som den er beregnet til. Modsat skal de negative test undersøge, om brugergrænsefladen gør noget, som den ikke bør.
 
-Vi skrev vores test efter vi havde implementeret brugergrænsefladen. Dette betød, at vi ikke forsøgte at rette fundne defekter. Vi har i stedet  tilføjet de fundne defekter til vores "future release"-liste.
+Vi skrev vores test efter vi havde implementeret systemet. Dette betød, at vi ikke forsøgte at rette fundne defekter. Vi har i stedet  tilføjet de fundne defekter til vores "future release"-liste.
 
 \section{Resultater}
 \label{Test_Results}
-Vi har udført 78 test af vores system. 12 af disse er test i forbindelse med de arbejdsopgaver, vi understøtter (se afsnit \ref{Evaluation_workareas}). De resterende 66 test er test af vores skærmbilleder.
+Vi har udført 78 test af vores system. 12 af disse er test i forbindelse med de arbejdsopgaver, vi understøtter. De resterende 66 test er test af vores skærmbilleder.
 
-22 af vores test har status "OK", 35 rapporterer en defekt og 21 rapporterer "Not Yet Implemented". Dette betyder, at $\sim$28\% af vores er "OK". Dette er lav værdi, men den bliver over 50\% ($\sim$55\%), hvis man medregner de test, som rapporterer "Not Yet Implemented". 
+22 af vores test har status "OK", 35 rapporterer en defekt og 21 rapporterer "Not Yet Implemented". Dette betyder, at $\sim$28\% af vores test er "OK". Dette er en lav værdi, men den bliver $\sim$55\%, hvis man medregner de test, som rapporterer "Not Yet Implemented". 
 
-Vi har valgt ikke at inkludere "Not Yet Implemented" i vores liste af defekter, da vi mener, der er forskel på test, som fejler på grund af bugs og test, der fejler grundet manglende implementation. 
+Vi har valgt ikke at inkludere "Not Yet Implemented" i vores liste af defekter, da vi mener, der er forskel på test, som fejler på grund af bugs og test, der fejler på grund af, at funktionaliteten ikke er implementeret.
 
-\subsection{Vurdering af resultater}
+\subsection*{Vurdering af resultater}
 \label{Test_Results_eval}
 Det er skuffende for os, at vi har så få test, som har status "OK". Selvom det sjældent er muligt at konstruere et system, hvor alt funktionalitet er testet og alle test har status "OK", så er det stadig et mål for os i forbindelse med future releases. 
-\\Vi vurderer, at det er muligt implementere det meste af den funktionalitet, hvis test fejler på grund af, at de ikke er implementeret. Dette ville bringe systemet tættere på 50\% godkendte test. 50\% godkendte test er dog stadig ikke nok til, at vi mener, at produktet ville være klar egentlig release. Derfor mener vi, at der bør lægges stor vægt på at få fixet størstedelen af de rapporterede defekter, før man fokuserer på tilføjelse af nye funktionaliteter.
+\\Hvis den resterende funktionalitet blev implementeret, ville bringe systemet tæt på 50\% godkendte test. 50\% godkendte test er dog stadig ikke nok til, at vi mener, at produktet ville være klar egentlig release. Derfor mener vi, at der bør lægges stor vægt på at få fixet størstedelen af de rapporterede defekter, før man fokuserer på tilføjelse af nye funktionaliteter.
 
-Vi ville muligvis have været i stand til at reducere antallet af defekter, hvis vi havde skrevet vores test efter vi designede brugergrænsefladen, men før vi implementerede den. Testene beskriver mange af de forskellige input, som brugeren kan give til brugergrænsefladen. 
-\\Risikoen ved dette er, at vores implementation ville blive så fokuseret på at opfylde testkravene, at vi ikke fik skrevet god kode. Eksempelvis kunne vi ende op med kode, som var fokuseret på at bestå individuelle test. Kode, som er fokuseret på enkelte cases, kan være svært at udvide og/eller vedligeholde.
+Vi ville muligvis have været i stand til at reducere antallet af defekter, hvis vi havde skrevet vores test efter vi designede brugergrænsefladen, men før vi implementerede systemet. 
+\\Risikoen ved dette er, at vores implementering ville blive så fokuseret på at opfylde testkravene, at vi ikke fik skrevet god kode. Eksempelvis kunne vi ende op med kode, som var fokuseret på at bestå individuelle test. Kode, som er fokuseret på enkelte cases, kan være svært at udvide og/eller vedligeholde.
 
 \section{Ønsket teststrategi}
 \label{Test_intendedStrat}
@@ -34,12 +34,12 @@ Hvis vi havde mere tid, ville vi have indført en mere grundig teststrategi. Den
 Testproceduren til vores ønskede teststrategi er fokuseret på at beskrive en række test til hver arbejdsopgave tidligt i processen. Mange af forretningsreglerne burde indgå som test eller dele af test. For eksempel bør det være en negativ test, at man ikke kan booke på samme tidspunkt, som en anden bruger har booket.
 \\Derudover vil det være målet, at hver funktion har en række test (positive og negative), som skrives før selve funktionaliteten implementeres. I denne forbindelse er det vigtigt, at man får defineret, hvad funktionen skal gøre, da man ellers ville blive tvunget til at skrive testene om, hvis man laver ændringer i funktionaliteten.
 
-Ydeligere vil vi anvende \textit{Code Contracts}\footnote{http://research.microsoft.com/en-us/projects/contracts/}. \textit{Code Contracts} gør det muligt at udtrykke krav til input, løfter om output samt objekt invarianter som en del af koden (i stedet for i dokumentationen). Der er to store fordele ved at anvende \textit{Code Contracts}. 
+Ydeligere vil vi anvende \textit{Code Contracts}\footnote{http://research.microsoft.com/en-us/projects/contracts/}. \textit{Code Contracts} gør det muligt at udtrykke krav til input, løfter om output samt objekt invariante som en del af koden (i stedet for i dokumentationen). Der er to store fordele ved at anvende \textit{Code Contracts}. 
 
 For det første gør \textit{Code Contracts} koden nemmere at implementere, da man har brug for langt færre if-statements til fx at undersøge korrekthed af input og output.
 \\Derudover gør \textit{Code Contracts} det muligt at anvende "PEX and Moles"\footnote{http://research.microsoft.com/en-us/projects/pex/}. Pex finder interessante input/output værdier til metoder. Disse kan så gemmes som testsuites, hvilket gør det nemt at teste, om en metode gør det, den skal. Det er ikke nødvendigt at have \textit{Code Contracts} for at anvende PEX, men det gør det nemmere for PEX at generere meningsfulde test. PEX test kan dog ikke erstatte håndskrevne test, men de kan supplere kodedækningen af de håndskrevne test.
 
-\subsection{Testtyper}
+\subsection*{Testtyper}
 \label{Test_intendedStrat_types}
 Vores ønskede strategi består af flere niveauer af tests:
 \begin{my_description}
@@ -49,31 +49,27 @@ Vores ønskede strategi består af flere niveauer af tests:
 \item[Brugergrænseflade] Test af navigering og arbejdsopgaver i brugergrænsefladen.
 \end{my_description}
 
-\subsubsection{Unit}
-\label{Test_intendedStrat_types_unit}
-Vores unit-test vil hovedsageligt bestå af den testsuite, som PEX genererer. Vi mener ikke, at det er nødvendigt at lave håndskrevne unit-test, medmindre de andre test i systemet ikke dækker alle kritiske dele af en funktion.
+\textbf{Unit}
+\\Vores unit-test vil hovedsageligt bestå af den testsuite, som PEX genererer. Vi mener ikke, at det er nødvendigt at lave håndskrevne unit-test, medmindre de andre test i systemet ikke dækker alle kritiske dele af en funktion/metode.
 
-\subsubsection{Scenario}
-\label{Test_intendedStrat_types_sce}
-Scenario-test er test, som udfører en kombination af funktioner for at simulerere en kortere arbejdsopgave. Disse test er håndskrevne automatiske test, som ikke bliver udført gennem brugergrænsefladen. Kaldene vil typisk være til enten Service klassen\footnote{Testen ville blive udført direkte igennem projektet og ikke som kald til servicens webinterface.} eller entitets klasserne i vores service. Ydeligere kunne en scenario-test være test udført på model klasserne i klienten. 
+\textbf{Scenario}
+\\Scenario-test er test, som udfører en kombination af funktioner for at simulere en kortere arbejdsopgave. Disse test er håndskrevne automatiske test, som ikke bliver udført gennem brugergrænsefladen. Kaldene vil typisk være til enten Service klassen\footnote{Testen ville blive udført direkte igennem projektet og ikke som kald til servicens webinterface.} eller entitets klasserne i vores service. Ydeligere kunne en scenario-test være test udført på model klasserne i klienten. 
 \\Et eksempel på en scenario-test kunne være "Log ind og opret en booking".
 
-\subsubsection{Service}
-\label{Test_intendedStrat_types_service}
-Vores service-test kalder servicens webinterface. Service-test fokuserer på tre elementer: forbindelse, problemer med data-bindings \& fejlhåndtering. De er ikke lige så fyldestgørende som scenario-test, da de kun tester de avancerede dele af hver service contract.
+\textbf{Service}
+\\Vores service-test kalder servicens webinterface. Service-test fokuserer på tre elementer: forbindelse, problemer med data-bindings \& fejlhåndtering. De er ikke lige så fyldestgørende som scenario-test, da de kun tester de avancerede dele af hver service contract.
 
-\subsubsection{Brugergrænseflade}
-\label{Test_intendedStrat_types_UI}
-Test af brugergrænsefladen kan både være automatiske og manuelle. De automatiske test vil bestå af simple test, hvor det forventede resultat altid er det samme (som fx navigering). De manuelle test vil bestå af de mere komplicerede opgaver, som udføres af brugeren.
+\textbf{Brugergrænseflade}
+\\Test af brugergrænsefladen kan både være automatiske og manuelle. De automatiske test vil bestå af simple test, hvor det forventede resultat altid er det samme (som fx navigering). De manuelle test vil bestå af de mere komplicerede opgaver, som udføres af brugeren.
 \\"Log ind som testbruger og naviger til Dine Bookinger" kunne være en automatisk test af brugergrænsefladen.
-\\"Log ind som testbruger, opret en booking, find bookingen i 'Dine Bookinger', slet bookingen" kunne være et manuel test af brugergrænsefladen.
+\\"Log ind som testbruger, opret en booking, find bookingen i 'Dine Bookinger', slet bookingen" kunne være en manuel test af brugergrænsefladen.
 
-\subsection{Regressionstest}
+\subsection*{Regressionstest}
 \label{Test_intendedStrat_regression}
 Hvis vi (eller brugere af systemet) finder en fejl i systemet, er det planen at lave en test, som dækker præcis den case, som bliver beskrevet i forbindelse med fejlen. Det er meningen, at disse test skal fejle ved første kørsel for at sikre, at fejlen eksisterer samt, at testen er skrevet korrekt. Når fejlen er rettet, vil testen ikke længere fejle.
-\\Da regressionstestene allerede er designet, beholder vi dem som en del af vores test. Dette sørger for, at fejlen ikke opstår på et senere tidspunkt i udviklingsprocessen.
+\\Da regressionstestene allerede er designet, beholder vi dem som en del af vores testsuite. Dette sørger for, at fejlen ikke opstår på et senere tidspunkt i udviklingsprocessen.
 
-\subsection{Kodedækning}
+\subsection*{Kodedækning}
 \label{Test_intendedStrat_coverage}
 Det er sjældent en effektiv strategi at teste alt sin kode, da det er meget tidskrævende (både i design og udførelsen af testene). Vi mener, man bør teste indtil, man dækker en stor del af funktionaliteten uden, at det bliver redundant at teste yderligere. 
 \\Vi vil anvende kodedækning\footnote{Der findes forskellige værktøjer til at måle kodedækning. Vi har tidligere anvendt DotCover (http://www.jetbrains.com/dotcover/).} til at sørge for, at vi tester vores system grundigt. Udover at vi skal have dækning af arbejdsopgaverne, så har vi følgende mål for kodedækning:
@@ -86,4 +82,4 @@ Det er sjældent en effektiv strategi at teste alt sin kode, da det er meget tid
 \item Målet er 65\% dækning af klienten. 
 \end{my_itemize}
 
-Disse mål burde sikre, at størstedelen af koden bliver testet. Hvis dækningen af service eller klient er lavere end vores mindstekrav, mener vi ikke, at systemet ikke tilstrækkeligt testet.
+Disse mål burde sikre, at størstedelen af koden bliver testet. Hvis dækningen af service eller klient er lavere end vores mindstekrav, mener vi ikke, at systemet ikke er tilstrækkeligt testet.
