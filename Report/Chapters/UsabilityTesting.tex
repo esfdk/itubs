@@ -1,18 +1,18 @@
-\chapter{Usability Testing}
+\chapter{Usability testing}
 \label{Usability}
-Dette kapitel beskriver, hvad vores strategi for usability testing har været samt resultaterne af vores tests.
+Dette kapitel beskriver vores usability testing og resultaterne af vores tests.
 
 \section{Test strategi}
 \label{Usability_TS}
-Kravspecifikationen beskriver, at det er nødvendigt at lave usability tests tidligt i processen for at bevise proof of concept. Vi lavede papermockups af vores skærmbilleder for at opfylde dette krav. 
+Kravspecifikationen beskriver, at man skal lave usability tests tidligt i processen som et proof of concept. Vi lavede papermockups af vores skærmbilleder for at opfylde dette krav. 
 
-Vi har valgt at lave to runder af usability tests.
+Vi planlagde to runder af usability test, hvoraf vi udførte den første runde.
 \\Runde 1 bestod af tests med en papermockup på en enkelt bruger.
 \\Runde 2 består af tests af det endelige produkt på flere brugere.
 
 Vi valgte kun at teste én bruger i runde 1, da flere testpersoner tidligt i udviklingsfasen kan føre til en overvældende liste af problemer\cite[s. 416]{SL_UID}. Derudover er en enkelt testperson ofte nok til at afsløre de mest seriøse problemer i brugergrænsefladen.
 
-Vi mener, at det havde været optimalt, hvis vi kunne have udført en usability test midtvejs i processen (mellem runde 1 og runde 2), men vi vurderede, at vi ikke ville få nok ud af testen, da det ville være svært at finde tid til at teste nok personer samt implementere de mulige ændringsforslag.
+Det havde været optimalt, hvis vi kunne have udført en usability test midtvejs i processen (mellem runde 1 og runde 2), men vi vurderede, at vi ikke ville få nok ud af testen, da det ville være svært at finde tid til at teste nok personer samt implementere de mulige ændringsforslag.
 
 \subsection{Test cases}
 \label{Usability_TS_TC}
@@ -23,7 +23,7 @@ Test cases til almindelige brugere:
 \item[Test Case 1:] Du har booket et lokale fra 9-10 til et møde med din vejleder og du vil gerne have en diktafon med, så du kan optage mødet.
 \item[Test Case 2:] Du skal holde et møde på tre timer om et par dage. Du skal i den sammenhæng booke et lokale til formålet.
 \item[Test Case 3:] Et af dine gruppemedlemmer har meldt tilbage, at han skal aflevere sin datter i børnehaven. Mødet kan derfor først holdes fra klokken 10.
-\item[Test Case 4:] Da mødet ligger om morgen, tænker du, at det vil være fornuftigt, hvis der var noget kaffe og morgenbrød klar.
+\item[Test Case 4:] Da mødet ligger om morgenen, tænker du, at det vil være fornuftigt, hvis der var noget kaffe og morgenbrød klar.
 \item[Test Case 5:] Du skal til dit projekt optage en kort reklamefilm og har derfor brug for et kamera.
 \item[Test Case 6:] Et af dine gruppemedlemmer har kamera med, så du behøver ikke længere booke et hos ITU.
 \item[Test Case 7:] Deltagerne til dit møde i 2a12 har desværre aflyst.
@@ -33,56 +33,61 @@ Test cases til administrationsbrugere:
 \item[Test Case 1:] En elev har kontaktet dig og gjort dig opmærksom på, at der ikke længere er en projektor i 2A12.
 \item[Test Case 2:] ITU har til sin udstyrssamling erhvervet sig to nye kameraer.
 \item[Test Case 3:] En student henvender sig til dig ved skranken og spørger om hans booking er blevet godkendt.
-\item[Test Case 4:] Du har et møde  i de kommende dage og vil helst gerne holde det på 4. sal.
-\item[Test Case 5:] Du skal afholde et fordrag for 30 mennesker den 24, tidspunktet er irelevant men der skal være plads til min. 30 mennesker.
-\item[Test Case 6:] Lokalet 5a12 er ikke længere et privat lokale, men skal istedet registreres som et mødelokale.
-\item[Test Case 7:] Lokalet 2a12 er ikke længere til rådighed i forbindelse med booking.
+\item[Test Case 4:] Du har et møde  i de kommende dage og vil helst holde det på 4. sal.
+\item[Test Case 5:] Du skal afholde et foredrag for 30 mennesker den 24, tidspunktet er irrelevant, men der skal være plads til min. 30 mennesker.
+\item[Test Case 6:] Lokale 5a12 er ikke længere et privat lokale, men skal istedet registreres som et mødelokale.
+\item[Test Case 7:] Lokale 2a12 er ikke længere til rådighed i forbindelse med booking.
 \end{my_description}
 
-Vi har designet vores test cases således, at testpersonen ikke får at vide hvor i systemet, de skal udføre deres arbejdsopgave. Dette har vi gjort for at finde ud af, hvor intuitivt vores system er.
-\\De 14 test dækker til sammen størstedelen af systemets workflows. Vi udfører testene som "think aloud" tests\cite[s. 421]{SL_UID}. "Think-aloud" tests består af at læse test casen op for testpersonen og bede dem tænke højt og forklare, hvad de gør under testen.
+Vi har designet vores test cases således, at testpersonen ikke får at vide hvor i systemet, de skal udføre deres arbejdsopgave. Dette har vi gjort for at finde ud af, hvor intuitivt systemet er.
+\\De 14 test dækker til sammen størstedelen af systemets workflows. Vi udfører testene som "think aloud" tests\cite[s. 421]{SL_UID}. "Think-aloud" tests består i at læse test casen op for testpersonen og bede dem tænke højt og forklare, hvad de gør under testen.
 
-Efter testen får brugeren mulighed for at give input til, hvad de synes er godt og hvad der kan forbedres. Dette giver os mulighed for at få et indtryk af, hvad vi har overset i vores design og hvilke elementer, vi bør bruge flere steder i systemet.
+Efter testen får brugeren mulighed for at fortælle, hvad de synes er godt og hvad der kan forbedres. Dette giver os mulighed for at få et indtryk af, hvad vi har overset i vores design og hvilke elementer, vi bør bruge flere steder i systemet.
 
 I første runde af tests havde vi fokus på de store problemer i systemet, hvor vi i anden runde havde fokus på at følge op på de ændringer, vi havde lavet i forhold til resultaterne fra første runde. I anden runde var vi også interesserede i at finde ud af, om vores system er intuitivt og effektivt nok.
 
 \section{Runde 1: Resultater og konsekvenser}
 \label{Usability_R1}
-Efter den første runde af tests var der fem problemer. Problemerne er klassifikeret efter skalaen fra \cite[s. 439]{SL_UID}:
+Efter den første runde af tests var der fem interessante punkter. Problemerne er klassificeret efter skalaen fra \cite[s. 439]{SL_UID}:
 
-\paragraph{Problem 1: Task failure}
+\subsubsection*{Punkt 1: Task failure}
 Test personen havde problemer med at finde ud af, hvordan vores gitter til booking af lokaler fungerede. Personen troede ikke, man kunne klikke på felterne i gitteret, så der skulle hjælp til, før personen forstod princippet.
-\subparagraph{Konsekvenser og løsning}
-Vi blev enige om, at dette problem kunne løses ved at indsætte en checkbox i felterne. Det vil gøre det mere intuitivt, når man skal trykke på tiderne.
 
-\paragraph{Problem 2: Cumbersome}
-Testpersonen følte, at der manglede navigeringsmuligheder mellem de forskellige skærmbilleder. Det var ikke intuitivt, at man skulle bruges tabsne til at skifte skærmbillede.
-\subparagraph{Konsekvenser og løsning}
-Vi løste problemet ved at lave en menubar, som var placeret nærmere midten af billedet, så den blev mere synlig.
+\textbf{Konsekvenser og løsning}
+\\Vi blev enige om, at dette problem kunne løses ved at indsætte en checkboks i felterne. Det vil gøre det mere intuitivt, når man skal vælge tidsrum.
 
-\paragraph{Problem 3: Medium problem}
+\subsubsection*{Punkt 2: Cumbersome}
+Testpersonen følte, at der manglede navigeringsmuligheder mellem de forskellige skærmbilleder. Det var ikke intuitivt, at man skulle bruge tabs til at skifte skærmbillede.
+
+\textbf{Konsekvenser og løsning}
+\\Vi løste problemet ved at lave en menubar, som var placeret længere nede på siden, så den blev mere synlig.
+
+\subsubsection*{Punkt 3: Medium problem}
 Testpersonen fandt det ikke naturligt, at man skulle bruge lokalelisten til at ændre sin booking og var derfor lang tid om at finde ud af det.
-\subparagraph{Konsekvenser og løsning}
-Da vi kun testede på én person og det er et minor problem, valgte vi ikke at gøre noget ved problemet. Hvis problemer opstår i yderligere usability tests, bør en ændring overvejes.
 
-\paragraph{Problem 4: Minor problem}
+\textbf{Konsekvenser og løsning}
+\\Da vi kun testede på én person, og det er et medium problem, valgte vi ikke at gøre noget ved problemet i første omgang. Hvis probleme findes i yderligere usability tests, bør en ændring overvejes.
+
+\subsubsection*{Punkt 4}
 Testpersonen nævnte, at hun ikke mente, det burde være muligt at tilføje udstyr/forplejning til en booking før, den er blevet godkendt.
-\subparagraph{Konsekvenser og løsning}
-Vi valgte at imødekomme dette ved at implementere logik, så man ikke kan trykke på knapperne til at tilføje forplejning/udstyr, hvis man ikke har valgt en godkendt booking.
 
-\paragraph{Problem 5}
-Testpersonen kunne lide den overordnede struktur af systemet og var positiv overfor booking funktionaliteten (gitteret). Personen skulle dog lære at bruge booking funktionaliteten.
-\subparagraph{Konsekvenser og løsning}
-Denne feedback havde stor indflydelse på, at vi valgte at beholde vores grundstruktur.
+\textbf{Konsekvenser og løsning}
+\\Vi valgte at imødekomme dette ved at implementere logik, så man ikke kan trykke på knapperne til at tilføje forplejning/udstyr, hvis man ikke har valgt en booking, som har status godkendt.
 
-\section{Usability Test: Runde 2}
+\subsubsection*{Punkt 5}
+Testpersonen kunne lide den overordnede struktur af systemet og var positiv overfor booking funktionaliteten (gitteret). Personen skulle dog først vende sig til at anvende systemet.
+
+\textbf{Konsekvenser og løsning}
+\\Denne feedback havde stor indflydelse på, at vi valgte at beholde gitteret som en del af vores grundstruktur.
+
+\section{Runde 2}
 \label{Usability_R2}
-Vi fik ikke mulighed for at udføre runde 2 af vores usability tests i tide. Da vi planlægger at arbejde videre på systemet efter denne rapport er afleveret, så vil vi følge op på vores strategi ved at lave runde 2 efter at de programmingstekniske fejl er rettet.
+Vi fik ikke mulighed for at udføre runde 2 af vores usability tests inden deadline. Da vi planlægger at arbejde videre på systemet efter denne rapport er afleveret, så vil vi følge op på vores strategi ved at lave runde 2 efter at de programmingstekniske fejl er rettet.
 
-Som beskrevet i afsnit \ref{Usability_TS} består runde 2 af test med flere brugere. Der skal laves tests med 2-3 personer fra hver af de to testgrupper. Disse brugere skal udføre "think-aloud" tests som beskrevet i vores usability test strategi. Testcases fra runde 1 skal genanvendes. Desuden vil vi tage en feedback-session efter testen sammen med brugeren på samme måde, som gjort i forbindelse med runde 1.
+Som beskrevet i afsnit \ref{Usability_TS} består runde 2 af test med flere brugere. Der skal laves test med 2-3 personer fra hver af de to testgrupper. Disse brugere skal udføre "think-aloud" test som beskrevet i strategi for usability test. Testcases fra runde 1 skal genanvendes. Desuden vil vi tage en feedback-session efter testen sammen med brugeren på samme måde, som gjort i forbindelse med runde 1.
 
 Målet med runde 2 er, at problemerne fra runde 1 er blevet løst samt at der ikke er nogen task failures.
 
-\subsection{Mulige konsekvenser af usabilitytest runde 2}
+\subsection{Mulige konsekvenser af runde 2}
 \label{Usability_R2_cons}
-Konsekvenserne af testresultaterne i runde 2 ville være forslag til ændringer til næste udgave af systemet, samt mulig liste af fejl eller mangler i systemet. Disse forslag og mangler ville vi få kunden til at prioritere. Vi ville derefter diskutere omkostningerne af de forskellige forslag, og derefter få kunden til at prioritere listen igen. Usability test runde 2 vil derfor også give en prioteret liste af, hvad kunden ville have implementeret.
+Testresultaterne fra runde 2 vil danne grundlag for en række forslag til ændringer i systemet. Disse forslag bør først prioriteres af kunden. Herefter skal udvikleren give kunden en vurdering af, hvad det vil koste at lave ændringen. Kunden skal så lave en prioriteret liste af ændringer ud fra udviklerens vurdering af omkostningerne.
