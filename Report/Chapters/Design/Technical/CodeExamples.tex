@@ -22,3 +22,12 @@ Vores database kald er trådsikre, da kald til databasen fra \textit{Entity Fram
 Da vores objektkontekst er "ThreadStatic" (se  linje 3 i kodestykke \ref{Code-ThreadStatic}, side \pageref{Code-ThreadStatic}). "ThreadStatic" elementer bliver først instatieret, når en ny tråd bliver oprettet. Derfor bruger vi en get-property til at instantiere vores objektkontekst. 
 \\En problematik med dette er, at to tråde kan have forskelligt indhold i deres kontekster, og derfor ikke viser helt opdateret data til brugeren.En løsning på dette kunne være, at man opdaterede objektkonteksten, hver gang man foretog ændringer til databasen eller efter bestemte tidsintervaller.
 \input{Chapters/Design/Technical/Code/ThreadStatic.tex}
+
+\section{Git repository og database/service information}
+\begin{my_description}
+\item[GitHub repository] https://github.com/esfdk/itubs
+\item[Service URL] http://rentit.itu.dk/RentIt12/Services/Service.svc
+\item[Database] RentIt12 på http://rentit.itu.dk (Brugernavn: RentIt12Db -- Adgangskode: Zaq12wsx)
+\item[Test Administrator] Brugernavn="Admin@BookIt.dk" Adgangskode="zAq12wSx"
+\item[Test Bruger] Brugernavn="test@bookit.dk" Adgangskode="qwerty123"
+\end{my_description}

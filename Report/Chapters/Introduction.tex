@@ -3,9 +3,13 @@
 Det har længe været på tale at få lavet et integreret system til IT-Universitetets booking af lokaler for interne og eksterne brugere. Den nuværende metode er besværlig og uoverskuelig, da planlægningen og håndteringen af bookinger foregår i flere forskellige systemer med Facility Management (FM) som centralt bindepunkt \cite[Kap. A]{kravspec}.
 \\Det integrerede systems primære formål er at lette arbejdsbyrden for FM samt minimere fejl. 
 
-Denne rapport er resultatet af et projekt, som havde til formål at udvikle en løsning til IT-Universitetets ønske om et bookingsystem.
+Denne rapport er resultatet af et projekt, som havde til formål at udvikle et bookingsystem  til IT-Universitetet.
 
-Projektet resulterede i en første funktionel udgave, som består af en WCF service og en ASP.net klient. Denne første udgave understøtter booking af lokaler, udstyr og forplejning, men mangler nogle af de funktioner, som IT-Universitetet søger, fx fakturering og statistik. Systemet har en del test, som fejler, da systemet ikke er fuldt implementeret.
-\\Den første udgave af bookingsystemet skal bruges af interne brugere (studerende og ansatte) på IT-Universitetet. Listen over forslag til fremtidige udgaver består bl.a. af en forbedret teststrategi, understøttelse af flere arbejdsopgaver samt usability test.
+Projektet resulterede i en første funktionel udgave, som består af en WCF service og en ASP.net klient. Servicen har et offentligt API, som alle kan udvikle systemer til (fx mobile applikationer). ASP.net klienten skal hostes på en web-adresse, som brugere af systemet kan tilgå både indenfor og udenfor IT-Universitetets netværk.
 
-En overfladisk undersøgelse af alternative systemer tyder på, at der ikke er et system på markedet, som opfylder alle IT-Universitetets krav til et bookingsystem.
+Den første udgave af systemet understøtter booking af lokaler, udstyr og forplejning, men mangler nogle af de funktioner, som IT-Universitetet søger, fx fakturering og statistik. 
+\\Bookingsystemet skal bruges af interne brugere (studerende og ansatte) på IT-Universitetet. Listen af fejl og mangler indeholder bl.a. en forbedret teststrategi, understøttelse af flere arbejdsopgaver samt ydeligere usability test.
+
+En hurtig undersøgelse af alternative systemer tyder på, at der ikke er et system på markedet, som opfylder alle IT-Universitetets krav til et bookingsystem.
+
+Servicen viste sig at være unødvendig i forbindelse med udviklingen af den første udgave af bookingsystemet. Fordelen ved, at det muligvis bliver nemmere at udvide systemet til flere platforme, blev mere end opvejet af den ekstra tid, det tog at implementere servicen. Tiden, som blev brugt på udvikling af servicen, kunne i stedet have været brugt til at rette fejl og mangler i bookingsystemet. 

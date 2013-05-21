@@ -84,4 +84,4 @@ packages/
 *.xdy
 *.pdt
 *.synctex.gz(busy)
-*.mfl[0-9]*
+*.mlf[0-9]*

@@ -30,7 +30,7 @@
 \usepackage{minitoc}
 
 % Chapter and section spacings
-\titleformat{\chapter}{\normalfont\huge\bfseries}{{\thechapter} }{0pt}{\Huge}
+\titleformat{\chapter}{\normalfont\huge\bfseries}{}{0pt}{\Huge}
 \titlespacing*{\chapter} {0pt}{0pt}{0pt}
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{0.5em}{}
 \titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{0.8ex plus .2ex}
@@ -89,7 +89,8 @@ numbers = left}
 \newenvironment{my_enumerate}{\begin{enumerate}[itemsep=0pt, topsep=0pt, partopsep=0pt]}{\end{enumerate}}
 \newenvironment{my_description}{\begin{description}[itemsep=0pt, topsep=0pt, partopsep=0pt]}{\end{description}}
 \addto\captionsdanish{\renewcommand{\abstractname}{Abstract}}
-\addto\captionsenglish{\renewcommand{\contentsname}  {Indholdsfortegnelse} }
+\addto\captionsdanish{\renewcommand{\mlftitle}{Liste af skærmbilleder}}
+\addto\captionsdanish{\renewcommand{\contentsname}  {Indholdsfortegnelse} }
 \addto\captionsenglish{\renewcommand{\bibname}  {Litteraturliste} }
 \addto\captionsenglish{\renewcommand{\figurename}  {Figur} }
 \addto\captionsenglish{\renewcommand{\tablename}  {Tabel} }
