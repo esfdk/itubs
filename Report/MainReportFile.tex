@@ -27,6 +27,7 @@
 \usepackage{verbatim}
 \usepackage{caption}
 \usepackage[nottoc,numbib]{tocbibind}
+\usepackage{minitoc}
 
 % Chapter and section spacings
 \titleformat{\chapter}{\normalfont\huge\bfseries}{{\thechapter} }{0pt}{\Huge}
@@ -87,6 +88,7 @@ numbers = left}
 \newenvironment{my_itemize}{\begin{itemize}[itemsep=0pt, topsep=0pt, partopsep=0pt]}{\end{itemize}}
 \newenvironment{my_enumerate}{\begin{enumerate}[itemsep=0pt, topsep=0pt, partopsep=0pt]}{\end{enumerate}}
 \newenvironment{my_description}{\begin{description}[itemsep=0pt, topsep=0pt, partopsep=0pt]}{\end{description}}
+\addto\captionsdanish{\renewcommand{\abstractname}{Abstract}}
 \addto\captionsenglish{\renewcommand{\contentsname}  {Indholdsfortegnelse} }
 \addto\captionsenglish{\renewcommand{\bibname}  {Litteraturliste} }
 \addto\captionsenglish{\renewcommand{\figurename}  {Figur} }
@@ -114,6 +116,8 @@ Frederik Lysgaard, frly@itu.dk
 
 \date{May 22, 2013}
 \begin{document}
+\dominilof
+\fakelistoffigures
 \maketitle
 \skippage
 \input{Chapters/Abstract}
