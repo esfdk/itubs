@@ -1,20 +1,24 @@
-1\chapter{Design Af Brugergrænsefladen}
+\chapter{Design af brugergrænsefladen}
 \label{Design_G}
-Dette kapitel beskriver brugergrænsefladen samt de beslutninger, som ligger bag. Alle vores papermockups og endelige skærmbilleder findes i appendix.
+Dette kapitel beskriver brugergrænsefladen samt de beslutninger, som ligger bag. Alle vores papermockups og endelige skærmbilleder findes i appendix \ref{App_GUI}.
 
 \section{Brugergrænsefladens udvikling og udseende}
 \label{Design_G_Development}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{Appendix/GUI-Prototype/DigitalMockup/GridEksempel}
+  \caption{Skærmbilledet til booking af lokaler}
+\label{Design_G_Development_FinalGrid}
+\end{figure}
+
 Vores skærmbilleder er opdelt i tre typer: Gitter, Almindelig og Pop-ups. 
 \\Gitterskærmbillederne bruger vi til booking af lokale, forplejning og udstyr samt administration af bookinger, lokaleinventar og udstyr.
 \\Almindelige vinduer anvender vi i forbindelse med login eller, hvis man skal ændre noget på et stykke udstyr/inventar.
 \\Pop-up skærmbilleder er generelt advarsler eller fejlbeskeder.
 
-Det første skærmbillede man ser når man starter programmet er en listen over lokaler og hvornår de er booket eller ledige. For at book et lokale markere man tiderne i checkboksne der hører til det ønskede lokale og tryk "Book lokale". Hvis man ikke er logget ind skal det gøres før man kan booke.
-Grunden til man ikke skal  logge ind for at starte systemet op er, at vi gerne vil gøre brugeren i stand til først at se om der er nogen ledige lokaler før de blive tvunget til at logge ind.
-
-Vores første mockup af skærmbilledet til booking af lokaler (figur \ref{Design_G_Development_FirstGrid}) havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Man skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt.
-Vi valgte at beholde gitterstrukturen. Vi tilføjede dog checkboxe til gitteret for at imødekomme et problem, som vi observerede i forbindelse med vores usability test\footnote{Se afsnit \ref{Usability_R1} på side \pageref{Usability_R1}}. Figur \ref{Design_G_Development_FinalGrid} viser den endelige version.
-
+Det første skærmbillede man ser, når man starter programmet er en liste over lokaler, som viser, hvilke tidspunkter lokalerne er ledige.
+\\For at booke et lokale markerer man tiderne i checkboksene, der hører til det ønskede lokale og trykker "Book lokale". Hvis man ikke er logget ind, bliver man redirected til login skærmbilledet.
+\\Det har været vores mål, at brugeren skal have adgang til så meget information, som det er muligt at give, uden at brugeren logger ind.
 
 \begin{figure}[h!]
   \centering
@@ -23,14 +27,8 @@ Vi valgte at beholde gitterstrukturen. Vi tilføjede dog checkboxe til gitteret 
 \label{Design_G_Development_FirstGrid}
 \end{figure}
 
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.7\textwidth]{Appendix/GUI-Prototype/DigitalMockup/GridEksempel}
-  \caption{Skærmbilledet til booking af lokaler}
-\label{Design_G_Development_FinalGrid}
-\end{figure}
-
-Når man har valgt lokale og tidspunkt, og man trykker "Book lokale" bliver man sendt videre til skærmbilledet der visser en liste over ens egne bookinger (se figur \ref{Design_G_Development_YourBookings_Final}). Hvis man vælger en booking og trykker "Ændre Booking" vil man blive navigeret tilbage til det først skærmbillede hvor ens booking vi værel markeret med blå bokse, her kan man så vælge at skifte booking tidspunkt ved at checke checkboksene fra eller til. Hvis man trykker "Tilføj Forplejning" vil man blive navigeret til forplenings skærmbilledet.
+Vores første mockup af skærmbilledet til booking af lokaler (figur \ref{Design_G_Development_FirstGrid}) havde et gitter, hvor hver række var et lokale og tiderne var kolonner. Man skulle klikke i et felt for at vise, at man ønskede at booke på et bestemt tidspunkt. Usability test viste dog, at det ikke var en intuitiv måde at vælge tidspunkter på, så vi tilføjede checkbokse til gitteret.
+Figur \ref{Design_G_Development_FinalGrid} viser den endelige version.
 
 \begin{figure}[h!]
   \centering
@@ -39,15 +37,19 @@ Når man har valgt lokale og tidspunkt, og man trykker "Book lokale" bliver man 
 \label{Design_G_Development_YourBookings_Final}
 \end{figure} 
 
-Figur \ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbillede til valg af forplejning. For at tilføje forplejning til en booking skal man ligsom med lokale booking markere de tider man gerne vil have forplejningen leveret, derudover skal man også vælge det antal man gerne vil have.
-Til Designet af  skærmbillede fokuserede vi på, at det skulle minde om \ref{Design_G_Development_FinalGrid}, så vi holdte os til reglen om få vindueskabeloner. De samme designbeslutninger og navigerings muligheder gælder også for skærmbilledet til tilføjelse af udstyr til en booking (se appendix).
+Når man har valgt lokale og tidspunkt, trykker man "Book lokale". Dette sender en til skærmbilledet "Dine Bookinger", som viser en liste over ens egne bookinger (se figur \ref{Design_G_Development_YourBookings_Final}). 
+\\Hvis man vælger en booking og trykker "Ændre Booking", navigeres der til lokalelisten, hvor man kan ændre sin booking ved at tilføje/fjerne markeringer i checkboksene. 
+\\Hvis man i stedet trykker "Tilføj Forplejning" bliver man sendt til forplejningsskærmbilledet.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.7\textwidth]{Appendix/GUI-Prototype/DigitalMockup/Forplejning}
+    \includegraphics[width=0.85\textwidth]{Appendix/GUI-Prototype/DigitalMockup/Forplejning}
   \caption{Skærmbilledet til booking af forplejning}
 \label{Design_G_Development_Forplejning_Final}
 \end{figure} 
+
+Figur \ref{Design_G_Development_Forplejning_Final} viser det endelige skærmbillede til valg af forplejning. For at tilføje forplejning til en booking skal man markere den tid, man gerne vil have forplejningen leveret samt angive, hvor mange/meget af forplejningstypen, man gerne vil bestille.
+\\Vi fokuserede på at designe skærmbilledet på samme måde, som vi havde designet lokalelisten. Det samme gælder for skærmbilledet til tilføjelse af udstyr til en booking (se figur \ref{App_GUI_final_BookEquip} i appendix).
 
 \subsection{Bookingliste}
 Man kan i skærmbilledet til booking liste kan administratoren makere booking i listen og enten godkend eller afvis brugerens booking ved at markere den og trykke på "Godkend" eller "Afvis" knapperne.
@@ -98,6 +100,7 @@ Papermockup af dette skærmbillede (figur \ref{Design_G_Development_AendreLokale
 \label{Design_G_Development_AendreLokale_Final}
 \end{figure} 
 
+\clearpage
 \begin{figure}[h!]
   \centering
     \includegraphics[, width=0.7\textwidth]{Appendix/GUI-Prototype/PaperMockup/AendreLokale_001}
