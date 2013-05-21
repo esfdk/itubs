@@ -1,6 +1,6 @@
 \section{Cost/benefit analyse af arkitektur og platform}
 \label{Technical_CostBen}
-Da vi skulle implementere vores system var det vigtigt for os, at vi vælge den korrekte implementationsstrategi i forhold til, hvor meget gavn brugeren ville få ud af de forskellige løsninger. Vi overvejede derfor, hvor stor en nytteværdi det ville have for brugerne, hvis vi brugte en implementationsmulighed frem for en anden og hvor meget, det ville koste os at implementere den. 
+Da vi skulle implementere vores system, var det vigtigt, at vi valgte den korrekte implementeringsstrategi i forhold til, hvor meget gavn brugeren ville få ud af de forskellige løsninger. Vi overvejede derfor, hvor stor en nytteværdi det ville have for brugerne, hvis vi brugte én implementering frem for en anden og hvor meget, det ville koste os at implementere den. 
 
 Vi lavede et skema, som viser et overblik over vores cost-benefit analyse. \textcolor{red}{X} viser vores omkostning, \textcolor{Green}{O} viser nytteværdien for brugerne. Små bogstaver indikerer halve værdier.
 
@@ -14,7 +14,7 @@ Thick browser klient & \textcolor{red}{XX} & \textcolor{red}{XX} & & & & \\ \cli
  & \textcolor{Green}{O} & \textcolor{Green}{OO} & & & & \\
 \hline
 Thick application klient & \textcolor{red}{X} & \textcolor{red}{X} & & & & \\ \cline{2-3}
- & \textcolor{Green}{Oo} & \textcolor{Green}{O} & & & & \\
+ & \textcolor{Green}{O} & \textcolor{Green}{O} & & & & \\
 \hline
 Webservice(browser) & & & \textcolor{red}{XXX} & \textcolor{red}{XXXX} & \textcolor{red}{XXXx} & \textcolor{red}{XXXX} \\ \cline{4-7}
  & & & \textcolor{Green}{OOOO} & \textcolor{Green}{OOO} & \textcolor{Green}{OOOO} & \textcolor{Green}{OOOo}\\
@@ -24,15 +24,18 @@ Webservice(application) & & & \textcolor{red}{XX} & \textcolor{red}{XXX} & \text
 \hline
 \end{tabular}
 \end{centering}
-\caption{Tabel over cost/benefit i forhold til de forskellige implementationsmuligheder}
+\caption{Tabel over cost/benefit i forhold til de forskellige implementeringer.}
 \label{fig:Technical_CostBen_Table}
 \end{table}
 
-For at komme frem til omkostningerne af de forskellige implementationsmuligheder tog vi udgangspunkt i hvorvidt vi først skulle tilegne os viden eller om vi allerede havde den fornødende forståelse og således kunne gå i gang med det samme. eksempelvis ville en "Java, Thick browser client" løsning være dyrere end en "Java, Thick application client"løsning da vi ikke ved, hvordan man laver en browser klient i java. Derefter kiggede vi på, hvor meget kode der skulle skrives til de forskellige implementationsmodeller for at kunne få et fungerende system. Eksempelvis er alle Webservice løsningerne dyrere end Thick client løsningerne, da der skal kodes mere, hvis der skal laves en webservice.
+For at komme frem til omkostningerne af de forskellige implementationsmuligheder tog vi udgangspunkt i hvorvidt vi først skulle tilegne os viden eller om vi allerede havde den fornødende forståelse og således kunne gå i gang med det samme. Eksempelvis ville en "Java, Thick browser client" løsning være dyrere end en "Java, Thick application client" løsning, da vi ikke ved, hvordan man laver en browser klient i Java. Derefter kiggede vi på, hvor meget kode der skulle skrives til de forskellige implementeringer for at kunne få et fungerende system. Eksempelvis er alle "Webservice" løsningerne dyrere end "Thick client" løsningerne, da der skal kodes mere, hvis der skal laves en webservice.
 
 En af måderne, vi fandt ud af hvor meget gavn de forskellige implementationsmuligheder gav brugeren var at se på, hvor mange platforme der var understøttet.
-\\Eksmepelvis synes vi, at det gav brugeren mere nytte, hvis systemet kunne køre på alle computerere i en browser end, hvis man skulle downloade/installere en klient og tjekke, om den kunne køre på computeren.
-\\Derudover kiggede vi også på, hvor nemt det ville være for brugeren at udvikle videre på systemet, eksempelvis giver implementationsmuligheden "WCF(.NET), Webservice(browser client)" brugeren mulighed for at udvikle en applikation til Windows Phone, da der er en service at kode op imod.
 
-Udfra tabel \ref{fig:CostBen_Table} er der to valgmuligheder, som har det bedste forhold mellem benefit og omkostning. Både WCF webservice med en tilhørende browser klient og en Resful Java Webservice med en application klient har forholdet \begin{math}\frac{benefit}{cost} = \frac{4}{3} \sim 1.33333\end{math}. Vi valgte WCF løsningen på baggrund af, at det er en løsningstype, vi har erfaring med fra et tidligere projekt.
-\\Det viste sig dog senere, at det slet ikke var nødvendigt at udvikle webservicen i forbindelse med første release. Det forlængede udviklingsprocessen, hvilket betød, at der var funktionalitet, vi ikke fik implementeret.
+En del af vores vurdering af nytten for brugerne er, hvor mange platforme en bestemt løsning understøtter.
+\\Eksempelvis synes vi, at det gav brugeren mere nytte, hvis systemet kunne køre på alle computerere i en browser end, hvis man skulle downloade/installere en klient og tjekke, om den kunne køre på computeren.
+\\Derudover kiggede vi også på, hvor nemt det ville være for brugeren at udvikle videre på systemet: eksempelvis giver implementeringen af en "WCF(.NET), Webservice(browser client)" mulighed for at udvikle en applikation til Windows Phone, da der er en service at kode op imod.
+
+Ud fra tabel \ref{fig:Technical_CostBen_Table} er der to valgmuligheder, som har det bedste forhold mellem nytte og omkostning. Både WCF webservice med en tilhørende browser klient og en Restful Java Webservice med en "application klient" har forholdet \begin{math}\frac{benefit}{cost} = \frac{4}{3} \sim 1.33333\end{math}. Vi valgte WCF løsningen på baggrund af, at det er en løsningstype, vi har erfaring med fra et tidligere projekt. 
+
+Det viste sig dog senere, at det slet ikke var nødvendigt at udvikle webservicen i forbindelse med første udgave. Det forlængede udviklingsprocessen, hvilket betød, at der var funktionalitet, vi ikke fik implementeret. Med dette in mente burde vi have valgt "Thick Browser Client, .Net", da det er den løsning, som har den største overordnede nytteværdi uden at være en service.
