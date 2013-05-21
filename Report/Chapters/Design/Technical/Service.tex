@@ -4,35 +4,30 @@ Vores service er kodet i C\# og er implementeret som en Windows Communication Fo
 
 Vores service er delt i to lag: et service interface og vores databaselogik. Vores service er et offentligt API, som andre udviklere kan kalde gennem en URL. Det betyder, at vi er nødt til at lave begrænsninger på de kald, som laves til servicen. Dette gør vi i vores service interface. 
 
-\subsection{Service interfacet}
+\subsection*{Service interfacet}
 \label{Technical_Service_inter}
-Service interfacet virker som et wrapper til databaselogikken, som validerer kaldene til det offentlige API. Alle kald til service interfacet giver en enumværdi som returværdi. Denne enumværdi indikerer om en forespørgsel har været vellykket eller om der er opstået et problem. Eventuelle output af kald til servicen bliver givet som out eller ref parametre.
+Service interfacet virker som et wrapper til databaselogikken, som validerer kaldene til det offentlige API. Alle kald til service interfacet giver en \textit{enum} som returværdi. Denne \textit{enum} indikerer, om en forespørgsel har været vellykket eller om der er opstået et problem under afvikling af kaldet. Eventuelle output af kald til servicen bliver givet som out eller ref parametre.
 
-\subsubsection{Endpoints}
-\label{Technical_Service_inter_endpoints}
-Vores service er inddelt i seks endpoints: \textit{BookingManangement}, \textit{CateringManangement}, \textit{EquipmentManangement}, \textit{InventoryManangement}, \textit{PersonManangement} \& \textit{RoomManangement}. Hvert endpoint udfører funktionalitet i forbindelse med den del af datamodellen, som den tilhører\footnote{Der er dog nogle overlap. Fx står \textit{BookingManangement} for at ændre tidspunkt for et udstyrsvalg, selvom det ikke kun er relateret til en booking}. Eksempelvis står Equipment endpointet for hentning af udstyr, ændring af udstyr, oprettelse af nyt udstyr og sletning af udstyr. 
+\textbf{Endpoints}
+\\Vores service er inddelt i seks endpoints: \textit{BookingManagement}, \textit{CateringManagement}, \textit{EquipmentManagement}, \textit{InventoryManagement}, \textit{PersonManagement} \& \textit{RoomManagement}. Hvert endpoint udfører funktionalitet i forbindelse med den del af datamodellen, som den tilhører\footnote{Der er dog nogle overlap. Fx står \textit{BookingManagement} for at ændre tidspunkt for et udstyrsvalg, selvom det ikke kun er relateret til en booking.}. Eksempelvis står Equipment endpointet for hentning af udstyr, ændring af udstyr, oprettelse af nyt udstyr og sletning af udstyr. 
 
-\subsubsection{Token og validering af rettigheder}
-\label{Technical_Service_inter_Token}
-Vi anvender tokens (som strings) til at bekræfte kald til service, som kræver rettigheder at udføre. Alle metoder i service interfacet, som kræver rettigheder at udføre, tager en token som parameter. Tokens genereres af servicen, når en bruger angiver korrekt brugernavn/password i forbindelse med login. Tokens bliver generet ud fra en unik identifier\footnote{http://en.wikipedia.org/wiki/Globally\_unique\_identifier} samt tidspunktet, hvor token genereres. 
+\textbf{Token og validering af rettigheder}
+\\Vi anvender tokens (strings) til at bekræfte kald til service. En brugers token bliver givet som parameter til alle kald, som kræver rettigheder at tilgå. Tokens genereres af servicen, når en bruger angiver korrekt brugernavn/password i forbindelse med login. Tokens bliver genereret ud fra en unik identifier\footnote{http://en.wikipedia.org/wiki/Globally\_unique\_identifier} samt tidspunktet, hvor genereringen af token sker.
 \\Når servicen skal validere en brugers rettigheder, leder den i \textit{Person} efter en bruger, hvis token matcher input token. Hvis en entry i databasen matcher, leder servicen efter rollen, som er krævet for at udføre handlingen, i listen over brugerens roller.
 
-\subsection{Databaselogikken}
-\label{Technical_Service_logic}
-Databaselogikken består af kald til \textit{Entity Framework}, som udfører ændringerne i databasen. Vores service interface laver de fleste tjek i forbindelse med krav til input, hvilket betyder, at det ikke er nødvendigt at validerer det meste af det input, som bliver givet til databaselogikken.
+\subsection*{Databaselogikken}
+\label{Technical_service_database}
+Databaselogikken består af kald til \textit{Entity Framework}\footnote{http://msdn.microsoft.com/en-us/data/ef.aspx}, som udfører ændringerne i databasen. Vores service interface laver de fleste tjek i forbindelse med krav til input, hvilket betyder, at det ikke er nødvendigt at validerer det meste af det input, som bliver givet til databaselogikken.
 
-\subsubsection{Entity Framework}
-\label{Technical_Service_logic_EF}
-Servicen forbinder til databasen ved hjælp af \textit{Entity Framework}\footnote{http://msdn.microsoft.com/en-us/data/ef.aspx}. \textit{Entity Framework} er Object-Relational Mapping. Tabellerne i databasen bliver konverteret til POCO (Plain Old CLR Object) klasser, som agerer som wrappers til databasen.
+\textbf{Entity Framework}
+\\Servicen forbinder til databasen ved hjælp af \textit{Entity Framework}. \textit{Entity Framework} er Object-Relational Mapping. Tabellerne i databasen bliver konverteret til POCO (Plain Old CLR Object)-klasser, som agerer som wrappers til databasen.
 \\\textit{Entity Framework} anvender et objekt kaldet en \textit{Object Context} til at repræsentere databasen. Dette objekt har collections af databasens entiteter. Vores \textit{Object Context} er en singleton for at sikre mod paralleliseringsproblemer i servicen.
 
-\subsubsection{Entiteter}
-\label{Technical_Service_logic_Entities}
-Vores database entiteter er repræsenteret af POCO. Vores POCO klasser har både statiske og ikke statiske metoder. De statiske metoder er kald til oprettelse af nye elementer i databasen (fx oprettelse af en ny booking). 
+\textbf{Entiteter}
+Vores database entiteter er repræsenteret af POCO. Vores POCO klasser har både statiske og ikke statiske metoder. De statiske metoder er kald til oprettelse af nye elementer i databasen (fx oprettelse af en ny booking) og søgninger i databasen. 
 \\De ikke-statiske metoder er kald til ændring eller slettelse af objektet, de bliver kaldt på. Disse metoder skal kaldes på objekter hentet ud af \textit{Object Context}, da \textit{Entity Framework} kun gemmer ændringer lavet til objekter i dens collections.
 
-\subsubsection{Login via Active Directory}
-\label{Technical_Service_logic_Login}
+\textbf{Login via Active Directory}
 Vi har implementeret mulighed for at validere brugerlogin via ITUs Active Directory (kodeeksempel i afsnit \ref{Technical_CodeExamples_AD}, side \pageref{Technical_CodeExamples_AD}). Hvis brugeren, som logger ind, ikke allerede eksisterer i vores \textit{Person} tabel, opretter vi brugeren ud fra data i Active Directory.
 \\Vores første udgave af servicen er dog ikke hostet på et lokalt ITU netværk, hvilket er en nødvendighed for at tilgå Active Directory. Derfor har vi oprettet testbrugere, som gør det muligt at teste systemet.
-\\Vi har dog været nødsaget til at lave en administratorbruger, da der i skrivende ikke er den nødvendige skelnen mellem almindelig personale og administratorer i ITUs Active Directory. Vi foreslår derfor, at der oprettes en ny attribut i AD'et, som angiver, hvilke roller en bruger har i systemet.
+\\Vi har dog været nødsaget til at lave en administratorbruger, da der i skrivende stund ikke er den nødvendige skelnen mellem almindelig personale og administratorer i ITUs Active Directory. Vi foreslår derfor, at der oprettes en ny attribut i AD'et, som angiver, hvilke roller en bruger har i systemet.
