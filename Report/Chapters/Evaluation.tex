@@ -2,11 +2,27 @@
 \label{Evaluation}
 \section{Opfyldelse af kravspecifikation}
 \label{Evaluation_KS}
-Vi vurderer vores løsning ud fra en kravspecifikation, som er udarbejdet på kurset "Anskaffelse og kravspecifikation" (SANS) i efteråret 2012. Kravspecifikationen er baseret på Kravskabelon SL-07\footnote{http://www.itu.dk/people/slauesen/SorenReqs.html\#SL-07} (\copyright  Søren Lauesen, 2012).
-
 \subsection{Nuværende og ønsket situation}
 \label{Evaluation_KS_situation}
+Kravspecifikationen beskriver den nuværende situation som værende uoverskuelig og besværlig, fordi planlægning og booking foregår i mange forskellige systemer. Facility Management (FM) er centralt bindepunkt for alt vedrørende lokaleadministration (se figur \ref{Fig:Evaluation_KS_situation_current}). 
 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.75\textwidth]{Appendix/GUI-Prototype/NuvaerendeFlow}
+  \caption{Flowchart af den nuværende situation\cite[s. 4]{kravspec}.}
+\label{Fig:Evaluation_KS_situation_current}
+\end{figure}
+
+De forretningsmæssige mål med en integeret løsning til booking af lokalet er bl.a. at effektivisere resurseforbrug, minimere fejl og aflaste aflaste medarbejdere. I forbindelse med disse mål beskriver kravspecifikationen en vision for den ønskede løsning (se figur \ref{Fig:Evaluation_KS_situation_goal}).
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=\textwidth]{Appendix/GUI-Prototype/DesiredFlow}
+  \caption{Flowchart af visionen af den ønskede løsning\cite[s. 4]{kravspec}.}
+\label{Fig:Evaluation_KS_situation_goal}
+\end{figure}
+
+Vi mener, at vores løsning et tæt på denne vision, hvis løsningen bliver fuldt implementeret. Skærmbillederne i vores løsning understøtter mange af de elementer, som visionen består af. De vigtigste elementer, vi ikke understøtter, er redigeringsmuligheder til forplejningselementer og eksterne brugere\footnote{Skærmbillederne udelukker ikke helt, at eksterne brugere kan anvende systemet. Priser på lokaler og udstyr er dog en del af de eksterne brugeres anvendelse af systemer, hvilket vores skærmbilleder ikke understøtter.}.
 
 \subsection{Understøttede arbejdsopgaver}
 \label{Evaluation_KS_workareas}
@@ -27,93 +43,117 @@ Kravspecifikationen definerer 13 arbejdsopgaver:
 \item[\textbf{C13.}]{Behandl faktura}
 \end{my_description}
 
-Ud af de 13 arbejdesopgaver understøtter vi \textbf{C1}, \textbf{C9} og \textbf{C10}.
-\\Hver af arbejdsopgaverne har en række underpunkter, som beskriver delopgaver og varianter af disse delopgaver. 
+Ud af de 13 arbejdesopgaver understøtter vi \textbf{C1}, \textbf{C9} og \textbf{C10}. Hver af arbejdsopgaverne har en række underpunkter, som beskriver delopgaver og varianter af disse delopgaver. 
+\\Vi har indsat den overordnede beskrivelse af arbejdsopgaverne samt tabellerne over delopgaver/varianter. Vi har tilføjet to kolonner til tabellerne: "Understøttet" og "Vores Løsning". "Vores Løsning" beskriver, hvilket skærmbillede løser delopgaven.
 
-\textbf{C1:} Administrer booking\\
+\subsubsection{C1: Administrer booking}
 \textbf{Brugere:} Ansatte og studerende på ITU.\\
 \textbf{Hyppighed:} Flere gange om dagen i alt for både studerende og ansatte.\\
 \textbf{Start:} En person går ind i booking systemet for at booke, ændre eller få overblik over bookinger.\\
-\textbf{Slut:} Når bookingen eller lændringen er foretaget.
+\textbf{Slut:} Når bookingen eller ændringen er foretaget.
 
-\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{2.7cm} |}
+\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{3.3cm} |}
 \hline
 \textbf{Arbejdesopgave} & \textbf{Eks. løsning} & \textbf{Understøttet}  & \textbf{Vores løsning}\\ 
 \hline
-1. Søg efter ledigt tidspunkt for ny booking & & Ja & Billede \ref{Design_G_Development_FinalGrid}(side \pageref{Design_G_Development_FinalGrid}) \\ 
+1. Søg efter ledigt tidspunkt for ny booking & & Ja & Billede \ref{App_GUI_final_GridEksempel}(side \pageref{App_GUI_final_GridEksempel}) \\ 
 \hline
-1a. Søg efter eksisterende booking &  & Ja & Billede \ref{Design_G_Development_YourBookings_Final}(side \pageref{Design_G_Development_YourBookings_Final}) \\ 
+1a. Søg efter eksisterende booking &  & Ja & Billede \ref{App_GUI_final_DineBookinger}(side \pageref{App_GUI_final_DineBookinger}) \\ 
 \hline
-2. Vælg ledigt lokale, forplejning og ekstra udstyr & & Ja & Billede \ref{Design_G_Development_Forplejning_Final}(side \pageref{Design_G_Development_Forplejning_Final})\\ 
+2. Vælg ledigt lokale, forplejning og ekstra udstyr & & Ja & \begin{tabular}[t]{@{}l@{}}Billede \ref{App_GUI_final_DineBookinger}(side \pageref{App_GUI_final_DineBookinger})\&\\Billede \ref{App_GUI_final_Forplejning}(side \pageref{App_GUI_final_Forplejning})\&\\Billede \ref{App_GUI_final_BookEquip}(side \pageref{App_GUI_final_BookEquip})    \end{tabular}\\
 \hline
-2a. Vis eksisterende booking(er) & & Ja & Billede \ref{Design_G_Development_FinalGrid}(side \pageref{Design_G_Development_FinalGrid})\\ 
+2a. Vis eksisterende booking(er) & & Ja & Billede \ref{App_GUI_final_GridEksempel}(side \pageref{App_GUI_final_GridEksempel})\\ 
 \hline
-3. Opdater booking & & Ja & Billede \ref{Design_G_Development_FinalGrid}(side \pageref{Design_G_Development_FinalGrid})\\ 
+3. Opdater booking & & Ja & Billede \ref{App_GUI_final_GridEksempel}(side \pageref{App_GUI_final_GridEksempel})\\ 
 \hline
-4. Annuller booking & & Ja & Billede \ref{Design_G_Development_YourBookings_Final}(side \pageref{Design_G_Development_YourBookings_Final})\\ 
+4. Annuller booking & & Ja & Billede \ref{App_GUI_final_DineBookinger}(side \pageref{App_GUI_final_DineBookinger})\\ 
 \hline
-5. Opret booking & & Ja & Billede \ref{Design_G_Development_FinalGrid}(side \pageref{Design_G_Development_FinalGrid})\\ 
+5. Opret booking & & Ja & Billede \ref{App_GUI_final_GridEksempel}(side \pageref{App_GUI_final_GridEksempel})\\ 
 \hline
 \end{tabular}
 
-\textbf{C9:} Opdater listen for ekstra udstyr\\
+\subsubsection{C9: Opdater listen for ekstra udstyr}
 \textbf{Brugere:} Facility Management (FM)\\
 \textbf{Hyppighed:} Når der sker ændring i udvalget af ekstra udstyr (en gang om måneden)\\
 \textbf{Start:} Når der er behov for at udstyrslisten skal opdateres\\
 \textbf{Slut:} Når listen er opdateret
 
-\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{3.5cm} |}
+\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{3.3cm} |}
 \hline
 \textbf{Arbejdesopgave} & \textbf{Eks. løsning} & \textbf{Understøttet}  & \textbf{Vores løsning}\\ 
 \hline
-C9.1 Rediger udstyrslisten & FM er ansvarlig & Ja & Billede \ref{Design_G_Development_UdstyrsListe_Final}(side \pageref{Design_G_Development_UdstyrsListe_Final}) \\ 
+C9.1 Rediger udstyrslisten & FM er ansvarlig & Ja & Billede \ref{App_GUI_final_UdstyrsListe}(side \pageref{App_GUI_final_UdstyrsListe}) \\ 
 \hline
 \end{tabular}
 
-\textbf{C10:} Opdatér lokaler\\
+\subsubsection{C10: Opdatér lokaler}
 \textbf{Brugere:} Facility Management (FM)\\
 \textbf{Hyppighed:} Når der sker ændring i antallet af lokaler til bookingen (en gang om måneden)\\
 \textbf{Start:} Når der er behov for at lokalelisten skal opdateres\\
 \textbf{Slut:} Når listen er opdateret
 
-\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{3.2cm} |}
+\begin{tabular}{ | p{7.5cm} | p{2.5cm} | p{2.2cm} | p{3.3cm} |}
 \hline
 \textbf{Arbejdesopgave} & \textbf{Eks. løsning} & \textbf{Understøttet}  & \textbf{Vores løsning}\\ 
 \hline
 C10.1 Rediger lokalelisten & & Ja & Billede \ref{App_GUI_final_LokaleListe}(side \pageref{App_GUI_final_LokaleListe}) \\ 
 \hline
-C10.2 Rediger lokale inventar & & Ja & Billede \ref{Design_G_Development_AendreLokale_Final}(side \pageref{Design_G_Development_AendreLokale_Final}) \\ 
+C10.2 Rediger lokale inventar & & Ja & Billede \ref{App_GUI_final_AendreLokale}(side \pageref{App_GUI_final_AendreLokale}) \\ 
 \hline
 \end{tabular}
 
 \subsubsection{Prioritering af arbejdsopgaver}
 \label{Evaluation_workareas_priorities}
-Vi valgte til den første release af systemet at priotere
+I denne første release har vi valgt at fokusere på at understøtte booking af lokaler, udstyr og forplejning for interne brugere på IT-Universitetet. De arbejdsopgaver, vi understøtter, er derfor dem, som gør dette muligt.
 
-Til den første release af systemet valgte vi at fokusere på at understøtte systemadministration og booking af lokaler og udstyr, hvilket tydeligt kan ses i afsnit \ref{Baggrund_Arb_opgaver} da alle arbejdsopgaverne i arbejdsområderne \textbf{C1},\textbf{C9} og \textbf{C10} er understøttet. 
+Vi mener, det er en kernefunktionalitet i systemet, hvilket gør det vigtigt at understøtte i tidlige udgaver af systemet. \\Kravspecifikationen vægter arbejdsopgave \textbf{C1} \& \textbf{C2} som en $\frac{1}{5}$ af den fulde vægt, hvilket betyder, at dette punkt betyder meget for kunden\cite[s. 8]{kravspec}.
 
-I kravspecifikationen er de arbejdsområder også blandt dem som er vægtet højest og det er samtidig de arbejdsområder som indeholder kernefunktionerne i systemet. Det som ikke blev prioriteret højt nok til at komme med i første release var de arbejdsopgaver som fokuserede på integrationen med kantinen, samt mulighed for fakturing og statestik , arbejdsopgaverne \textbf{C6}, \textbf{C7}, \textbf{C12} og \textbf{C13} er eksempler på sådanne opgaver.
-\\Grunden til, at vi ikke tog de arbejdsopgaver med var, at vi vurderede, at de ikke var nødvendige for at have et system der understøttede basis funktioner, derudover lagde arbejdsopgaverne op til, at der skulle implementeres et interface specifikt til kantinen hvilket vi vurderede ville tage lang tid at implementere og vi ville også have tre brugergrupper at tage hensyn til ift. usability og testing.
+Da en stor del af vægtningen i minimumskravene er \textbf{C1}-\textbf{C5} (samlet $\frac{2}{5}$ af vægtningen), vil vi foreslå, at man prioriterer \textbf{C2}, \textbf{C3}, \textbf{C4} og \textbf{C5} i forbindelse med videreudvikling af systemet.
+\\Derudover har \textbf{C13} en vægtning på $\frac{1}{10}$.  Man kunne derfor overveje at prioritere \textbf{C13} højere end enkelte delopgaver/variationer af \textbf{C2}-\textbf{C5}. Dette bør dog komme an på en vurdering af omkostningen af \textbf{C13} kontra udvidet funktionalitet i forbindelse med andre arbejsopgaver.
 
-Fokus for næste release vil derfor være at få udarbejdet et interface som kantinen kan bruge til at integrere med resten af systemet og få finpudset de allerede eksisterende funktioner i kravspecifikationen. Behandling af faktura har også en høj vægtning, så det vil der også blive lagt fokus på. 
+\section{Future release}
+\label{Evaluation_Future}
+\subsection{Request for change}
+\label{Evaluation_Future_RFC}
+Det er nødvendigt med en ændring i Active Directory, hvis det skal understøtte flere roller i forbindelse med booking systemet. 
+\\En mulig løsning er at lave en attribut "ituRoles" med format "Role1;Role2;...", fx "ituRoles='Cantine;Student;'". 
+\\En anden løsning kunne være at udvide/ændre "ituAffiliation" til at anvende samme format.
 
+\subsection{"Future Release"-liste}
+\label{Evaluation_Future_FR}
+Elementerne på vores "future release"-liste bør diskuteres med kunden før udvikling. Hvert element bør vurderes i forhold til både nytteværdi og omkostning for kunden. 
+\\Dette kunne eventuelt gøres ved, at kunden giver en vurdering af nytteværdien og udvikleren giver en vurdering af omkostningen. Disse værdier kunne så bruges til at lave en cost/benefit-analyse, som ville vise, hvilke elementer bør prioriteres højest.
 
-%FUTURE RELEASE NOTE: Der skal være flere rettighedsproperties i AD!!!!
-\section{Fremtidig design}
-\label{Design_G_Future}
-Dette afsnit er en liste af vores forslag til ændringer i brugergrænsefladen. Det er ikke en prioteret liste, da alle ændringerne er quality of life forbedringer.
+Vores "future release"-liste består af følgende elementer (ikke prioriteret rækkefølge):
+\begin{my_description}
+\item[Fejlrettelse] Rettelse af defekter og "Not Yet Implemented" fundet under test.
+\item[Nye arbejdsopgaver] Understøttelse af flere arbejdsopgaver (som skrevet i afsnit \ref{Evaluation_workareas_priorities})
+\item[Forbedret teststrategi] Indfasning af en forbedret teststrategi (beskrevet i afsnit \ref{Test_intendedStrat})
+\item[Usability Test] Usability test (og håndtering af eventuelle usability problemer)
+\item[Nye platforme] Udvikling af klient til fx mobiltelefoner.
+\item[Brugergrænseflade] Ændringer til brugergrænsefladen, som beskrevet i afsnit \ref{Evaluation_Future_GUI}.
+\end{my_description}
 
+\subsection{Ændringer til brugergrænsefladen}
+\label{Evaluation_Future_GUI}
+\subsubsection{Ydeligere understøttelse af arbejdsopgaver}
+Følgende er en liste over ændringer, vi mener skal foretages, for at systemet understøtter en større del af arbejdsopgaverne:
 \begin{my_itemize}
-\item{Brugerens egne bookinger skal være øverst på listen over bookinger}
-\item{Sammenlægning af "Booking-Liste" og "Find Bookinger"}
-\item{Sammenlægning af "Konfigurering af Lokaler" og "Ændre Lokale"}
-\item{Informering om ændringer i status på en brugers booking}
-\item{Understøt godkendelse af forplejning og udstyrsvalg}
-\item{Mulighed for at skifte mellem sprog (dansk/engelsk)}
-\item{Tilføjelse af nye typer forplejning og nye udstyrstyper}
-\item{Mulighed for ændre priser på forplejning}
-\item{Være i stand til at søge på sal i lokalelisten}
-\item{Mulighed for at angive antal deltagere til en booking}
-\item{Mulighed for at administrator kan ændre bookinger}
-\item{Sørg for at der paging på alle sider med gittrer}
+\item Understøt godkendelse af forplejning og udstyrsvalg
+\item Tilføjelse af nye typer forplejning og nye udstyrstyper
+\item Mulighed for at ændre indhold af forplejningsliste
+\item Mulighed for at angive antal deltagere til en booking
+\item Mulighed for at administrator kan ændre bookinger
+\end{my_itemize}
+
+\subsubsection{Usability ændringer}
+Følgende er en liste af ændringer, som vi mener gøre systemet nemmere at anvende:
+\begin{my_itemize}
+\item Brugerens egne bookinger skal være øverst på listen over bookinger
+\item Sammenlægning af "Booking-Liste" og "Find Bookinger"
+\item Sammenlægning af "Konfigurering af Lokaler" og "Ændre Lokale"
+\item Informering om ændringer i status på en brugers booking
+\item Mulighed for at skifte mellem sprog (dansk/engelsk)
+\item Være i stand til at søge på sal i lokalelisten
+\item Paging på alle sider med gittrer
 \end{my_itemize}
