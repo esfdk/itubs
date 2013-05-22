@@ -38,7 +38,7 @@ Figur \ref{Design_G_wf_FinalGrid} viser startskærmen til vores system. Det er e
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.8\textwidth]{Appendix/GUI-Prototype/DigitalMockup/BookingListe}
-  \caption{Skærmbilledet til godkendelse og afvisning af bookinger}
+  \caption{Skærmbilledet af receptionistens liste af bruger-bookinger.}
 \label{Design_G_Development_BookingListe_Final}
 \end{figure} 
 \\Hvis en administrator vil godkende en brugers booking\footnote{Bookinger oprettet af ikke-administratorer skal godkendes af en administrator.}, skal han gå til "Booking-Liste" gennem menubaren. Her vil han blive vist en liste af bookinger, som venter på godkendelse (figur \ref{Design_G_Development_BookingListe_Final}). Han skal her markerer en booking i listen og enten trykke på "Godkend" eller "Afvis". Bookingen vil forsvinde fra listen og administratoren er nu færdig.
@@ -46,7 +46,7 @@ Figur \ref{Design_G_wf_FinalGrid} viser startskærmen til vores system. Det er e
 \textbf{Administrering af udstyr}
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.9\textwidth]{Appendix/GUI-Prototype/DigitalMockup/UdstyrsListe}
+    \includegraphics[width=0.85\textwidth]{Appendix/GUI-Prototype/DigitalMockup/UdstyrsListe}
   \caption{Skærmbilledet af receptionistens liste over udstyr i systemet.}
 \label{Design_G_Development_UdstyrsListe_Final}
 \end{figure} 
@@ -57,8 +57,8 @@ Figur \ref{Design_G_wf_FinalGrid} viser startskærmen til vores system. Det er e
 \textbf{Administrering af lokaler}
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.9\textwidth]{Appendix/GUI-Prototype/DigitalMockup/LokaleListe}
-  \caption{Skærmbilledet af receptionistens liste over udstyr i systemet.}
+    \includegraphics[width=0.7\textwidth]{Appendix/GUI-Prototype/DigitalMockup/LokaleListe}
+  \caption{Skærmbilledet af receptionistens liste lokaler.}
 \label{Design_G_Development_LokaleListe_Final}
 \end{figure}
 \begin{figure}[h!]
@@ -71,6 +71,7 @@ Figur \ref{Design_G_wf_FinalGrid} viser startskærmen til vores system. Det er e
 \\Han vil nu blive vist et skærmbillede, som viser lokalets navn, kapacitet samt en liste over inventar. Listen over inventar indeholder både inventar, som er tilføjet det valgte lokale og ledigt inventar.
 \\Han kan nu tilføje eller fjerne inventar fra lokalet ved, at han vælger inventaret i listen og trykker på knappen "Tilføj udstyr". Knappen "Tilføj udstyr" skifter tekst, hvis man vælger inventar, som er tilknyttet lokalet. Han er nu færdig og kan navigere væk fra skærmbilledet.
 
+\clearpage
 \section{Generelle mål}
 \label{Design_G_Goals}
 Vores brugergrænseflade er designet ud fra reglerne om design af virtuelle vinduer\cite[s. 169]{SL_UID} samt Ease Of Use principperne\cite[s. 9]{SL_UID}. I forbindelse med dette har vi sat følgende mål for designet:
@@ -93,5 +94,32 @@ Brugeren skal have mulighed for nemt at danne sig overblik over bookinger, udsty
 \subsection{Effektivt}
 Det skal være effektivt at udføre opgaver for brugere, som anvender systemet ofte.
 
+\clearpage
 \section{Designets udvikling}
 \label{Design_G_du}
+\textbf{Gitterløsning}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{Appendix/GUI-Prototype/PaperMockup/LokaleListe_001}
+  \caption{Papermockup af skærmbilledet til booking af lokaler.}
+\label{Design_G_Development_LokaleListe_pm}
+\end{figure} 
+\\I den første udgave af vores skærmbillede til booking af lokaler brugte et gitter til at repræsentere lokaler og tider (figur \ref{Design_G_Development_LokaleListe_pm}). Man skulle i denne udgave klikke på felterne i gitteret for at markere en tid. Som resultat af vores usability indførte vi checkbokse til gitteret for at gøre valg af tidsrum mere intuitivt.
+
+\textbf{Ændre lokale}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{Appendix/GUI-Prototype/PaperMockup/AendreLokale_001}
+  \caption{Papermockup af skærmbilledet til ændring af lokale.}
+\label{Design_G_Development_AendreLokale_Final}
+\end{figure} 
+\\Den første udgave af "Ændre lokale" var delt i tre: et til at skifte navn/kapacitet, et til at tilføje inventar og et til at fjerne inventar. Dette var en meget uoverskuelig løsning med for lidt plads til hver af de tre dele. I den endelige udgave anvender vi gitterløsningen i skærmbilledet. Dette gør os i stand til at håndtere oversigt af inventar i et lokale samt tilføjelse/fjernelse af inventar fra lokalet i del af skærmbilledet.
+
+\textbf{Booking-liste}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{Appendix/GUI-Prototype/PaperMockup/GodkendBookinger_001}
+  \caption{Papermockup af skærmbilledet af receptionistens liste af bruger-bookinger.}
+\label{Design_G_Development_AendreLokale_Final}
+\end{figure} 
+\\Vores papermockup til skærmbilledet af receptionistens liste af bruger-bookinger brugte en gitterløsning, men havde "Godkend"/"Afvis" knapperne inde i gitteret. Dette var lidt i strid med vores generelle design, så vores endelige udgave har knapperne under gitteret i stedet.
