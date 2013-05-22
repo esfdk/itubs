@@ -9,6 +9,13 @@
 
     public partial class Service : IPersonManagement
     {
+        /// <summary>
+        /// Attempt to login a user.
+        /// </summary>
+        /// <param name="username">The username of the user.</param>
+        /// <param name="password">The password of the user.</param>
+        /// <param name="person">The person object in which to fill in data.</param>
+        /// <returns>The status of the login request.</returns>
         public LoginStatus Login(string username, string password, out Person person)
         {
             person = null;
