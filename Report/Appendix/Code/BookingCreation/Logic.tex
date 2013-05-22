@@ -1,0 +1,77 @@
+\begin{lstlisting}[caption= Logik til oprettelse af booking]
+
+/// <summary>Checks if input string is not null, not empty and is either equal to "Accepted" or "Pending".</summary>
+/// <param name="status">The status to check.</param>
+/// <returns>True if input string is a status, false if not.</returns>
+private static bool IsAStatus(string status)
+{
+   return !string.IsNullOrWhiteSpace(status) && (status.Equals("Accepted") || status.Equals("Pending"));
+}
+
+/// <summary>Checks if time of a booking is within acceptable time.</summary>
+/// <param name="booking">Booking to check.</param>
+/// <returns>True if time of booking is valid, false if not.</returns>
+private static bool IsBookingTimeValid(Booking booking)
+{
+   return booking.StartTime < booking.EndTime
+         && booking.StartTime.Hour >= Configuration.EarliestBooking.Hour
+         && booking.EndTime.Hour <= Configuration.LatestBooking.Hour
+         && booking.StartTime.Date.Equals(booking.EndTime.Date);
+}
+
+/// <summary>Finds all the bookings that overlap with a specific booking.</summary>
+/// <param name="booking">The booking to check.</param>
+/// <returns>The list of bookings that over with input booking. If empty, no bookings overlap.</returns>
+private static List<Booking> OverlappingBookings(Booking booking){
+   return All.Where(b =>b.RoomID == booking.RoomID
+            &&
+            ((b.StartTime <= booking.StartTime && b.EndTime > booking.StartTime) 
+            || (b.StartTime >= booking.StartTime && b.EndTime <= booking.EndTime)
+            || (b.StartTime <= booking.StartTime && b.EndTime >= booking.EndTime) 
+            || (b.StartTime >= booking.StartTime && b.StartTime < booking.EndTime))).ToList();
+}
+
+/// <summary>Creates a new booking in the database.</summary>
+/// <param name="booking">The booking to create.</param>
+/// <returns>The newly created booking object.</returns>
+public static Booking CreateNewBooking(Booking booking)
+{
+   // Gets the room that the booking is for.
+   var room = Room.GetRoomByID(booking.RoomID);
+
+   // Checks if input is valid
+   if (!IsBookingTimeValid(booking) || OverlappingBookings(booking).Any()
+      || (booking.NumberOfParticipants > room.MaxParticipants)
+      || !IsAStatus(booking.Status)
+      || booking.PersonID <= 0
+      || booking.RoomID <= 0)
+   {
+      return null;
+   }
+
+   // Adds a new booking object (with the input parameters) to the Bookings collection
+   BookITContext.Db.Bookings.Add(
+      new Booking
+         {
+            PersonID = booking.PersonID,
+            RoomID = booking.RoomID,
+            StartTime = booking.StartTime,
+            EndTime = booking.EndTime,
+            Comments = booking.Comments,
+            NumberOfParticipants = booking.NumberOfParticipants,
+            Status = booking.Status,
+         });
+
+   // Saves the change to the database
+   BookITContext.Db.SaveChanges();
+
+   // Finds the booking that was just created (to make sure the object is fully updated).
+   return
+      All.FirstOrDefault(
+         b =>
+         b.NumberOfParticipants == booking.NumberOfParticipants && b.PersonID == booking.PersonID
+         && b.RoomID == booking.RoomID && b.Status.Equals(booking.Status)
+         && b.Comments.Equals(booking.Comments) && b.StartTime.Equals(booking.StartTime)
+         && b.EndTime.Equals(booking.EndTime));
+}
+\end{lstlisting}

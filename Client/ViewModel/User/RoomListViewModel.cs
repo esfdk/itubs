@@ -11,14 +11,17 @@ namespace Client.ViewModel.User
     using Client.Model;
     using Client.Types;
 
+    /// <summary>ViewModel for the RoomList View</summary>
     public static class RoomListViewModel
     {
+        /// <summary>The list of rooms in the model.</summary>
         private static List<Room> roomList;
 
+        /// <summary>Gets a datatable with the rooms from the database.</summary>
+        /// <returns>The data table with a number of rows equal to the number of rooms in the model.</returns>
         public static DataTable GetBookRooms()
         {
             var dt = new DataTable();
-
             roomList = RoomModel.GetRooms().ToList();
 
             if (roomList.Count == 0)
@@ -27,14 +30,15 @@ namespace Client.ViewModel.User
                 return dt;
             }
 
-            foreach (var r in roomList)
-            {
-                dt.Rows.Add(dt.NewRow());
-            }
+            foreach (var r in roomList) dt.Rows.Add(dt.NewRow());
 
             return dt;
         }
 
+        /// <summary>Updates the gridview of a room for a specified date and at a specific pageIndex.</summary>
+        /// <param name="gv">The gridview to update.</param>
+        /// <param name="date">The date to update by.</param>
+        /// <param name="pageIndex">The pageIndex to update by.</param>
         public static void UpdateRoomGrid(GridView gv, DateTime date, int pageIndex)
         {
             if (roomList == null || roomList.Count == 0 || pageIndex < 0)
@@ -90,6 +94,9 @@ namespace Client.ViewModel.User
             }
         }
 
+        /// <summary>Check to see if a row changed.</summary>
+        /// <param name="gvr">The gridviewrow to check for changes.</param>
+        /// <returns>True if the row changed, false if not.</returns>
         public static bool RowChanged(GridViewRow gvr)
         {
             for (var i = 3; i < gvr.Cells.Count; i++)
@@ -114,6 +121,12 @@ namespace Client.ViewModel.User
             return false;
         }
 
+        /// <summary>Attempts to create or update a booking based on a specific from from the Roomlist View.</summary>
+        /// <param name="gvr">The gridviewrow to create a booking in.</param>
+        /// <param name="rowID">The ID of the row.</param>
+        /// <param name="date">The date for when booking should be created.</param>
+        /// <param name="wasAChange">True if the booking resulted in an update.</param>
+        /// <returns>The result of the request.</returns>
         public static RequestResult CreateOrUpdateBooking(
             GridViewRow gvr, int rowID, DateTime date, out bool wasAChange)
         {
@@ -131,15 +144,12 @@ namespace Client.ViewModel.User
                     Status = status
                 };
 
-            for (var i = 3; i < gvr.Cells.Count; i++)
+            for (var i = 3; i < gvr.Cells.Count; i++) // Iterate over checkboxes
             {
                 var firstCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
                 if (firstCB != null)
                 {
-                    if (firstCB.Checked && gvr.Cells[i].BackColor == Color.Red)
-                    {
-                        return RequestResult.Error;
-                    }
+                    if (firstCB.Checked && gvr.Cells[i].BackColor == Color.Red) return RequestResult.Error;
 
                     if (!firstCB.Checked && gvr.Cells[i].BackColor == Color.Blue)
                     {
@@ -154,10 +164,7 @@ namespace Client.ViewModel.User
 
                         if (nextCB != null && nextCB.Checked && i < gvr.Cells.Count)
                         {
-                            if (gvr.Cells[i].BackColor == Color.Red)
-                            {
-                                return RequestResult.Error;
-                            }
+                            if (gvr.Cells[i].BackColor == Color.Red) return RequestResult.Error;
 
                             startTime = new DateTime(date.Year, date.Month, date.Day, i + 6, 0, 0);
                             i++;
@@ -166,10 +173,7 @@ namespace Client.ViewModel.User
 
                         while (nextCB != null && nextCB.Checked && i < gvr.Cells.Count)
                         {
-                            if (gvr.Cells[i].BackColor == Color.Red)
-                            {
-                                return RequestResult.Error;
-                            }
+                            if (gvr.Cells[i].BackColor == Color.Red) return RequestResult.Error;
 
                             i++;
                             nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
@@ -188,10 +192,7 @@ namespace Client.ViewModel.User
                         var nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
                         while (nextCB != null && nextCB.Checked && i < gvr.Cells.Count)
                         {
-                            if (gvr.Cells[i].BackColor == Color.Red)
-                            {
-                                return RequestResult.Error;
-                            }
+                            if (gvr.Cells[i].BackColor == Color.Red) return RequestResult.Error;
 
                             i++;
                             nextCB = gvr.FindControl("CheckBox" + (i + 6)) as CheckBox;
@@ -206,6 +207,5 @@ namespace Client.ViewModel.User
 
             return BookingModel.CreateOrUpdateBooking(b, out wasAChange);
         }
-
     }
 }

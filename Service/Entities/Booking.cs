@@ -59,9 +59,7 @@ namespace BookITService.Entities
             return All.Where(b => b.StartTime.Date.Equals(date.Date));
         }
 
-        /// <summary>
-        /// Creates a new booking in the database.
-        /// </summary>
+        /// <summary>Creates a new booking in the database.</summary>
         /// <param name="booking">The booking to create.</param>
         /// <returns>The newly created booking object.</returns>
         public static Booking CreateNewBooking(Booking booking)

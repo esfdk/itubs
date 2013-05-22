@@ -93,7 +93,6 @@
     <Content Include="GUI\User\YourBookings.aspx" />
     <Content Include="GUI\User\CateringList.aspx" />
     <Content Include="GUI\User\RoomList.aspx" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Service References\BookItService\Client.BookItService.Booking.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

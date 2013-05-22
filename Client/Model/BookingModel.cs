@@ -35,6 +35,10 @@
             return ServiceClients.BookingManager.GetBookingsByPerson(out bookings, new Person { ID = personID }) == RequestStatus.Success ? bookings : null;
         }
 
+        /// <summary>Creates or updates a booking.</summary>
+        /// <param name="booking">The booking to create/update.</param>
+        /// <param name="wasAChange">If the call changed a booking instead of creating a new one, this will be true.</param>
+        /// <returns>The result of the method call.</returns>
         public static RequestResult CreateOrUpdateBooking(Booking booking, out bool wasAChange)
         {
             wasAChange = false;
@@ -42,18 +46,12 @@
 
             var result = ServiceClients.BookingManager.GetBookingsByDate(out bookings, booking.StartTime.Date);
 
-            if (result != RequestStatus.Success)
-            {
-                return RequestResult.InvalidInput;
-            }
+            if (result != RequestStatus.Success) return RequestResult.InvalidInput;
 
             var temp = bookings.FirstOrDefault(b => BookingsOverlap(b, booking));
 
             RequestStatus rs;
-            if (temp == null)
-            {
-                rs = ServiceClients.BookingManager.CreateBooking(PersonModel.loggedInUser.Token, ref booking);
-            }
+            if (temp == null) rs = ServiceClients.BookingManager.CreateBooking(PersonModel.loggedInUser.Token, ref booking);
             else
             {
                 temp.StartTime = booking.StartTime;
@@ -64,14 +62,10 @@
 
             switch (rs)
             {
-                case RequestStatus.Success:
-                    return RequestResult.Success;
-                case RequestStatus.AccessDenied:
-                    return RequestResult.AccessDenied;
-                case RequestStatus.InvalidInput:
-                    return RequestResult.InvalidInput;
-                default:
-                    return RequestResult.Error;
+                case RequestStatus.Success: return RequestResult.Success;
+                case RequestStatus.AccessDenied: return RequestResult.AccessDenied;
+                case RequestStatus.InvalidInput: return RequestResult.InvalidInput;
+                default: return RequestResult.Error;
             }
         }
 
@@ -130,6 +124,10 @@
             }
         }
 
+        /// <summary>Checks if any bookings overlap.</summary>
+        /// <param name="b1">Booking 1 to compare.</param>
+        /// <param name="b2">Booking 2 to compare.</param>
+        /// <returns>If any bookings overlap.</returns>
         private static bool BookingsOverlap(Booking b1, Booking b2)
         {
             return b1.RoomID == b2.RoomID

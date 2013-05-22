@@ -9,7 +9,6 @@
 \usepackage{fancyhdr}
 \usepackage[final]{pdfpages}
 \usepackage[font=sl]{caption}
-\usepackage{listings}
 \usepackage{longtable}
 \usepackage{appendix}
 \usepackage{fancyvrb}
@@ -28,6 +27,7 @@
 \usepackage{caption}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{minitoc}
+\usepackage{listings}
 
 % Chapter and section spacings
 \titleformat{\chapter}{\normalfont\huge\bfseries}{}{0pt}{\Huge}
@@ -57,7 +57,9 @@
 }
 
 \lstset{
-numbers = left}
+numbers = left,
+linewidth=\linewidth,
+breaklines=true}
 
 % Page style
 \setlength{\headheight}{15.2pt}
@@ -89,10 +91,10 @@ numbers = left}
 \addto\captionsdanish{\renewcommand{\abstractname}{Abstract}}
 \addto\captionsdanish{\renewcommand{\mlftitle}{Liste af skærmbilleder}}
 \addto\captionsdanish{\renewcommand{\contentsname}  {Indholdsfortegnelse} }
-\addto\captionsenglish{\renewcommand{\bibname}  {Litteraturliste} }
-\addto\captionsenglish{\renewcommand{\figurename}  {Figur} }
-\addto\captionsenglish{\renewcommand{\tablename}  {Tabel} }
-\addto\captionsenglish{\renewcommand{\lstlistingname}{Kodestykke}}
+\addto\captionsdanish{\renewcommand{\bibname}  {Litteraturliste} }
+\addto\captionsdanish{\renewcommand{\figurename}  {Figur} }
+\addto\captionsdanish{\renewcommand{\tablename}  {Tabel} }
+\addto\captionsdanish{\renewcommand{\lstlistingname}{Kodestykke}}
 
 %Modify 
 \DeclareCaptionFont{white}{\color{white}}

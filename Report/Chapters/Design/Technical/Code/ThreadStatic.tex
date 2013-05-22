@@ -1,15 +1,11 @@
 \begin{lstlisting}[caption=Trådsikkerhed i tilgang til databasen, label=Code-ThreadStatic]
 
-/// <summary>The database context object.</summary>
 [ThreadStatic]
 private static BookITContext db;
 
-/// <summary>The database context object.</summary>
 public static BookITContext Db
 {
-    get
-    {
-         // If db is null, instantiate it.
+    get{
          return db ?? (db = new BookITContext());
     }
 }

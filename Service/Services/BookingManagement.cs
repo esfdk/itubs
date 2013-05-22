@@ -69,11 +69,9 @@
             return bookings != null ? RequestStatus.Success : RequestStatus.Error;
         }
 
-        /// <summary>
-        /// Creates a new booking.
-        /// </summary>
+        /// <summary>Creates a new booking.</summary>
         /// <param name="token">The token of the user.</param>
-        /// <param name="newBooking">The new booking.</param>
+        /// <param name="newBooking">The booking to create.</param>
         /// <returns>The status of the request.</returns>
         public RequestStatus CreateBooking(string token, ref Booking newBooking)
         {
@@ -103,7 +101,7 @@
         /// <summary>
         /// Changes time of the booking.
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">The token of the user.</param>
         /// <param name="changedBooking">The booking to be changed.</param>
         /// <returns>The status of the request.</returns>
         public RequestStatus ChangeTimeOfBooking(string token, ref Booking changedBooking)
@@ -133,7 +131,7 @@
         /// <summary>
         /// Changes the status of a booking.
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">The token of the user.</param>
         /// <param name="changedBooking">The booking which status is to be changed.</param>
         /// <returns>The status of the request.</returns>
         public RequestStatus ChangeBookingStatus(string token, ref Booking changedBooking)

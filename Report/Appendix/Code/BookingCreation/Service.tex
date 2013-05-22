@@ -1,0 +1,17 @@
+\begin{lstlisting}[caption=Service kode til oprettelse af booking]
+
+/// <summary>Creates a new booking.</summary>
+/// <param name="token">The token of the user.</param>
+/// <param name="newBooking">The booking to create.</param>
+/// <returns>The status of the request.</returns>
+public RequestStatus CreateBooking(string token, ref Booking newBooking)
+{
+   if (string.IsNullOrWhiteSpace(token) || newBooking == null) return RequestStatus.InvalidInput;
+   var p = Person.GetByToken(token);
+   if (p == null) return RequestStatus.AccessDenied;
+   if (!p.IsAdmin() && (p.ID != newBooking.PersonID && !newBooking.Status.Equals("Pending")))return RequestStatus.AccessDenied;
+   newBooking.PersonID = p.ID;
+   newBooking = Booking.CreateNewBooking(newBooking);
+   return newBooking != null ? RequestStatus.Success : RequestStatus.InvalidInput;
+}
+\end{lstlisting}

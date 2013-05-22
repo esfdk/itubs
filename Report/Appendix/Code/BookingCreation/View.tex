@@ -1,0 +1,36 @@
+\begin{lstlisting}[caption= BookLokale event til oprettelse af booking]
+
+/// <summary>Event raised when "Book lokale" is clicked</summary>
+/// <param name="sender">The sender of the event.</param>
+/// <param name="e">The event arguments.</param>
+protected void BookLokaleButton_Click(object sender, EventArgs e)
+{
+	if (MasterViewModel.LoggedInUserID() == -1){
+		this.Response.Redirect("~/GUI/Account/Login.aspx");
+		return;
+	}
+
+	DateTime date;
+	if (!DateTime.TryParse(DateTextBox.Text, out date)){
+		this.Response.Flush();
+		return;
+	}
+
+	var bookingUpdated = false;
+
+	for (var i = 0; i < RoomGridView.Rows.Count; i++){
+		if (RoomListViewModel.RowChanged(RoomGridView.Rows[i])){
+			var rr = RoomListViewModel.CreateOrUpdateBooking(RoomGridView.Rows[i], i, date, out bookingUpdated);
+			if (rr == RequestResult.Success){
+				if (bookingUpdated){
+					Response.Write('<script></script>');
+					this.Response.Write('<script>alert('Husk ogsaa at aendre dine bookinger af forplejning og udstyr.');location.href = ~/GUI/User/YourBookings.aspx';</script>');
+					this.Response.Flush();
+				}
+				else{ this.Response.Redirect("~/GUI/User/YourBookings.aspx");}
+			}
+			else{
+				this.Response.Write("<script>alert('Kunne ikke udfoere handlingen.');</script>");
+				this.Response.Flush();
+			}}}}
+\end{lstlisting}

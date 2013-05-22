@@ -2,6 +2,7 @@
 {
     using System;
 
+    /// <summary>Class containing configuration variables for the service.</summary>
     public static class Configuration
     {
         #region Administrator Access

@@ -21,7 +21,6 @@ namespace Client.GUI.User
             }
 
             RoomGridView.PageIndexChanging += this.PageIndexChanging;
-            //RoomGridView.RowDataBound += this.OnRowDataBound;
         }
 
         protected void DateChanged(object sender, EventArgs e)
@@ -32,8 +31,6 @@ namespace Client.GUI.User
                 this.Response.Redirect("~/GUI/User/RoomList.aspx?date=" + newDate.Date.ToShortDateString());
             }
         }
-
-
 
         protected void PageIndexChanged(object sender, EventArgs e)
         {
@@ -63,6 +60,9 @@ namespace Client.GUI.User
             }
         }
 
+        /// <summary>Event raised when "Book lokale" is clicked</summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">The event arguments.</param>
         protected void BookLokaleButton_Click(object sender, EventArgs e)
         {
             if (MasterViewModel.LoggedInUserID() == -1)
