@@ -3,12 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <h2>
-Person Specifikke bookinger
-</h2>
+    Administration af bookinger</h2>
     <p>
         Email:
         <asp:TextBox ID="EmailTextBox" runat="server" Width="150px"></asp:TextBox>
-&nbsp;<asp:Button ID="FindBookingsButton" runat="server" Text="Find bookinger" onclick="FindBookingsButton_Click" />
+&nbsp;<asp:Button ID="FindBookingsButton" runat="server" Text="Find bookinger" 
+            onclick="FindBookingsButton_Click" CssClass="availableButton" />
 </p>
     <p>
     <asp:GridView ID="PersonBookingListGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
@@ -30,8 +30,6 @@ Person Specifikke bookinger
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-    </p>
-    <p>
         <asp:Button ID="ApproveBookingButton" runat="server" CssClass="availableButton" onclick="ApproveBookingButton_Click" Text="Godkend" />
 &nbsp;<asp:Button ID="RejectBookingButton" runat="server" CssClass="availableButton" onclick="RejectBookingButton_Click" Text="Afvis" />
     </p>
