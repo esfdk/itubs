@@ -2,30 +2,12 @@
     CodeBehind="EquipmentList.aspx.cs" Inherits="Client.GUI.Administrator.EquipmentList" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <style type="text/css">
-        .style1
-        {
-            width: 80%;
-            margin-top: 0px;
-            height: 231px;
-        }
-        .style3
-        {
-            width: 500px;
-        }
-        .style4
-        {
-            width: 461px;
-        }
-    </style>
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        Udstyrsliste&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h2>
-    <table class="style1">
-        <tr>
-            <td class="style3" style="border-right-style: solid">
-                
+    <div style="width: 100%">
+            <div style="float:left; width:34%; height:100%; border-right: 3px solid orange;">
+                            
+                            <h2>Udstyrsliste</h2>
                             &nbsp;Udstyrstype
                             <asp:DropDownList ID="EquipmentListTypeDropDown" runat="server">
                             </asp:DropDownList>
@@ -33,7 +15,7 @@
                 
                             <asp:GridView ID="EquipmentListGridView" runat="server" CellPadding="4" 
                                 ForeColor="#333333" OnDataBound="GridView_OnDataBound" GridLines="Both" 
-                                Width="451px" OnRowCreated="GridView_RowCreated">
+                                Width="332px" OnRowCreated="GridView_RowCreated">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                 <Columns>
                                     <asp:BoundField HeaderText="Navn" />
@@ -50,12 +32,13 @@
                                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                             </asp:GridView>
-                            <br />
                 
                             <asp:Button ID="DeleteEquipmentButton" runat="server" Text="Slet udstyr" CssClass="availableButton" onclick="DeleteEquipmentButton_Click" />
                             &nbsp;<asp:Button ID="ChangeEquipmentButton" runat="server" Text="Ændre udstyr" onclick="ChangeEquipmentButton_Click" CssClass="availableButton" />
-            </td>
-            <td class="style4">
+            </div>
+            <div style=" width: 40px;"></div>
+
+            <div style="float:right; width:58%; margin-top: 0px;">
                 <h2>Tilføj udstyr</h2>
                 <p>Navn:
                     <asp:TextBox ID="EquipmentNameTextBox" runat="server"></asp:TextBox>
@@ -73,7 +56,6 @@
                 <p>
                     <asp:Button ID="AddEquipmentButton" runat="server" Text="Tilføj udstyr" onclick="AddEquipmentButton_Click" CssClass="availableButton" />
                 </p>
-                &nbsp;</td>
-        </tr>
-    </table>
+                </div>
+    </div>
 </asp:Content>
