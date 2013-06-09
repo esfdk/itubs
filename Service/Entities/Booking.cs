@@ -170,6 +170,7 @@ namespace BookITService.Entities
                 if (changedBooking.Status.Equals("Approved"))
                 {
                     this.Status = "Approved";
+                    BookITContext.Db.SaveChanges();
                     return RequestStatus.Success;
                 }
 

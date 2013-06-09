@@ -124,6 +124,23 @@
             }
         }
 
+        public static RequestResult ChangeStatus(Booking b)
+        {
+            var rs = ServiceClients.BookingManager.ChangeBookingStatus(PersonModel.loggedInUser.Token, ref b);
+
+            switch (rs)
+            {
+                case RequestStatus.Success:
+                    return RequestResult.Success;
+                case RequestStatus.AccessDenied:
+                    return RequestResult.AccessDenied;
+                case RequestStatus.InvalidInput:
+                    return RequestResult.InvalidInput;
+                default:
+                    return RequestResult.Error;
+            }
+        }
+
         /// <summary>Checks if any bookings overlap.</summary>
         /// <param name="b1">Booking 1 to compare.</param>
         /// <param name="b2">Booking 2 to compare.</param>

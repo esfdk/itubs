@@ -138,7 +138,7 @@
         {
             if (string.IsNullOrWhiteSpace(token) || changedBooking == null)
             {
-                return RequestStatus.InvalidInput;
+                return RequestStatus.Error;
             }
 
             var p = Person.GetByToken(token);
