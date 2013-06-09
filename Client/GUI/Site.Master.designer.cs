@@ -58,15 +58,6 @@ namespace Client.GUI {
         protected global::System.Web.UI.WebControls.Button MenuButton_DineBookinger;
         
         /// <summary>
-        /// MenuButton_UdstyrsListe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MenuButton_UdstyrsListe;
-        
-        /// <summary>
         /// MenuButton_BookingListe control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace Client.GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button MenuButton_BookingListe;
+        
+        /// <summary>
+        /// MenuButton_FindBookinger control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button MenuButton_FindBookinger;
         
         /// <summary>
         /// MenuButton_KonfigLokale control.
@@ -85,13 +85,13 @@ namespace Client.GUI {
         protected global::System.Web.UI.WebControls.Button MenuButton_KonfigLokale;
         
         /// <summary>
-        /// MenuButton_FindBookinger control.
+        /// MenuButton_UdstyrsListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MenuButton_FindBookinger;
+        protected global::System.Web.UI.WebControls.Button MenuButton_UdstyrsListe;
         
         /// <summary>
         /// MainContent control.
