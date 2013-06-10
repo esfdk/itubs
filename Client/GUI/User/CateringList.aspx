@@ -7,10 +7,13 @@
        </asp:ScriptManager>
     </h2>
     <p>
-        &nbsp;&nbsp;
-        <asp:Image ID="BlueBox" runat="server" Height="30px" ImageUrl="~/GUI/Images/BlåBoks.png" Width="30px" />
-        &nbsp;= Valgte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" Width="30px" />
+        &nbsp;<asp:Image ID="Image1" runat="server" ImageUrl="~/GUI/Images/HvidBoks.png" />
+        &nbsp;= Ledig&nbsp;&nbsp;&nbsp;
+        <asp:Image ID="BlueBox" runat="server" Height="20px" 
+            ImageUrl="~/GUI/Images/BlåBoks.png" Width="20px" />
+        &nbsp;= Dine bookinger&nbsp;&nbsp;&nbsp;
+        <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" 
+            Width="20px" />
         &nbsp;= Ikke til rådighed
     </p>
     <p>
@@ -19,7 +22,7 @@
         &nbsp;&nbsp;&nbsp; Dato:<asp:TextBox ID="DateTextBox" runat="server" ReadOnly="True"></asp:TextBox>
         <asp:GridView ID="CateringListGridView" runat="server" CellPadding="4" 
             ForeColor="#333333" OnDataBound="GridView_OnDataBound" 
-            OnRowCreated="GridView_RowCreated">
+            OnRowCreated="GridView_RowCreated" Width="953px">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Navn"/>
@@ -101,12 +104,10 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
     </p>
-    <p>
-        &nbsp;<asp:Panel ID="Panel1" runat="server">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Panel ID="Panel1" runat="server">
         <asp:Button ID="AddCateringButton" runat="server" Text="Tilføj Forplejning" onclick="AddCateringButton_Click" CssClass="availableButton" />
         &nbsp;<asp:Button ID="DeleteCateringButton" runat="server" CssClass="availableButton" onclick="DeleteCateringButton_Click" Text="Slet Forplejning" />
         &nbsp;<asp:Button ID="CancelButton" runat="server" Text="Fortryd" CssClass="availableButton" onclick="Cancel_Click" />
+            <br />
             </asp:Panel>
-    </p>
-</asp:Content>
+    </asp:Content>

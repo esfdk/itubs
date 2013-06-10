@@ -77,7 +77,7 @@ SET IDENTITY_INSERT [dbo].[Rooms] OFF
 
 SET IDENTITY_INSERT [dbo].[Inventories] ON
 INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (1, 'Hæve-sænke bord', 'Virker', 1, 1)
-INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (2, 'Skrivebordsstol', 'Reperation', 2, 2)
+INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (2, 'Skrivebordsstol', 'Reparation', 2, 2)
 INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (3, 'IBM X500', 'Virker', 3, 1)
 INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (4, 'Lænestol', 'Virker', 2, NULL)
 INSERT [dbo].[Inventories] ([ID], [ProductName], [Status], [InventoryTypeID], [RoomID]) VALUES (7, 'Læder Lænestol', 'Virker', 2, 3)

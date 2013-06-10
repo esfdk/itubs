@@ -11,7 +11,9 @@
             onclick="FindBookingsButton_Click" CssClass="availableButton" />
 </p>
     <p>
-    <asp:GridView ID="PersonBookingListGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
+    <asp:GridView ID="PersonBookingListGridView" runat="server" CellPadding="4" 
+            ForeColor="#333333" OnDataBound="GridView_OnDataBound" 
+            OnRowCreated="GridView_RowCreated" Width="377px">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Lokale" />
