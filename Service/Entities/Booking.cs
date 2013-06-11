@@ -190,10 +190,19 @@ namespace BookITService.Entities
 
         public RequestStatus AddCatering(CateringChoice choice)
         {
-            if (choice.Time > this.StartTime && choice.Time < this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1)
+            if (this.StartTime <= choice.Time /*&& choice.Time < this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1*/)
             {
-                if ((choice.Amount >= Configuration.CateringLimit && choice.Time.AddDays(-Configuration.DaysToPrepareBigCatering) < DateTime.Now)
-                    || (choice.Time.AddDays(-Configuration.DaysToPrepareSmallCatering) < DateTime.Now))
+                if (choice.Time < this.EndTime)
+                {
+                    return RequestStatus.InvalidInput;
+                }
+                if (Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1)
+                {
+                    return RequestStatus.InvalidInput;
+                }
+
+                if ((choice.Amount >= Configuration.CateringLimit && choice.Time.AddDays(-Configuration.DaysToPrepareBigCatering) > DateTime.Now)
+                    || (choice.Time.AddDays(-Configuration.DaysToPrepareSmallCatering) > DateTime.Now))
                 {
                     BookITContext.Db.CateringChoices.Add(
                         new CateringChoice
@@ -211,7 +220,7 @@ namespace BookITService.Entities
                 return RequestStatus.InvalidInput;
             }
 
-            return RequestStatus.InvalidInput;
+            return RequestStatus.Success;
         }
 
         public RequestStatus AddEquipment(EquipmentChoice choice)

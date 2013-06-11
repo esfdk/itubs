@@ -119,6 +119,10 @@
             {
                 case RequestStatus.Success:
                     return RequestResult.Success;
+                case RequestStatus.AccessDenied:
+                    return RequestResult.AccessDenied;
+                case RequestStatus.InvalidInput:
+                    return RequestResult.InvalidInput;
                 default:
                     return RequestResult.Error;
             }

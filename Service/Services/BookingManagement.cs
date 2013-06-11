@@ -196,13 +196,16 @@
                 return RequestStatus.InvalidInput;
             }
 
-            if (p == null || (!p.IsAdmin() && p.ID != b.PersonID))
+            if (p != null)
             {
-                return RequestStatus.AccessDenied;
+                if (p.ID.Equals(b.PersonID))
+                {
+                    editedBooking = b;
+                    return editedBooking.AddCatering(cateringChoice);
+                }
             }
 
-            editedBooking = b;
-            return editedBooking.AddCatering(cateringChoice);
+            return RequestStatus.AccessDenied;
         }
 
         public RequestStatus ChangeTimeOfCateringChoice(string token, CateringChoice cateringChoice, out Booking editedBooking)

@@ -57,7 +57,7 @@ namespace Client.ViewModel.User
 
         public static int GetBookingIDFromRow(int rowID)
         {
-            if (rowID > 0 && rowID < yourBookingList.Count)
+            if (rowID >= 0 && rowID < yourBookingList.Count)
             {
                 return yourBookingList[rowID].ID;
             }

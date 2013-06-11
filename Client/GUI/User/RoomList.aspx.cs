@@ -56,7 +56,6 @@ namespace Client.GUI.User
             else
             {
                 RoomListViewModel.UpdateRoomGrid(this.RoomGridView, DateTime.Today.Date, RoomGridView.PageIndex);
-
             }
         }
 
@@ -74,7 +73,10 @@ namespace Client.GUI.User
             DateTime date;
             if (!DateTime.TryParse(DateTextBox.Text, out date))
             {
-                this.Response.Write(String.Format("<script>alert('Forkert dato format.');</script>"));
+                this.Response.Write("<script type='text/javascript'>");
+                this.Response.Write("alert('Forkert dato format.');");
+                this.Response.Write("window.location.href='RoomList.aspx';");
+                this.Response.Write("</script>");
                 this.Response.Flush();
                 return;
             }
@@ -83,30 +85,47 @@ namespace Client.GUI.User
 
             for (var i = 0; i < RoomGridView.Rows.Count; i++)
             {
-                if (RoomListViewModel.RowChanged(RoomGridView.Rows[i]))
+                if (!RoomListViewModel.RowChanged(this.RoomGridView.Rows[i]))
                 {
-                    var rr = RoomListViewModel.CreateOrUpdateBooking(
-                        RoomGridView.Rows[i], i, date, out bookingUpdated);
-                    if (rr == RequestResult.Success)
+                    continue;
+                }
+
+                var rr = RoomListViewModel.CreateOrUpdateBooking(this.RoomGridView.Rows[i], i, date, out bookingUpdated);
+                if (rr == RequestResult.Success)
+                {
+                    if (bookingUpdated)
                     {
-                        if (bookingUpdated)
-                        {
-                            Response.Write("<script></script>");
-                            this.Response.Write("<script>alert('Husk også at ændre dine bookinger af forplejning og udstyr.');location.href = ~/GUI/User/YourBookings.aspx';</script>");
-                            this.Response.Flush();
-                        }
-                        else
-                        {
-                            this.Response.Redirect("~/GUI/User/YourBookings.aspx");
-                        }
+                        this.Response.Write("<script>alert('Husk også at ændre dine bookinger af forplejning og udstyr.');location.href = ~/GUI/User/YourBookings.aspx';</script>");
+                        this.Response.Flush();
                     }
                     else
                     {
-                        this.Response.Write("<script>alert('Kunne ikke udføre handlingen.');</script>");
-                        this.Response.Flush();
+                        this.Response.Redirect("~/GUI/User/YourBookings.aspx");
                     }
                 }
+                else if (rr == RequestResult.Error)
+                {
+                    this.Response.Write("<script type='text/javascript'>");
+                    this.Response.Write("alert('Det er ikke muligt at booke på det valgte tidspunkt.');");
+                    this.Response.Write("window.location.href='RoomList.aspx';");
+                    this.Response.Write("</script>");
+                    this.Response.Flush();
+                }
+                else
+                {
+                    this.Response.Write("<script type='text/javascript'>");
+                    this.Response.Write("alert('Kunne ikke udføre handlingen.');");
+                    this.Response.Write("window.location.href='RoomList.aspx';");
+                    this.Response.Write("</script>");
+                    this.Response.Flush();
+                }
             }
+
+            this.Response.Write("<script type='text/javascript'>");
+            this.Response.Write("alert('Du skal ændre en booking eller tilføje en ny.');");
+            this.Response.Write("window.location.href='RoomList.aspx';");
+            this.Response.Write("</script>");
+            this.Response.Flush();
         }
 
         protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
