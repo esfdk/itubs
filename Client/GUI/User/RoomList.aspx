@@ -36,7 +36,7 @@
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField HeaderText="Navn" />
-            <asp:BoundField HeaderText="Kapacitet" />
+            <asp:BoundField HeaderText="Kapacitet" ItemStyle-HorizontalAlign="Center"/>
             <asp:BoundField HeaderText="Udstyr" />
             <asp:TemplateField HeaderText="09:00">
                     <ItemTemplate>
@@ -110,7 +110,6 @@
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
     <p1>
-        <br />
         <asp:Button ID="BookLokaleButton" runat="server" CssClass="availableButton" 
             onclick="BookLokaleButton_Click" Text="Book Valgte" />
     </p1>

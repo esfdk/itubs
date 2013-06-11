@@ -91,7 +91,7 @@
                         <asp:TextBox ID="AmountTextBox" runat="server"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField HeaderText="Pris per styk" />
+                <asp:BoundField HeaderText="Pris" ItemStyle-HorizontalAlign="Center"/>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

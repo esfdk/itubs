@@ -17,10 +17,10 @@
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Lokale" />
-                <asp:BoundField HeaderText="Kapacitet"/>
+                <asp:BoundField HeaderText="Kapacitet" ItemStyle-HorizontalAlign="Center"/>
                 <asp:BoundField HeaderText="Person" />
                 <asp:BoundField HeaderText="Tidspunkt" />
-                <asp:BoundField HeaderText="Deltagere" />
+                <asp:BoundField HeaderText="Deltagere" ItemStyle-HorizontalAlign="Center"/>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
