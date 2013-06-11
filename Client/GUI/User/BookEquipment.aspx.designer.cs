@@ -13,6 +13,15 @@ namespace Client.GUI.User {
     public partial class BookEquipment {
         
         /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+        
+        /// <summary>
         /// BlueBoxImage control.
         /// </summary>
         /// <remarks>

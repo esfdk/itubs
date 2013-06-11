@@ -21,10 +21,10 @@
     </h2>
     <p>
         <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/HvidBoks.png" />
-&nbsp;= Ledig&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;= Ledig&nbsp;&nbsp;&nbsp;
         <asp:Image ID="WhiteBox" runat="server" BorderColor="Black" BorderStyle="None" 
             BorderWidth="1px" ImageUrl="~/GUI/Images/BlåBoks.png" />
-&nbsp;= Dine bookinger&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;= Dine bookinger&nbsp;&nbsp;&nbsp;
         <asp:Image ID="BlueBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" />
         &nbsp;= Booket</p>
     <p>
@@ -38,62 +38,62 @@
             <asp:BoundField HeaderText="Navn" />
             <asp:BoundField HeaderText="Kapacitet" ItemStyle-HorizontalAlign="Center"/>
             <asp:BoundField HeaderText="Udstyr" />
-            <asp:TemplateField HeaderText="09:00">
+            <asp:TemplateField HeaderText="09:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox9" runat="server"/>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="10:00" >
+                <asp:TemplateField HeaderText="10:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox10" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="11:00" >
+                <asp:TemplateField HeaderText="11:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox11" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="12:00" >
+                <asp:TemplateField HeaderText="12:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox12" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="13:00" >
+                <asp:TemplateField HeaderText="13:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox13" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="14:00" >
+                <asp:TemplateField HeaderText="14:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox14" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="15:00" >
+                <asp:TemplateField HeaderText="15:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox15" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="16:00" >
+                <asp:TemplateField HeaderText="16:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox16" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="17:00" >
+                <asp:TemplateField HeaderText="17:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox17" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="18:00" >
+                <asp:TemplateField HeaderText="18:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox18" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="19:00" >
+                <asp:TemplateField HeaderText="19:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox19" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="20:00" >
+                <asp:TemplateField HeaderText="20:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox20" runat="server" />
                     </ItemTemplate>
@@ -110,6 +110,7 @@
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
     <p1>
+        <br />
         <asp:Button ID="BookLokaleButton" runat="server" CssClass="availableButton" 
             onclick="BookLokaleButton_Click" Text="Book Valgte" />
     </p1>
