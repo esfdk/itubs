@@ -31,6 +31,7 @@
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
+    <br />
     <asp:Button ID="AddRemoveButton" runat="server" CssClass="availableButton" onclick="AddRemoveButton_Click" />
                         &nbsp;&nbsp;<asp:Button ID="FinishButton" runat="server" Text="Afslut" CssClass="availableButton" onclick="FinishButton_Click"/>
 </asp:Content>

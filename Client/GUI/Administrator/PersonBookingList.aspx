@@ -32,6 +32,8 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
+    </p>
+    <p>
         <asp:Button ID="ApproveBookingButton" runat="server" CssClass="availableButton" onclick="ApproveBookingButton_Click" Text="Godkend" />
 &nbsp;<asp:Button ID="RejectBookingButton" runat="server" CssClass="availableButton" onclick="RejectBookingButton_Click" Text="Afvis" />
     </p>

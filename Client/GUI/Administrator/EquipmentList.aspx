@@ -33,6 +33,8 @@
                                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                             </asp:GridView>
                 
+                            <br />
+                
                             <asp:Button ID="DeleteEquipmentButton" runat="server" Text="Slet udstyr" CssClass="availableButton" onclick="DeleteEquipmentButton_Click" />
                             &nbsp;<asp:Button ID="ChangeEquipmentButton" runat="server" Text="Ændre udstyr" onclick="ChangeEquipmentButton_Click" CssClass="availableButton" />
             </div>
