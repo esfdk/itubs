@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <h2>
-    Administration af bookinger</h2>
+    Konfigurering af bookinger</h2>
     <p>
         Email:
         <asp:TextBox ID="EmailTextBox" runat="server" Width="150px"></asp:TextBox>

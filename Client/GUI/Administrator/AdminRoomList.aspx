@@ -41,6 +41,7 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
+                <br />
             </div>
             <div style="float:right; width:70%; margin-top: 0px;">
                 <asp:Button ID="AddRoomButton" runat="server" Text="Tilføj Lokale" 
