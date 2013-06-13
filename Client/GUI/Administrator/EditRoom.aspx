@@ -7,14 +7,14 @@
         <asp:TextBox ID="RoomNameTextBox" runat="server"/>
 &nbsp;&nbsp;&nbsp; Kapacitet
         <asp:TextBox ID="CapacityTextBox" runat="server"/>
-        <asp:Button ID="SaveButton" runat="server" onclick="SaveButton_Click" style="margin-left: 21px" Text="Gem" Width="78px" Height="21px" />
+        <asp:Button ID="SaveButton" runat="server" onclick="SaveButton_Click" 
+            style="margin-left: 21px" Text="Gem" Width="78px" Height="21px" 
+            CssClass="availableButton" />
     </p>
-    <asp:Panel ID="Panel1" runat="server" Height="357px" style="margin-left: 27px" 
-        Width="794px">
                 <h3>udstyr:</h3>
                     <asp:GridView ID="EditRoomGridView" runat="server" CellPadding="4" 
                     OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" 
-                    ForeColor="#333333" Width="512px">
+                    ForeColor="#333333" Width="395px">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField HeaderText="Navn" />
@@ -31,7 +31,6 @@
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
-    </asp:Panel>
     <asp:Button ID="AddRemoveButton" runat="server" CssClass="availableButton" onclick="AddRemoveButton_Click" />
                         &nbsp;&nbsp;<asp:Button ID="FinishButton" runat="server" Text="Afslut" CssClass="availableButton" onclick="FinishButton_Click"/>
 </asp:Content>
