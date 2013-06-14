@@ -95,8 +95,7 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
     </p>
-    <br />
-    <asp:Button ID="SaveChangesButton" runat="server" Text="Tilføj Ændringer" 
+    <asp:Button ID="SaveChangesButton" runat="server" Text="Tilføj Ændringer" margin-top="10px" 
         CssClass="availableButton" onclick="SaveChangesButton_Click" />
 &nbsp;<asp:Button ID="CancelButton" runat="server" Text="Fortryd" 
         CssClass="availableButton" onclick="CancelButton_Click" />

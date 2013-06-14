@@ -21,10 +21,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Konfigurering af lokaler</h2>
-            <div style="float:left; width:28%; margin-top: 0px;">
+            <div style="float:left; width:24%; margin-top: 0px;">
                 <asp:GridView ID="AdminRoomGridView" runat="server" CellPadding="4" ForeColor="#333333" 
                     OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" 
-                    Width="375px">
+                    Width="345px">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField HeaderText="Lokale" />
@@ -43,7 +43,7 @@
                 </asp:GridView>
                 <br />
             </div>
-            <div style="float:right; width:70%; margin-top: 0px;">
+            <div style="float:right; width:73%; margin-top: 0px;">
                 <asp:Button ID="AddRoomButton" runat="server" Text="Tilføj Lokale" 
                     CssClass="availableButton" Width="89px" onclick="AddRoomButton_Click" />
                 <br />
