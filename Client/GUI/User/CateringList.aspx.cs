@@ -33,6 +33,7 @@ namespace Client.GUI.User
 
                 if (!CateringListViewModel.RowChanged(row))
                 {
+                    row.Cells[i].Text = i.ToString();
                     continue;
                 }
 
@@ -52,16 +53,19 @@ namespace Client.GUI.User
                 {
                     this.Response.Write("<script type='text/javascript'>");
                     this.Response.Write("alert('Et af dine ønsker kunne ikke imødekommes, da du har valgt flere tidspunkter på dagen."
-                                                + "\n Lav seperate valg for forskellige tidspunkter.');");
+                                        + "Lav seperate valg for forskellige tidspunkter.');");
                     this.Response.Write("window.location.href='CateringList.aspx?bookingID=" + int.Parse(Request.QueryString["bookingID"]) + "';");
                     this.Response.Write("</script>");
                     this.Response.Flush();
                     return;
                 }
-                else if (CateringListViewModel.NumberOfCheckedElementInRow(row) == 1)
+                else if (CateringListViewModel.NumberOfCheckedElementInRow(row) == 1 && row.BackColor != Color.LightGray)
                 {
                     int amount;
-                    if (int.TryParse(row.Cells[13].Text, out amount))
+                    var atb = row.FindControl("AmountTextBox") as TextBox;
+                    if (atb == null) { continue; }
+
+                    if (!int.TryParse(atb.Text, out amount))
                     {
                         this.Response.Write("<script type='text/javascript'>");
                         this.Response.Write("alert('Et af dine ønsker kunne ikke imødekommes, da antal ikke kunne læses som et tal.');");
@@ -91,17 +95,11 @@ namespace Client.GUI.User
                 }
             }
 
-            /*
-            // If number of items are over 10 check if Date is atleast a week from now, else throw alert popup
-
-            if (0 < 1)
-            {
-                this.Response.Write("<script>alert('Dine ønsker kunne ikke imødekommes, da der skal bestilles mindst en uge i forvejen til forplejning til mere end 10 personer.');</script>");
-                this.Response.Flush();
-                return;
-            }*/
-
-            this.Response.Redirect("~/GUI/User/CateringList.aspx?bookingID=" + int.Parse(this.Request.QueryString["bookingID"]));
+            this.Response.Write("<script type='text/javascript'>");
+            this.Response.Write("alert('Du skal vælge et tidspunkt før du kan bestille forplejning.');");
+            this.Response.Write("window.location.href='CateringList.aspx?bookingID=" + int.Parse(this.Request.QueryString["bookingID"]) + "';");
+            this.Response.Write("</script>");
+            this.Response.Flush();
         }
 
         protected void Cancel_Click(object sender, EventArgs e)

@@ -59,9 +59,8 @@ namespace Client.ViewModel.User
                 var cc = cateringChoicesList[i];
                 var row = gv.Rows[i];
                 row.BackColor = Color.LightGray;
-                row.Cells[0].Text = cc.Catering.ProductName;
                 row.Cells[13].Text = cc.Amount.ToString();
-                row.Cells[14].Text = cc.Catering.Price.ToString() + " DKK";
+                row.Cells[14].Text = cc.Catering.Price + " DKK";
 
                 var checkBox = row.FindControl("CheckBox" + cc.Time.Hour) as CheckBox;
                 if (checkBox != null)
@@ -166,7 +165,7 @@ namespace Client.ViewModel.User
                 return false;
             }
 
-            return true;
+            return false;
         }
 
         public static bool CreateOrUpdateCateringChoice(GridViewRow gvr, int bookingID, int rowID, int amount)

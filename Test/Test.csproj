@@ -94,6 +94,7 @@
     <None Include="App.Config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\SQL\RunBoth.sql" />
     <Content Include="Data\SQL\CreateDatabase.sql" />
     <Content Include="Data\SQL\TestData.sql" />
   </ItemGroup>

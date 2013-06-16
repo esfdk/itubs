@@ -113,7 +113,6 @@
         public static RequestResult CreateCateringChoice(int bookingID, int cateringID, int amount, DateTime time)
         {
             Booking b;
-
             var cc = new CateringChoice { CateringID = cateringID, BookingID = bookingID, Amount = amount, Time = time };
             switch (ServiceClients.BookingManager.AddCateringToBooking(out b, PersonModel.loggedInUser.Token, cc))
             {

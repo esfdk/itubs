@@ -190,29 +190,20 @@ namespace BookITService.Entities
 
         public RequestStatus AddCatering(CateringChoice choice)
         {
-            if (this.StartTime <= choice.Time /*&& choice.Time < this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1*/)
+            if (this.StartTime <= choice.Time && choice.Time <= this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1)
             {
-                if (choice.Time < this.EndTime)
-                {
-                    return RequestStatus.InvalidInput;
-                }
-                if (Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1)
-                {
-                    return RequestStatus.InvalidInput;
-                }
-
                 if ((choice.Amount >= Configuration.CateringLimit && choice.Time.AddDays(-Configuration.DaysToPrepareBigCatering) > DateTime.Now)
                     || (choice.Time.AddDays(-Configuration.DaysToPrepareSmallCatering) > DateTime.Now))
                 {
-                    BookITContext.Db.CateringChoices.Add(
-                        new CateringChoice
-                            {
-                                Amount = choice.Amount,
-                                BookingID = this.ID,
-                                Time = choice.Time,
-                                Status = choice.Status,
-                                CateringID = choice.CateringID,
-                            });
+                    var cc = new CateringChoice
+                        {
+                            Amount = choice.Amount,
+                            BookingID = this.ID,
+                            Time = choice.Time,
+                            Status = choice.Status ?? string.Empty,
+                            CateringID = choice.CateringID,
+                        };
+                    BookITContext.Db.CateringChoices.Add(cc);
                     BookITContext.Db.SaveChanges();
                     return RequestStatus.Success;
                 }
@@ -220,7 +211,7 @@ namespace BookITService.Entities
                 return RequestStatus.InvalidInput;
             }
 
-            return RequestStatus.Success;
+            return RequestStatus.InvalidInput;
         }
 
         public RequestStatus AddEquipment(EquipmentChoice choice)

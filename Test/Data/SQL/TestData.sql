@@ -93,7 +93,7 @@ INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [S
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (3,'Pending',25,'Forlæsning','2013-06-02T15:00:00', '2013-06-02T18:00:00', 4, 3)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (4,'Pending',10,'Møde','2013-06-10T14:00:00', '2013-06-10T15:00:00', 3, 2)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (5,'Godkendt',8,'Møde','2013-06-10T12:00:00', '2013-06-10T14:00:00', 2, 4)
-INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (6,'Godkendt',12,'Møde','2013-06-25T10:00:00', '2013-06-10T18:00:00', 2, 5)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (6,'Godkendt',12,'Møde','2013-06-25T10:00:00', '2013-06-25T18:00:00', 2, 5)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (7,'Godkendt',8,'Møde','2013-06-12T10:00:00', '2013-06-12T18:00:00', 3, 6)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (8,'Godkendt',6,'Møde','2013-06-12T16:00:00', '2013-06-12T18:00:00', 2, 7)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (9,'Godkendt',6,'Møde','2013-06-13T10:00:00', '2013-06-13T12:00:00', 3, 7)
