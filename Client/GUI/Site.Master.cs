@@ -11,7 +11,6 @@ namespace Client.GUI
             if (MasterViewModel.LoggedInUserID() == -1)
             {
                 LogInButton.Click += LoginClick;
-                MenuButton_BookingListe.CssClass = "UnavailableButton";
                 MenuButton_UdstyrsListe.CssClass = "UnavailableButton";
                 MenuButton_KonfigLokale.CssClass = "UnavailableButton";
                 MenuButton_FindBookinger.CssClass = "UnavailableButton";
@@ -23,7 +22,6 @@ namespace Client.GUI
                 UserNameLabel.Text = MasterViewModel.LoggedInUserName();
                 if (!MasterViewModel.LoggedInUserIsAdmin())
                 {
-                    MenuButton_BookingListe.CssClass = "UnavailableButton";
                     MenuButton_UdstyrsListe.CssClass = "UnavailableButton";
                     MenuButton_KonfigLokale.CssClass = "UnavailableButton";
                     MenuButton_FindBookinger.CssClass = "UnavailableButton";
@@ -70,21 +68,6 @@ namespace Client.GUI
             }
 
             this.Response.Redirect("~/GUI/Administrator/EquipmentList.aspx");
-        }
-
-        protected void MenuButton_BookingListe_OnClick(object sender, EventArgs e)
-        {
-            if (MasterViewModel.LoggedInUserID() == -1)
-            {
-                this.Response.Redirect("~/GUI/Account/Login.aspx");
-            }
-            else if (!MasterViewModel.LoggedInUserIsAdmin())
-            {
-                this.Response.Write("<script>alert('Du har ikke de nødvendige rettigheder.');</script>");
-                return;
-            }
-
-            this.Response.Redirect("~/GUI/Administrator/BookingList.aspx");
         }
 
         protected void MenuButton_KonfigLokale_OnClick(object sender, EventArgs e)

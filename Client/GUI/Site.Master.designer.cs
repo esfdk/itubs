@@ -58,15 +58,6 @@ namespace Client.GUI {
         protected global::System.Web.UI.WebControls.Button MenuButton_DineBookinger;
         
         /// <summary>
-        /// MenuButton_BookingListe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MenuButton_BookingListe;
-        
-        /// <summary>
         /// MenuButton_FindBookinger control.
         /// </summary>
         /// <remarks>
