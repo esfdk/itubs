@@ -14,7 +14,9 @@ namespace Client.GUI.User
             if (!this.Page.IsPostBack)
             {
                 DateTime d;
-                this.DateTextBox.Text = DateTime.TryParse(this.Request.QueryString["date"], out d) ? d.Date.ToShortDateString() : DateTime.Today.Date.ToShortDateString();
+                this.DateTextBox.Text = DateTime.TryParse(this.Request.QueryString["date"], out d)
+                                            ? d.Day + "-" + d.Month + "-" + d.Year
+                                            : DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year;
 
                 this.RoomGridView.DataSource = RoomListViewModel.GetBookRooms();
                 this.RoomGridView.DataBind();
@@ -28,7 +30,8 @@ namespace Client.GUI.User
             DateTime newDate;
             if (DateTime.TryParse(DateTextBox.Text, out newDate))
             {
-                this.Response.Redirect("~/GUI/User/RoomList.aspx?date=" + newDate.Date.ToShortDateString());
+                this.Response.Redirect(
+                    "~/GUI/User/RoomList.aspx?date=" + newDate.Day + "-" + newDate.Month + "-" + newDate.Year);
             }
         }
 
@@ -130,12 +133,12 @@ namespace Client.GUI.User
 
         protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            /*if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes["onmouseover"] = "this.style.cursor='pointer';";
                 e.Row.ToolTip = "Click to select row";
                 e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.RoomGridView, "Select$" + e.Row.RowIndex);
-            }
+            }*/
         }
     }
 }

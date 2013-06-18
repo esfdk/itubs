@@ -17,6 +17,8 @@ namespace Client.GUI.User
                 {
                     this.CateringListGridView.DataSource = CateringListViewModel.GetCaterings(bookingID);
                     this.CateringListGridView.DataBind();
+                    DateTextBox.Text = CateringListViewModel.GetDate();
+                    RoomNameTextBox.Text = CateringListViewModel.GetRoomName();
                 }
                 else
                 {
@@ -84,14 +86,6 @@ namespace Client.GUI.User
                         this.Response.Flush();
                         return;
                     }
-
-                    this.Response.Write("<script type='text/javascript'>");
-                    this.Response.Write("alert('Forplejningsvalget blev oprettet.');");
-                    this.Response.Write("window.location.href='CateringList.aspx?bookingID=" + int.Parse(this.Request.QueryString["bookingID"]) + "';");
-                    this.Response.Write("</script>");
-                    this.Response.Flush();
-                    return;
-
                 }
             }
 

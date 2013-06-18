@@ -11,7 +11,8 @@
                 alert("Du kan ikke vælge en dag før i dag!");
                 sender._selectedDate = new Date();
                 // set the date back to the current date
-                sender._textbox.set_Value(sender._selectedDate.format(sender._format));
+                sender._textbox.set_value(sender._selectedDate.getDay + "-" + sender._selectedDate.getMonth + "-" + sender._selectedDate.getYear);
+                //sender._textbox.set_Value(sender._selectedDate.format(sender._format));
             }}
     </script>
 
@@ -29,7 +30,7 @@
     <p>
          Dato(mm/dd/YYYY):
          <asp:TextBox ID="DateTextBox" AutoPostBack="true" OnTextChanged="DateChanged" runat="server"/>
-         <ajaxToolkit:CalendarExtender ID="DateCalendarExtender" TargetControlID="DateTextBox" Format="MM/dd/yyyy" runat="server" OnClientDateSelectionChanged="checkDate" />  
+         <ajaxToolkit:CalendarExtender ID="DateCalendarExtender" TargetControlID="DateTextBox" Format="dd-MM-yyyy" runat="server" OnClientDateSelectionChanged="checkDate" />  
     </p>
     <asp:GridView ID="RoomGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

@@ -18,11 +18,15 @@ namespace Client.ViewModel.User
 
         private static List<Catering> cateringList;
 
+        private static Booking booking;
+
         public static DataTable GetCaterings(int bookingID)
         {
             var dt = new DataTable();
 
-            cateringChoicesList = BookingModel.GetBooking(bookingID).CateringChoices.ToList();
+            booking = BookingModel.GetBooking(bookingID);
+
+            cateringChoicesList = booking.CateringChoices.ToList();
             cateringList = CateringModel.GetAllCaterings().ToList();
 
             // Use empty data table to fill grid if no elements exist
@@ -58,6 +62,7 @@ namespace Client.ViewModel.User
             {
                 var cc = cateringChoicesList[i];
                 var row = gv.Rows[i];
+                row.Cells[0].Text = cc.Catering.ProductName;
                 row.BackColor = Color.LightGray;
                 row.Cells[13].Text = cc.Amount.ToString();
                 row.Cells[14].Text = cc.Catering.Price + " DKK";
@@ -68,11 +73,11 @@ namespace Client.ViewModel.User
                     checkBox.Checked = true;
                 }
 
-                for (var a = 1; a < gv.Rows[i].Cells.Count - 2; a++)
+                for (var a = 1; a < row.Cells.Count - 2; a++)
                 {
                     if ((a + 8) < cc.Catering.AvailableFrom.Hours || (a + 8) > cc.Catering.AvailableTo.Hours || (a + 8) < booking.StartTime.Hour || (a + 8) > booking.EndTime.Hour)
                     {
-                        gv.Rows[i].Cells[a].BackColor = Color.Red;
+                        row.Cells[a].BackColor = Color.Red;
                     }
                 }
 
@@ -89,13 +94,14 @@ namespace Client.ViewModel.User
             for (var j = i; j < gv.Rows.Count; j++)
             {
                 var c = cateringList[j - i];
-                gv.Rows[j].Cells[0].Text = c.ProductName;
-                gv.Rows[j].Cells[14].Text = c.Price.ToString() + " DKK";
-                for (var a = 1; a < gv.Rows[j].Cells.Count - 2; a++)
+                var row = gv.Rows[j];
+                row.Cells[0].Text = c.ProductName;
+                row.Cells[14].Text = c.Price.ToString() + " DKK";
+                for (var a = 1; a < row.Cells.Count - 2; a++)
                 {
                     if ((a + 8) < c.AvailableFrom.Hours || (a + 8) > c.AvailableTo.Hours || (a + 8) < booking.StartTime.Hour || (a + 8) > booking.EndTime.Hour)
                     {
-                        gv.Rows[j].Cells[a].BackColor = Color.Red;
+                        row.Cells[a].BackColor = Color.Red;
                     }
                 }
             }
@@ -258,6 +264,16 @@ namespace Client.ViewModel.User
             }
 
             return false;
+        }
+
+        public static string GetDate()
+        {
+            return booking.StartTime.Day + "-" + booking.StartTime.Month + "-" + booking.StartTime.Year;
+        }
+
+        public static string GetRoomName()
+        {
+            return booking.Room.Name;
         }
     }
 }
