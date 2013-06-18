@@ -3,23 +3,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <h2>
-Person Specifikke bookinger
-</h2>
+    Konfigurering af bookinger</h2>
     <p>
         Email:
         <asp:TextBox ID="EmailTextBox" runat="server" Width="150px"></asp:TextBox>
-&nbsp;<asp:Button ID="FindBookingsButton" runat="server" Text="Find bookinger" onclick="FindBookingsButton_Click" />
+&nbsp;<asp:Button ID="FindBookingsButton" runat="server" Text="Find bookinger" 
+            onclick="FindBookingsButton_Click" CssClass="availableButton" />
 </p>
     <p>
-    <asp:GridView ID="PersonBookingListGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
+    <asp:GridView ID="PersonBookingListGridView" runat="server" CellPadding="4" 
+            ForeColor="#333333" OnDataBound="GridView_OnDataBound" 
+            OnRowCreated="GridView_RowCreated" Width="377px">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Lokale" />
-                <asp:BoundField HeaderText="Kapacitet"/>
+                <asp:BoundField HeaderText="Kapacitet" ItemStyle-HorizontalAlign="Center"/>
                 <asp:BoundField HeaderText="Person" />
                 <asp:BoundField HeaderText="Tidspunkt" />
-                <asp:BoundField HeaderText="Deltagere" />
-                <asp:BoundField HeaderText="Status" />
+                <asp:BoundField HeaderText="Deltagere" ItemStyle-HorizontalAlign="Center"/>
+				<asp:BoundField HeaderText="Status" />
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

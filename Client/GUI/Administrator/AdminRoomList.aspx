@@ -21,16 +21,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Konfigurering af lokaler</h2>
-    <table class="style1">
-        <tr>
-            <td class="style2">
+            <div style="float:left; width:24%; margin-top: 0px;">
                 <asp:GridView ID="AdminRoomGridView" runat="server" CellPadding="4" ForeColor="#333333" 
                     OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated" 
-                    Width="446px">
+                    Width="345px">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField HeaderText="Lokale" />
-                        <asp:BoundField HeaderText="Kapacitet" />
+                        <asp:BoundField HeaderText="Kapacitet" ItemStyle-HorizontalAlign="Center"/>
                         <asp:BoundField HeaderText="Udstyr" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
@@ -43,16 +41,16 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-            </td>
-            <td>
-                <asp:Button ID="AddRoomButton" runat="server" Text="Tilføj" CssClass="availableButton" Width="89px" onclick="AddRoomButton_Click" />
                 <br />
+            </div>
+            <div style="float:right; width:73%; margin-top: 0px;">
+                <asp:Button ID="AddRoomButton" runat="server" Text="Tilføj Lokale" 
+                    CssClass="availableButton" Width="89px" onclick="AddRoomButton_Click" />
                 <br />
-                <asp:Button ID="ChangeRoomButton" runat="server" Text="Ændre" CssClass="availableButton" Width="89px" onclick="ChangeRoomButton_Click" />
+                <asp:Button ID="ChangeRoomButton" runat="server" Text="Ændre Lokale" 
+                    CssClass="availableButton" Width="89px" onclick="ChangeRoomButton_Click" />
                 <br />
-                <br />
-                <asp:Button ID="DeleteRoomButton" runat="server" Text="Slet" CssClass="availableButton" Width="89px" onclick="DeleteRoomButton_Click"/>
-            </td>
-        </tr>
-    </table>
+                <asp:Button ID="DeleteRoomButton" runat="server" Text="Slet Lokale" 
+                    CssClass="availableButton" Width="89px" onclick="DeleteRoomButton_Click"/>
+            </div>
 </asp:Content>

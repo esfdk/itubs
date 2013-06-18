@@ -7,86 +7,91 @@
        </asp:ScriptManager>
     </h2>
     <p>
-        &nbsp;&nbsp;
-        <asp:Image ID="BlueBox" runat="server" Height="30px" ImageUrl="~/GUI/Images/BlåBoks.png" Width="30px" />
-        &nbsp;= Valgte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" Width="30px" />
+        &nbsp;<asp:Image ID="Image1" runat="server" ImageUrl="~/GUI/Images/HvidBoks.png" />
+        &nbsp;= Ledig&nbsp;&nbsp;&nbsp;
+        <asp:Image ID="BlueBox" runat="server" Height="20px" 
+            ImageUrl="~/GUI/Images/BlåBoks.png" Width="20px" />
+        &nbsp;= Dine bookinger&nbsp;&nbsp;&nbsp;
+        <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" 
+            Width="20px" />
         &nbsp;= Ikke til rådighed
     </p>
     <p>
         &nbsp; Lokale:
         <asp:TextBox ID="RoomNameTextBox" runat="server" ReadOnly="True"></asp:TextBox>
         &nbsp;&nbsp;&nbsp; Dato:<asp:TextBox ID="DateTextBox" runat="server" ReadOnly="True"></asp:TextBox>
-        <asp:GridView ID="CateringListGridView" runat="server" CellPadding="4" ForeColor="#333333" OnDataBound="GridView_OnDataBound" OnRowCreated="GridView_RowCreated">
+        <asp:GridView ID="CateringListGridView" runat="server" CellPadding="4" 
+            ForeColor="#333333" OnDataBound="GridView_OnDataBound" 
+            OnRowCreated="GridView_RowCreated" Width="953px">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Navn"/>
-                <asp:TemplateField HeaderText="09:00">
+                <asp:TemplateField HeaderText="09:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox9" runat="server"/>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="10:00" >
+                <asp:TemplateField HeaderText="10:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox10" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="11:00" >
+                <asp:TemplateField HeaderText="11:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox11" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="12:00" >
+                <asp:TemplateField HeaderText="12:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox12" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="13:00" >
+                <asp:TemplateField HeaderText="13:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox13" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="14:00" >
+                <asp:TemplateField HeaderText="14:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox14" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="15:00" >
+                <asp:TemplateField HeaderText="15:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox15" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="16:00" >
+                <asp:TemplateField HeaderText="16:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox16" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="17:00" >
+                <asp:TemplateField HeaderText="17:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox17" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="18:00" >
+                <asp:TemplateField HeaderText="18:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox18" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="19:00" >
+                <asp:TemplateField HeaderText="19:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox19" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="20:00" >
+                <asp:TemplateField HeaderText="20:00" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                             <asp:CheckBox ID="CheckBox20" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Antal">
+                <asp:TemplateField HeaderText="Antal" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                         <asp:TextBox ID="AmountTextBox" runat="server"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField HeaderText="Pris per styk" />
+                <asp:BoundField HeaderText="Pris" ItemStyle-HorizontalAlign="Center"/>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -99,12 +104,10 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
     </p>
-    <p>
-        &nbsp;<asp:Panel ID="Panel1" runat="server">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Panel ID="Panel1" runat="server">
         <asp:Button ID="AddCateringButton" runat="server" Text="Tilføj Forplejning" onclick="AddCateringButton_Click" CssClass="availableButton" />
         &nbsp;<asp:Button ID="DeleteCateringButton" runat="server" CssClass="availableButton" onclick="DeleteCateringButton_Click" Text="Slet Forplejning" />
         &nbsp;<asp:Button ID="CancelButton" runat="server" Text="Fortryd" CssClass="availableButton" onclick="Cancel_Click" />
+            <br />
             </asp:Panel>
-    </p>
-</asp:Content>
+    </asp:Content>
