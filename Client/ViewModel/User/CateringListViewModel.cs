@@ -18,11 +18,15 @@ namespace Client.ViewModel.User
 
         private static List<Catering> cateringList;
 
+        private static Booking booking;
+
         public static DataTable GetCaterings(int bookingID)
         {
             var dt = new DataTable();
 
-            cateringChoicesList = BookingModel.GetBooking(bookingID).CateringChoices.ToList();
+            booking = BookingModel.GetBooking(bookingID);
+
+            cateringChoicesList = booking.CateringChoices.ToList();
             cateringList = CateringModel.GetAllCaterings().ToList();
 
             // Use empty data table to fill grid if no elements exist
@@ -39,7 +43,7 @@ namespace Client.ViewModel.User
             return dt;
         }
 
-        public static void UpdateCateringGrid(GridView gv)
+        public static void UpdateCateringGrid(GridView gv, int bookingID)
         {
             if (cateringList.Count + cateringChoicesList.Count == 0)
             {
@@ -50,7 +54,7 @@ namespace Client.ViewModel.User
             {
                 return;
             }
-
+            var booking = BookingModel.GetBooking(bookingID);
             int i;
 
             // Fill in catering choices
@@ -58,10 +62,10 @@ namespace Client.ViewModel.User
             {
                 var cc = cateringChoicesList[i];
                 var row = gv.Rows[i];
-                row.BackColor = Color.LightGray;
                 row.Cells[0].Text = cc.Catering.ProductName;
+                row.BackColor = Color.LightGray;
                 row.Cells[13].Text = cc.Amount.ToString();
-                row.Cells[14].Text = cc.Catering.Price.ToString() + " DKK";
+                row.Cells[14].Text = cc.Catering.Price + " DKK";
 
                 var checkBox = row.FindControl("CheckBox" + cc.Time.Hour) as CheckBox;
                 if (checkBox != null)
@@ -69,11 +73,11 @@ namespace Client.ViewModel.User
                     checkBox.Checked = true;
                 }
 
-                for (var a = 1; a < gv.Rows[i].Cells.Count; a++)
+                for (var a = 1; a < row.Cells.Count - 2; a++)
                 {
-                    if ((a + 8) < cc.Catering.AvailableFrom.Hours && (a + 8) > cc.Catering.AvailableTo.Hours)
+                    if ((a + 8) < cc.Catering.AvailableFrom.Hours || (a + 8) > cc.Catering.AvailableTo.Hours || (a + 8) < booking.StartTime.Hour || (a + 8) > booking.EndTime.Hour)
                     {
-                        gv.Rows[i].Cells[a].BackColor = Color.Red;
+                        row.Cells[a].BackColor = Color.Red;
                     }
                 }
 
@@ -90,13 +94,14 @@ namespace Client.ViewModel.User
             for (var j = i; j < gv.Rows.Count; j++)
             {
                 var c = cateringList[j - i];
-                gv.Rows[j].Cells[0].Text = c.ProductName;
-                gv.Rows[j].Cells[14].Text = c.Price.ToString() + " DKK";
-                for (var a = 1; a < gv.Rows[j].Cells.Count; a++)
+                var row = gv.Rows[j];
+                row.Cells[0].Text = c.ProductName;
+                row.Cells[14].Text = c.Price.ToString() + " DKK";
+                for (var a = 1; a < row.Cells.Count - 2; a++)
                 {
-                    if ((a + 8) < c.AvailableFrom.Hours && (a + 8) > c.AvailableTo.Hours)
+                    if ((a + 8) < c.AvailableFrom.Hours || (a + 8) > c.AvailableTo.Hours || (a + 8) < booking.StartTime.Hour || (a + 8) > booking.EndTime.Hour)
                     {
-                        gv.Rows[j].Cells[a].BackColor = Color.Red;
+                        row.Cells[a].BackColor = Color.Red;
                     }
                 }
             }
@@ -166,7 +171,7 @@ namespace Client.ViewModel.User
                 return false;
             }
 
-            return true;
+            return false;
         }
 
         public static bool CreateOrUpdateCateringChoice(GridViewRow gvr, int bookingID, int rowID, int amount)
@@ -207,7 +212,7 @@ namespace Client.ViewModel.User
                     return true;
                 }
             }
-            else if (rowID >= 0 && rowID - cateringChoicesList.Count < cateringChoicesList.Count)
+            else if (rowID >= 0 && rowID - cateringChoicesList.Count < cateringList.Count)
             {
                 var time = 0;
 
@@ -237,11 +242,20 @@ namespace Client.ViewModel.User
 
                 var c = cateringList[rowID - cateringChoicesList.Count];
                 var b = BookingModel.GetBooking(bookingID);
-                var newTime = new DateTime(b.StartTime.Year, b.StartTime.Month, b.StartTime.Minute, time, 0, 0);
+                var newTime = new DateTime(b.StartTime.Year, b.StartTime.Month, b.StartTime.Day, time, 0, 0);
 
-                if (BookingModel.CreateCateringChoice(bookingID, c.ID, amount, newTime) == RequestResult.Success)
+                switch (BookingModel.CreateCateringChoice(b.ID, c.ID, amount, newTime))
                 {
-                    return true;
+                    case RequestResult.Success:
+                        return true;
+                    case RequestResult.AccessDenied:
+                        return false;
+                    case RequestResult.Error:
+                        return false;
+                    case RequestResult.InvalidInput:
+                        return false;
+                    default:
+                        return false;
                 }
             }
             else
@@ -249,7 +263,17 @@ namespace Client.ViewModel.User
                 return false;
             }
 
-            return true;
+            return false;
+        }
+
+        public static string GetDate()
+        {
+            return booking.StartTime.Day + "-" + booking.StartTime.Month + "-" + booking.StartTime.Year;
+        }
+
+        public static string GetRoomName()
+        {
+            return booking.Room.Name;
         }
     }
 }

@@ -21,6 +21,7 @@
                 <asp:BoundField HeaderText="Person" />
                 <asp:BoundField HeaderText="Tidspunkt" />
                 <asp:BoundField HeaderText="Deltagere" ItemStyle-HorizontalAlign="Center"/>
+                <asp:BoundField HeaderText="Status" />
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

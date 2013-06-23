@@ -113,12 +113,32 @@
         public static RequestResult CreateCateringChoice(int bookingID, int cateringID, int amount, DateTime time)
         {
             Booking b;
-
             var cc = new CateringChoice { CateringID = cateringID, BookingID = bookingID, Amount = amount, Time = time };
             switch (ServiceClients.BookingManager.AddCateringToBooking(out b, PersonModel.loggedInUser.Token, cc))
             {
                 case RequestStatus.Success:
                     return RequestResult.Success;
+                case RequestStatus.AccessDenied:
+                    return RequestResult.AccessDenied;
+                case RequestStatus.InvalidInput:
+                    return RequestResult.InvalidInput;
+                default:
+                    return RequestResult.Error;
+            }
+        }
+
+        public static RequestResult ChangeStatus(Booking b)
+        {
+            var rs = ServiceClients.BookingManager.ChangeBookingStatus(PersonModel.loggedInUser.Token, ref b);
+
+            switch (rs)
+            {
+                case RequestStatus.Success:
+                    return RequestResult.Success;
+                case RequestStatus.AccessDenied:
+                    return RequestResult.AccessDenied;
+                case RequestStatus.InvalidInput:
+                    return RequestResult.InvalidInput;
                 default:
                     return RequestResult.Error;
             }

@@ -4,7 +4,6 @@ namespace Client.GUI.User
     using System.Drawing;
     using System.Web.UI.WebControls;
 
-    using Client.ViewModel;
     using Client.ViewModel.User;
 
     public partial class CateringList : System.Web.UI.Page
@@ -18,6 +17,8 @@ namespace Client.GUI.User
                 {
                     this.CateringListGridView.DataSource = CateringListViewModel.GetCaterings(bookingID);
                     this.CateringListGridView.DataBind();
+                    DateTextBox.Text = CateringListViewModel.GetDate();
+                    RoomNameTextBox.Text = CateringListViewModel.GetRoomName();
                 }
                 else
                 {
@@ -28,70 +29,71 @@ namespace Client.GUI.User
 
         protected void AddCateringButton_Click(object sender, EventArgs e)
         {
-            var checkedMoreThanOne = false;
-            var naN = false;
-
             for (var i = 0; i < CateringListGridView.Rows.Count; i++)
             {
                 var row = CateringListGridView.Rows[i];
 
-                if (CateringListViewModel.RowChanged(row))
+                if (!CateringListViewModel.RowChanged(row))
                 {
-                    if (CateringListViewModel.NumberOfCheckedElementInRow(row) == 0 && row.BackColor == Color.LightGray)
+                    row.Cells[i].Text = i.ToString();
+                    continue;
+                }
+
+                if (CateringListViewModel.NumberOfCheckedElementInRow(row) == 0 && row.BackColor == Color.LightGray)
+                {
+                    if (!CateringListViewModel.DeleteCateringChoice(i))
                     {
-                        if (!CateringListViewModel.DeleteCateringChoice(i))
-                        {
-                            this.Response.Write("<script>alert('Dit forplejningsvalg kunne ikke slettes.');</script>");
-                            this.Response.Flush();
-                        }
+                        this.Response.Write("<script type='text/javascript'>");
+                        this.Response.Write("alert('Dit forplejningsvalg kunne ikke slettes.');");
+                        this.Response.Write("window.location.href='CateringList.aspx?bookingID=" + int.Parse(this.Request.QueryString["bookingID"]) + "';");
+                        this.Response.Write("</script>");
+                        this.Response.Flush();
+                        return;
                     }
-                    else if (CateringListViewModel.NumberOfCheckedElementInRow(row) > 1)
+                }
+                else if (CateringListViewModel.NumberOfCheckedElementInRow(row) > 1)
+                {
+                    this.Response.Write("<script type='text/javascript'>");
+                    this.Response.Write("alert('Et af dine ønsker kunne ikke imødekommes, da du har valgt flere tidspunkter på dagen."
+                                        + "Lav seperate valg for forskellige tidspunkter.');");
+                    this.Response.Write("window.location.href='CateringList.aspx?bookingID=" + int.Parse(Request.QueryString["bookingID"]) + "';");
+                    this.Response.Write("</script>");
+                    this.Response.Flush();
+                    return;
+                }
+                else if (CateringListViewModel.NumberOfCheckedElementInRow(row) == 1 && row.BackColor != Color.LightGray)
+                {
+                    int amount;
+                    var atb = row.FindControl("AmountTextBox") as TextBox;
+                    if (atb == null) { continue; }
+
+                    if (!int.TryParse(atb.Text, out amount))
                     {
-                        checkedMoreThanOne = true;
+                        this.Response.Write("<script type='text/javascript'>");
+                        this.Response.Write("alert('Et af dine ønsker kunne ikke imødekommes, da antal ikke kunne læses som et tal.');");
+                        this.Response.Write("window.location.href='CateringList.aspx?bookingID=" + int.Parse(Request.QueryString["bookingID"]) + "';");
+                        this.Response.Write("</script>");
+                        this.Response.Flush();
+                        return;
                     }
-                    else if (CateringListViewModel.NumberOfCheckedElementInRow(row) == 1)
+
+                    if (!CateringListViewModel.CreateOrUpdateCateringChoice(row, int.Parse(this.Request.QueryString["bookingID"]), i, amount))
                     {
-                        int amount;
-                        if (int.TryParse(row.Cells[13].Text, out amount))
-                        {
-                            naN = true;
-                        }
-                        else
-                        {
-                            if (!CateringListViewModel.CreateOrUpdateCateringChoice(row, int.Parse(Request.QueryString["bookingID"]), i, amount))
-                            {
-                                this.Response.Write("<script>alert('Dit forplejningsvalg kunne oprettes/ændres.');</script>");
-                                this.Response.Flush();
-                            }
-                        }
+                        this.Response.Write("<script type='text/javascript'>");
+                        this.Response.Write("alert('Dit forplejningsvalg kunne ikke oprettes/ændres.');");
+                        this.Response.Write("window.location.href='CateringList.aspx?bookingID=" + int.Parse(this.Request.QueryString["bookingID"]) + "';");
+                        this.Response.Write("</script>");
+                        this.Response.Flush();
+                        return;
                     }
                 }
             }
 
-            if (naN)
-            {
-                this.Response.Write("<script>alert('Et af dine ønsker kunne ikke imødekommes, da antal ikke kunne læses som et tal.');</script>");
-                this.Response.Flush();
-            }
-
-            if (checkedMoreThanOne)
-            {
-                this.Response.Write("<script>alert('Et af dine ønsker kunne ikke imødekommes, da du har valgt flere tidspunkter på dagen."
-                                            + "\n Lav seperate valg for forskellige tidspunkter.');</script>");
-                this.Response.Flush();
-            }
-
-            /*
-            // If number of items are over 10 check if Date is atleast a week from now, else throw alert popup
-
-            if (0 < 1)
-            {
-                this.Response.Write("<script>alert('Dine ønsker kunne ikke imødekommes, da der skal bestilles mindst en uge i forvejen til forplejning til mere end 10 personer.');</script>");
-                this.Response.Flush();
-                return;
-            }*/
-
-            this.Response.Redirect("~/GUI/User/CateringList.aspx");
+            this.Response.Write("<script type='text/javascript'>");
+            this.Response.Write("alert('Du skal vælge et tidspunkt før du kan bestille forplejning.');");
+            this.Response.Write("window.location.href='CateringList.aspx?bookingID=" + int.Parse(this.Request.QueryString["bookingID"]) + "';");
+            this.Response.Write("</script>");
+            this.Response.Flush();
         }
 
         protected void Cancel_Click(object sender, EventArgs e)
@@ -106,17 +108,17 @@ namespace Client.GUI.User
 
         protected void GridView_OnDataBound(object sender, EventArgs e)
         {
-            CateringListViewModel.UpdateCateringGrid(this.CateringListGridView);
+            CateringListViewModel.UpdateCateringGrid(this.CateringListGridView, int.Parse(Request.QueryString["bookingID"]));
         }
 
         protected void GridView_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            /*if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes["onmouseover"] = "this.style.cursor='pointer';";
                 e.Row.ToolTip = "Click to select row";
                 e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.CateringListGridView, "Select$" + e.Row.RowIndex);
-            }
+            }*/
         }
     }
 }

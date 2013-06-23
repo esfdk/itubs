@@ -12,7 +12,7 @@ namespace Client.GUI.User
         {
             if (MasterViewModel.LoggedInUserID() == -1)
             {
-                this.Response.Redirect("~/GUI/User/RoomList.aspx");
+                this.Response.Redirect("~/GUI/Account/Login.aspx");
             }
 
             DeleteBookingButton.OnClientClick = "return confirmBookingDeletion()";
@@ -28,6 +28,17 @@ namespace Client.GUI.User
 
         protected void ChangeBookingButton_Click(object sender, EventArgs e)
         {
+            var id = YourBookingsViewModel.GetBookingIDFromRow(this.YourBookingsGridView.SelectedIndex);
+            if (id == -1)
+            {
+                this.Response.Write("<script type='text/javascript'>");
+                this.Response.Write("alert('Du skal vælge en booking.');");
+                this.Response.Write("window.location.href='RoomList.aspx';");
+                this.Response.Write("</script>");
+                this.Response.Flush();
+                return;
+            }
+
             this.Response.Redirect("~/GUI/User/RoomList.aspx");
         }
 
@@ -36,14 +47,20 @@ namespace Client.GUI.User
             var id = YourBookingsViewModel.GetBookingIDFromRow(this.YourBookingsGridView.SelectedIndex);
             if (id == -1)
             {
-                this.Response.Write("<script>alert('Du skal vælge en booking.');</script>");
+                this.Response.Write("<script type='text/javascript'>");
+                this.Response.Write("alert('Du skal vælge en booking.');");
+                this.Response.Write("window.location.href='YourBookings.aspx';");
+                this.Response.Write("</script>");
                 this.Response.Flush();
                 return;
             }
 
             if (!YourBookingsViewModel.DeleteBooking(id))
             {
-                this.Response.Write("<script>alert('Handlingen kunne ikke udføres.');</script>");
+                this.Response.Write("<script type='text/javascript'>");
+                this.Response.Write("alert('Handlingen kunne ikke udføres.');");
+                this.Response.Write("window.location.href='YourBookings.aspx';");
+                this.Response.Write("</script>");
                 this.Response.Flush();
                 return;
             }
@@ -56,7 +73,12 @@ namespace Client.GUI.User
             var id = YourBookingsViewModel.GetBookingIDFromRow(this.YourBookingsGridView.SelectedIndex);
             if (id == -1)
             {
-                this.Response.Write("<script>alert('Du skal vælge en booking.');</script>");
+                this.Response.Write("<script type='text/javascript'>");
+                this.Response.Write("alert('Du skal vælge en booking.');");
+                this.Response.Write("window.location.href='YourBookings.aspx';");
+                this.Response.Write("</script>");
+                this.Response.Flush();
+                return;
             }
 
             this.Response.Redirect("~/GUI/User/BookEquipment.aspx?bookingID=" + id);
@@ -67,7 +89,12 @@ namespace Client.GUI.User
             var id = YourBookingsViewModel.GetBookingIDFromRow(this.YourBookingsGridView.SelectedIndex);
             if (id == -1)
             {
-                this.Response.Write("<script>alert('Du skal vælge en booking.');</script>");
+                this.Response.Write("<script type='text/javascript'>");
+                this.Response.Write("alert('Du skal vælge en booking.');");
+                this.Response.Write("window.location.href='YourBookings.aspx';");
+                this.Response.Write("</script>");
+                this.Response.Flush();
+                return;
             }
 
             this.Response.Redirect("~/GUI/User/CateringList.aspx?bookingID=" + id);

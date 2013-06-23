@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity.Validation;
 
     using BookITService.Entities;
     using BookITService.Enums;
@@ -138,7 +139,7 @@
         {
             if (string.IsNullOrWhiteSpace(token) || changedBooking == null)
             {
-                return RequestStatus.InvalidInput;
+                return RequestStatus.Error;
             }
 
             var p = Person.GetByToken(token);
@@ -182,27 +183,47 @@
 
         public RequestStatus AddCateringToBooking(string token, CateringChoice cateringChoice, out Booking editedBooking)
         {
-            editedBooking = null;
-
-            if (string.IsNullOrWhiteSpace(token) || cateringChoice == null)
+            try
             {
-                return RequestStatus.InvalidInput;
-            }
+                editedBooking = null;
 
-            var p = Person.GetByToken(token);
-            var b = Booking.GetBookingByID(cateringChoice.BookingID);
-            if (b == null)
-            {
-                return RequestStatus.InvalidInput;
-            }
+                if (string.IsNullOrWhiteSpace(token) || cateringChoice == null)
+                {
+                    return RequestStatus.InvalidInput;
+                }
 
-            if (p == null || (!p.IsAdmin() && p.ID != b.PersonID))
-            {
+                var p = Person.GetByToken(token);
+                editedBooking = Booking.GetBookingByID(cateringChoice.BookingID);
+                if (editedBooking == null)
+                {
+                    return RequestStatus.InvalidInput;
+                }
+
+                if (p != null)
+                {
+                    if (p.ID.Equals(editedBooking.PersonID))
+                    {
+                        return editedBooking.AddCatering(cateringChoice);
+                    }
+                }
                 return RequestStatus.AccessDenied;
             }
 
-            editedBooking = b;
-            return editedBooking.AddCatering(cateringChoice);
+            catch (DbEntityValidationException e)
+            {
+                System.IO.StreamWriter file = new System.IO.StreamWriter(@"c:\RentItServices\RentIt12\Stuff\test.txt");
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    file.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:", eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        file.WriteLine("- Property: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
+                    }
+                    file.Flush();
+                }
+                editedBooking = null;
+                return RequestStatus.AccessDenied;
+            }
         }
 
         public RequestStatus ChangeTimeOfCateringChoice(string token, CateringChoice cateringChoice, out Booking editedBooking)

@@ -15,7 +15,7 @@ namespace BookITService.Entities
         {
             get
             {
-                return BookITContext.Db.CateringChoices.ToList();
+                return BookITContext.Db.CateringChoices.Include("Catering").Include("Booking").ToList();
             }
         }
 

@@ -170,6 +170,7 @@ namespace BookITService.Entities
                 if (changedBooking.Status.Equals("Approved"))
                 {
                     this.Status = "Approved";
+                    BookITContext.Db.SaveChanges();
                     return RequestStatus.Success;
                 }
 
@@ -189,20 +190,20 @@ namespace BookITService.Entities
 
         public RequestStatus AddCatering(CateringChoice choice)
         {
-            if (choice.Time > this.StartTime && choice.Time < this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1)
+            if (this.StartTime <= choice.Time && choice.Time <= this.EndTime && Catering.IsAvailable(choice.CateringID, choice.Time) && choice.Amount >= 1)
             {
-                if ((choice.Amount >= Configuration.CateringLimit && choice.Time.AddDays(-Configuration.DaysToPrepareBigCatering) < DateTime.Now)
-                    || (choice.Time.AddDays(-Configuration.DaysToPrepareSmallCatering) < DateTime.Now))
+                if ((choice.Amount >= Configuration.CateringLimit && choice.Time.AddDays(-Configuration.DaysToPrepareBigCatering) > DateTime.Now)
+                    || (choice.Time.AddDays(-Configuration.DaysToPrepareSmallCatering) > DateTime.Now))
                 {
-                    BookITContext.Db.CateringChoices.Add(
-                        new CateringChoice
-                            {
-                                Amount = choice.Amount,
-                                BookingID = this.ID,
-                                Time = choice.Time,
-                                Status = choice.Status,
-                                CateringID = choice.CateringID,
-                            });
+                    var cc = new CateringChoice
+                        {
+                            Amount = choice.Amount,
+                            BookingID = this.ID,
+                            Time = choice.Time,
+                            Status = choice.Status ?? string.Empty,
+                            CateringID = choice.CateringID,
+                        };
+                    BookITContext.Db.CateringChoices.Add(cc);
                     BookITContext.Db.SaveChanges();
                     return RequestStatus.Success;
                 }
