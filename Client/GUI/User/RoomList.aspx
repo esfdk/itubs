@@ -29,7 +29,7 @@
         <asp:Image ID="BlueBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" />
         &nbsp;= Booket</p>
     <p>
-         Dato(mm/dd/YYYY):
+         Dato(dd-mm-yyyy):
          <asp:TextBox ID="DateTextBox" AutoPostBack="true" OnTextChanged="DateChanged" runat="server"/>
          <ajaxToolkit:CalendarExtender ID="DateCalendarExtender" TargetControlID="DateTextBox" Format="dd-MM-yyyy" runat="server" OnClientDateSelectionChanged="checkDate" />  
     </p>

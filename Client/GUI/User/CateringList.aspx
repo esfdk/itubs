@@ -11,7 +11,7 @@
         &nbsp;= Ledig&nbsp;&nbsp;&nbsp;
         <asp:Image ID="BlueBox" runat="server" Height="20px" 
             ImageUrl="~/GUI/Images/BlåBoks.png" Width="20px" />
-        &nbsp;= Dine bookinger&nbsp;&nbsp;&nbsp;
+        &nbsp;= Dine forplejninger&nbsp;&nbsp;&nbsp;
         <asp:Image ID="RedBox" runat="server" ImageUrl="~/GUI/Images/RødBoks.png" 
             Width="20px" />
         &nbsp;= Ikke til rådighed

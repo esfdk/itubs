@@ -9,14 +9,43 @@ namespace Client.GUI.User
 
     public partial class RoomList : System.Web.UI.Page
     {
+        private DateTime parse(string s)
+        {
+            if(string.IsNullOrWhiteSpace(s))
+            {
+                return DateTime.Today;
+            }
+
+            int dayint;
+            int monthint;
+            int yearint;
+
+            int firstDashIndex = s.IndexOf("-");
+            int secondDashIndex = s.LastIndexOf("-");
+
+            string day = s.Substring(0, firstDashIndex);
+            string month = s.Substring(firstDashIndex + 1, secondDashIndex - firstDashIndex - 1);
+            string year = s.Substring(secondDashIndex + 1);
+            try
+            {
+                dayint = int.Parse(day);
+                monthint = int.Parse(month);
+                yearint = int.Parse(year);
+            }
+            catch(Exception)
+            {
+                return DateTime.Today;
+            }
+
+            return new DateTime(yearint, monthint, dayint);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.Page.IsPostBack)
             {
-                DateTime d;
-                this.DateTextBox.Text = DateTime.TryParse(this.Request.QueryString["date"], out d)
-                                            ? d.Day + "-" + d.Month + "-" + d.Year
-                                            : DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year;
+                DateTime d = parse(this.Request.QueryString["date"]);
+                this.DateTextBox.Text = d.Day + "-" + d.Month + "-" + d.Year;
 
                 this.RoomGridView.DataSource = RoomListViewModel.GetBookRooms();
                 this.RoomGridView.DataBind();
@@ -27,12 +56,8 @@ namespace Client.GUI.User
 
         protected void DateChanged(object sender, EventArgs e)
         {
-            DateTime newDate;
-            if (DateTime.TryParse(DateTextBox.Text, out newDate))
-            {
-                this.Response.Redirect(
-                    "~/GUI/User/RoomList.aspx?date=" + newDate.Day + "-" + newDate.Month + "-" + newDate.Year);
-            }
+            DateTime newDate = this.parse(DateTextBox.Text);
+            this.Response.Redirect("~/GUI/User/RoomList.aspx?date=" + newDate.Day + "-" + newDate.Month + "-" + newDate.Year);
         }
 
         protected void PageIndexChanged(object sender, EventArgs e)
@@ -51,15 +76,8 @@ namespace Client.GUI.User
 
         protected void GridView_OnDataBound(object sender, EventArgs e)
         {
-            DateTime date;
-            if (DateTime.TryParse(this.DateTextBox.Text, out date))
-            {
+            DateTime date = parse(DateTextBox.Text);
                 RoomListViewModel.UpdateRoomGrid(this.RoomGridView, date.Date, RoomGridView.PageIndex);
-            }
-            else
-            {
-                RoomListViewModel.UpdateRoomGrid(this.RoomGridView, DateTime.Today.Date, RoomGridView.PageIndex);
-            }
         }
 
         /// <summary>Event raised when "Book lokale" is clicked</summary>
@@ -73,8 +91,8 @@ namespace Client.GUI.User
                 return;
             }
 
-            DateTime date;
-            if (!DateTime.TryParse(DateTextBox.Text, out date))
+            DateTime date = this.parse(DateTextBox.Text);
+            /*if (!DateTime.TryParse(DateTextBox.Text, out date))
             {
                 this.Response.Write("<script type='text/javascript'>");
                 this.Response.Write("alert('Forkert dato format.');");
@@ -82,7 +100,8 @@ namespace Client.GUI.User
                 this.Response.Write("</script>");
                 this.Response.Flush();
                 return;
-            }
+            }*/
+             
 
             var bookingUpdated = false;
 
@@ -117,7 +136,7 @@ namespace Client.GUI.User
                 else
                 {
                     this.Response.Write("<script type='text/javascript'>");
-                    this.Response.Write("alert('Kunne ikke udføre handlingen.');");
+                    this.Response.Write("alert('Kunne ikke udføre handlingen.'" + rr.ToString() +"');");
                     this.Response.Write("window.location.href='RoomList.aspx';");
                     this.Response.Write("</script>");
                     this.Response.Flush();

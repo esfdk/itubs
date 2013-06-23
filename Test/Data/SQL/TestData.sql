@@ -102,6 +102,19 @@ INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [S
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (12,'Pending',20,'Møde','2013-06-14T10:00:00', '2013-06-14T16:00:00', 3, 7)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (13,'Pending',23,'Møde','2013-06-18T12:00:00', '2013-06-18T16:00:00', 5, 8)
 INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (14,'Pending',17,'Møde','2013-06-19T09:00:00', '2013-06-19T16:00:00', 3, 8)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (15,'Pending',17,'Møde','2013-06-27T09:00:00', '2013-06-27T16:00:00', 4, 8)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (16,'Pending',17,'Møde','2013-06-27T15:00:00', '2013-06-27T16:00:00', 4, 3)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (17,'Pending',17,'Møde','2013-06-27T09:00:00', '2013-06-27T13:00:00', 4, 5)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (18,'Pending',17,'Møde','2013-06-27T09:00:00', '2013-06-27T16:00:00', 4, 1)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (19,'Pending',17,'Møde','2013-06-27T12:00:00', '2013-06-27T16:00:00', 4, 2)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (20,'Pending',17,'Møde','2013-06-27T09:00:00', '2013-06-27T11:00:00', 4, 2)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (21,'Pending',17,'Møde','2013-06-24T09:00:00', '2013-06-24T13:00:00', 4, 5)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (22,'Pending',17,'Møde','2013-06-24T09:00:00', '2013-06-24T16:00:00', 4, 1)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (23,'Pending',17,'Møde','2013-06-24T12:00:00', '2013-06-24T16:00:00', 4, 2)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (24,'Pending',17,'Møde','2013-06-24T09:00:00', '2013-06-24T11:00:00', 4, 4)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (25,'Pending',17,'Møde','2013-06-24T12:00:00', '2013-06-24T14:00:00', 4, 3)
+INSERT [dbo].[Bookings] ( [ID], [Status], [NumberOfParticipants], [Comments], [StartTime], [EndTime], [PersonID], [RoomID]) VALUES (26,'Pending',17,'Møde','2013-06-24T09:00:00', '2013-06-24T18:00:00', 4, 6)
+
 SET IDENTITY_INSERT [dbo].[Bookings] OFF
 
 -- Choices

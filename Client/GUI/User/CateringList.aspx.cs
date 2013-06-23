@@ -86,6 +86,8 @@ namespace Client.GUI.User
                         this.Response.Flush();
                         return;
                     }
+
+                    Response.Redirect("Cateringlist.aspx?bookingID=" + int.Parse(this.Request.QueryString["bookingID"]));
                 }
             }
 
